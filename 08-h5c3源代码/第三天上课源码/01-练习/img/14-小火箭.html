@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        html,body{
+        height:100%;
+        margin:0;
+        }
+
+      body{
+        background: radial-gradient(200px at top right,yellow,orange,green,skyblue);
+        overflow: hidden;
+      }
+      img{
+         position: absolute;
+         bottom:190px;
+         transition: 10s;
+      }
+
+      /* 鼠标 hover到 body上的时候 火箭 飞出来 移动 缩放 旋转 */
+      body:hover img{
+        transform: translate(1300px,-850px) scale(0,0) rotate(90deg);
+      }
+    </style>
+</head>
+<body>
+<img src="../img/rocket.png" alt="">
+</body>
+</html>

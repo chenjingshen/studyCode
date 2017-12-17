@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商城导航</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/商城导航.less">
+    <!-- 引入bootstrap css文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入bootstrap js文件 -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/商城导航.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 头部logo部分 -->
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-xs-2">
+                    <a href="./index.html" class="glyphicon glyphicon-menu-left"></a>
+                </div>
+                <h1 class="col-xs-8 zhuti">商城导航</h1>
+                <div class="col-xs-2">
+                    <img class="app" src="./images/header_app.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 内容部分 -->
+    <div id="daohang">
+        <a href="#">
+            <img src="http://misc.manmanbuy.com/images/hzweb/360.png" alt="">京东商城</a>
+        <a href="#">
+            <img src="http://misc.manmanbuy.com/images/hzweb/360.png" alt="">京东商城</a>
+        <a href="#">
+            <img src="http://misc.manmanbuy.com/images/hzweb/360.png" alt="">京东商城</a>
+        <a href="#">
+            <img src="http://misc.manmanbuy.com/images/hzweb/360.png" alt="">京东商城</a>
+        <a href="#">
+            <img src="http://misc.manmanbuy.com/images/hzweb/360.png" alt="">京东商城</a>
+    </div>
+
+
+    <!-- 返回首页 -->
+    <a href="#" id="fanhuishouye">首页>商城导航</a>
+
+    <!-- 底部 -->
+    <div id="dibu">
+        <div class="login-father">
+            <div class="login">
+                <span>登录</span>
+                <span>注册</span>
+                <span>
+                    <img src="http://www.zuyushop.com/wap/images/top.jpg" alt="">
+                    <a href="#header">返回顶部</a>
+                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>
+                <a href="#">手机APP下载</a>
+                <a href="#">慢慢买手机版 -- 掌上比价平台</a>
+            </p>
+            <p>
+                <a href="#">m.manmanbuy.com</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 引入template.js文件 -->
+<script src="./lib/template/template.js"></script>
+<script type="text/html" id="goods-tem">
+    {{each result as value i}}
+    <a href="{{value.navHref}}">
+        <img src="{{value.navImg}}" alt="">{{value.navTitle}}</a>
+    {{/each}}
+</script>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<!--
+    思路：
+        为了解决移动其他盒子也能用animate函数
+
+        我们还需要传入一个参数，这个参数就是接收要移动的盒子
+
+        那么以后要移动谁，只要把谁当作参数传给这个函数就能移动了
+
+
+        连续点击的bug（先点红色再点蓝色的bug）：要把id保存起来，就保存在传进来的元素的属性里就行了
+
+-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        * {
+
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+
+            position: absolute;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="move1"/>
+<input type="button" value="移动到700" id="move2"/>
+
+
+<div id="box1"></div>
+
+</body>
+</html>
+
+<script>
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+
+    document.getElementById("move1").onclick = function () {
+
+        animate(box1, 400);
+    };
+
+
+    document.getElementById("move2").onclick = function () {
+
+        animate(box1, 700);
+    };
+
+    function animate(obj, target) {
+
+        //在创建新的计时器之前，先停掉上一个计时器
+        clearInterval(obj.timerID);
+
+        obj.timerID = setInterval(function () {
+
+            //步长：要根据是往右还是往左来得到值，往右是正，往左是负
+            var step = target > obj.offsetLeft ? 9 : -9;
+
+            //如果是负数，加上一个负数就等于减去这个数
+            var offset = obj.offsetLeft + step;
+
+
+            //offsetLeft,就能获取到元素当前的left的值
+            //偏移值：要走多少的值
+//            var offset = obj.offsetLeft + step;
+
+            /*
+             var offset;
+             //如果目标比当前位置大代表是前进，那么就应该用+，
+             //如果目标比当前位置小，代表是后退，那么就应该用-
+             if(target > obj.offsetLeft){
+
+             offset = obj.offsetLeft + step;
+             }else{
+
+             offset = obj.offsetLeft - step;
+             }
+
+             //            offset = target > obj.offsetLeft ? obj.offsetLeft + step : obj.offsetLeft - step;
+             */
+
+            //如果没到目标位置，就把偏移值赋给盒子
+            //如果当前偏移值没到目标，那么就走一步
+            //如果当前偏移值到了目标位置或者大于目标位置，那么就直接到目标
+            if (Math.abs(target - obj.offsetLeft) > Math.abs(step)) { //当前位置如果不等于目标位置，就应该一步一步移动
+
+                obj.style.left = offset + "px";
+
+            } else {
+
+                //如果超过目标位置，就让盒子到目标并停止计时器
+                obj.style.left = target + "px";
+
+                //停止计时器
+                clearInterval(obj.timerID);
+            }
+
+        }, 50)
+    }
+</script>

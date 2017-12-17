@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        任何删除都是需要找到父元素，然后调用父元素的杀死儿子的方法，传入自己，就能杀死自己了
+
+        调用父元素的removeChild() 传入要删除的元素
+    -->
+</head>
+<body>
+
+<ul>
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li id="li3">隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+<input type="button" value="删除" id="del"/>
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+    id("del").onclick = function () {
+
+        var li3 = id("li3");
+
+        //谷歌和火狐可以，其他都不行，这个本来就不符合规范
+        //浏览器自己做的，remove有这个方法，但是w3c规范是用来删除下拉选项，其他元素是不能删除的
+        //li3.remove();
+
+        //正确的删除，是通过父元素来删除
+        li3.parentNode.removeChild(li3);
+    }
+
+</script>

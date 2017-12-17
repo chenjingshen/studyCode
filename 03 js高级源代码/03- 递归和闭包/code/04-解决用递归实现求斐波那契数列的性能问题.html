@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+  // var i = 0; //用来记录这个getFB这个函数调用了多少次
+  // function getFB(n){
+  //   i++;
+  //   if(n == 1 || n == 2){
+  //     return 1;
+  //   }else {
+  //     return  getFB(n-1) + getFB(n-2);
+  //   }
+  // }
+  // console.log(getFB(11)); //
+  // console.log(i);
+
+
+  //----------------------------------------------------------
+  //问题在于，求了很多重复的项。
+  //所以我们解决问题的思路： 如果某一项已经求过了，就把这个项的值给保存起来，下次还要求这个项，就可以不用再求了，直接把刚才保存的找出来用就好了
+  var i = 0;
+  var obj = {}; //这个对象是记录求过的斐波那契项的值。
+  function getFB(n){
+    i++;
+    if(obj[n]){
+      return obj[n];
+    }else {
+      //代码进入到了这里，说明这个n项上的这个数还没有求过。
+      if(n == 1 || n == 2){
+        obj[n] = 1;
+      }else {
+        obj[n]  = getFB(n-1) + getFB(n-2);
+      }
+      return obj[n];
+    }
+  }
+
+  console.log(getFB(50));
+  console.log(i);
+
+
+  //==============================================
+//  var obj = {
+//    0:100,
+//    1:200
+//  }
+//  console.log(obj[0]); //100
+//  console.log(obj[2]); //undefiend
+//
+
+</script>
+</body>
+</html>

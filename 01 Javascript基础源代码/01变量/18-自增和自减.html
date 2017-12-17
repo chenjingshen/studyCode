@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        ++：自增，会在原来的值的基础上+1
+
+        --：自减，会在原来的值的基础上-1
+
+
+     可以写在前面，也可以写在后面
+            共通点：都是可以自增或自减
+
+            不同点：前缀++（--），是用++（--）后的值来参与运算
+                   后缀++（--），是用原来的值参与运算
+
+
+    -->
+
+    <script>
+        //年龄每年增长一岁
+    /*
+        var age = 18;
+
+//        age = age + 1;
+//        age +=1;
+
+        age++;//19
+
+        console.log('明年就是 ' +age+'岁');
+
+//        age = age + 1;
+        age++;//20
+
+        console.log('后年就是 ' +age+'岁');
+       */
+
+        /*
+        var n1 = 30;
+
+//        n1--;
+        --n1;
+        console.log(n1);//29
+
+//        n1--;
+        --n1;
+        console.log(n1);//28
+       */
+
+        //前后++（--）的区别
+/*
+        var n1 = 10;
+//        后缀，是是把它原来的值参与运算，而不是自增后的值
+        var result = n1++ + 20;//var result = 10 + 20;
+
+        console.log(n1,result);//n1=11,n2=30
+
+
+        var n1 = 10;
+//        前缀，是用的自增后的值参与运算，而不是原来的值
+        var result = ++n1 + 20; //var result = 11 + 20
+
+        console.log(n1,result);//n1=11,n2=31
+*/
+
+//        var n1 = 10;
+//
+//
+//        var result = n1++ + ++n1; // var result = 10 + 12
+//
+//        console.log(n1,result);//12  22
+
+        var n1 = 10;
+        var reuslt = n1++ + ++n1  + --n1 + n1++;
+//                   10/11    12/12   11/11    11/12
+
+        console.log(n1,reuslt);//12  44
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      // console.log($("#father>p"));  //子代选择器
+
+      console.log($("#father div"));  //后代选择器
+
+    });
+  </script>
+</head>
+<body>
+<div id="father">
+  <div id="one">儿子div1
+    <div>孙子1</div>
+    <div>孙子2</div>
+    <div>孙子3</div>
+    <p>孙子6</p>
+  </div>
+  <div id="two">儿子div2</div>
+  <p id="three">儿子p1
+    <span>孙子4</span>
+    <span>孙子5</span>
+  </p>
+</div>
+
+
+
+
+
+</body>
+</html>

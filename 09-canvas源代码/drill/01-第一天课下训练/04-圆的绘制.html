@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width='600' height='400' id='canvas'></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        // 弧度的计算公式 radius=angle/180*Math.PI
+        //x, y: 圆心位置；radius： 半径的长度; startRadian, endRadian 代表的是起始弧度和结束弧度；dircetion代表的圆形的路径的方向，默认是顺时针（是否逆时针， 默认值是false），如果传true就是逆时针,最后一个参数是可以不传的， 默认就是顺时针
+        //    context.arc(x, y, radius, startRadian, endRadian, direction);
+        // 渲染页面
+        context.stroke();
+        
+        // 画圆弧
+        context.arc( 300, 200, 150, Math.PI / 180 * 30, Math.PI / 180 * 90);
+        
+        context.lineTo(300, 200);
+        context.closePath();
+        context.fillStyle='red';
+        context.fill();
+    </script>
+</body>
+
+</html>

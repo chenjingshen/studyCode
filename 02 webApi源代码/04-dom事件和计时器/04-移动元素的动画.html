@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+<hr/>
+
+<input type="button" value="开始移动" id="move"/>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    //给移动按钮加点击事件
+    document.getElementById("move").onclick = function () {
+
+//        box.style.left = "800px";
+
+        //先默认让位置从0开始
+        var currentLeft = 0;
+
+        var timerID = setInterval(function () {
+
+            //步数
+            var step = 9;
+
+            //每触发一次就移动10个像素
+            currentLeft += step;
+
+            if (currentLeft <= 800) {
+
+                box.style.left = currentLeft + "px";
+
+            } else {
+
+                //如果超过就让它停在800的位置
+                box.style.left = "800px";
+                //超过800就停止计时器
+                clearInterval(timerID);
+            }
+
+
+        }, 10);
+    };
+</script>

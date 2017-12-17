@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  /*
+   01-原型
+     a.创建任意构造函数的同时，系统都会自动的创建一个和这个构造函数对应的原型对象。
+     b.访问原型  构造函数.prototype
+     c.原型里面存放什么？ 存放构造函数创建出来的对象们公共的数据。
+     d.如何存放？给原型对象添加属性和方法。
+
+
+   02-使用原型需要注意的地方
+     a.对象成员的访问规则:先看对象自己里面有没有这个成员，如果有就不会去查找原型，如果没有才会去原型中查找有没有
+     b.给原型添加成员  一定要使用 构造函数.prototype 的方式访问原型。
+     c.修改原型中的成员  也要是 构造函数.prototype 的方式访问原型。
+     d.创建对象，要注意是修改原型之前创建的还是修改原型之后创建的。
+
+
+   03-__proto__属性
+     a.这个属性是属于对象的， 对象的这个属性指向  创建这个对象的构造函数对应的那个原型。
+     b.开发环境中，不要用这个访问原型。自己调试的时候可以使用这个属性。
+
+   04-constructor
+     a.原型中 有一个属性constructor， 指向这个原型对应的那个构造函数。
+
+   */
+
+
+  function Person(){
+
+  }
+
+  var p1 = new Person();
+  console.log(p1.__proto__ === Person.prototype); //true
+
+  console.log(Person.prototype.constructor === Person); //true
+
+
+
+
+
+  // function Person(){
+//
+  // }
+//
+  // var p1 = new Person();
+//
+  // Person.prototype = {
+//
+  // };
+  //
+  // var p2 = new Person();
+//
+  // console.log(p1.__proto__ === p2.__proto__); //false
+
+
+
+
+
+
+
+
+
+
+
+  //function Person(){
+//
+  //}//
+  //Person.prototype.type = "人类";
+  //Person.prototype.sayHi = function () {
+  //  console.log("哈哈");
+  //}
+  //Person.prototype.sb= "sb";
+  //Person.prototype.sayHi = function () {
+  //  console.log("我是修改之后的sayHI");
+  //}
+//
+  //var p1 = new Person();
+//
+  //console.log(p1);
+//
+  //p1.sayHi();
+</script>
+</body>
+</html>

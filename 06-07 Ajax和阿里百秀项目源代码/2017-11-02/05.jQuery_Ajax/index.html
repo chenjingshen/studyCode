@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input class='get' type="button" value='get请求'>
+    <input class='post' type="button" value='post请求'>
+    <input class='json' type="button" value='json数据'>
+    <input class='xml' type="button" value='xml数据'>
+</body>
+</html>
+<script  src="./js/jquery-1.12.4.min.js"></script>
+<script>
+    // get请求
+    $(function(){
+        // get
+        $('.get').click(function(){
+            // jQuery的ajax工具函数中 在传递参数是可以选择 key=value&key2=value2
+            $.get(
+                '../01.sendData/getData.php',
+                {
+                    name:'jack',
+                    age:18
+                },
+                // 'name=rose&age=18',
+                function(backData){
+                    console.log(backData);
+                }
+            )
+        })
+
+        // post 数据也是支持 键值对 以及 对象
+        $('.post').click(function(){
+            $.post('../01.sendData/postData.php',{name:'rose',age:99},function(backData){
+                console.log(backData);
+            })
+        })
+
+        // 获取JSON数据
+        // jQuery可以根据服务器返回的 header中的content-type 来判断类型
+        // 根据类型不同 返回不同的数据
+        $('.json').click(function(){
+            $.ajax({
+                url:'../01.sendData/backJSON.php',
+                // type 默认不写 就是get
+                // 不发送数据 data 也可以不写
+                success:function(backData){
+                    console.log(backData);
+                    // console.log(JSON.parse(backData));
+                }
+            })
+        })
+        
+        // 获取XML数据
+        $('.xml').click(function(){
+            $.ajax({
+                url:'../01.sendData/backXML.php',
+                success:function(backData){
+                    console.log(backData);
+                }
+            })
+        })
+    })
+</script>

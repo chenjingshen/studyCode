@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .progress{
+            width: 300px;
+            height: 20px;
+            border: 1px solid #000;
+        }
+        .step{
+            background-color: hotpink;
+            /* background:linear-gradient(to right,red,green,yellow); */
+            height: 100%;
+            width: 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+        <div class="step"></div>
+    </div>
+    <!--  -->
+    <form>
+        <input type="text" name='userName'>
+        <input type="text" name='userEmail'>
+        <input type="file" name='icon'>
+    </form>
+    <img src="" alt="">
+    <input type="button" value='ajax2.0'>
+</body>
+
+</html>
+<script  src="./jquery-1.12.4.min.js"></script>
+<script>
+    /*
+        ie 9 以下不支持
+        行情是 ie8 
+        目前异步上传文件
+            flash
+        面试问题
+            ajax能不能上传文件？
+                能够
+                利用formData 而且需要新式浏览器支持 才可以
+                但是兼容是不是很好
+                咱们公司 用这个传文件
+    */ 
+    // 自己的js代码
+    /*
+        document.querySelector('input[type=button]').onclick = function () {
+            // xhr 2.0的用法 起始跟 之前的写法基本一样
+            // 只是内部 帮助我们封装一些跟高级的功能
+            // 但是只有支持的浏览器才能够使用
+                xhr2.0新增功能
+                    直接格式化表单数据
+            var xhr = new XMLHttpRequest();
+
+            // 设置请求行 发送数据 必须设置为post
+            xhr.open('post', './saveData.php');
+
+            // 设置请求头 XHR2.0可以不写
+            // xhr.setRequestHeader
+
+            // 设置回调函数
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+            }
+            // 格式化表单数据 参数是 form表单的 dom元素
+            // 能够获取到的数据 必须有name属性
+            // 文件也是支持 直接获取的
+            var formData = new FormData(document.querySelector('form'));
+
+            // 上传进度获取
+            // 绑定一个事件
+            xhr.upload.onprogress = function(event){
+                // console.log(event);
+                var percent = event.loaded / event.total * 100 +'%';
+                console.log(percent);
+                document.querySelector('.step').style.width =percent;
+            }
+
+            // 设置请求主体 发送
+            xhr.send(formData);
+        }
+    */
+
+    // 使用jQuery上传FormData
+    /*
+        contentType
+            官方文档中说明了 设置false 就是不认为的设置任何的头发送到服务器
+        processData
+            jQuery内部不进行任何的转化 设置为false即可
+        中文离线文档 中文在线文档  官方英文文档
+            编程初期 英文水平 比数学 以及逻辑水平更重要
+    */
+    $(function(){
+        $('input[type=button]').click(function(){
+            // 准备FormData
+            var formData = new FormData($('form')[0]);
+            $.ajax({
+                type: 'post',
+                url: './saveData.php',
+                data: formData,
+                contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置(详见：#1)
+                processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post，详见：#2)
+                success: function(data) {
+                    console.log(data);
+                    // 接受返回的数据
+
+                    // 设置给img标签的src属性即可
+                    $('img').attr('src',data);
+                }
+            })
+        })
+    })
+
+</script>
+<!-- 
+    1.新技术的推出
+        标准流程
+            标准的推出 w3c
+            各大浏览器厂商 去实现这个标准
+                Chrome ie firefox Safari
+        各大厂商急着想用某些功能 就提前实现了
+            提交给w3c
+    2.查询新的标准
+        w3c的规范中查询
+        MDN
+    3.百度谷歌 找到关键字 即可
+
+    4.补充 blog
+        百度 谷歌 找一些 blog
+            找到了一个写的比较不错的blog之后 
+            点赞
+        技术经理 HR 百度 谷歌
+            进而查看blog 写了那些东西
+            他掌握的内容 比较感兴趣
+        blog是一个程序员个人技术的很好的证明
+        blog思路
+            使用ajax过程中 碰到了上传文件问题
+            发现了XHR2.0
+                第一篇blog xhr2.0使用
+            xhr2.0结合JQuery 上传文件
+                第二篇blog
+                    查阅了官方文档 知道了 那两个false
+            自定义长传进度条
+                第三票
+            简历中附上
+                个人blog
+            blog那么多 写哪里
+                内容
+            自己写代码碰到的坑
+                奇淫技巧
+                把笔记升华为 自己的 丢到blog上
+ -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div class="box my"  name="xxx"></div>
+
+
+</body>
+</html>
+
+
+<script>
+
+    //通过id
+//    document.getElementById("");
+
+    //通过标签名
+    //哪怕只有一个返回的也是数组，一个没有，返回的还是数组，只不过是空数组
+    //无论如何返回的都是数组（伪数组）
+//    console.log(document.getElementsByTagName("div"));
+//    document.getElementsByTagName("div")[0];
+
+    //通过class
+    //无论如何返回的都是数组,(IE8以前不支持)
+//    var div = document.getElementsByClassName("my");
+//    console.log(div);
+
+    //通过name
+    //无论如何返回的都是数组  （也有，只不过在IE8只能获取到表单中的元素，其他元素加name获取不到）
+    var div = document.getElementsByName("xxx");
+    console.log(div);
+
+    //h5新增的
+    //都是传css中的选择器
+
+    //能匹配到多个，也只会得到第一个
+    document.querySelector("div");//标签选择器
+    document.querySelector(".div");//类选择器
+    document.querySelector("#div");//id选择器
+
+    //哪怕只匹配到一个，也会返回数组
+    document.querySelectorAll()
+
+</script>

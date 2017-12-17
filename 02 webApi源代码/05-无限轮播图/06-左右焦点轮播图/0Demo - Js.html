@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 490px;
+            height: 270px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 490px;
+            height: 270px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #box img {
+            width: 490px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            /*这也是透明度，但是这个让元素全部透明，包括文字*/
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box" class="all">
+
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg"/></li>
+            <li><img src="images/2.jpg"/></li>
+            <li><img src="images/3.jpg"/></li>
+            <li><img src="images/4.jpg"/></li>
+            <li><img src="images/5.jpg"/></li>
+        </ul>
+    </div>
+
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+<script src="../animate.js"></script>
+
+<script>
+    
+    var box = document.getElementById("box");
+    var adBox = box.children[0];
+    var arrBox = document.getElementById("arr");
+    //获取上一页元素
+    var prev = document.getElementById("left");
+    //获取下一页元素
+    var next = document.getElementById("right");
+    //找到ul
+    var ul1 = document.getElementById("imgs");
+
+    //大盒子的鼠标移入：把箭头显示出来
+    box.onmouseover = function () {
+
+        arrBox.style.display = "block";
+    }
+
+    //大盒子的鼠标移入：把箭头隐藏起来
+    box.onmouseout = function () {
+        arrBox.style.display = "none";
+    }
+
+
+    //这个变量用来记录移出去的图片张数
+    //一开始一张没出去，移出去张数为0
+    var pageCount = 0;
+
+    //下一页的点击事件
+    next.onclick = function () {
+
+        //要多移出去一张
+        pageCount++;
+
+        //根据张数算偏移值   用移出去的图片张数 乘以 图片宽度 得到应该偏移的值
+        var offset = -pageCount * adBox.offsetWidth;
+
+        animate(ul1,offset);
+    }
+
+
+    prev.onclick = function () {
+
+        pageCount--;
+
+
+        //根据张数算偏移值   用移出去的图片张数 乘以 图片宽度 得到应该偏移的值
+        var offset = -pageCount * adBox.offsetWidth;
+
+        animate(ul1,offset);
+    }
+
+</script>
+
+
+</body>
+</html>

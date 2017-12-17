@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<a href="http://www.itheima.com" id="a1">我是a1</a>
+<a href="javascript:void(0)" id="a2">我是a2</a>
+<a href="http://www.itheima.com" id="a3">我是a3</a>
+</body>
+</html>
+
+<script>
+
+    document.getElementById("a1").onclick = function () {
+
+        alert("a1");
+        return false;
+    };
+
+    document.getElementById("a2").onclick = function () {
+        alert("A2");
+    };
+
+    document.getElementById("a3").onclick = function (e) {
+
+        e = e || window.event;
+
+        alert("a3");
+
+        //阻止事件的默认事件
+        e.preventDefault();
+    };
+
+</script>

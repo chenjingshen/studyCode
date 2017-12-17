@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.对象的动态特性
+  //对象在声明出来之后，可以随时给这个对象添加属性和方法，这种特性就叫做对象的动态特性。
+
+  var obj = {};
+  //a.可以使用点语法给对象添加属性
+  obj.name = "张三";
+  obj.sayHi = function () {
+    console.log("哈哈");
+  }
+
+  //b.可以使用中括号，数组的特性来给对象添加属性
+  obj["age"] = 18;
+  obj["sayHello"] = function () {
+    console.log("呵呵");
+  }
+
+
+
+
+
+
+
+  obj[{}] = "你看能不能添加进去呢？";
+
+  console.log(obj);
+  console.log(obj["[object Object]"]);
+  console.log(obj[{}]);
+
+
+
+</script>
+</body>
+</html>

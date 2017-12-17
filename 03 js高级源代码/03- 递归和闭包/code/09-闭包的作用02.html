@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //b.提供有限的访问权限
+//   function outer(){
+//     var num = 10;
+//
+//     function getNum(){
+//       return num;
+//     }
+//     function setNum(value){
+//       if(value > 0 ){
+//         num = value;
+//       }
+//     }
+//     return {
+//       getNum:getNum,
+//       setNum:setNum
+//     };
+//   }
+//   var obj =  outer();
+//   obj.setNum(100);
+//   console.log(obj.getNum());
+
+
+
+
+
+
+  //========================================
+
+  // //程序员A
+  // var name = "帅林";
+  // var yanZhi = Infinity;
+  // //程序员B
+  // name = "傻逼";
+  // yanZhi = 99;
+  // //程序员A
+  // console.log(name);
+  // console.log(yanZhi);
+
+
+
+
+  function outer(){
+    var name = "帅林";
+    var yanZhi = Infinity;
+
+    return {
+      getName: function () {
+        return name;
+      },
+      setName: function (value) {
+        if(value != "傻逼"  && value != "狗蛋"){
+          name = value;
+        }
+      },
+      getYanZhi: function () {
+        return yanZhi;
+      },
+      setYanZhi: function (value) {
+        if(value >= 100){
+          yanZhi = value;
+        }
+      }
+    }
+  }
+
+  var obj =  outer();
+  obj.setName("帅帅的林");
+  console.log(obj.getName());
+
+  obj.setYanZhi(9999);
+  console.log(obj.getYanZhi());
+
+
+</script>
+</body>
+</html>

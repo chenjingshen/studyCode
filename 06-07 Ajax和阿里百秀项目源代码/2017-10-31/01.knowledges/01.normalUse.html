@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='偷偷发送请求报文'>
+    <h2>我是一个h2</h2>
+</body>
+</html>
+<script>
+    // 绑定点击事件
+    document.querySelector('input').onclick = function(){
+        // new一个对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        // 如果要用get发送数据 那么数据放在 url的后面
+        // 格式是 url?key=value&key2=value2&key3=value3
+        xhr.open('get','xxx.php?name=jack&skill=jump&friend=ice');
+
+        // 设置请求头  set request header
+        // xhr.setRequestHeader('heima','good good study day day up');
+        // 如非必要 请求头 可以不写
+        // xhr.setRequestHeader('heima','have a nice xintai');
+
+        // 绑定回调函数
+        xhr.onload = function(){
+            console.log('我回来啦');
+            console.log(xhr.responseText);
+            document.querySelector('h2').innerHTML = xhr.responseText;
+            // alert(xhr.responseText);
+        }
+
+        // 设置请求主体 不想发送数据
+        // 发送数据 把请求发送出去
+        xhr.send();
+    }
+
+</script>

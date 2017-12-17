@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //让用户输入三个数字，然后打印出这三个数字中的最大值
+        //6 14 29
+        //先用前面两个数字比较，找出这两个数中更大的数，再用这个更大的数跟第三个数比较，谁更大，谁就是最大的
+
+        var num1 = +prompt('请输入第一个数字');
+        var num2 = +prompt('请输入第二个数字');
+        var num3 = +prompt('请输入第三个数字');
+
+        //记录最大数的变量
+        var max;
+
+        //        if(num1 > num2){
+        //
+        //            //num1更大
+        //            max = num1;
+        //        }else{
+        //
+        //            //num2更大
+        //            max = num2;
+        //        }
+
+        //判断num1大于num2吗？
+//        num1 > num2 ? max = num1 : max = num2;
+//
+//        max > num3 ? alert(max) : alert(num3);
+
+//        一个三元表达式里又嵌套一个三元表达式
+//        千万不要嵌套，不利于代码的阅读量，以后工作这么写，会被骂到死
+        num1 > num2? ( num1 > num3? alert(num1):alert(num3) ) : ( num2 > num3 ? alert(num2) : alert(num3) );
+
+
+        //        if(max > num3){
+        //            //max就是最大的，打印出来就行了
+        //            alert('最大数为：'+max);
+        //        }else{
+        //
+        //            //证明num3最大，打印num3
+        //            alert('最大数为：'+num3);
+        //        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

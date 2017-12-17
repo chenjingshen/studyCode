@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    for (var i = 0; i < 10; i++) {
+        // i % 2代表是奇数还是偶数， 偶数就逆时针， 奇数就顺时针
+        context.arc(300, 200, 20 + i * 20, 0, 2*Math.PI, i % 2 == 0);
+    }
+
+    context.fillStyle = "red";
+    context.fill();
+    context.stroke();
+
+    context.beginPath();
+    context
+
+</script>

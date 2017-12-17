@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="welcome"></div>
+
+    <form action="">
+        <input type="text" id="name" placeholder="请输入用户名">
+        <input type="text" id="password" placeholder="请输入密码">
+        <input type="submit" id="submit" value="提交">
+    </form>
+</body>
+</html>
+
+<script>
+    var name = window.localStorage.getItem("name");
+    document.querySelector(".welcome").innerHTML = "欢迎你,"+name;
+
+    document.querySelector("#submit").onclick = function() {
+        //获取到name和passoword的值
+        var nameStr = document.querySelector("#name").value;
+        var passwordStr = document.querySelector("#password").value;
+
+        //判断是否为空
+        if(nameStr.length > 0 && passwordStr.length > 0) {
+            window.localStorage.setItem("name", nameStr);
+        }
+    }
+</script>

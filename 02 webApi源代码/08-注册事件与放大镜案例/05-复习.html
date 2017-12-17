@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+        offsetLeft：自身左边外边框到定位父盒子的内边框距离
+        offsetTop：自身上边外边框到定位父盒子的内边框距离
+
+        clientLeft：拿到的是左边框的宽度
+        clientTop：拿到的是上边框的宽度
+
+
+        事件对象里的三大坐标
+                pageX和pageY：相对于页面左上角的位置
+                clientX和clientY：相对于可视区域左上角的位置
+                screenX和screenY ，相对于屏幕的左上角的位置
+
+        如何自己计算出相对于元素的点击位置
+                如果这个元素自身的父元素就只是body，那么就直接
+                    用pageX - 这个元素的offsetLeft就得到相对于自身左上角的x
+                    用pageY - 这个元素的offsetTop就得到相对于自身左上角的y
+
+               如果自身还有边框？
+                    用pageX - 这个元素的offsetLeft - clientLeft就得到相对于自身左上角的x
+                    用pageY - 这个元素的offsetTop - clientTop 就得到相对于自身左上角的y
+
+                如果自己还有父元素
+                    父元素没有定位：还跟之前一样一样的
+
+                    父元素有定位：
+                          除了用之前的减法以外，还要减去父元素的offsetLeft得到x
+                           还要减去父元素的offsetTop得到y
+
+
+                  如果还有爷爷元素，爷爷元素也有定位
+                            那么就减下去，这样一次循环，多一层（也有定位）就多减一次
+
+
+    -->
+    <style>
+        #father{
+
+            width: 400px;
+            height: 400px;
+            background-color: green;
+            position: absolute;
+            
+            top: 100px;
+            left: 100px;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="father">
+    <div id="box"></div>
+</div>
+</body>
+</html>

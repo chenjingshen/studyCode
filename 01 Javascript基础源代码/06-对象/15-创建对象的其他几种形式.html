@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //第一种方式:
+        //        var s1 = new Object();
+        //        s1.xxx = xxx;
+
+        //第二种方式：创建时就给属性
+//        var s1 = new Object({
+//            name: "刘德华",
+//            age: 16,
+//            sayHi: function () {
+//                console.log('....');
+//            }
+//        });
+//        console.log(s1.name);
+//        console.log(s1.age);
+//
+//        s1.sayHi();
+
+
+        //第三种方式：使用字面量形式  数字字面量[]   对象字面量{}
+
+        //创建空对象
+//        var s1 = {};
+//        s1.name = "andy";
+//        s1.sayHi = function () {
+//            console.log('...');
+//        }
+//        console.log(s1);
+
+
+        //第四种方式：使用字面量时就初始化
+        var s1 = {
+            name:'andy',
+            age:16,
+            height:180,
+            sayHi:function(){
+
+            console.log('大家好');
+        } };
+
+        console.log(s1.name);
+        console.log(s1.age);
+        console.log(s1.height);
+
+        s1.sayHi();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

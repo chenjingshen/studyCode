@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(150px at top right, red, orange, skyblue);
+            overflow: hidden;
+        }
+
+        img {
+            position: absolute;
+            left: 0;
+            bottom: -200px;
+        }
+
+        body:hover img{
+            transition: all 3s;
+            transform:  translate(1300px, -630px) rotate(45deg) scale(0.2);
+        }
+    </style>
+</head>
+<body>
+    <img src="../img/rocket.png" alt="">
+</body>
+</html>

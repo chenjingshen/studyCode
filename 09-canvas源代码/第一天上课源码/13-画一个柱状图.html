@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 画出一个柱状图的坐标系
+    context.moveTo(30, 30);
+    context.lineTo(30, canvas.height - 30);
+    context.lineTo(canvas.width - 30, canvas.height - 30);
+    context.strokeStyle = "green";
+    context.stroke();
+
+    //2. 模拟一下数据
+    var dataArr = [8000, 6500, 5900, 7000, 9000, 6900];
+    var colorArr = ["red", "yellowgreen", "hotpink", "skyblue", "orange", "gold"];
+
+    //3. 循环算出所有的柱子的x， y， w， h
+    for (var i = 0; i < dataArr.length; i++) {
+        //1. 算出x位置
+        var cw = canvas.width - 60; //柱子坐标系的宽度
+        var w = 35; //柱子宽度
+        var gap = (cw - w * 6) / 7; //柱子和柱子之间的间隔
+        var x = 30 + gap + i * (gap + w); //每一个柱子的x位置
+
+        //2. 算出y
+        var ch = canvas.height - 60; //柱状图的坐标系的高度
+        var percent = dataArr[i] / 10000; //百分比
+        var h = ch * percent; //柱子的高度
+        var y = canvas.height - 30 - h;
+
+        //一个柱子的x， y， w， h就都有
+//        var rect = {x: x, y: y, w: w, h: h}
+
+        //顺手就把柱子给画了
+        context.fillStyle = colorArr[i];
+        context.fillRect(x, y, w, h);
+    }
+</script>

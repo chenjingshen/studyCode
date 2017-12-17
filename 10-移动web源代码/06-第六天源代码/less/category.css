@@ -1,0 +1,169 @@
+/* 原生移动web没有用框架 公共样式也要自己写 */
+* {
+  margin: 0px;
+  padding: 0px;
+  /* 防止移动页面被padding和border撑开滚动条 */
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #666;
+  /* 当手指按住a的时候会有蓝色高亮背景色 */
+  -webkit-tap-highlight-color: transparent;
+}
+input {
+  border: 0;
+  /* 内边框 */
+  outline: 0;
+}
+img {
+  /* 让图片和文字对齐 不会出现图片底部3px的问题 */
+  vertical-align: middle;
+}
+i {
+  font-style: normal;
+}
+/* 公共类 */
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.bl {
+  border-left: 1px solid #ccc;
+}
+.br {
+  border-right: 1px solid #ccc;
+}
+.bt {
+  border-top: 1px solid #ccc;
+}
+.bb {
+  border-bottom: 1px solid #ccc;
+}
+/* 定义全局变量 */
+/* 顶部搜索框 */
+#topbar {
+  background-color: #eee;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  /* position: absolute; */
+  width: 100%;
+  float: left;
+}
+#topbar > .icon-back {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border: 10px solid transparent;
+  background-image: url(../images/sprites.png);
+  background-size: 200px 200px;
+  background-position: -20px 0;
+  /* 调整背景图定位的起点 */
+  background-origin: content-box;
+  /* 背景图的裁切 */
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+#topbar > form {
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 40px;
+}
+#topbar > form > input {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+#topbar .icon-menu {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  padding: 10px;
+  right: 0;
+  top: 0;
+  background-image: url(../images/sprites.png);
+  background-size: 200px 200px;
+  background-position: -60px 0;
+  /* 调整背景图定位的起点 */
+  background-origin: content-box;
+  /* 背景图的裁切 */
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+html,
+body {
+  height: 100%;
+}
+/* 分类主体 */
+#category {
+  height: 100%;
+  padding-top: 40px;
+}
+#category .category-left {
+  width: 100px;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+}
+#category .category-left > ul > li > a {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+}
+#category .category-left > ul > li.active > a {
+  background-color: #fff;
+  color: #f23030;
+}
+#category .category-right {
+  overflow: hidden;
+  /* margin-left: 100px; */
+  background-color: #eee;
+  /* 会裁切掉左边100px文本过不来的区域 */
+  padding: 10px;
+  height: 100%;
+  /* 为了让滚动条相对当前的容器 */
+  position: relative;
+}
+#category .category-right a {
+  display: block;
+}
+#category .category-right a img {
+  width: 100%;
+}
+#category .category-right .product {
+  background-color: #fff;
+}
+#category .category-right .product > ul > li {
+  width: 33.33%;
+  float: left;
+}
+#category .category-right .product > ul > li > a {
+  display: block;
+  text-align: center;
+}
+#category .category-right .product > ul > li > a > img {
+  width: 50px;
+  height: 50px;
+}
+#category .category-right .product > ul > li > a > p {
+  font-size: 12px;
+}

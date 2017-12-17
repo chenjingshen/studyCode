@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        navigator里面保存的是浏览器的相关信息，包括版本号，系统版本号
+
+    -->
+
+    <script>
+        console.log(navigator.appName);
+        console.log(navigator.appVersion);
+        console.log(navigator.platform);
+
+        //在我们后学的JS高级可以通过这个对象获取地理定位信息
+
+        //获取当前的经纬度
+        //如果得到位置信息，会把经纬度当作函数的参数传过来
+        navigator.geolocation.getCurrentPosition(function (loc) {
+
+            console.log(loc);
+        } );
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

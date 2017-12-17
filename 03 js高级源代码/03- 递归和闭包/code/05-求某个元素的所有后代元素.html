@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<div class="father" id="father">
+  <div>我是第1个子div
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+  </div>
+  <div>我是第2个子div</div>
+  <div>我是第3个子div</div>
+  <p>我是第1个p标签
+    <b>1</b>
+    <b>2</b>
+    <b>3</b>
+  </p>
+
+  <p>我是第2个p标签</p>
+
+  <p>我是第3个p标签</p>
+</div>
+<script>
+  //1. 求某个元素的所有后代元素
+  //没有一个直接的方法，可以求一个元素的所有后代元素，但是我们可以求这个元素的子元素（children  childNodes）；
+  //再根据他的子元素，求这个子元素的子元素。.....
+
+  var list = []; //保存的是后代元素。
+  function getEles(ele){
+    var childEles = ele.children;
+    for(var i = 0 ; i < childEles.length; i++){
+    	var child = childEles[i];
+        list.push(child);
+
+
+        getEles(child);
+
+    }
+  }
+
+
+  var father = document.getElementById("father");
+  getEles(father);
+  console.log(list);
+
+</script>
+</body>
+</html>

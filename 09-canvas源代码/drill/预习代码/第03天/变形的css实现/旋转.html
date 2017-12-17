@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height:100%;
+            overflow: hidden;
+        }
+
+        .main {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        .box {
+            width: 600px;
+            height: 400px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+
+        .coords {
+            width: 600px;
+            height: 400px;
+            background-color: rgba(100, 100, 100, 0.7);
+            box-sizing: border-box;
+            border-top: 1px solid red;
+            border-left:1px solid blue;
+            transform-origin: left top;
+            pointer-events: none;
+            padding-left:20px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+
+        .line {
+            width: 300px;
+            height: 2px;
+            /*padding-left: 100px;*/
+            position: absolute;
+            left:0;
+            top:0;
+            transform-origin: left top;
+        }
+
+        .line2 {
+            width: 100px;
+            height: 2px;
+            background-color: black;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="box">
+        <div class="coords">(20, 0)</div>
+    </div>
+    <form action="" class="form">
+        平移x<input id="tranlateX" type="text" placeholder="x偏移" value="0"><br>
+        平移y<input id="tranlateY" type="text" placeholder="y偏移" value="0"><br>
+        旋转：<input id="rotateAngle" type="text" placeholder="旋转角" value="0"><br>
+        缩放：<input id="scaleX" type="text" placeholder="缩放" value="1"><input id="scaleY" type="text" placeholder="缩放" value="1"><br>
+        <input type="button" id="rotate" value="转"><br>
+        <input type="button" id="translate" value="平移"><br>
+        <input type="button" id="scale" value="缩放"><br>
+        <input type="button" id="clear" value="还原">
+    </form>
+</div>
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    function getRotationDegrees(obj) {
+        var matrix = obj.css("-webkit-transform") ||
+                    obj.css("-moz-transform")    ||
+                    obj.css("-ms-transform")     ||
+                    obj.css("-o-transform")      ||
+                    obj.css("transform");
+        if(matrix !== 'none') {
+            var values = matrix.split('(')[1].split(')')[0].split(',');
+            var a = values[0];
+            var b = values[1];
+            var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+        } else { 
+            var angle = 0; 
+        }
+        //return (angle < 0) ? angle + 360 : angle;
+        return angle;
+    }
+
+    $(function(){
+        //旋转
+        $("#rotate").click(function () {
+            var angle = parseInt(getRotationDegrees($(".coords")));
+            var rotateAngle = parseInt($("#rotateAngle").val());
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+            angle += rotateAngle;
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+angle+"deg)"});
+            var style = "transform: translate("+x+"px, "+y+"px) rotate("+angle+"deg)";
+            var line = $("<div class='line' style='"+style+"'><div class='line2'></div></div>");
+
+            //画线
+            $(".box").append(line);
+        });
+
+        //平移
+        $("#translate").click(function () {
+            var angle = parseInt(getRotationDegrees($(".coords")));
+            var rotateAngle = parseInt($("#rotateAngle").val());
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+angle+"deg)"});
+        });
+
+        $("#clear").click(function () {
+            $(".coords").css({"transform": "translate("+0+"px, "+0+"px) rotate("+0+"deg)"});
+        });
+
+        //缩放
+        $("#scale").click(function () {
+            var angle = parseInt(getRotationDegrees($(".coords")));
+            var rotateAngle = parseInt($("#rotateAngle").val());
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+            var scalex = $("#scaleX").val();
+            var scaley = $("#scaleY").val();
+//            alert("scale("+scalex+", "+scaley+") translate("+x+"px, "+y+"px) rotate("+angle+"deg)");
+
+            //先缩放，再平移，再旋转
+            $(".coords").css({"transform": "scale("+scalex+", "+scaley+") translate("+x+"px, "+y+"px) rotate("+angle+"deg)"});
+        });
+    });
+</script>

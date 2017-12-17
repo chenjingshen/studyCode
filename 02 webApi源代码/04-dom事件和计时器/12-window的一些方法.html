@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //我们一直写的onload其实都是window的事件
+        //当然这个window也可以省略，因为所有window的东西，都可以省略window前缀
+        window.onload = function () {
+
+            document.getElementById("open").onclick = function () {
+
+                //用来打开一个新的网页
+                //参数1；要打开的网页的地址
+                //参数2：以什么方式打开，有_self（在当前网页打开）,_blank（新建窗口，默认值）
+                //参数3：新窗口属性的一些配置字符串，可以设置新窗口的宽、高等属性（了解一下）
+//                window.open("http://www.itheima.com","_blank","width=300px,height=300px");
+
+                window.open("http://www.itheima.com");//我们用a标签也可以打开，所以用的略少
+            };
+
+            document.getElementById("close").onclick = function () {
+
+                //关闭当前页面
+                window.close();
+            };
+
+        }
+
+
+//        setTimeout(function () {
+//
+//            window.close();
+//        },1000);
+
+    </script>
+</head>
+<body>
+
+<button id="open">打开</button>
+<button id="close">关闭</button>
+
+</body>
+</html>

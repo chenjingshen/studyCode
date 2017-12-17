@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //代码都是从上往下执行的-不严谨.
+
+    //1.预解析-变量的提升
+
+    //2.1 在执行任意作用域里面的代码之前，都会把这个作用域里面变量的声明提前到当前这个作用域的最顶端，赋值语句保留在原地。
+    //2.2 在执行任意作用域里面的代码之前，都会把这个作用域里面函数的声明提前到当前这个作用域的最顶端，调用语句保留在原地。
+
+
+
+//    var num;
+//    function test1(){
+//      var num;
+//      function test2(){
+//        console.log("哈哈");
+//      }
+//      //-------test局部作用域最顶端----------------
+//      console.log(num);
+//      num = 10;
+//      test2();
+//    }
+//    //----全局作用域的最顶端-----
+//    console.log(num); //undefiend
+//    num = 10;
+//    test1();
+
+
+
+
+
+
+
+
+    console.log(num);
+    var num = 10;
+    test1();
+    function test1(){
+     console.log(num);
+     var num = 10;
+      test2();
+      function test2(){
+        console.log("哈哈");
+      }
+    }
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

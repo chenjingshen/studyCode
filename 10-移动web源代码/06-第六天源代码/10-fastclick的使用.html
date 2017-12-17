@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    div {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        display: none;
+    }
+    
+    a {
+        display: block;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        color: #000;
+        font-size: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <a href="https://so.m.jd.com/category/all.html">超链接</a>
+    <div></div>
+    <button>弹出</button>
+    <!-- fastclick是一个插件 专门用来解决移动端点击事件延迟问题 同时还可以解决点透问题 同时兼容PC移动端 -->
+    <script src="lib/fastclick/fastclick.js"></script>
+    <script>
+    // DOM元素和资源都加载完毕触发
+    // window.addEventListener('load', function() {
+    FastClick.attach(document.body);
+    // });
+    // DOM元素加载完成的时候会触发的事件
+    /* document.addEventListener('DOMContentLoaded', function() {
+         FastClick.attach(document.body);
+     }, false);*/
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+    // 现在已经绑定了fastclick所以添加的click事件是不会延迟click（不是原来的click底层做了封装）
+    button.addEventListener('click', function() {
+        div.style.display = 'block';
+    });
+    div.addEventListener('click', function() {
+        div.style.display = 'none';
+    });
+    </script>
+</body>
+
+</html>

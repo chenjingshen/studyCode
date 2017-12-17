@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body{
+            perspective: 500px;
+        }
+        .box{
+            width: 800px;
+            height: 500px;
+            background-color: skyblue;
+            box-shadow: 0px 0px 20px red;
+            margin: 80px auto;
+            transform-style: preserve-3d;
+            padding: 0;
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    var box=document.querySelector(".box");
+    box.onmousemove=function(event){
+        var x=event.offsetX;
+        var y=event.offsetY;
+        var w=this.offsetWidth;
+        var h=this.offsetHeight;
+        var bilix=(w/2-x)/w/2;
+        var biliy=-(h/2-y)/h/2;
+        var bilix2=-(w/2-(w-x))/w/2;
+        var biliy2=(h/2-(h-y))/h/2;
+        var deg1=x<w/2?bilix*10:bilix2*10;
+        var deg2=x<h/2?biliy*10:biliy2*10;
+        this.style.transform="rotateY("+deg1+"deg) rotateX("+deg2+"deg)";
+    }
+    box.onmouseleave=function(){
+        this.style.transform="rotateY("+0+"deg) rotateX("+0+"deg)";
+    }
+</script>

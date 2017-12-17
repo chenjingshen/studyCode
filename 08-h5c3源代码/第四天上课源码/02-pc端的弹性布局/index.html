@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /* header的部分 */
+        header {
+            /* width: 100%; */
+            height: 100px;
+            background-color: hotpink;
+
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-content: space-around;
+        }
+
+        header a{
+            margin: 5px 15px;
+            text-decoration: none;
+        }
+
+        /* main左中右1:2:1布局 */
+        .main {
+            display: flex;
+            margin: 5px 0px;
+        }
+
+        /* 左边的弹性布局 */
+        .main .left {
+            flex: 1;
+            background-color: yellowgreen;
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left a {
+            width: 100%;
+            border-bottom: 1px solid #fff;
+            padding: 10px;
+            text-decoration: none;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .good {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin: 10px;
+        }
+
+        .main .center {
+            flex: 2;
+            background-color: skyblue;
+            margin: 0px 5px;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .main .right {
+            flex: 1;
+            background-color: thistle;
+        }
+
+        .main .right .list {
+            display: flex;
+
+            border-bottom: 1px solid #fff;
+        }
+
+        .main .right .list .good {
+            flex-basis: 100px;
+        }
+
+        .main .list a {
+            flex: 1;
+            padding-top: 15px;
+            text-decoration: none;
+        }
+
+        /* footer的弹性布局 */
+        footer {
+            height: 120px;
+            background-color: orangered;
+
+            display: flex;
+        }
+
+        footer ul {
+            margin:  0;
+            padding: 0;
+            flex: 1;
+
+            list-style: none;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            padding: 10px;
+        }
+
+        footer ul li {
+            text-align: center;
+            width: 100%;
+        }
+
+        /* footer ul:nth-child(1) li:nth-child(1) {
+            background-color: yellow;
+        } */
+    </style>
+</head>
+<body>
+    <header>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+        <a href="">快来点我吧</a>
+    </header>
+
+    <div class="main">
+        <div class="left">
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+            <a href="">your left brain has nothing right, your right brain has nothing left</a>
+        </div>
+        <div class="center">
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+        </div>
+        <div class="right">
+            <div class="list">
+                <div class="good"></div>
+                <a href="">我是商品，你买不了吃亏，买不上当， 快来买我吧</a>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <a href="">我是商品，你买不了吃亏，买不上当， 快来买我吧</a>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <a href="">我是商品，你买不了吃亏，买不上当， 快来买我吧</a>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <a href="">我是商品，你买不了吃亏，买不上当， 快来买我吧</a>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <a href="">我是商品，你买不了吃亏，买不上当， 快来买我吧</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+        </ul>
+        <ul>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+        </ul>
+        <ul>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+        </ul>
+        <ul>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+            <li>我真棒啊</li>
+        </ul>
+    </footer>
+</body>
+</html>

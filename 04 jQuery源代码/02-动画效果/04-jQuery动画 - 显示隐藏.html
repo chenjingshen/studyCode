@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    span {
+      display: none;
+    }
+    div {
+      margin-top: 30px;
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      display: none;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //显示
+      $("#show").click(function () {
+        //a.如果没有给参数，就没有动画效果.
+        //$("div").show();
+        //b.如果想有动画效果，就给参数
+        //参数可以是一个毫秒数
+        //$("div").show(1000);
+        //参数还可以是一个对应的字符串  slow 600  normal 400  fast 200
+        $("div").show("slow")
+        //c.参数可以是有2个，第二个参数是动画执行完毕之后要执行的
+        // $("div:eq(0)").show("slow", function () {
+        //   alert("动画做完了");
+        // });
+      });
+
+
+      //隐藏
+      $("#hide").click(function () {
+        $("div").hide(1000);
+      });
+
+
+      //切换
+      $("#toggle").click(function () {
+        $("div").toggle(1000);
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="显示" id="show"/>
+<input type="button" value="隐藏" id="hide"/>
+<input type="button" value="切换" id="toggle"/>
+<div></div>
+<div></div>
+<!--如果让span显示的话，改变的display的值是inline-->
+<span>哈哈</span>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    
+    .topbar {
+        height: 40px;
+        background-color: pink;
+        position: absolute;
+        
+    }
+    html,body{
+    	height: 100%;
+    }
+    /*子元素的高度需要100% html 和body也要加100%*/
+    .box {
+        height: 100%;
+        padding-top: 40px;
+        overflow: hidden;
+    }
+    
+    .left {
+        width: 100px;
+        height: 100%;
+        background-color: rgba(255, 0, 0, 0.6);
+        /*float: left;*/
+        position: absolute;
+    }
+    
+    .right {
+        /*height: 500px;*/
+        background-color: #0f0;
+        /*margin-left: 100px;*/
+        /*overflow: hidden;*/
+    }
+    </style>
+</head>
+
+<body>
+        <div class="topbar"></div>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right">
+        </div>
+    </div>
+</body>
+
+</html>

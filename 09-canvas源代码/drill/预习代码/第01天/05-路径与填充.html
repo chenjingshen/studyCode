@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //画两个三角形
+    //顺时针绘制
+    context.moveTo(0, 100);
+    context.lineTo(400, 100);
+    context.lineTo(400, 400);
+    //把路径闭合
+    context.closePath();
+
+    //路径是逆时针绘制
+    context.moveTo(200, 200);
+    context.lineTo(300, 240);
+    context.lineTo(300, 200);
+    context.closePath();
+
+    context.fillStyle = "red";
+    context.fill();
+
+    //非零填充原则
+    //在由路径围成的区域内部，任意一个点， 拉一条射线。 看和这个射线相交的路径有几条。 路径的方向是顺时针，就是1. 如果逆时针，就是-1， 把所有的值相加， 如果是0， 就不填充， 如是非0， 就填充
+
+</script>

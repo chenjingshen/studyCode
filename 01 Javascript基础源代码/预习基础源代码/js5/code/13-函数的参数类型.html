@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.值类型复制一份，修改复制的值，是不影响原来的值的。
+    //  var num1 = 10;
+    //  var num2 = num1;
+    //  num1 = 100;
+    //  console.log(num2); //10
+
+
+    //2.引用类型复制一份，复制的是地址，，原来的值和复制的值都指向同一个东西， 修改一个必然会影响另外一个。
+    //  var arr1 = [10,20,30,40,50];
+    //  var arr2 = arr1;
+    //  arr1[0] = 100;
+    //  console.log(arr2[0]);
+
+
+    //3.如果函数的参数是第一个值类型。
+    //  function test1(num){
+    //    num = 100;
+    //  }
+    //  var num1 = 10;
+    //  test1(num1);
+    //  console.log(num1); //10
+
+
+    //4.函数的参数如果是一个引用类型。
+    //  function test2(arr){
+    //    for(var i = 0 ; i < arr.length; i++){
+    //    	arr[i] = 100;
+    //    }
+    //  }
+    //  var arr1 = [10,20,30];
+    //  test2(arr1);
+    //  console.log(arr1);
+
+
+
+    //5.如果在函数里面不想修改实参的数组， 那么就可以传递数组的副本。
+    //  function test2(arr){
+    //    for(var i = 0 ; i < arr.length; i++){
+    //      arr[i] = 100;
+    //    }
+    //  }
+    //  var arr1 = [10,20,30];
+    //
+    //  //利用循环，把arr1里面的所有的元素，都放在arrNew，那这样，就相当于arrNew是arr1的一个副本。
+    //  var arrNew = [];
+    //  for(var i = 0 ; i < arr1.length; i++){
+    //  	arrNew[arrNew.length] = arr1[i];
+    //  }
+//
+    //  //调用test2，就把arr1的副本传过去，test2函数里面要做什么，对于这个arr1而言没有影响。
+    //  test2(arrNew);
+    //  console.log(arr1);
+
+
+
+    //6.另外的一种方式，来获得数组的副本。
+    function test2(arr){
+      for(var i = 0 ; i < arr.length; i++){
+        arr[i] = 100;
+      }
+    }
+    var arr1 = [10,20,30];
+
+    //使用数组的方法slice()来得到arr1的副本。
+    var arrNew = arr1.slice(0);
+    //console.log(arrNew);
+
+
+    //调用test2，就把arr1的副本传过去，test2函数里面要做什么，对于这个arr1而言没有影响。
+    test2(arrNew);
+    console.log(arr1);
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

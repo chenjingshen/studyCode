@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            
+            margin-left: 100px;
+            margin-top: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("box").onclick = function (event) {
+
+        //兼容性
+        //事件对象的获取：直接通过参数获取有兼容性问题，IE8以及之前的版本不支持
+//        console.log(event);
+//        console.log(window.event);
+        var e = event || window.event;
+
+        //获取的是你点击的位置，相对于屏幕左上角的水平和垂直距离
+//        console.log(e.screenX, e.screenY);
+
+        //取的是相对于可视区域左上角的水平和垂直距离（可视区域的左上角可能一直变化，因为页面可能会滚动）
+//        console.log(e.clientX, e.clientY);
+
+        //取的相对于页面的原始左上角的水平和垂直距离（滚动不会变化这个参照点）
+//        console.log(e.pageX, e.pageY);
+
+        //相对于自身被点击的盒子的左上角的水平和垂直距离
+//        console.log(e.offsetX, e.offsetY);
+    };
+</script>

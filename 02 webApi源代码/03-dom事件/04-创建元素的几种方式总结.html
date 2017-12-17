@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!--
+
+        标准流：浏览器打开一个网页一开始会打开创建标准流
+
+        然后从上往下一句一句解析代码加到标准流里面，直到整个页面解析完毕，就关闭标准流
+
+        如果你在绑定的事件里加了document.write，那么在网页刚刚打开时不会执行这句代码，就意味着，document.write不会向这个标准流写入东西。
+
+        当事件触发时，才执行document.write，而此时标准流已经关闭，所以它会新开一个标准流，再写入
+
+
+1、document.write方法
+
+    document.write如果里面写的是标签，那么也会解析成标签，解析后加在body，但是，如果document.write是写在事件里，那么会把原来body里的东西全部覆盖掉。
+
+
+2、innerHTML:
+        它如果传入的是标签，也会解析成标签
+
+        给谁的innerHTML属性赋值，那么就是给谁加子元素，但是如果之前有内容，也会覆盖掉之前的
+
+        如果要保存之前的，就用innerHTML 加等于
+
+        如果要多个就循环加
+
+
+3、createElement
+
+        document.createElement(); 参数要传入标签名字
+
+        标签名传入的是什么，就创建的是什么标签
+
+        例如传入 h1 就创建的h1标签，传入a，就创建a标签  传入li，就创建li标签
+
+        这种方法创建好后，还没有显示到文档里，要显示在文档里，就必须把它加入到某个元素作为子元素
+
+        所以要配合appendChild使用;
+
+
+        以前怎么操作dom元素，也一样一样可以操作创建出来的
+
+
+
+
+
+    -->
+
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: hotpink;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <h1>我是原本的内容</h1>
+</div>
+
+<input type="text"/>
+<input type="button" value="新增" id="add"/>
+
+</body>
+</html>
+
+
+<script>
+
+    var btn = document.getElementById("add");
+
+    //找到div
+    var box = document.getElementById("box");
+
+    //createElement
+    btn.onclick = function () {
+
+        //创建h1
+        var h1Dom = document.createElement("h1");
+        h1Dom.innerHTML = "我是新增的h1";
+//        console.log(h1Dom);
+
+        box.appendChild(h1Dom);
+
+        var newA = document.createElement("a");
+        newA.innerHTML = "我是超链接";
+        newA.href = "javascript:void(0)";
+        newA.onclick = function () {
+
+            alert("a标签被点了");
+        }
+
+        box.appendChild(newA);
+//        console.log(newA);
+    }
+
+    //document.write和innerHTML
+    /*
+    btn.onclick = function () {
+
+        //可能会覆盖原来的所有内容
+        //如果是在某个事件里用document.write，那么会覆盖原来body中的所有内容
+//        document.write("<h1>我是write创建的h1</h1>");
+
+        //innerHTML
+//        box.innerHTML += "<a href='#'>我是超链接</a>";
+
+        //假如我需要加5个超链接
+        for (var i = 0; i < 5; i++) {
+
+            box.innerHTML += "<a href='#'>我是超链接" + (i + 1) + "</a><br>";
+        }
+    }
+    */
+
+</script>

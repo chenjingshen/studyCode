@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口 让网页在移动端不缩放 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 引入bootstrap的css文件 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 引入微金所字体的图标类名样式文件 -->
+    <link rel="stylesheet" href="css/font.css">
+</head>
+
+<body>
+    <!-- 最外层的容器用id限定 id优先级高（方便覆盖bootstrap） -->
+    <!-- 头部区域 -->
+    <header id="header">
+        <!-- 顶部通栏 -->
+        <div class="topbar">
+            <!-- 版心容器  container 全局CSS样式 》 概览 》 布局容器-->
+            <div class="container">
+                <!-- 栅格系统  全局CSS样式 》 栅格系统-->
+                <!-- text-center 全局CSS样式 》 排版 》 对齐  -->
+                <div class="row text-center">
+                    <!-- md和lg的样式一样 写小的向上兼容 -->
+                    <div class="col-md-2">
+                        <a href="#" class="text-muted">
+                            <!-- 微金所项目图标 -->
+                            <i class="icon-mobilephone">手机微金所</i>
+                            <!-- 字体图标 》 组件 》 字体图标 -->
+                            <!-- <i class="glyphicon glyphicon-phone"></i> 手机微金所 -->
+                            <i class="glyphicon glyphicon-chevron-down"></i>
+                            <img src="img/c_06.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-5">
+                        <i class="glyphicon glyphicon-earphone"></i> 4006-89-4006（服务时间：9:00-21:00）
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" class="text-muted">常见问题</a>
+                        <a href="#" class="text-muted">财富登录</a>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- 按钮 全局CSS样式 》 按钮 》 预定义样式 + 尺寸  -->
+                        <!-- bootstrap的所有类名都不需要指定标签 例如图标 使用i  span a标签都行
+                    按钮只要加上按钮的类名 标签任意 -->
+                        <a href="#" type="button" class="btn btn-danger btn-sm text-muted">免费注册</a>
+                        <a href="#" class="btn btn-link text-muted">登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航条 -->
+        <nav class="nav"></nav>
+    </header>
+    <!-- 轮播图区域 -->
+    <section id="slide">
+    </section>
+    <!-- 支付交易保障 -->
+    <section id="payment"></section>
+    <!-- 立即预约 -->
+    <section id="booking"></section>
+    <!-- 产品区域 -->
+    <section id="products"></section>
+    <!-- 全部新闻区域 -->
+    <section id="news"></section>
+    <!-- 合作伙伴 -->
+    <footer id="partner"></footer>
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 3. 引入bootstrap的JS文件 -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

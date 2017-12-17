@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.量词
+  //{n}	n次	x=n
+  //{n,}	重复n次或更多  x>=n
+  //{n,m} 重复出现的次数比n多但比m少 n<=x<=m
+
+  //{n}
+  // console.log(/^colo{2}r$/.test("colr")); //false
+  // console.log(/^colo{2}r$/.test("color"));//false
+  // console.log(/^colo{2}r$/.test("coloor"));//true
+  // console.log(/^colo{2}r$/.test("colooor"));//false
+  // console.log(/^colo{2}r$/.test("coloorcoloor"));//flase
+
+
+  //{n,}
+  // console.log(/^colo{2,}r$/.test("colr")); //false
+  // console.log(/^colo{2,}r$/.test("color"));//false
+  // console.log(/^colo{2,}r$/.test("coloor"));//true
+  // console.log(/^colo{2,}r$/.test("colooor"));//true
+  // console.log(/^colo{2,}r$/.test("coloorcoloor"));//flase
+
+
+  //{n,m}
+  console.log(/^colo{2,3}r$/.test("colr")); //false
+  console.log(/^colo{2,3}r$/.test("color"));//false
+  console.log(/^colo{2,3}r$/.test("coloor"));//true
+  console.log(/^colo{2,3}r$/.test("colooor"));//true
+  console.log(/^colo{2,3}r$/.test("coloooor"));//false
+  console.log(/^colo{2,3}r$/.test("coloorcoloor"));//flase
+
+</script>
+</body>
+</html>

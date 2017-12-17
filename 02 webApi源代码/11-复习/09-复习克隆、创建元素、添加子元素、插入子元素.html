@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        cloneNode():
+                默认是false，代表浅克隆不包含标签内的所有内容,但是包括标签内写的所有属性，以及自定义属性
+
+                如果为true，深克隆，除了有标签内的所有属性外，还有innerHTML中的所有内容
+
+
+       appendChild()：在一个元素的子末尾追加子元素
+
+
+       创建的元素
+            document.write("<h1>我是标题</h1>");把标签解析在body上,相当于给body加子元素
+            不要用它，因为如果是在事件里使用，会覆盖掉原来的所有内容
+
+            document.creatElement(标签名);
+                    根据标签名创建一个元素，传的是li，就创建li标签
+                    传的是input，就默认创建文本框，如果要变button，就需要改type属性= "button"
+
+            创建出来只是在内存中占了空间，但是没有加在任何父元素上，那样就看不到，如果要加还必须搭配appendChild方法
+
+
+            元素.innerHTML = "<a href='#'>我是a标签</a>";
+
+            它会把传入的字符串里的标签解析成元素，但是如果直接这么写会覆盖原来的子元素，如果不想覆盖
+
+            就用+=
+                元素.innerHTML +=  "<a href='#'>我是a标签</a>";
+
+            innerText：获取标签中间的文本，只能获取文本，不获取标签
+                      设置的时候，如果字符串是一个标签，也只是当作文本来显示（不会解析成元素）
+
+
+        appendChild：
+            在父元素中的末尾插入一个子元素
+
+            如果是新创建的元素，就直接在末尾添加
+
+            如果是已经存在的，相当于移动到末尾去
+
+        insertBefore:
+                插入一个子元素，放到某个子元素的前面
+
+                两个参数：参数1：要插入的元素
+                         参数2：插入到哪个子元素的前面
+
+
+        没有插入到某个元素的后面，但是可以用insertBefore来实现，就是找到某个元素的下一个元素，再插入到下一个元素的前面
+
+
+        removeChild:
+            JS里面要删除某个元素，必须找到它的父元素，再调用父元素的removeChild方法，传入要删除的元素才能删除
+
+
+        replaceChild
+                替换一个子元素
+                参数两个：参数1：要替换的元素
+                         参数2：谁被替换
+    -->
+
+</head>
+<body>
+
+<div id="box" fat="200kg">
+    <input type="button" value="点我啊"/>
+</div>
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    console.log(box.cloneNode());//默认是false ，不包含标签内的所有内容,但是包括标签内写的所有属性，以及自定义属性
+
+    console.log(box.cloneNode(true));//深克隆，除了有标签内的所有属性外，还有innerHTML中的所有内容
+
+
+
+</script>

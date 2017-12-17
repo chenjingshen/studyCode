@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .black {
+            background: black;
+        }
+
+        .white {
+            background-color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="button" id="open" value="开灯">
+    <input type="button" id="close" value="关灯">
+    <input type="button" id="toggle" value="开关灯">
+    <input type="button" id="iscontain" value="是否开灯了">
+</body>
+</html>
+
+<script>
+    // jquery操作类的四个方法
+    //addClass(""), removeClass(""), toggleClass(""), hasClass("");
+    document.querySelector("#open").onclick = function() {
+        //js原生的添加一个类的方法
+        document.body.classList.add("white");
+        //js原生的移除一个类的方法
+        document.body.classList.remove("black");
+    }
+
+    document.querySelector("#close").onclick = function() {
+        //js原生的添加一个类的方法
+        document.body.classList.add("black");
+        //js原生的移除一个类的方法
+        document.body.classList.remove("white");
+    }
+
+    document.querySelector("#toggle").onclick = function() {
+        //js原生的添加一个类的方法(点一次删除这个类， 再点一次，添加这个类)
+        document.body.classList.toggle("black");
+    }
+
+    document.querySelector("#iscontain").onclick = function() {
+        //判断body里是否包含某个类
+        alert(document.body.classList.contains("white"));
+    }
+</script>
+
+<!-- 
+    总结：
+    1. jquery操作类是很爽的。 直接调用四个api: addClass("class"), removeClass("class"), toggleClass("class"), hasClass("class");
+    2. h5的官方组织就在思考，是不是这个活可以自己干了。 然后它就推了自己的一套api和jquery相似
+    3. dom.classList 执行 add("class"), remove("class"), toggle("class"), contains("class")
+
+    面试题： 
+    js原生是怎么操作css的， 你知道吗？
+    首先在html5之前， 我们可以通过拿到dom， 设置其style的属性， 直接添加css的属性值; 如果我们想要设置某个元素的类， 可以直接设置其 className = "white"; html5之后，它仿照jquqery给我们又提供了四个api， 包括添加类， 删除类， 切换类， 还有判断是有某个类。 在实际开发过程中，我们一般都用jquery， 原生的方式用得就比较少了， jquery比较方便， 直接拿到dom之后，调用 addClass， removeClass， toggleClass， hasCalss();
+ -->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.break或者是continue，影响的是哪一个循环，要看他们是写在那个循环里面。
+    // for(var i = 0 ; i < 3; i++){
+    //   console.log("我是外层循环开始-----"+i);
+    //   for(var j = 0 ; j < 5; j++){
+    //   	console.log("里层循环begin"+j);
+    //     console.log("啦啦啦...");
+    //     if(i == 1){
+    //       break;
+    //     }
+    //   	console.log("里层循环end"+j);
+    //   }
+    //   console.log("我是外层循环结束-----"+i);
+    // }
+
+
+    //2.在里层循环里面，想办法让外层循环的条件不成立，就可以控制外层循环结束。
+    for(var i = 0 ; i < 10; i++){
+    	for(var j = 0 ; j < 5; j++){
+          //在这里写什么样的代码，可以结束外层循环？
+          i = 10;
+          break;
+    	}
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

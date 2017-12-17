@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+    clientWidth和clientHeight获取的是某个元素自身的内容宽和高，包括内边距
+
+    获取的是你设置的宽和高，如果没有设置会怎样？？没有设置获取的就是可视区域的宽和高
+
+    它的作用不是用在其他元素，而是用在整个网页上的
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body{
+
+            width: 1000px;
+            height: 1000px;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+
+            border: 5px solid black;
+
+            border-top: 10px solid black;
+            border-left: 15px solid black;
+        }
+
+        img{
+
+            width: 400px;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img id="img" src="timg.jpg" alt=""/>
+    </div>
+</body>
+</html>
+
+<script>
+    //offsetWidth：包括内边距和边框
+    //clientWidth：包括内边距，但不包括边框
+
+//    var box = document.getElementById("box");
+//    var imggg = document.getElementById("imggg");
+
+//    console.log(box.clientWidth);
+//    console.log(box.clientHeight);
+//
+//    console.log(imggg.clientWidth);
+//    console.log(imggg.clientHeight);
+
+    //下面这两个用的少，因为取到的只是左边框的宽度，和上边的宽度，我要取边框宽度，通过border也可以解决
+//    console.log(box.clientLeft);//15
+//    console.log(box.clientTop);//10
+
+
+//    console.log(document.body.clientWidth);
+
+    //需要它宽度一旦发生变化就打印一次
+
+    //当网页尺寸发生变化就调用
+    window.onresize = function () {
+
+
+        //默认获取的就是可视区域的宽度（如果设置了样式上的宽和高，获取的就是样式上的宽、高加padding）
+        console.log(document.body.clientWidth);
+        //获取的是可视区域的高度
+//        console.log(document.body.clientHeight);
+    }
+</script>
+

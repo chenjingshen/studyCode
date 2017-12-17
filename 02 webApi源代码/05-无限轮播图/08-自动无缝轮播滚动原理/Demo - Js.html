@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        /*取消图片底部3像素距离*/
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box ul li {
+            float: left;
+        }
+
+        .box ul {
+            width: 1500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="screen">
+    <ul>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/04.jpg" alt=""/></li>
+        <li><img src="images/01.jpg" alt=""/></li>
+    </ul>
+</div>
+
+<script src="../animate.js"></script>
+
+<script>
+    var box= document.getElementById("screen");
+    var ul=box.children[0];
+    var pageCount=0;
+    setInterval(function () {
+        if(pageCount==ul.children.length-1){
+            pageCount=0;
+            ul.style.left="0px";
+        }
+        pageCount++;
+        var offset=-pageCount*box.offsetWidth;
+        animate(ul,offset);
+
+    },1000);
+
+    //获取盒子
+//    var box = document.getElementById("screen");
+//    //获取ul
+//    var ul1 = box.children[0];
+//
+//    //要实现自动滚，肯定要计时器（定时器）
+//
+//    var pageCount = 0;
+//
+//    setInterval(function () {
+//
+//        //最后一张（我们用的是第0张来代替的）
+//        if(pageCount == ul1.children.length - 1){
+//
+//            pageCount = 0;
+//            ul1.style.left = "0px";
+//        }
+//
+//
+//        //每隔一秒多滚出去一张
+//        pageCount++;
+//
+//        var offset = -pageCount * box.offsetWidth;
+//
+//        animate(ul1,offset);
+//
+//    },1000)
+
+</script>
+
+</body>
+</html>

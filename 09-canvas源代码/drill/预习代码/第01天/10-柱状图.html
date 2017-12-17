@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //0. 先画一个大的矩形， 填充作为背景色
+    context.fillStyle = "wheat";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    //1. 模拟数据
+    var dataArr = [6000, 8000, 4900, 5600, 7800, 9000];
+    var colors = ["red", "orange", "green", "hotpink", "yellow", "skyblue"];
+
+    //2. 画坐标系
+    context.moveTo(30, 30);
+    context.lineTo(30, canvas.height-30);
+    context.lineTo(canvas.width-30, canvas.height-30);
+    context.strokeStyle = "rgba(100, 100, 100, 0.8)";
+    context.stroke();
+
+    //3. 先创建一个空数组用来装所有的小方块的点的参数
+    var rectArr = [];
+
+    //4. 遍历数据数组， 算出小方块的x， y， w， h
+    //柱子和柱子之间的间隔
+    var gap = 50;
+    for (var i = 0; i < dataArr.length; i++) {
+        //算出x的位置
+        var x = 30 + gap + i * (40 + gap);
+        //算出柱子的高度
+        var height = dataArr[i] / 10000 * (canvas.height - 60);
+        //算出y坐标
+        var y = canvas.height - 30 - height;
+        //创建一个rect的对象
+        var rect = {x: x, y: y, w: 40, h: height};
+        rectArr.push(rect);
+    }
+
+    //5. 遍历rectArr画方块（柱子）
+    for (var i = 0; i < rectArr.length; i++) {
+        context.fillStyle = colors[i];
+        context.fillRect(rectArr[i].x, rectArr[i].y, rectArr[i].w, rectArr[i].h);
+    }
+
+</script>

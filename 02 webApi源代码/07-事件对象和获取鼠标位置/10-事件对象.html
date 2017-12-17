@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        每次触发事件的时候，其实系统会帮我们自动创建一个对象，这个对象就叫事件对象
+        事件对象里包含一些事件触发时的相关信息：例如点击在哪个位置，是双击还是单机，以及有没有alt键，或者按下的是哪个键之类的信息
+
+        怎么获取事件对象？
+                就是在函数上写一个参数，这个参数就是接收系统创建的事件对象
+     -->
+
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+</body>
+</html>
+
+<script>
+    //e就是事件对象
+    //接收事件对象规范：一般写e或者写event
+    document.getElementById("box").onclick = function (event) {
+
+            console.log(event);
+    };
+</script>

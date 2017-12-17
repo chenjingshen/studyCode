@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //变量名有规范：如果不遵守，程序就报错，不能正常使用
+
+        //        1.变量名只能以下划线、字母和$符号开头，后面接任意的数字、下划线、字母和$符号
+        //        2.不能使用JS中的关键字作为变量名
+
+        //
+        //        var $a12@num1 = 20;
+        //
+        //        console.log($a12@num1);
+        //
+//                var var = 10;
+//                console.log(var);
+
+        //        var int = 10;
+        //        console.log(int);
+
+
+        //        变量名的约定：
+        //        1.起名要有意义,名字不要乱写，最好跟你要保存的数据的作用有一个对应关系
+        //        2.使用驼峰命名法:第一个单词首字母小写，后面任何单词的首字母都大小
+
+        //        var score;
+        //        var age;
+        //
+        //        var userName;
+        //
+        //        var userLoginName;
+        //
+        //
+        //
+        //        var num1 = 100;
+
+        //        要使用变量，就直接写变量名，千万不要用引号包起来，包起来就变成了字符串
+        //        console.log('num1');
+
+        //        使用变量时要严格遵循之前的大小写法，大小写敏感
+        //        console.log(num1);
+
+
+//        变量千万不要写在字符串里面，否则就只是字符串
+        var name = "利群";
+        var age = 38;
+
+        console.log('我的名字叫' + name);
+        console.log('我的年龄是' + age);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

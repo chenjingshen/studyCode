@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 引入index.less -->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 2. 引入less.js编译器文件 因为less.js会发ajax请求必须服务器 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 3. 用服务器打开 -->
+</head>
+
+<body>
+    <!-- zepto相当于是一个针对移动端的jquery（但不是真正的jquery） -->
+    <!-- zepto比jquery小  小100多k -->
+    <!-- zepto是分模块的 你想要对应的模块JS功能就引入对应的模块(zepto是模块化代码) -->
+    <!-- 京东主体布局容器  最大宽度640 居中显示-->
+    <div id="layout">
+        <!-- 顶部通栏 -->
+        <header id="topbar">
+            <i class="icon-logo"></i>
+            <form action="#">
+                <i class="icon-search"></i>
+                <!-- 在移动端调出右下角的搜索文字 -->
+                <input type="search" placeholder="请输入要搜索商品">
+            </form>
+            <a href="#" class="login">登录</a>
+        </header>
+        <!-- 轮播图 -->
+        <section id="slide">
+            <!-- 轮播图图片容器 -->
+            <ul class="carousel-inner clearfix">
+                <!-- li是每一张轮播图  有10张轮播图为了实现无缝轮播和左滑动-->
+                <li class="item active">
+                    <a href="#">
+                        <img src="images/l8.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l1.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l2.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l3.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l4.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l5.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l6.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l7.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l8.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l1.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <!-- 轮播图的指示器（小圆点） -->
+            <ol class="carousel-indicators">
+                <!-- 小圆点只有8个 -->
+                <li data-slide-to="0" class="active"></li>
+                <li data-slide-to="1"></li>
+                <li data-slide-to="2"></li>
+                <li data-slide-to="3"></li>
+                <li data-slide-to="4"></li>
+                <li data-slide-to="5"></li>
+                <li data-slide-to="6"></li>
+                <li data-slide-to="7"></li>
+            </ol>
+        </section>
+    </div>
+    <!-- 1.引入主文件 -->
+    <!-- <script src="lib/zepto-js/zepto.min.js"></script> -->
+    <!-- 如果要用高级选择器 引入选择器文件 -->
+    <!-- <script src="lib/zepto-js/selector.js"></script> -->
+    <!-- 如果要使用动画 引入fx动画包 -->
+    <!-- <script src="lib/zepto-js/fx.js"></script> -->
+    <!-- 如果要使用滑动 要引入滑动的包 -->
+    <!-- <script src="lib/zepto-js/touch.js"></script> -->
+    <!-- 只要引入定制版zepto -->
+    <script src="lib/zepto定制版/zepto.min.js"></script>
+    <script>
+    $(function() {
+        var index = 1;
+        // 要使用jquery选择器就要引入selector.js包
+        var slideUl = $('#slide ul:eq(0)');
+        console.log(slideUl);
+        var slideWidth = $('#slide').width();
+        var timeId = null;
+        startTime();
+
+        function startTime() {
+            timeId = setInterval(function() {
+                index++;
+                startAnimate();
+            }, 1000);
+        };
+
+        function startAnimate() {
+            slideUl.animate({
+                'transform': 'translateX(' + (-index * slideWidth) + 'px)'
+            }, 200, 'ease-in', function() {
+                //动画执行完毕的回调函数跟 transitionend
+                if (index >= 9) {
+                    index = 1;
+                    // zepto的动画会自动清除过渡
+                    slideUl.css('transform', 'translateX(' + (-index * slideWidth) + 'px)');
+                }
+            })
+        }
+        // 如果要用swipeLeft左滑的事件函数需要引入touch.js包
+        slideUl.swipeLeft(function() {
+            clearInterval(timeId)
+                // 从右往左滑 切换到下一张
+            index++;
+            startAnimate();
+            startTime();
+        })
+        slideUl.swipeRight(function() {
+            clearInterval(timeId)
+                // 从左往右
+            index--;
+            startAnimate();
+            startTime();
+        })
+    });
+    </script>
+</body>
+
+</html>

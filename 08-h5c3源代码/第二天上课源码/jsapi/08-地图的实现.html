@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="position"></div>
+</body>
+</html>
+<script>
+    // geolocation就是地理位置的意思
+    //这个api就是geolocation这个对象， 发起了一个获取地理位置的请求（getCurrentPosition）， 请求成功之后，将地理位置信息， 放在了回调函数的参数里面
+    //coords： 坐标， longitude: 经度， latitude: 纬度
+    window.navigator.geolocation.getCurrentPosition(function(location){
+        document.querySelector(".position").innerHTML = "您当前的经度是："+location.coords.longitude+"，纬度是："+location.coords.latitude
+
+        //您当前的经度是：113.91906578547201，纬度是：22.579792724420578
+    });
+</script>

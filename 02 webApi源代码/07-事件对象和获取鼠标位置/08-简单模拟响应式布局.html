@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        响应式布局：其实因为各种设备的屏幕大小不一样
+        那么可视区域也不一样，有些设备大，有些设备小
+        响应式布局的意思就是：根据设备大小调整页面的内容
+    -->
+
+     <!-- 页面可视区域大于1000，显示为天蓝色
+          页面可视区域大于600但是小于1000，那么显示原谅色
+          页面可视区域大鱼400但是小于600，那么显示  利群色
+          页面400以下是骚粉
+     -->
+
+    <script>
+//        window.onresize = function () {
+//
+//            var clientWidth = document.body.clientWidth;
+//
+//            if(clientWidth >= 1000){
+//
+//                document.body.style.backgroundColor = "skyblue";
+//
+//            }else if(clientWidth >= 600){
+//
+//                document.body.style.backgroundColor = "green";
+//
+//            }else if(clientWidth >= 400){
+//
+//                document.body.style.backgroundColor = "black";
+//
+//            }else{
+//
+//                document.body.style.backgroundColor = "hotpink";
+//            }
+//        }
+        window.onresize= function () {
+         var clientWidth=document.body.clientWidth;
+            if(clientWidth>=1000){
+                document.body.style.backgroundColor="red";
+            }else if(clientWidth>=800){
+                document.body.style.backgroundColor="yellow";
+            }else if(clientWidth>=600){
+                document.body.style.backgroundColor="blue";
+            }else if(clientWidth>=400){
+                document.body.style.backgroundColor="yellowgreen";
+            }else if(clientWidth>=200){
+                document.body.style.backgroundColor="black";
+            }else{
+                document.body.style.backgroundColor="green";
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

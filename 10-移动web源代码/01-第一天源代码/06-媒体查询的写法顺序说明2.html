@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .row div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        /*一行放多个div要浮动*/
+        float: left;
+        /* 当屏幕宽度大于1200px的时候生效可以用默认值设置 */
+        width: 25%;
+    }
+    /* @media (max-width: 768px){
+        .row div{
+            width: 100%;
+        }   
+    } */
+    /*使用 max-width作为条件判断的时候条件顺序要从大到小写*/
+    
+    @media (max-width: 1200px) {
+        .row div {
+            width: 33.33%;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .row div {
+            width: 50%;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .row div {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+    </div>
+</body>
+
+</html>

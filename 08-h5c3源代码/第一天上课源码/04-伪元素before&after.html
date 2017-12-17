@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background-color: yellowgreen;
+        }
+
+        /* 
+            相当于我们使用css来创建了一个div 
+            1. 必须添加content
+            2. 必须添加display
+            3. before永远在所有的子元素的最前面
+            4. after永远在所有的子元素的最后面
+            5. 用法： 1. 不修改html的结构的基础上， 添加子元素；2. 清除浮动
+        */
+        .box::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .box::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: orangered;
+        }
+
+        /* .little {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        } */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- <div class="little"></div> -->
+    </div>
+</body>
+</html>

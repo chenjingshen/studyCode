@@ -1,0 +1,186 @@
+// 引入初始化文件
+@import 'base.less';
+// 最大容器
+#layout {
+    max-width: 640px;
+    min-width: 300px;
+    background-color: #fff; // height: 1000px;
+    margin: 0 auto;
+}
+
+// 顶部搜索栏
+#top-banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 640px;
+    background-color: #f7f7f7; // height: 40px;
+    z-index: 99;
+    >.switcher-left {
+        width: 22px;
+        height: 23px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    >p {
+        margin-left: 35px;
+        margin-right: 30px;
+        text-align: center;
+        line-height: 40px;
+        font-weight: 900;
+    }
+    >.search-right {
+        width: 17px;
+        height: 17px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    // 下拉框部分
+    #list {
+        display: none;
+        background-color: #fff;
+        position: absolute;
+        z-index: 99;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        >ul {
+            // padding-top: 41px;
+            width: 100%;
+            >li {
+                height: 36px;
+                width: 100%;
+                line-height: 36px;
+                border-bottom: 1px solid #ccc;
+                >a.list-left {
+                    font-size: 12px;
+                    color: #0099cc;
+                    margin-left: 5px;
+                }
+                >a.list-right{
+
+                    >img {
+                        width: 30px;
+                        height: 35px;
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 轮播图部分
+.swiper-container {
+    // width: 100%;
+    padding-top: 40px;
+    .swiper-pagination {
+        width: 30%;
+        margin-left: 220px;
+        .swiper-pagination-bullet {
+            float: right;
+        }
+    }
+    .swiper-slide {
+        // position: relative;
+        >a {
+            // width: 100%;
+            display: block;
+            >img {
+                width: 100%;
+                display: block;
+            }
+        }
+        .state {
+            position: absolute;
+            left: 5px;
+            bottom: 10px;
+            >a {
+                font-size: 12px;
+                color: #fff;
+            }
+        }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        background-image: url();
+        font-size: 30px;
+        font-weight: 900;
+        margin-top: 0px;
+    }
+}
+
+// 内容区域
+#content {
+    background-color: #fff;
+    >.content-title {
+        >ul {
+            position: relative;
+            >li {
+                width: 25%;
+                float: left;
+                text-align: center;
+                padding: 10px;
+                &.active {
+                    border-bottom: 3px solid @main-color;
+                    >a {
+                        color: @main-color;
+                    }
+                }
+                &.w-before {
+                    position: relative;
+                    >a::before {
+                        content: '';
+                        position: absolute;
+                        width: 1px;
+                        height: 25px;
+                        background-color: #333;
+                        left: 0;
+                    }
+                }
+                >a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    >.content-body {
+        width: 100%;
+        >.body-left {
+            width: 50%;
+            float: left;
+            padding: 5px;
+            border: 1px solid #ccc;
+            >.left-img {
+                position: relative;
+                >a {
+                    width: 100%;
+                    >img {
+                        width: 100%;
+                        height: 220px;
+                    }
+                }
+                >i {
+                    position: absolute;
+                    bottom: 0px;
+                    width: 100%;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: #aaa;
+                    font-size: 14px;
+                }
+            }
+            >.content-text {
+                text-align: center;
+                font-size: 14px;
+                width: 100%;
+                margin: 5px 0;
+                height: 20px;
+                overflow: hidden;
+            }
+        }
+    }
+}

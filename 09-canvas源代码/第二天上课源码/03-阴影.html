@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.rect(100, 100, 300, 200);
+
+    //在填充之前对矩形设置阴影
+    //和css3中的阴影的设置几乎是一样的，但是没有内阴影和阴影放大的参数
+    context.shadowOffsetX = 10;
+    context.shadowOffsetY = 10;
+    context.shadowBlur = 10;
+    context.shadowColor = "red";
+
+    context.fillStyle = "green";
+
+    context.fill();
+
+</script>

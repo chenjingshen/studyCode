@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- 事件捕获：跟事件冒泡是相反的
+
+         事件捕获，只能通过addEventListener来使用
+      -->
+    <style>
+        #son{
+            width: 150px;
+            height: 150px;
+            background-color: hotpink;
+        }
+
+        #father{
+
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="father">
+    <div id="son"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+    //参数3：bool值，false或true,默认值为false
+    //如果为false代表用的是事件冒泡
+    //如果为true代表是事件捕获
+    document.getElementById("son").addEventListener("click", function () {
+
+        alert("我是粉色的盒子")
+    },true);
+
+    document.getElementById("father").addEventListener("click", function () {
+
+        alert("我是绿色的盒子")
+    },true);
+
+    document.body.addEventListener("click", function (e) {
+
+        e = e || window.event;
+        alert("我是body")
+
+        e.stopPropagation();
+    },true);
+
+
+    document.documentElement.addEventListener("click", function () {
+
+        alert("我是html")
+    },true);
+
+    document.addEventListener("click", function () {
+
+        alert("我是文档")
+    },true);
+
+
+    window.addEventListener("click", function () {
+
+        alert("我是window")
+    },true);
+</script>

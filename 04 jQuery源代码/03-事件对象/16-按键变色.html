@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            text-align: center;
+        }
+
+        .wrap div {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+//            $(document).on("keydown", function (e) {
+                //1.获取按键的ascii码值。
+                //console.log(e.keyCode);
+                //b 66   y 89   p 80   r:82;   p:80;       o:79;      s:83;
+
+                //2.根据keycode改背景色,
+//                switch (e.keyCode){
+//                    case  66:
+//                        $("#bgChange").css("backgroundColor","blue");
+//                        $("#keyCodeSpan").text(e.keyCode);
+//                        break;
+//                    case  89:
+//                        $("#bgChange").css("backgroundColor","yellow");
+//                        $("#keyCodeSpan").text(e.keyCode);
+//                        break;
+//                    case  82:
+//                        $("#bgChange").css("backgroundColor","red");
+//                        $("#keyCodeSpan").text(e.keyCode);
+//                        break;
+//                    case  80:
+//                        $("#bgChange").css("backgroundColor","purple");
+//                        $("#keyCodeSpan").text(e.keyCode);
+//                        break;
+//                    case  83:
+//                        $("#bgChange").css("backgroundColor","skyblue");
+//                        $("#keyCodeSpan").text(e.keyCode);
+//                        break;
+//                    default :
+//                        $("#bgChange").css("backgroundColor","pink");
+//                        $("#keyCodeSpan").text("查无此键");
+//                        break;
+//
+//                }
+
+//            });
+
+            $(document).on("keydown", function (e) {
+                switch (e.keyCode){
+                    case 66:
+                        $("#bgChange").css("backgroundColor","blue");
+                        $("#keyCodeSpan").text(e.keyCode);
+                        break;
+                    case 89:
+                        $("#bgChange").css("backgroundColor","yellowgreen");
+                        $("#keyCodeSpan").text(e.keyCode);
+                        break;
+                    case 80:
+                        $("#bgChange").css("backgroundColor","pink");
+                        $("#keyCodeSpan").text(e.keyCode);
+                        break;
+                    case 82:
+                        $("#bgChange").css("backgroundColor","red");
+                        $("#keyCodeSpan").text(e.keyCode);
+                        break;
+                    case 79:
+                        $("#bgChange").css("backgroundColor","orange");
+                        $("#keyCodeSpan").text(e.keyCode);
+                        break;
+                    case 83:
+                        $("#bgChange").css("backgroundColor","skyblue");
+                        $("#keyCodeSpan").text(e.keyCode);
+                        break;
+                    default :
+                        $("#bgChange").css("backgroundColor","pink");
+                        $("#keyCodeSpan").text("查无此键");
+                        break;
+                }
+            })
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <div class="wrap">
+        <h1>按键改变颜色</h1>
+        <div id="bgChange">
+            keyCode为：
+            <span id="keyCodeSpan"></span>
+        </div>
+    </div>
+
+</body>
+</html>

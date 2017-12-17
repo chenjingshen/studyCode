@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>连载动漫</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/anime.less">
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+    <!-- 引入bootstrap文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/anime.js"></script>
+    <!-- 引入template.js文件 -->
+    <script src="./js/template-web.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 整体的大盒子 -->
+    <div id="layout">
+        <!-- 顶部 -->
+        <header id="top-banner" class="bb">
+            <a href="./index.html" class="glyphicon glyphicon-menu-left">
+            </a>
+            <p>连载动漫</p>
+        </header>
+
+        <!-- 内容部分 -->
+        <div id="body">
+            <ul class="ul-list clearfix">
+                <li>
+                    <a href="#">
+                        <img src="" alt="">
+                    </a>
+                    <div class="body-right">
+                        <h4 class="mingchen">海贼王全集</h4>
+                        <p class="ji">连载至36集</p>
+                        <p class="genxin">10-11更新</p>
+                        <p class="xiazai">下载次数:10000</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 连载动漫渲染 -->
+<script id='anime-template' type="text/html">
+    {{each}}
+    <li>
+        <a href="{{$value.url}}">
+            <img src="{{$value.img}}" alt="">
+        </a>
+        <div class="body-right">
+            <h4 class="mingchen">{{$value.name}}</h4>
+            <p class="ji">{{$value.episode}}</p>
+            <p class="genxin">{{$value.updateTime}}</p>
+            <p class="xiazai">下载次数:{{$value.downloadCount}}</p>
+        </div>
+    </li>
+    {{/each}}
+</script>

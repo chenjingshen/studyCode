@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //逗号运算符：,
+//            作用：可以把多个表达式连接写到一句
+
+//        逗号运算式也会有一个结果，它的结果是最后一个表达式的结果
+
+//        只要是用,连接起来的式子都叫逗号运算式
+
+//        需要给n1和n2自增，然后算出自增后的n1与n2的和
+
+
+
+//        总结：逗号运算式前面的式子都会被执行，只不过这个整体表达式的结果是最后一个表达式的结果
+
+        /*
+        var n1 = 10,n2 = 20;
+
+//        n1++;
+//        n2++;
+//
+//        var sum = n1 + n2;
+
+
+        var sum = (n1++,n2++,n1 + n2);
+        console.log(n1,n2,sum);//11,21,32
+        */
+
+//        var n1 = 10;
+//        var n2 = 20;
+//
+//        var res = (n1++,n2++,30*2);
+//
+//        console.log(n1,n2,res);//11,21,60
+
+        var n1 = 10;
+        var n2 = 20;
+
+        var res = (n1+=50,n2++,n1 > n2);
+
+        console.log(n1,n2,res);//60,21,true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

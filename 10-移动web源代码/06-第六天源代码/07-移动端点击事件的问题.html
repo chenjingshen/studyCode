@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+		var div = document.querySelector('div');
+		// click在移动端有300ms左右的延迟 
+		/*为什么click有延迟 是因为移动端要兼容双击操作 如果300ms以内点击了次 就认为是双击操作 如果只点击了一次 就是单击事件*/
+		div.addEventListener('click', function(){
+			console.log('click');
+		});
+		div.addEventListener('touchstart', function(){
+			console.log('touchstart');
+		});
+		div.addEventListener('touchmove', function(){
+			console.log('touchmove');
+		});
+		div.addEventListener('touchend', function(){
+			console.log('touchend');
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        window.onload = function () {
+
+//            var divList = document.getElementsByTagName('div');
+//            console.log(divList);
+
+            //无论如何返回的都是伪数组
+            //找到所有class=box的元素
+
+            //用的少，因为有浏览器兼容性问题，只能是IE8以后的版本用。IE8以及IE8以前不支持这个方法
+            var list = document.getElementsByClassName('box');
+            console.log(list);
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="box">我是box1</div>
+<div class="box">我是box2</div>
+
+<p class="box">我是p标签</p>
+
+<div class="xxx"></div>
+<div></div>
+
+</body>
+</html>

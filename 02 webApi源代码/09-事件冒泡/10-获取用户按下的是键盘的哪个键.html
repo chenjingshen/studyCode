@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+
+    /*onkeyup  键盘弹起时触发
+     //onkeydown和onkeypress 都是键盘按下会触发的事件
+     //不同点在于，获取用户输入的键时有些不一样
+     //不同点：
+     1.charCode属性有兼容性问题，在keypress还是可以用的，但是在keydown里面不能用，获取到的永远是0
+     2.keypress里面会过滤掉系统的一些功能键：例如：shift,caps lock（大小写切换键）,删除键，ctrl,alt键等等功能键都会被过滤，但是keydown里面都会触发
+     3.keypress可以区分按下的是大写还是小写，而可以keydown永远都是当大写
+
+     一般用keypress用的多
+     */
+
+
+    /*
+     charCode：无论哪个浏览器在keydown中都获取不到，在keypress中，除了IE8和以前的版本都可以获取到
+     keyCode：在谷歌、IE里面无论什么版本在keydown和keypress中都可以获取到，但是在火狐中，只能在keydown里获取到，keypress里获取不到
+     which：在火狐和谷歌中无论是keydown还是keypress都能获取到，IE8以前都不能，以后都可以
+
+     兼容性写法：  var char = e.charCode || e.keyCode || e.which;
+
+     */
+
+    //一定要弹起才会触发
+    //    window.onkeyup = function () {
+    //
+    //        console.log("键盘弹起了");
+    //    }
+    //
+    //只要按着就会触发
+//    document.documentElement.onkeydown = function (e) {
+//
+//        e = e || window.event;
+//
+////        console.log("keydown:" + e.charCode);
+////        console.log("keydown:" + e.keyCode);
+////        console.log("keydown:" + e.which);
+//
+//        var char = e.charCode || e.keyCode || e.which;
+//        console.log("keydown:" + char);
+//
+//    }
+
+
+    //键盘按下就会触发
+    document.documentElement.onkeypress = function (e) {
+
+        e = e || window.event;
+
+        //获取用户输入的键是哪一个，但是返回的是ASCII码
+//        console.log("keypress:" + e.charCode);
+//        console.log("keypress:" + e.keyCode);
+//        console.log("keypress:" + e.which);
+
+        var char = e.charCode || e.keyCode || e.which;
+
+        console.log("keypress:" + char);
+
+        //把键对应的值转换成字符
+        console.log(String.fromCharCode(char));
+        
+    }
+
+</script>

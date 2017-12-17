@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.css操作
+    //a.css() 操作样式的，获取的内嵌和行内， 设置的样式都是在行内。
+    //b.class操作。
+    //addClass("one two")
+    //removeClass("one");
+    //hasClass();
+    //toggleClass();
+
+
+    //2.jQuery动画
+    //2.1基本动画
+    //a.show();  hide(); toggle();
+    //如果没有写参数，就没有动画效果； 参数可以是毫秒数，也可以是对应的字符串 "fast" "normal" "slow"
+    //第二个参数是 动画执行完毕之后的回调函数。
+
+    //b.slideDown();  slideUp();
+    //参数可以是毫秒数，也可以是对应的字符串 "fast" "normal" "slow"
+    //第二个参数是 动画执行完毕之后的回调函数。
+
+    //c.fadeIn();  fadeOut();
+    //参数可以是毫秒数，也可以是对应的字符串 "fast" "normal" "slow"
+    //第二个参数是 动画执行完毕之后的回调函数。
+
+
+    //2.2自定义动画
+    //animate()
+    //第一个参数：对象 ，要发生动画的样式
+    //第二个参数：做动画的时间
+    //第三个参数：匀速啊还是非匀速啊   "linear"  "swing"
+    //第四个参数：动画执行完毕之后的回调函数。
+
+
+    //2.3stop的含义
+    //动画的队列
+    //stop(); //有两个参数，是布尔类型的值
+    //第一个参数：是否清空动画队列
+    //第二个参数：是否执行到当前动画的最终位置
+
+
+
+    //3.动态创建元素
+    //a. $();
+    //b. html();
+
+
+    //4.添加节点  5种
+    //append();
+    //prepend();
+    //after();
+    //before();
+    //appendTo();
+
+
+    //5.移除节点
+    //html(""); //不用，会泄漏内存
+    //empty();
+    //remove();
+
+    //6.克隆节点
+    //clone(); //参数默认是false
+    //参数：不管是true还是false，克隆的节点的内容都是会被克隆的。
+    //参数是false，不会克隆事件，， 参数是true的话，会把事件也一起克隆来。
+
+    //7.val()获取表单数据
+    //val();
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

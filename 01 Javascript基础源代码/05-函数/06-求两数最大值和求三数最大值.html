@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //返回两个数之间的最大值
+        function getMaxWithTwoNumber(n1, n2) {
+
+            return n1 > n2 ? n1 : n2;
+        }
+
+        //        var max = getMaxWithTwoNumber(155,233);
+        //
+        //        console.log(max);
+
+//        function getMaxWithThreeNumber(n1, n2, n3) {
+        //
+        //            var max = n1 > n2 ? n1 : n2;
+        //
+        //            return max > n3 ? max : n3;
+        //        }
+
+        //改良
+        function getMaxWithThreeNumber(n1, n2, n3) {
+
+            var max = getMaxWithTwoNumber(n1,n2);
+
+            return getMaxWithTwoNumber(max,n3);
+        }
+
+        var res = getMaxWithThreeNumber(15, 12, 18);
+
+        console.log(res);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        步骤：
+            1.搭界面
+            2.找到主界面、数据界面、阴影，再给开始游戏加点击事件
+                   2.1 隐藏阴影
+                   2.2 显示主界面和数据界面
+
+            3.初始化数据（拿到分数、命中率、倒计时文本框），分别初始化为0和30秒（游戏时长自己设置喜欢的值）
+
+            4.开启一个每隔一秒触发的计时器，用来倒计时
+                    取出当前的倒计时时间，-1，再赋值
+                    再判断是否等于0，等于0，则停止这个计时器，并打印当前的分数
+
+            5.随机生成小老鼠（小利群）
+                1.找到所有的td
+                2.在开始游戏，加一个计时器，计时器里随机生成0-24的索引（根据你的td数量，数量为几，就生成0-数量-1的随机数），根据索引找到td，再给td加一个子元素为img，img用的图片就是老鼠
+                3.在生成里面用一个定时器（setTimeout），清空对应的td的innerHTML
+
+            6.给每一个td加一个点击事件
+                    点击事件里判断当前被点击的td的innerHTML是否为空
+
+                            如果不为空，代表里面有老鼠，你打到了
+                                    就分数+1
+                            为空
+                                    就分数-1
+
+                  把最新分数显示到界面
+                  并且根据最新分数计算命中率
+
+
+            7.倒计时一到时间就停止生成小老鼠并打印出结果
+                7.1 生成小老鼠的时候加一个变量保存id
+                7.2 在倒计时为0的时候，就停止这个生成小老鼠的计时器
+                7.3 打印出结果
+
+
+            8.改成两种模式
+                   核心思路是：创建老鼠时间和消失的时间短一点，就难一些
+
+               8.1 在阴影处添加了两个按钮（简单模式、地狱模式）
+               8.2 设置他们的样式（改位置）
+               8.3 准备两个变量，一个保存生成老鼠的时间，一个保存消失老鼠的时间
+               8.4 把开始游戏的代码封装成函数（隐藏阴影、显示主界面、创建老鼠、到技术等）
+               8.5 给简单和地狱加点击时间
+                    简单点击事件里让时间长一点
+                    地狱模式里让时间短一点
+
+                    无论是哪个事件，最后都调用开始游戏的函数
+
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*让body跟显示区域一样高*/
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: url("img/bg.png") no-repeat;
+            background-size: 100%;
+        }
+
+        table {
+
+            margin: 20px auto;
+        }
+
+        td {
+            width: 120px;
+            height: 110px;
+            background: url("img/overBg.png") no-repeat;
+            background-size: 100%;
+
+            /*如果用自定义图片做鼠标，必须要有逗号，后面接一个数据
+              意思是说，如果你给的自定义图片加载不出来，那么用什么样的鼠标指针来替代
+            */
+            cursor: url("img/chuizi.png"), auto;
+        }
+
+        #gameBoard {
+            display: none;
+        }
+
+        #dataBoard {
+            text-align: center;
+            display: none;
+        }
+
+        #cover {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        #cover input {
+            width: 120px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -60px;
+            margin-top: -40px;
+        }
+
+        #cover input:first-child{
+
+            margin-top: -120px;
+        }
+
+        #cover input:last-child{
+
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dataBoard">
+
+    <label for="score">分数：</label>
+    <input type="text" name="score" id="score" disabled/>
+
+    <label for="mzl">命中率：</label>
+    <input type="text" name="mzl" id="mzl" disabled/>
+
+
+    <label for="remtime">倒计时：</label>
+    <input type="text" name="remtime" id="remtime" disabled/>
+
+</div>
+
+<div id="gameBoard">
+    <table>
+        <!--(tr>td*5)*5-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="cover">
+    <input type="button" value="简单模式" id="easy"/>
+    <input type="button" value="地狱模式" id="hard"/>
+</div>
+
+</body>
+</html>
+
+<script>
+    //阴影
+    var cover = document.getElementById("cover");
+    //主界面
+    var gameBoard = document.getElementById("gameBoard");
+    //数据界面
+    var dataBoard = document.getElementById("dataBoard");
+    //分数
+    var score = document.getElementById("score");
+    //命中率
+    var mzl = document.getElementById("mzl");
+    //倒计时
+    var remtime = document.getElementById("remtime");
+
+    //找到所有td
+    var tdList = document.getElementsByTagName("td");
+
+    //用来记录已经出现的老鼠数量的变量
+    var count = 0;
+
+    //声明两个变量：分别保存每次创建老鼠的时间，消失的时间
+    var chuangjian,xiaoshi;
+
+
+    //开始简单模式的点击事件
+    document.getElementById("easy").onclick = function () {
+
+        chuangjian = 1000;
+        xiaoshi = 800;
+
+        startGame();
+    };
+
+    //开始地狱模式的点击事件
+    document.getElementById("hard").onclick = function () {
+
+        chuangjian = 600;
+        xiaoshi = 400;
+
+        startGame();
+    };
+
+
+
+    function startGame(){
+
+        //1.1 隐藏阴影蒙板
+        cover.style.display = "none";
+
+        //1.2 显示游戏主界面
+        gameBoard.style.display = "block";
+
+        //1.3 显示数据界面
+        dataBoard.style.display = "block";
+
+        //2.1 初始化分数、命中率、倒计时
+        score.value = 0;
+        mzl.value = 0;
+        remtime.value = 30;
+
+        //3.0 开始计时（每秒少一秒）
+        var remID = setInterval(function () {
+
+            var time = remtime.value;
+
+            time--;
+
+            remtime.value = time;
+
+            //时间到游戏结束
+            if (time == 0) {
+
+                //停止倒计时的计时器
+                clearInterval(remID);
+                //停止生成老鼠的计时器
+                clearInterval(creatID);
+
+                var num = Math.ceil(Math.random() * 10000);
+
+                //打印分数
+                alert("游戏结束！\n您的分数为：" + score.value + "\n您的命中率为：" + mzl.value + "\n超过了全国" + num + "人");
+            }
+        }, 1000);
+
+
+        //4.0 随机生成老鼠
+        var creatID = setInterval(function () {
+
+            //每创建一个老鼠就让数量+1
+            count++;
+
+            var index = Math.floor(Math.random() * 25);
+
+            tdList[index].innerHTML = "<img src='img/mouse1.png' />";
+
+            //隔一段时间要自动消失
+            setTimeout(function () {
+
+                tdList[index].innerHTML = "";
+            }, xiaoshi);
+
+        }, chuangjian);
+
+
+    }
+
+    //给每一个td（老鼠坑）加点击事件
+    for (var i = 0; i < tdList.length; i++) {
+
+        tdList[i].onclick = function () {
+
+            //取出分数
+            var s = score.value;
+
+            //判断被点的td里面有没有老鼠
+            if (this.innerHTML != "") {
+                //加分
+                s++;
+
+            } else {
+
+                s--;
+            }
+
+            score.value = s;
+            //计算命中率   例如 10 / 20 = 0.5   * 100 = 50  + %  = 50%;
+            mzl.value = s / count * 100 + "%";
+        }
+    }
+</script>

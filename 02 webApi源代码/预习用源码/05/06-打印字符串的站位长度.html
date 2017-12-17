@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    sort();   底层用到了charCodeAt();
+
+    var str = "I love my country!我你爱中国！";
+    //"我爱你"：一汉字占两个字符位。
+    //需求：求一个字符串占有几个字符位。
+    //思路；如果是英文，站一个字符位，如果不是英文占两个字符位。
+    //技术点：判断该字符是否在0-127之间。（在的话是英文，不在是非英文）
+    alert(getZFWlength(str));
+    alert(str.length);
+
+    function getZFWlength(string){
+        //定义一个计数器
+        var count = 0;
+        for(var i=0;i<string.length;i++){
+            //对每一位字符串进行判断，如果Unicode编码在0-127，计数器+1；否则+2
+            if(string.charCodeAt(i)<128 && string.charCodeAt(i)>=0 ){
+                count++;
+            }else{
+                count+=2;
+            }
+        }
+        return count;
+    }
+
+
+</script>
+</body>
+</html>

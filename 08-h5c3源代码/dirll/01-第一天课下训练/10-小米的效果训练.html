@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .box{
+            width: 300px;
+            height: 400px;
+            background-color: yellowgreen;
+            position: relative;
+            margin: 50px auto;
+            transition: all 1s;
+        }
+        .girl{
+            width: 100%;
+            height: 410px;
+            background: url("../img/girl4.jpg") left top /100% 100%;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            position: absolute;
+        }
+        .girl::after{
+            content: "江南皮革厂倒闭啦";
+            display: block;
+            width: 100%;
+            height: 100px;
+            background-color: orange;
+            position: absolute;
+            bottom: -100px;
+            transition: all 1s;
+        }
+        .box:hover{
+            margin-top: 46px;
+            box-shadow: 0px 0px 10px 5px red;
+        }
+        .box:hover .girl::after{
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="girl"></div>
+    </div>
+</body>
+</html>

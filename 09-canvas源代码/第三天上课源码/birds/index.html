@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./Sky.js"></script>
+    <script src="./Land.js"></script>
+    <script src="./Pipe.js"></script>
+    <script src="./Bird.js"></script>
+
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="800" height="600" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 加载所有的图片
+    var birdsImg = new Image();
+    var skyImg = new Image();
+    var landImg = new Image();
+    var pipe1Img = new Image();
+    var pipe2Img = new Image();
+
+    birdsImg.src = "./img/birds.png";
+    skyImg.src = "./img/sky.png";
+    landImg.src = "./img/land.png";
+    pipe1Img.src = "./img/pipe1.png";
+    pipe2Img.src = "./img/pipe2.png";
+
+    var imgArr = [birdsImg, skyImg, landImg, pipe1Img, pipe2Img];
+    var count = 0;
+    imgArr.forEach(function (img) {
+        img.onload = function () {
+            count += 1;
+            if (count == imgArr.length) {
+                console.log("所有的图片都加载成功了");
+
+                var roleArr = [];
+                var bird;
+
+                function createRole() {
+                    //1. 创建所有的胖子
+                    for (var i = 0; i<2; i++) {
+                        var sky = new Sky({
+                            image: skyImg,
+                            x: i * skyImg.width,
+                            canvas: canvas,
+                            context: context
+                        })
+                        roleArr.push(sky);
+                    }
+
+                    //2. 创建所有的陆地对象
+                    for (var i = 0; i < 4; i++) {
+                        var land = new Land({
+                            image: landImg,
+                            x: i * landImg.width,
+                            canvas: canvas,
+                            context: context
+                        });
+                        roleArr.push(land);
+                    }
+
+                    //3. 创建所有的管道对象
+                    var gap = (canvas.width - 6 * pipe2Img.width) / 5;
+                    for (var i = 0; i < 6; i++) {
+                        var pipe = new Pipe({
+                            topImage: pipe2Img,
+                            bottomImage: pipe1Img,
+                            x: 300 + i * (pipe2Img.width + gap),
+                            gap: gap,
+                            boffset: landImg.height,
+                            canvas: canvas,
+                            context: context
+                        })
+                        roleArr.push(pipe);
+                    }
+
+                    //4. 创建小鸟对象
+                    bird = new Bird({
+                        image: birdsImg,
+                        x: 100,
+                        y: 100,
+                        canvas: canvas,
+                        context: context
+                    })
+
+                    roleArr.push(bird);
+                }
+
+                //创建角色
+                createRole();
+                
+                function action() {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    context.beginPath();
+
+                    roleArr.forEach(function (role) {
+                        role.draw();
+                    })
+
+                    if (bird.y >= canvas.height - landImg.height - birdsImg.height + 10) {
+                        return;
+                    }
+
+                    if (context.isPointInPath(bird.x + 26, bird.y + 22)) {
+                        return;
+                    }
+
+                    window.requestAnimationFrame(action);
+                }
+
+                canvas.onclick = function () {
+                    bird.speed = -0.2;
+                }
+
+                action();
+            }
+        }
+    })
+
+</script>
+
+<!--
+   小鸟游戏： 小鸟在天上飞， 当它撞到柱子，或者掉到地上， 它就死了
+   小鸟， 天， 柱子， 地
+   类-》对象
+-->

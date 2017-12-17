@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    
+    //1. 拿到图片
+    var image = new Image();
+    image.src = "./img/DMMban.png";
+    
+    image.onload = function () {
+        //某一行第几张图片
+        var xindex = 0;
+        //第几行图片
+        var yindex = 0;
+
+        //图片的宽高
+        var w = image.width / 4;
+        var h = image.height / 4;
+
+        //临时变量index，每走一步递增，用来计算 xindex
+        var index = 0;
+
+        //x， y的位置
+        var x = 300;
+        var y = 200;
+
+        //x, y方向的速度
+        var xspeed = 10;
+        var yspeed = 10;
+
+        //左-上-右-下： 37， 38， 39， 40
+        window.onkeydown = function (event) {
+            console.log(event.keyCode);
+            switch (event.keyCode) {
+                //往左走
+                case 37:
+                    //如果小人已经移动到了左边界， 再按左键什么也不做;
+                    if (x < 0) {
+                        break;
+                    }
+                    yindex = 1;
+                    index += 1;
+                    xindex = index % 4;
+                    //清空画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(image, xindex * w, yindex * h, w, h, x, y, w, h);
+                    //往左移动一步
+                    x -= xspeed;
+
+                    break;
+                //往上走
+                case 38:
+                    //如果已经到了上边界， 那么点上键就什么也不做
+                    if (y < 0) {
+                        break;
+                    }
+
+                    //算出使用第几行第几张小图
+                    yindex = 3;
+                    index += 1;
+                    xindex = index % 4;
+
+                    //清空画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(image, xindex * w, yindex * h, w, h, x, y, w, h);
+                    //往上移动一步
+                    y -= yspeed;
+                    break;
+                //小人往右移动
+                case 39:
+                    //如果小人已经移动到了右边界， 再按右键什么也不做;
+                    if (x > canvas.width - w) {
+                        break;
+                    }
+                    yindex = 2;
+                    index += 1;
+                    xindex = index % 4;
+                    //清空画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(image, xindex * w, yindex * h, w, h, x, y, w, h);
+                    //往右移动一步
+                    x += xspeed;
+
+                    break;
+                //小人往下移动
+                case 40:
+                    //如果已经到了下边界， 那么点上键就什么也不做
+                    if (y > canvas.height - h) {
+                        break;
+                    }
+
+                    //算出使用第几行第几张小图
+                    yindex = 0;
+                    index += 1;
+                    xindex = index % 4;
+
+                    //清空画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(image, xindex * w, yindex * h, w, h, x, y, w, h);
+                    //往下移动一步
+                    y += yspeed;
+                    break;
+
+            }
+        }
+
+    }
+
+</script>

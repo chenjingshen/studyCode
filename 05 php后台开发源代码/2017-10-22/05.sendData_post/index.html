@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    使用form表单提交数据
+        form
+            action
+            method
+                get/post
+        表单元素
+            name属性
+        input submit
+            提交数据
+    
+    get提交数据的特点
+        1. 数据在地址栏
+            如果有私密的数据  不建议使用get
+            受限于url的长度，无法提交大量的数据
+                有的浏览器有限制，有的浏览器没有限制
+                有的web服务器也会限制url的长度
+            大量的数据提交 不要使用 get
+            因为数据在url中，保存的书签，下次还是进入那个页面 post是无法实现的
+            非私密的数据 用get 未尝不可，比如搜索
+            上传文件 不会使用get
+
+    post提交数据的特点
+        1. 数据在地址栏中看不到
+            私密的信息  post提交
+            数据量大    post提交
+            上传文件    post
+
+
+     -->
+    <form action="./postData.php" method="post">
+        <input name='cartoonName' type="text" placeholder="请输入卡通人物的名字">
+        <input type="submit">
+    </form>
+</body>
+</html>

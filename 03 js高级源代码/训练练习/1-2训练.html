@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+   //把函数提炼出来，让方法指向提炼出来的函数
+    //解决了内存浪费的问题，但是会出现变量污染的问题
+   //使用对象把提炼的方法包起来，就可以解决变量污染的问题
+//   var obj={
+//       test1:function () {
+//           console.log("哈哈哈");
+//       },
+//       test2: function () {
+//           "呵呵，我在吃吃吃";
+//       }
+//   }
+//   function Person(name,age) {
+//       this.name=name;
+//       this.age=age;
+//       this.sayHi=obj.test1;
+//       this.eat=obj.test2;
+//   }
+//   var p1=new Person("张三",18);
+//   var p2=new Person("李四",20);
+//   Person.prototype.sayHi= function () {
+//       console.log("我是原型里的哈哈哈");
+//   }
+//   p1.sayHi();
+//   p2.sayHi();
+//   console.log(p1.sayHi === p2.sayHi);
+
+
+   //   function test1 () {
+//       console.log("哈哈哈");
+//   }
+//   function test2 () {
+//       console.log("额呵呵呵，我在吃东西");
+//   }
+//    function Person(name,age){
+//        this.name=name;
+//        this.age=age;
+//        this.sayHi=test1;
+//        this.eat=test2;
+//    }
+//
+//    var p1=new Person("张三",18);
+//    var p2=new Person("李四",20);
+//    p1.sayHi();
+//    p2.sayHi();
+//   console.log(p1.sayHi === p2.sayHi);
+
+
+
+    //对象继承的实现方式
+    //混入式
+//    var jianLin={
+//        house:{
+//            jiage:10000000,
+//            dizhi:"东京",
+//        },
+//        car:{
+//            jiage:5000000,
+//            paizi:"法拉利",
+//        }
+//    }
+//    var siCong={
+//        grf:["刘亦菲","高圆圆","范冰冰"]
+//    }
+//   for (var key in jianLin) {
+//       siCong[key] = jianLin[key];
+//   }
+//   console.log(siCong);
+
+    //替换原型式
+//    var jianLin={
+//        house:{
+//            jiage:10000000,
+//            dizhi:"东京",
+//        },
+//        car:{
+//            jiage:5000000,
+//            pingpai:"法拉利",
+//        }
+//    }
+//    //渣男构造函数
+//    function zhaNan(grf){
+//        this.grf=grf;
+//    }
+//    zhaNan.prototype.huaqian= function () {
+//        console.log("阿拉啦啦，我很会花钱");
+//    }
+//    zhaNan.prototype=jianLin;
+//    var siCong=new zhaNan(["刘亦菲","高圆圆","范冰冰"]);
+//   console.log(siCong.house);
+
+
+    //混合式
+//    var jianLin={
+//        house:{
+//            jiage :10000000,
+//            dizhi:"东京"
+//        },
+//        car:{
+//            jiage:5000000,
+//            pinpai:"法拉利"
+//        }
+//    }
+//    function zhaNan (grf){
+//        this.grf=grf;
+//    }
+//   zhaNan.prototype.huaqian= function () {
+//       console.log("啦啦啦，我很会花钱");
+//   }
+//   for (var key in jianLin) {
+//        zhaNan.prototype[key]=jianLin[key];
+//   }
+//
+//    var siCong=new zhaNan(["高圆圆","刘亦菲","范冰冰"])
+//   console.log(siCong.car);
+
+
+    //如何安全地给构造函数的原型添加方法
+//    function myArray(){
+//
+//    }
+//    myArray.prototype=[];
+//    myArray.prototype.sayHi= function () {
+//        console.log("大家好，我是张家辉");
+//    }
+//    var m1=new myArray();
+//    m1.push(10);
+//
+//   console.log(m1);
+//   m1.sayHi();
+
+
+</script>

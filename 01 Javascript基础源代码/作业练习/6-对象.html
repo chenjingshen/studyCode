@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        /**
+         *
+         * @returns {Object}
+         */
+
+
+//        构造一个狗的对象函数
+        /*
+        function dog(){
+            var gou=new Object();
+            gou.name="小白";
+            gou.age=2;
+            gou.color="白";
+            gou.dongzuo=function(){
+                alert("我家狗的名字叫"+this.name+"今年"+this.age+"岁了，很明显它是"+this.color+"色的");
+            }
+            return gou;
+        }
+       var gou= dog();
+        console.log(gou);
+        gou.dongzuo();
+        */
+
+
+
+//        for(var i = 1 ; i < 10 ; i = i + 1){
+//            if(i % 2 == 0){
+//                i = i * 2;
+//            }
+//            console.log(i);
+//        }
+
+
+
+//        var a = 10;
+//        if(a > 5){
+//            a = a + 3;
+//        }else if(a == 13){
+//            a = a + 4;
+//        }else if(a == 17){
+//            a = a + 5;
+//        }else{
+//            a = a + 6;
+//        }
+//        console.log(a);
+
+
+//        var x,y;
+//        x=10;
+//        y=x++;
+//        console.log(y)
+
+//        最有一题
+//        substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+//        toUpperCase() 方法用于把字符串转换为大写。
+//        split() 方法用于把一个字符串分割成字符串数组。
+        var str='get-element-by-id';
+        function f1(){
+            var arr=str.split('-');
+            var s='';
+            for(var i=0;i<arr.length;i++){
+                if(i<1){
+                    s+=arr[i];
+                }else {
+                    arr[i]=arr[i].substring(0,1).toUpperCase()+arr[i].substring(1);
+                    s+=arr[i];
+                }
+            }
+            console.log(s);
+        }
+        f1();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

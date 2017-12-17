@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //图片绘制5参模式（缩放模式）, 就是将图片显示在画布上的某一块区域（x, y, w, h）,如果这个区域的宽高和图片不一至，会被压缩或放大
+    var image = new Image();
+    image.src = "./img/gls.jpg";
+
+    image.onload = function () {
+        context.drawImage(image, 100, 100, 100, 100);
+    }
+
+</script>

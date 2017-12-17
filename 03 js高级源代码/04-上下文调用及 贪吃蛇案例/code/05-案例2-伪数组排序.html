@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+  var disArr = {
+    0:11,
+    1:21,
+    2:18,
+    3:50,
+    4:30,
+    5:6,
+    length:6
+  };
+
+  //对这个伪数组disArr他排序
+
+  //disArr.sort(); //报错的
+
+  //因为disArr是一个伪数组，没有sort方法，但是可以借用sort方法
+  var arr =  Array.prototype.sort.call(disArr, function (a,b) {
+    return a<b;
+  });
+  console.log(arr);
+
+
+
+
+
+
+
+  //复习了sort方法
+  // var arr = [10,20,11,32,5];
+  // arr = arr.sort(function (a, b) {
+  //   return a > b;
+  // });
+  // console.log(arr);
+
+
+</script>
+</body>
+</html>

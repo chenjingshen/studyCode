@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+    insertBefore：插入一个子元素到某个子元素前面；
+
+     //给ul1插入子元素到某个子元素的前面
+        //参数1：要插入的子元素
+        //参数2：插入到哪个子元素前面
+        ul1.insertBefore(li,li3);
+
+
+     如果是某个已经存在的元素，插入到另外一个元素，相当于移动
+
+
+     没有insertAfter，如果想实现插入到某个元素的后面可以用这样的思路：
+        先找到这个元素的下一个兄弟元素，再插入到这个下一个兄弟元素的前面
+    -->
+</head>
+<body>
+
+<ul id="ul1">
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li id="li3">隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+<input type="button" value="插入到之前" id="btn1"/>
+
+<input type="button" value="插入到之后" id="btn2"/>
+
+<ul id="ul2">
+    <li>隔壁老周1</li>
+    <li>隔壁老周2</li>
+    <li>隔壁老周3</li>
+    <li>隔壁老周4</li>
+    <li id="last">隔壁老周5</li>
+</ul>
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+    var ul1 = id("ul1");
+    var ul2 = id("ul2");
+
+
+    id("btn1").onclick = function () {
+
+        //创建新元素再插入到某个子元素之前
+        /*
+        //找到第三个li标签
+        var li3 = id("li3");
+
+        var li = document.createElement("li");
+        li.innerHTML = "我是新的内容";
+
+        //给ul1插入子元素到某个子元素的前面
+        //参数1：要插入的子元素
+        //参数2：插入到哪个子元素前面
+        ul1.insertBefore(li, li3);
+        */
+
+        var li3 = id("li3");
+
+        var last = id("last");
+
+        ul2.insertBefore(li3,last);
+    }
+
+    id("btn2").onclick = function () {
+
+        var li3 = id("li3");
+
+        var newLi = document.createElement("li");
+        newLi.innerHTML = "新内容";
+
+        //插入到li3的下一个兄弟元素的前面（就相当于插入到li3的后面）
+        ul1.insertBefore(newLi,li3.nextElementSibling);
+    }
+
+</script>

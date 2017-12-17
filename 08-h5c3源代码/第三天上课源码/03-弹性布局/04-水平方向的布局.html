@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            background-color: yellowgreen;
+            /* display: flex, 可以让元素横向排列;但是子元素可能会随着父元素的宽高变化， 而产生变形*/
+            display: flex;
+
+            /* 换行显示 */
+            flex-wrap: wrap;
+
+            /* 分配剩余空间, flex-start, flex-end, center, space-around, space-betweent */
+            justify-content: space-between; 
+        }
+
+        li {
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+            padding: 0;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

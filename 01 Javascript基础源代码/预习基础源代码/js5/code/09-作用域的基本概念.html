@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.作用域-起作用的区域
+    //a.全局作用域：script标签里面，所有的函数外面，就是全局作用域。
+    //b.局部作用域: 任意函数内部就是局部作用域。 - 在js中只有函数才能分割作用域。
+
+
+    //2.变量而言的
+    //a.全局变量：声明在全局作用域中的变量。
+        //全局变量，在程序的任意地方都可以被访问。
+        //程序结束才会被回收。
+
+
+    //b.局部变量：声明在函数内部的变量，就是局部变量。
+        //局部变量，只能在声明他的那个局部作用域中被访问。
+        //局部变量，声明他的那个函数执行完毕了，就回收。
+
+        // function test1(){
+        //   var num = 10;
+        //   console.log(num);
+        // }
+        // test1();
+
+
+
+    //3.变量的不规则声明方式
+    //a.变量的规则声明方式。
+    //var num = 10;    var num1 = 10, num2 = 20, num3 = 20;
+    //b.变量的不规则声明方式。
+    //b.1 如果在函数内部声明变量没有使用var；那么他就会成为一个全局变量。
+    //  function test(){
+    //    num = 10;
+    //    console.log(num);
+    //  }
+    //  test();
+    //  console.log(num); //10
+
+    //b.2
+    //  var num1 = num2 = num3 = 10; //这一句话相当于以下三句话
+    //  num3 = 10;
+    //  num2 = 10;
+    //  var num1 = 10;
+
+
+
+    function test(){
+      var num1 = num2 = num3 = 10;
+
+      console.log(num3); //10
+      console.log(num2); //10
+      console.log(num1); //10
+    }
+    test();
+
+    console.log(num3); //10
+    console.log(num2); //10
+    console.log(num1); //报错  num1 is not defiend
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

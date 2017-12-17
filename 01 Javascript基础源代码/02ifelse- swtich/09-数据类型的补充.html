@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        string：所有双引号或者单引号包括起来的
+        number：所有数字以及NaN
+        boolean:true和false
+
+        undefined：只有undefined
+
+        object：目前只知道一个null
+
+
+        undefined和null它们的值是相等的，但是类型不同
+
+
+        isNaN：判断一个内容不是数字
+                如果内容不是数字，得到true
+                如果内容是数字，得到false
+
+                用处：可以在转换成数字后，判断一下是否转换成功，为false代表数字转换成功了，为true代表没转成功
+    -->
+
+    <script>
+
+//        console.log(NaN == undefined);//false
+//
+//        console.log(null == undefined);//true
+//        console.log(null === undefined);//false
+
+        console.log(isNaN(123));//false
+        console.log(isNaN('abc'));//true
+        console.log(isNaN(true));//因为true和false本质是1和0，所以这里判断得到的结果还是false（是数字）
+
+//        用处：
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

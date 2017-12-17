@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        //    var hua=prompt("请输入女神所说的内容");
+        //
+        //        switch (hua){
+        //            case "呵呵":
+        //                alert("你说的内容我不感兴趣");
+        //                break;
+        //            case "嗯":
+        //                alert("你说的内容还可以，继续吧");
+        //                break;
+        //            case "哦":
+        //                alert("无所谓");
+        //                break;
+        //            case "我要去洗澡了":
+        //                alert("结束聊天");
+        //                break;
+        //            default :
+        //                alert("太高级了，我翻译不出来");
+        //                break;
+        //        }
+        //
+        //    var nianling=prompt("请输入你的年龄");
+        //        if(nianling>=18) {
+        //            alert("精彩内容即将呈现");
+        //        }else if(nianling>=14){
+        //            var shifou=confirm("是否真的要看");
+        //                if(shifou) {
+        //                alert("你现在可以看了，后果自负");
+        //                }else{
+        //                alert("请关闭此网站");
+        //                }
+        //        }else if(nianling<14){
+        //            alert("回家找妈妈吧。");
+        //        }
+
+        //            var yue=+prompt("请输入当前月份");
+        //                switch(yue){
+        //                    case 12:
+        //                    case 1:
+        //                    case 2:
+        //                        alert("冬季");
+        //                        break;
+        //                    case 3:
+        //                    case 4:
+        //                    case 5:
+        //                        alert("春季");
+        //                        break;
+        //                    case 6:
+        //                    case 7:
+        //                    case 8:
+        //                        alert("夏季");
+        //                        break;
+        //                    case 9:
+        //                    case 10:
+        //                    case 11:
+        //                        alert("秋季");
+        //                        break;
+        //                    default :
+        //                        alert("您输入的月份不规范");
+        //                        break;
+        //
+        //                }
+
+
+        //        var nian=prompt("请输入需要计算的年份");
+        //        var yn=(nian%400==0)||(nian%4==0  &&  nian%100!=0);
+        //        if(yn){
+        //            alert("这一年是闰年");
+        //        }else{
+        //            alert("这一年是平年");
+        //        }
+
+
+        //        var nian=prompt("请输入需要计算的年份");
+        //        var yn=(nian%400==0)||(nian%4==0  &&  nian%100!=0);
+        //        if(yn){
+        //            var yue=prompt("请输入需要计算的月份");
+        //            if(yue==(1||3||5||7||8||10||12)) {
+        //                alert("这个月有31天");
+        //            }else if(yue==(4||6||9||11)) {
+        //                alert("这个月有30天");
+        //            }else{
+        //                alert("这个月有29天");
+        //            }
+        //        }else{
+        //            var yue=prompt("请输入需要计算的月份");
+        //            if(yue==(1||3||5||7||8||10||12)) {
+        //                alert("这个月有31天");
+        //            }else if(yue==(4||6||9||11)) {
+        //                alert("这个月有30天");
+        //            }else{
+        //                alert("这个月有28天");
+        //            }
+        //        }
+
+
+        //        var xingqi=prompt("请输入数字表示的星期数");
+        //        switch (xingqi){
+        //            case "1":
+        //                alert("monday");
+        //                break;
+        //            case "2":
+        //                alert("tuesday");
+        //                break;
+        //            case "3":
+        //                alert("Wednesday");
+        //                break;
+        //            case "4":
+        //                alert("Thursday");
+        //                break;
+        //            case "5":
+        //                alert("Friday");
+        //                break;
+        //            case "6":
+        //                alert("Saturday");
+        //                break;
+        //            case "7":
+        //                alert("Sunday");
+        //                break;
+        //            default :
+        //                alert("您输入有误");
+        //                break;
+        //        }
+
+
+        //                var shu=+prompt("请输入一个整数");
+        //                if(shu>0){
+        //                    alert(shu+100);
+        //                }else if(shu<0){
+        //                    alert(shu+500);
+        //                }else if(shu==0){
+        //                }
+
+
+        //        var a=prompt("请输入a的值"),  b=prompt("请输入b的值");
+        //        var res=((a%b==0)||(a+b)>100)? a:b;
+        //        alert(res);
+
+
+        //                var chenji=prompt("请输入你的成绩");
+        //                if(chenji>=90){
+        //                    alert("恭喜你获得一辆法拉利");
+        //                }else if(chenji>=80){
+        //                    alert("恭喜你获得一辆奔驰");
+        //                }else if(chenji>=70){
+        //                    alert("恭喜你获得一辆比亚迪");
+        //                }else if(chenji>=60){
+        //                    alert("恭喜你获得一辆拖拉机");
+        //                }else if(chenji<60){
+        //                    alert("恭喜你获得一顿毒打");
+        //                }
+
+
+        //        var a=prompt("请输入第一个数"),b=prompt("请输入第二个数"),c=prompt("请输入第三个数");
+        //        if(a>=b&&a>=c){
+        //            alert(a);
+        //        }else if(b>=a&&b>=c){
+        //            alert(b);
+        //        }else if(c>=a&&c>=b){
+        //            alert(c);
+        //        }
+
+
+        //        var a=+prompt("请输入第一个数"),b=+prompt("请输入第二个数"),c=+prompt("请输入第三个数");
+        //        var res= a>b? a:b;
+        //        var res2= res>c? res:c;
+        //        alert(res2);
+
+
+        //        var name="陈敬申";
+        //        var age=23;
+        //        var xingbie=true;
+        //        alert("我的名字是"  +name+  ",我的年龄是"  +age+  ",我是一个"  +(xingbie==true? "男":"女")+  "生。");
+
+
+        //        var fenshu=prompt("请输入你的成绩");
+        //        var ming=prompt("请输入你的姓名");
+        //        if(fenshu>=80&&fenshu!=90){
+        //            alert("优");
+        //        }else if(fenshu==90){
+        //            alert(ming+"优");
+        //        }else if(fenshu>=65){
+        //            alert("良");
+        //        }else if(fenshu>=50){
+        //            alert("差");
+        //        }else{
+        //            alert("你不用再读了，回家养猪比较适合你！");
+        //        }
+
+
+        //      var name=prompt("请输入姓名");
+        //      var score=prompt("请输入成绩");
+        //      if(score>=50 && score<=65){
+        //          alert("差");
+        //      }else if(score>65 && score<=80){
+        //          alert("良");
+        //      }else if(score>80 && score<=100){
+        //          if(score==90){
+        //              console.log(name+"优");
+        //          }else{
+        //              alert("优");
+        //          }
+        //      }else{
+        //          alert("差不多了");
+        //      }
+
+
+        //        var shu=Math.random()*100;
+        //        var age=Math.ceil(shu);
+        //        console.log(age);
+        //        var yonghu=prompt("请输入一个数");
+        //        if(yonghu>age){
+        //            alert("您赢了");
+        //        }else{
+        //            alert("您输了");
+        //        }
+
+
+        //                var sjs=parseInt(Math.random()*100);
+        //                var num=prompt("请输入数字"+sjs);
+        //                if(num>sjs){
+        //                    alert("您赢了");
+        //                }else{
+        //                    alert("您输了");
+        //                }
+
+
+        //                var ming=prompt("请输入用户名");
+        //                var ma=+prompt("请输入密码");
+        //                if(ming=="admin" && ma==888888){
+        //                    alert("输入正确");
+        //                }else {
+        //                    alert("请再次输入");
+        //                    prompt("请输入用户名");
+        //                    prompt("请输入密码");
+        //                    if (ming == "admin" && ma ==888888) {
+        //                        alert("输入正确");
+        //                    } else {
+        //                        alert("程序结束");
+        //                    }
+        //                }
+
+
+        //        var userName = prompt("请输入用户名");
+        //        var password = prompt("请输入密码");
+        //        if(userName == "admin" && password == "888888"){
+        //            alert("登录成功");
+        //        }else {
+        //            userName = prompt("请输入用户名");
+        //            password = prompt("请输入密码");
+        //            if(userName == "admin" && password == "888888"){
+        //                alert("登录成功");
+        //            }else {
+        //                alert("输入多次错误，账号被锁定！");
+        //            }
+        //        }
+
+
+
+//求1到100的偶数及所有偶数的和
+//        var res=0;
+//        var i=0;
+//        while(i<100){
+//            i++;
+//            if(i%2==0){
+//                res+=i;
+//                console.log(i);
+//            }
+//        }
+//        console.log(res);
+
+
+//          求1到100能被7整除的数
+//        var i=0;
+//        while(i<100){
+//            i++;
+//            if(i%7==0){
+//                console.log(i);
+//            }
+//        }
+
+
+        //求1到100的奇数及所有奇数的和
+//        var res=0;
+//        var i=0;
+//        while(i<100){
+//            i++;
+//            if(i%2==1){
+//                res+=i;
+//                console.log(i);
+//            }
+//        }
+//        console.log(res);
+
+
+//          求1到100能被五整除的数，并求他们的和
+//        var res=0;
+//        var i=0;
+//        while(i<100){
+//            i++;
+//            if(i%5==0){
+//                console.log(i);
+//                res+=i;
+//            }
+//        }console.log(res);
+
+
+//      密码输入888循环停止。
+//        do{
+//            var i=+prompt("请输入密码！");
+//            console.log(i);
+//        }while(i!=888)
+//        alert("密码正确。");
+
+
+//      密码输入888且账号输入admin循环停止。
+//        do{
+//            var id=prompt("请输入账号。");
+//            var i=+prompt("请输入密码！");
+//        }while(i!=888 || id!="admin");
+//        alert("登陆成功！");
+
+
+
+//          输入五个数求最小数
+//        var min=Number.MAX_VALUE;
+//        for(var i=0;i<5;i++){
+//            var num=+prompt("请输入一个数");
+//            if(num<min){
+//                min=num;
+//            }
+//        }
+//        alert(min);
+
+//          输入五个数求最小数
+//        var min=+prompt("请输入一个数");
+//        for(var i=1;i<5;i++){
+//            var num=+prompt("请输入一个数");
+//            if(num<min){
+//                min=num;
+//            }
+//        }
+//        alert(min);
+
+////        正三角
+//        for(var i=0;i<5;i++){
+//            for(j=0;j<i+1;j++){
+//                document.write("*")
+//            }
+//            document.write("<br/>")
+//        }
+////        倒三角
+//        for(var i=0;i<5;i++){
+//            for(var j=0;j<5-i;j++){
+//                document.write("*");
+//            }
+//            document.write("<br/>");
+//        }
+
+
+
+//        九九乘法表
+//        for(var i=1;i<=9;i++){
+//            for(var j=1;j<=i;j++){
+//                document.write(j + " * " + i + " = " + i * j +  "&nbsp&nbsp&nbsp&nbsp&nbsp");
+//            }
+//            document.write("<br/>");
+//        }
+
+//        2  实现要求用户一直输入用户名和密码，只要不是admin、888888就一直提示要求重新输入,如果正确则提登录成功.
+//        do{
+//            var name=prompt("请输入用户名");
+//            var pwd=+prompt("请输入密码");
+//        }while(name!="admin"||pwd!=888888);
+//        alert("登陆成功");
+
+
+
+//        3. 将1~100之间的整数相加，当累加的和大于20时就停止再继续相加，并打印出当前数
+//        for(var i= 1,res=0;i<=100;i++){
+//            if((res+=i)>20){
+//            console.log(i+1);
+//            break;
+//            }
+//        }
+
+
+//        4. 计算1-100之间不能够被7整除的数的和.
+//        for(var i= 1,res=0;i<=100;i++){
+//            if(i%7!=0){
+//                console.log(i);
+//                res+=i;
+//            }
+//        }console.log(res);
+
+
+//        5 .求1-10的累加和
+//        for(var i= 1,res=0;i<=10;i++){
+//            res+=i
+//        }alert(res);
+
+
+
+
+//        6 .求1-100之间6的倍数的个数
+//        for(var i= 1,res=0;i<=100;i++){
+//            if(i%6==0){
+//                res+=1;
+//            }
+//        }alert(res);
+
+
+
+//        7 .输入班级人数,然后依次输入学员成绩，计算班级学员的平均成绩和总成绩
+//        var res=+prompt("请输入班级人数");
+//        for(var i= 1,num=0;i<=res;i++){
+//            var fen=+prompt("请输入第"+i+"个学员的成绩");
+//            num+=fen;
+//        }
+//        alert("学院的总成绩为"+num+"平均成绩为"+num/res);
+
+
+
+//        8. 2006年培养学员80000人，每年增长25%，请问按此增长速度，到哪一年培训学员人数将达到20万人？
+//       for(var i=2007,ren=80000;i>=2007;i++){
+//            if((ren*=1.25)>=200000){
+//                alert(i);
+//                alert(ren);
+//                break;
+//            }
+//        }
+
+
+
+//        9.1000~ 5000之间有多少整数，其各位数字之和为5，分别是哪些数（例如整数2003的各位数字之和为 2+0+0+3 ，等于5）），并统计满足条件的整数有多少个。
+//        for(var i=1000,res= 0,num=0;i<=5000;i++){
+//            res+=1;
+//            if(parseInt(i/1000)+parseInt(i/100)%10+parseInt(i%100/10)+i%10==5){
+//                console.log(i);
+//                num+=1;
+//            }
+//        }
+//        alert("1000~ 5000之间有"+res+"个整数");
+//        alert("1000~ 5000之间有"+num+"个满足条件的整数");
+
+
+//
+//        10. 猜数字游戏.  随机产生1个1-100之间的数 让用户猜
+//
+//        当用户输入的数比产生的随机数大 就输出 猜大了 并让用户继续输入新的数.。
+//        当用户输入的比产生的随机数小的时候 就输出 猜小了 并且继续猜
+//        当用户刚好输入的就是这个随机数的时候 提示成功  并显示用户猜了多少次.
+//
+//        a. 先产生1-100的随机数
+//        b. 写1个循环 让用户反复不停的去猜 直到猜对结束.
+//        var num=Math.ceil(Math.random()*100);
+//        var i= 0;
+//        while(true){
+//            i++;
+//            var shu=+prompt("请输入你要猜的数");
+//            if(shu<num){
+//                alert("猜小了继续猜");
+//            } else if(shu>num){
+//                alert("猜大了继续猜");
+//            } else{
+//                alert("恭喜你猜"+i+"次猜对了");
+//            break;
+//            }
+//        }
+
+
+
+
+//        11 .老师问学生,这道题你会做了吗?如果学生答"会了(y)",则可以放学.如果学生不会做(n),则老师再讲一遍,再问学生是否会做了......
+//                直到学生会为止,才可以放学.
+//                直到学生会或老师给他讲了10遍还不会,都要放学
+
+//        var i=0;
+//        do{
+//            var res=prompt("会做了吗y/n");
+//            i++;
+//            if(res=="y"){
+//                alert("放学");
+//                break;
+//            }else if(i>=10){
+//                alert("讲了十遍你还不会，放学");
+//                break;
+//            }
+//        }while(true);
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

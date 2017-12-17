@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+            perspective:300px;
+            padding: 0;
+            background-color: hotpink;
+            text-align: center
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            padding: 0;
+            line-height: 100px;
+            background-color: yellowgreen;
+            display: inline-block;
+            margin: 50px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+        li:nth-child(1):hover{
+            transform:rotateX(45deg);
+        }
+        li:nth-child(2):hover{
+            transform: rotateY(45deg);
+        }
+        li:nth-child(3):hover{
+            transform: translateZ(50px);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>绕x轴旋转</li>
+        <li>绕y轴旋转</li>
+        <li>绕z轴旋转</li>
+        <li>原形</li>
+        <li>原形</li>
+    </ul>
+</body>
+</html>

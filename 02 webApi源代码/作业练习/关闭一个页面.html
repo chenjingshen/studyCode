@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top{
+            background-color: greenyellow;
+            height: 100px;
+        }
+        #center{
+            height: 100px;
+            width: 1000px;
+            background-color: skyblue;
+            margin: 0 auto;
+        }
+        a{
+            float: right;
+            width: 22px;
+            height: 22px;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div id="center">
+            <a href="#">X</a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var a=document.getElementsByTagName("a");
+    var center=document.getElementById("center");
+    a[0].onclick=function(){
+        center.style.display="none";
+    }
+
+</script>

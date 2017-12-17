@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>比价搜索</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/比价搜索.less">
+    <!-- 引入bootstrap css文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 引入mui css文件 -->
+    <link rel="stylesheet" href="./mui/css/mui.min.css">
+    <!-- 引入mui js文件 -->
+    <script src="./mui/js/mui.js"></script>
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入bootstrap js文件 -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/比价搜索.js"></script>
+
+</head>
+
+<body style="background-color:#f2f2f2
+">
+
+    <!-- 头部logo部分 -->
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-xs-8">
+                    <a href="./index.html">
+                        <img class="logo" src="./images/header_logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <img class="app" src="./images/header_app.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 搜索框部分 -->
+    <section id="seach" class="seach bb">
+        <input type="text" placeholder="请输入你想比价的商品">
+        <button>搜索</button>
+    </section>
+
+    <!-- 内容部分 -->
+    <div class="mui-content">
+        <div class="mui-card">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell mui-collapse">
+                    <a class="mui-navigate-right" href="#">表单</a>
+                    <div class="mui-collapse-content">
+                        <div class="container-fluid">
+                            <div class="row">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- 底部 -->
+    <div id="dibu">
+        <div class="login-father">
+            <div class="login">
+                <span>登录</span>
+                <span>注册</span>
+                <span>
+                    <img src="http://www.zuyushop.com/wap/images/top.jpg" alt=""><a href="#header">返回顶部</a></span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>
+                <a href="#">手机APP下载</a>
+                <a href="#">慢慢买手机版 -- 掌上比价平台</a>
+            </p>
+            <p>
+                <a href="#">m.manmanbuy.com</a>
+            </p>
+        </div>
+    </div>
+
+    <img id="imgd" src="./images/jietu.png" alt="">
+
+</body>
+
+</html>
+<!-- 引入template.js文件 -->
+<script src="./lib/template/template.js"></script>
+<script type="text/html" id="bijia-tem">
+    {{each result as value i}}
+    <li class="mui-table-view-cell mui-collapse" zidingyi="{{value.titleId}}">
+        <a class="mui-navigate-right" href="#">{{value.title}}</a>
+        <div class="mui-collapse-content">
+            <div class="container-fluid">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+    {{/each}}
+</script>
+<script type="text/html" id="bijialiebiao-tem">
+    {{each result as value i}}
+
+    <div class="col-xs-4" lianjie-categoryId="{{value.categoryId}}">
+            {{value.category}}
+    </div>
+
+    {{/each}}
+</script>

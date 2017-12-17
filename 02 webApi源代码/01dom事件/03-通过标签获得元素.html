@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <!--
+        getElementById这个方法只能通过document来调用
+                    返回的只是一个dom对象
+                    找不到返回null
+
+        getElementsByTagName：通过标签来获取元素
+            无论如何返回的都是伪 数组,找不到返回的是空数组
+
+            如果通过document来调用：会找到整个文档中所有的这个标签
+            如果通过某个dom元素来找，那么就只找到这个元素里面的标签
+
+
+    -->
+
+
+    <script>
+        window.onload = function () {
+
+            //找到界面上所有的li标签，无论如何得到的都是一个伪数组
+//            var liList = document.getElementsByTagName('li');
+            //liList.sort(); //报错，因为伪数组没有数组的方法
+//            console.log(liList);
+
+
+            var firstUL = document.getElementById('one');
+
+            //找到第一个ul里面的li标签
+            var liList = firstUL.getElementsByTagName('li');
+
+
+//            var res = firstUL.getElementById('test');//这句报错
+
+
+            for (var i = 0; i < liList.length; i++) {
+
+//                console.log(liList[i]);
+                if (i % 2 == 0) {
+                    liList[i].style.backgroundColor = "hotpink";
+                } else {
+
+                    liList[i].style.backgroundColor = "green";
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<!--ul>li{隔壁老王$}*10-->
+
+<ul id='one'>
+    <li id='test'>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+    <li>隔壁老王6</li>
+    <li>隔壁老王7</li>
+    <li>隔壁老王8</li>
+    <li>隔壁老王9</li>
+    <li>隔壁老王10</li>
+</ul>
+
+
+<ul>
+    <li>隔壁老周1</li>
+    <li>隔壁老周2</li>
+    <li>隔壁老周3</li>
+    <li>隔壁老周4</li>
+    <li>隔壁老周5</li>
+    <li>隔壁老周6</li>
+    <li>隔壁老周7</li>
+    <li>隔壁老周8</li>
+    <li>隔壁老周9</li>
+    <li>隔壁老周10</li>
+</ul>
+
+</body>
+</html>

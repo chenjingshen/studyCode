@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 加载图片
+    var image = new Image();
+    image.src = "./img/DMMban.png";
+    
+    image.onload = function () {
+        //第几行图片
+        var yindex = 2;
+        //某一行的第几张图片
+        var xindex = 0;
+
+        //小人的宽和高
+        var w = image.width/4;
+        var h = image.height/4;
+
+        //小人水平方向的坐标x值
+        var x = 0;
+        //小人每一步走多远
+        var speed = 10;
+
+        //步数
+        var index = 0;
+
+        setInterval(function () {
+            index += 1;
+            //循环切换图片
+            xindex = index % 4;
+
+            //边界的判断
+            if (x >= canvas.width - w) {
+                speed = -speed; //-10
+                yindex = 1;
+            }
+
+            if (x < 0) {
+                speed = -speed;
+                yindex = 2;
+            }
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(image, xindex * w, yindex * h, w, h, x, 200, w, h);
+
+            //每走一步x要往前移动
+            x += speed;
+        }, 200);
+    }
+
+</script>

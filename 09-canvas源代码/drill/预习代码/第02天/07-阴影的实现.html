@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //和css3相比， 阴影只能设一个， 不能设内阴影
+    //水平偏移， 垂直的偏移， 模糊程度， 阴影的颜色
+
+    //设置阴影的参数
+    context.shadowOffsetX = 10;
+    context.shadowOffsetY = 10;
+    context.shadowBlur = 10;
+    context.shadowColor = "yellowgreen";
+
+    //画一个矩形
+    context.fillStyle = "red";
+    context.fillRect(100, 100, 300, 200);
+</script>

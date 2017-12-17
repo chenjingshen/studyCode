@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var birdsImg = new Image();
+    birdsImg.src = "./img/birds.png";
+
+    //图片加载完成之后，才开始执行绘制操作
+    birdsImg.onload = function () {
+        //翅膀扇了第几次
+        var index = 0;
+        //当前是第几张图片
+        var xindex = 0;
+
+        //每张小鸟图片的宽高
+        var w = birdsImg.width / 3;
+        var h = birdsImg.height;
+
+        //小鸟的位置
+        var x = 100;
+        var y = 100;
+
+        //小鸟往下掉的速度
+        var yspeed = 5;
+
+        function draw() {
+            //使用第几张图片
+            index += 1;
+            xindex = index % 3;
+            //清空画布
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            //画每一张小鸟
+            context.drawImage(birdsImg, xindex * w, 0, w, h, x, y, w, h);
+            //小鸟往下掉
+            y += yspeed;
+
+            //递归调用draw方法，实现动画
+            window.requestAnimationFrame(draw);
+        }
+
+        draw();
+    }
+    
+
+
+</script>

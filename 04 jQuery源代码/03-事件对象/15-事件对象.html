@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    * {
+      padding:  0;
+      margin:  0;
+    }
+    body {
+      width: 2000px;
+      height: 2000px;
+    }
+    .one {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      $("#box").on("click", function (e) {
+        //jQuery事件对象，可以直接用参数e获取   console.log(e);
+
+        // screenX和screenY    对应屏幕最左上角的值
+        // clientX和clientY    距离页面左上角的位置（忽视滚动条）
+        // pageX和pageY    距离页面最顶部的左上角的位置（会计算滚动条的距离）
+
+        console.log("screenX:"+ e.screenX+"-----screenY:"+ e.screenY);
+        console.log("clientX:"+ e.clientX+"-----clientY:"+ e.clientY);
+        console.log("pageX:"+ e.pageX+"-----pageY:"+ e.pageY);
+      });
+
+
+
+      //e.keyCode    按下的键盘代码
+      $(document).on("keydown", function (e) {
+        console.log(e.keyCode);
+      });
+
+
+      // event.stopPropagation()    阻止事件冒泡行为
+      // event.preventDefault()    阻止浏览器默认行为
+      // return false:既能阻止事件冒泡，又能阻止浏览器默认行为。
+
+      $("body").on("click", function () {
+        alert("我是body，我被单击了...");
+      });
+
+
+      //给a标签注册一个单击事件
+      $("a").on("click", function (e) {
+        alert("我是a标签，我被单击了...");
+        //e.stopPropagation() ;   //  阻止事件冒泡行为
+        //e.preventDefault(); //阻止浏览器默认行为
+        return false; //既能阻止事件冒泡，又能阻止浏览器默认行为。
+      });
+
+
+
+    });
+  </script>
+</head>
+
+<body>
+<div class="one" id="box"></div>
+<a href="https://www.baidu.com">哈哈</a>
+</body>
+</html>

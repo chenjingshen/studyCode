@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 200px;
+      height: 300px;
+      background-color: red;
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //滑入
+      $("#slideDown").click(function () {
+        $("div").slideDown(1000);
+        //$("div").slideDown("fast");
+        // $("div").slideDown("fast", function () {
+        //   alert("动画做完了");
+        // });
+      });
+
+      //滑出
+      $("#slideUp").click(function () {
+        $("div").slideUp();
+      });
+
+      //切换
+      $("#slideToggle").click(function () {
+        $("div").slideToggle();
+      });
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="滑入" id="slideDown"/>
+<input type="button" value="滑出" id="slideUp"/>
+<input type="button" value="切换" id="slideToggle"/>
+<div></div>
+</body>
+</html>

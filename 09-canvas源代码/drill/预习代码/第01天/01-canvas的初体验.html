@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas的初体验</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!--第一步： 先创建出canvas的标签， 画布-->
+    <canvas width=600 height=400></canvas>
+</body>
+</html>
+
+<script>
+    //1. 拿到画布
+    var canvas = document.querySelector("canvas");
+
+    //2. 创建画图工具（画家）， 本质上是个js专门用来绘图的一个对象; 它提供了所有的关于绘图的属性和方法
+    var context = canvas.getContext("2d");
+
+    //3. 移动画笔（落笔）， 把线条绘制在玻璃纸（图层）
+    context.moveTo(100, 100);
+    context.lineTo(300, 200);
+
+    //4. 描边（印刷）
+    context.stroke();
+</script>

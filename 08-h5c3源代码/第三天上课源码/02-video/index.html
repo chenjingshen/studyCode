@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 导入fontawosom的css文件 -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .box {
+            margin: 150px auto;
+            border: 1px solid #fff;
+            width: 600px;
+        }
+
+        .box video {
+            width: 100%;
+            display: block;
+        }
+
+        .box .controls {
+            width: 100%;
+            height: 50px;
+            border-top: 1px solid #fff;
+        }
+
+        .box .left {
+            float: left;
+            width: 50px;
+            height: 50px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        .box .right {
+            float: right;
+            width: 50px;
+            height: 50px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        .box .progress {
+            float: left;
+            width: 500px;
+            height: 50px;
+            background: lightgray; 
+        }
+
+        .box .progress .currenttime {
+            width: 0%;
+            height: 100%;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <video src="./movie/bglb.mp4"></video>
+        <div class="controls">
+            <a class="left icon-play"></a>
+            <div class="progress">
+                <div class="currenttime"></div>
+            </div>
+            <a class="right icon-fullscreen"></a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>    
+    //拿到video标签
+    var video = document.querySelector("video");
+
+    //1. 实现暂停和播放的功能
+    //点击左侧的按钮
+    document.querySelector(".left").onclick = function() {
+        //说明当前是暂停状态
+        if (video.paused == true) {
+            //让视频播放起来
+            video.play();
+            //改变按钮的图标
+            this.classList.remove("icon-play");
+            this.classList.add("icon-pause");
+        } else {
+            video.pause();
+            //改变按钮的图标
+            this.classList.remove("icon-pause");
+            this.classList.add("icon-play");
+        }
+    }
+
+    //2. 视频播放时的进度更新
+    video.ontimeupdate = function() {
+        // console.log("playing....");
+        //视频的当前时间
+        var curent = video.currentTime;
+        //视频的总时长
+        var total = video.duration;
+        var percent = curent / total * 100 + "%";
+        console.log(percent);
+
+        document.querySelector(".currenttime").style.width = percent;
+    }
+
+    //3. 点击进度条， 改变视频的进度
+    document.querySelector(".progress").onclick = function(event) {
+        // 拿到鼠标点的x坐标点
+        var x = event.offsetX;
+        var w = this.offsetWidth;
+
+        //修改video的当前时间
+        video.currentTime = video.duration * (x/w);
+    }
+
+    //4. 点击全屏按钮， 实现全屏
+    document.querySelector(".right").onclick = function() {
+        //让video标签进入全屏状态
+        // video.webkitEnterFullScreen();
+        video.webkitRequestFullScreen();
+    }
+</script>
+
+<!-- 
+    需求：
+    1. 点击播放按钮时， 视频开始播放， 按钮图标变成暂停的图标
+    2. 当视频正在播放时， 点击暂停图标， 视频停止播放， 图标改成播放图标
+
+    3. 当视频播放时， 进度条在走
+
+    4. 当点击进度条时， 视频的进度会更新
+    5. 当点击全屏按钮时， 视频会全屏显示
+
+    要想实现以上需求， 必须要了解以下api
+    1. 判断当前是否是播放或是暂停的状态， video.paused 返回一个bool值
+    2. 播放和暂停的事件， video.paly(), video.pause();
+    3. 视频的进度更新， 监听进度更新的事件， video.ontimeupdate = function() {}
+    4. 当前的时间， 和视频的总时间。 video.currentTime, video.duration
+
+    总结： 所有和视频操作相关的api都由video来调用即可
+ -->

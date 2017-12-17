@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.函数是一个对象，是由Function构造函数创建出来的。
+
+  //2.函数作为对象，里面的成员
+  //a.caller  你这个函数是在那个函数里面被调用的，那么这个caller就是那个函数。
+  // function test1(){
+  //   console.log("哈哈");
+  //   console.log(test1.caller);
+  // }
+//
+  // function test2(){
+  //   test1();
+  // }
+//
+  // test2();
+
+
+  //b.length 就是形参的个数
+  // function test(a,b,c,d,e){
+  //   console.log("哈哈");
+  //   console.log(test.length);
+  // }
+  // test(10,20,30);
+
+  //c.name 函数名
+  // function test(){
+  //   console.log(test.name); //test
+  // }
+  // //test();
+//
+  // var test1 = function () {
+  //   console.log("呵呵");
+  //   console.log(test1.name); //test1
+  // }
+  // test1();
+
+
+  //d. test函数作为一个对象， 点出来的arguments是一个对象，和在函数内部直接输出的arguments不是同一个对象。
+  //我们用的多的是 函数内部直接输出的那个arguments
+  // function test(){
+  //   console.log("哈哈");
+  //   console.log(arguments);
+  //   //console.log(test.arguments);
+  //   //console.log(test.arguments === arguments); //false
+  //   //arguments.slice(); //报错了，是伪数组
+  // }
+  // test(10,20,30);
+
+
+  //e.arguments  伪数组  也是一个对象
+  //arguments 是一个对象，里面的成员：
+  //a:callee 就是这个函数本身。
+  //b.length 是实参的个数。
+
+  function test(){
+    console.log(arguments);
+    console.log(arguments.callee);
+    console.log(arguments.length);
+  }
+  test(10,20,30,40);
+
+
+
+
+
+
+
+
+  //自执行函数，实现递归
+  // var i = 0;
+  // (function () {
+  //   console.log("哈哈");
+  //   i++;
+  //   if(i < 5){
+  //     arguments.callee();
+  //   }
+//
+  // }());
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

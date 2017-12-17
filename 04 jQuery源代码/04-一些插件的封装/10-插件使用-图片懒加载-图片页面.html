@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            width: 980px;
+            margin: 0 auto;
+        }
+        ul li{
+            width:230px;
+            height: 230px;
+            float: left;
+            margin-right:20px;
+            margin-bottom:20px;
+        }
+        ul li.last{
+            margin-right:0;
+        }
+        ul li img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div style="margin-bottom: 2000px">
+    <img src="" alt=""/>
+</div>
+<ul>
+    <li><img data-original="http://img.daimg.com/uploads/allimg/160324/1-160324232117.jpg" alt=""></li>
+    <li><img data-original="http://img.daimg.com/uploads/allimg/160318/1-16031P01P0.jpg" alt=""></li>
+    <li><img data-original="http://img.daimg.com/uploads/allimg/160318/1-16031P01332.jpg" alt=""></li>
+    <li class="last"><img data-original="http://dinewith.co/static/lp/images/slide_img02.jpg" alt=""></li>
+</ul>
+<!--
+图片懒加载
+1. 不管图片隐藏还是显示  有src属性都会去加载
+2. 那么如果页面上有太多的图片  而且有些图片不在可视窗口内  如果加载了会影响页面的渲染页面时间
+3. 解决方案：自己控制图片的加载  当进入可视区域内容才去加载
+4. 怎么控制呢？ 通过控制src属性来控制图片加载
+5. 思路怎么样？ 首先默认所有的图片都不使用src属性，自定义一个属性存路径，当进入可视区域追加到src属性
+6. 使用插件  基于jquery的图片加载插件
+7. jquery.lazyload.js  延时加载图片
+-->
+<script src="jquery-1.12.4.js"></script>
+<script src="plugin/jquery.lazyload.js"></script>
+<script>
+    $(function () {
+        /*1.需要初始化*/
+        /*2.先需要找  懒加载的图片 */
+        /*3.把src属性改成自定义属性  默认的是  data-original */
+        $('ul img').lazyload({
+            'placeholder':'data:image/png;base64,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',
+            effect: "fadeIn",
+        });
+        /*4. data:image/png:djsadjslkajdslkajdlksajdlskajdlsaj;*/
+        /*5. base64数据  也可以当作图片使用*/
+    })
+</script>
+</body>
+</html>

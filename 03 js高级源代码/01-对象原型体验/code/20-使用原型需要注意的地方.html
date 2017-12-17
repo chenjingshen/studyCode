@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.原型的使用
+  // function Cat(name,pingZhong){
+  //   this.name = name;
+  //   this.pingZhong = pingZhong;
+  // }
+  // //不管是那个猫，都可以叫
+  // Cat.prototype.sayHi = function () {
+  //   console.log("喵喵喵....");
+  // }
+  // var c1 = new Cat("小群群","非洲黑猫");
+  // c1.sayHi();
+
+
+  //2.对象访问成员(属性和方法)，先要看自己有没有这个成员，如果自己有，就直接用；如果自己没有，才去看原型中有没有。
+   function Cat(name,pingZhong){
+     this.name = name;
+     this.pingZhong = pingZhong;
+     this.sayHi = function () {
+       console.log("我是构造函数中的....");
+     }
+   }
+   //不管是那个猫，都可以叫
+   Cat.prototype.sayHi = function () {
+     console.log("喵喵喵....");
+   }
+   var c1 = new Cat("小群群","非洲黑猫");
+   console.log(c1);
+   c1.sayHi();
+
+
+  //3.如果要给原型中添加属性或者方法，就一定要使用 构造函数.prototype 这样的方式给原型添加。
+  // function Cat(name,pingZhong){
+  //   this.name = name;
+  //   this.pingZhong = pingZhong;
+  // }
+  // //不管是那个猫，都可以叫
+  // Cat.prototype.sayHi = function () {
+  //   console.log("喵喵喵....");
+  // }
+  // Cat.prototype.type = "猫类";
+//
+  // var c1 = new Cat("小群群","非洲黑猫");
+  // //c1.type = "猫类"; //其实是给c1这个对象添加一个type属性。并不是给原型添加。
+  // console.log(c1.type); //猫类
+//
+//
+  // var c2 = new Cat("小林林","波斯猫");
+  // console.log(c2.type); //猫类
+
+
+
+  //4.如果要去修改原型中的成员，一样的要使用  构造函数.prototype 这种方式访问到原型后去修改。
+  // function Cat(name,pingZhong){
+  //   this.name = name;
+  //   this.pingZhong = pingZhong;
+  // }
+  // //不管是那个猫，都可以叫
+  // Cat.prototype.sayHi = function () {
+  //   console.log("喵喵喵....");
+  // }
+
+  // Cat.prototype.sayHi = function () {
+  //   console.log("我是修改原型里面的sayHi....");
+  // }
+
+  //var c1 = new Cat("小群群","非洲黑猫");
+  //// c1.sayHi = function () {
+  ////   console.log("我是修改之后的猫叫...");
+  //// }
+  //c1.sayHi();
+
+  // var c2 = new Cat("小林林","波斯猫");
+  // c2.sayHi();
+
+
+
+  //5.对象访问原型中的成员，要看这个对象是原型修改之前创建的还是原型修改之后创建的。
+//  function Cat(name,pingZhong){
+//    this.name = name;
+//    this.pingZhong = pingZhong;
+//  }
+//  //不管是那个猫，都可以叫
+//  Cat.prototype.sayHi = function () {
+//    console.log("喵喵喵....");
+//  }
+//
+//  var c1 = new Cat("小群群","非洲黑猫");
+//  c1.sayHi();
+//
+//  //修改原型
+//  Cat.prototype = {
+//    sayHi: function () {
+//      console.log("我是修改原型之后的sayHi...");
+//    }
+//  };
+//
+//  var c2 = new Cat("小林林","波斯猫");
+//  c2.sayHi();
+
+
+
+
+  //console.log(c1.__proto__ === c2.__proto__); //false
+
+
+</script>
+</body>
+</html>

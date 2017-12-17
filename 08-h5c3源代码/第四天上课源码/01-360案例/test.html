@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .section {
+            width: 100%;
+            height: 100%;
+            background-color: yellowgreen;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+
+        .left {
+            /* flex-basis: 500px; */
+            width: 500px;
+            min-width: 500px;
+        }
+
+        /* .right {
+            flex: 1;
+        }
+
+        .right img {
+            width: 100%;
+        } */
+
+        /* .right {
+            flex: 1;
+            background: url("./images/info_2.png") no-repeat left center;
+            height: 100%;
+        } */
+
+        /* .right {
+            flex: 1;
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="left">
+            <img src="./images/shield_1.png" alt="">
+            <img src="./images/shield_2.png" alt="">
+            <img src="./images/shield_3.png" alt="">
+            <img src="./images/shield_4.png" alt="">
+            <img src="./images/shield_5.png" alt="">
+            <img src="./images/shield_6.png" alt="">
+            <img src="./images/shield_7.png" alt="">
+            <img src="./images/shield_8.png" alt="">
+            <img src="./images/shield_9.png" alt="">
+        </div>
+
+        <!-- <div class="right">
+            <img src="./images/info_2.png" class="right" alt="">
+        </div> -->
+
+        <!-- <div class="right"></div> -->
+
+        <img src="./images/info_2.png" class="right" alt="">
+    </div>
+    </html>
+</body>
+
+<!-- 
+    1. 如果大盒子中， 子元素是图片， 直接对大盒子做弹性布局（display： flex）， 会导致其子元素的flex和flex-basis失效
+    2. 如何解决呢？ 不要直接使用img参于父元素的空间的分配，而使用div
+    3. 直接给left添加 min-width
+    4. 给section添加min-width
+ -->

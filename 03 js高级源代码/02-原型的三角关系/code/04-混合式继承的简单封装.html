@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  var jianLin = {
+    house:{
+      price:10000000,
+      addres:"东京"
+    },
+    car:{
+      brand:"法拉利",
+      price:5000000,
+    }
+  };
+
+  //1渣男构造函数
+  function ZhaNan(gfs){
+    this.gfs = gfs;
+  }
+  //1每一个渣男都会花钱，所以这个花钱的方法写在原型中。
+  ZhaNan.prototype.huaQian = function () {
+    console.log("拉拉啊，我很会花钱...");
+  }
+
+  //1继承 把jianLin对象里面的成员，添加给ZhaNan这个构造函数的原型。
+  // for(var key in jianLin){
+  //   ZhaNan.prototype[key] = jianLin[key];
+  // }
+  extend(ZhaNan,jianLin);
+
+  //1根据构造函数创建对象，对象就可以访问 继承的那个对象的成员
+  var siCong = new ZhaNan(["都得","更新","苏皖","雪梨糖水","0009001"]);
+  console.log(siCong);
+
+
+
+  //2好男人构造函数
+  function GoodMan(wife){
+    this.wife = wife;
+  }
+  //2.好男人都会煮饭
+  GoodMan.prototype.zhuFan = function () {
+    console.log("我是好男人,我会煮饭和带娃...");
+  }
+  //2.继承
+  // for(var key in jianLin){
+  //   GoodMan.prototype[key] = jianLin[key];
+  // }
+  extend(GoodMan,jianLin);
+
+  //2.通过构造函数GoodMan创建的对象
+  var linGe = new GoodMan("林嫂");
+  console.log(linGe);
+
+
+
+
+
+
+  //混合式继承的简单封装
+  function extend(method,obj){
+    for(var key in obj){
+      method.prototype[key] = obj[key];
+    }
+  }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>获取JSON格式的数据</h2>
+    <input type="button" value='获取JSON格式的数据'>
+    <ul>
+
+    </ul>
+</body>
+</html>
+<script>
+    // 绑定点击事件
+    document.querySelector('input').onclick = function(){
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('get','./backJSON.php');
+
+        // 设置请求头 get可以省略
+
+        // 回调函数
+        xhr.onload = function(){
+            // JSON的载体是字符串 所以 直接使用responseText即可
+            // console.log(xhr.responseText);
+            console.log(JSON.parse(xhr.responseText));
+            var heroList =JSON.parse(xhr.responseText);
+            // 循环生成li
+            for(var i=0;i<heroList.length;i++){
+                // 创建li
+                var li = document.createElement('li');
+                // 设置内容
+                // 内容要从 循环的对象中
+                // 先写好规则 打散 插入
+                li.innerHTML ='<img src="'+heroList[i].champion_icon+'" alt="">'+'||'+heroList[i].champion_name+'||'+heroList[i].champion_title;
+                // 添加到ul中
+                document.querySelector('ul').appendChild(li);
+            }
+        }
+
+        // 设置请求主体 发送
+        xhr.send(null);
+    }
+
+</script>

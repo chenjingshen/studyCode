@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #father {
+            width: 200px;
+            height: 300px;
+            background-color: green;
+            position: absolute;
+
+        }
+
+        #son {
+
+            width: 100%;
+            height: 100px;
+            background-color: hotpink;
+            cursor: move;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="father">
+
+    <div id="son"></div>
+</div>
+
+</body>
+</html>
+
+<script src="common.js"></script>
+
+<script>
+    var son = document.getElementById("son");
+    var father = document.getElementById("father");
+
+    /*
+     鼠标按下就触发
+        当子元素按下的时候，要能够在文档上移动做一些事
+     */
+    son.onmousedown = function (e) {
+
+        //因为获得在子元素上的点击位置，只需要获得一次了，而且是子元素的
+        //所以写在son的鼠标按下事件里，不要写在文档移动里，因为写在文档移动里，相当于每次移动都来计算一次
+        //没必要，这个位置计算一次就好了
+        var x = getPagePosition(e).pageX - son.offsetLeft - father.offsetLeft;
+        var y = getPagePosition(e).pageY - son.offsetTop - father.offsetTop;
+       
+        document.onmousemove = function (event) {
+
+
+            father.style.left =  getPagePosition(event).pageX - x + "px";
+            father.style.top =  getPagePosition(event).pageY  - y + "px";
+//           father.style.left =  getPagePosition(event).pageX - e.offsetX + "px";
+//           father.style.top =  getPagePosition(event).pageY  - e.offsetY + "px";
+        }
+    }
+
+    //当子元素上的鼠标弹起就让文档的移动的失效
+    son.onmouseup = function () {
+
+        document.onmousemove = null;
+    }
+
+</script>

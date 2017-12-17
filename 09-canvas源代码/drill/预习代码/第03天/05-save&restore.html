@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //save保存， restore恢复， 还原
+    //save的作用，是把context的当前的状态，保存起来;restore是把context最近一次保存的状态还原
+
+    context.fillStyle = "red";
+    context.strokeStyle = "blue";
+    context.shadowColor = "cyan";
+
+    //把当前的context整个保存一份
+    context.save(); //就会把当前的context整个保存一份
+
+    context.fillRect(100, 100, 100, 100);
+
+    context.fillStyle = "green";
+    context.fillRect(300, 200, 100, 100);
+
+    //把最近保存的那个context直接拿过来用
+    context.restore();
+
+    context.fillRect(500, 300, 100, 100);
+
+</script>

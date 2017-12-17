@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+    }
+    
+    p {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+    }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p></p>
+    <script>
+    var div = document.querySelector('div');    
+    // 什么是单击事件  只触摸了一下屏幕但是没有滑动 没有触发touchmove 单击事件
+    // var isMove = false;
+    // div.addEventListener('touchstart', function() {
+    //     console.log('touchstart');
+    // });
+    // div.addEventListener('touchmove', function() {
+    //     // 表示发生了移动
+    //     isMove = true;
+    //     console.log('touchmove');
+    // });
+    // div.addEventListener('touchend', function() {
+    //     console.log('touchend');
+    //     if (isMove == false) {
+    //         //表示没有触发move那就是单击操作
+    //         console.log('这是使用touch模拟的单击事件');
+    //     }
+    //     // 滑动结束要重置isMove的值
+    //     isMove = false;
+    // });
+
+    // 这种自己封装的单击事件 通常在移动端叫tap(轻触事件)事件
+    // dom需要注册轻触事件的元素
+    function tap(dom, callback) {
+        var isMove = false;
+        dom.addEventListener('touchstart', function() {
+            // console.log('touchstart');
+        });
+        dom.addEventListener('touchmove', function() {
+            // 表示发生了移动
+            isMove = true;
+            // console.log('touchmove');
+        });
+        dom.addEventListener('touchend', function() {
+            // console.log('touchend');
+            if (isMove == false) {
+                //表示没有触发move那就是单击操作
+                // console.log('这是使用touch模拟的单击事件');
+                if (callback) {
+                    callback();
+                }
+            }
+            // 滑动结束要重置isMove的值
+            isMove = false;
+        });
+    }
+    tap(div, function() {
+        console.log('tap事件被触发');
+    });
+
+    var p = document.querySelector('p');
+    tap(p,function () {
+    	console.log('我是给p元素添加的tap事件');
+    })
+    </script>
+</body>
+
+</html>

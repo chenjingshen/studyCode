@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img" src="" alt=""/>
+<script>
+
+    var img= document.getElementById("img");
+    setInterval(function () {
+        var date=new Date();
+        var hour=date.getHours();
+        var min=date.getMinutes();
+        var sec=date.getSeconds();
+        hour=hour<10?"0"+hour:hour;
+        min=min<10?"0"+min:min;
+        sec=sec<10?"0"+sec:sec;
+        var hs=hour+"_"+sec+".jpg";
+        img.src="meimei/"+hs;
+    },1000);
+
+</script>
+<script>
+    //1.获取元素
+//    var pic = id("imggg");
+//
+//    //页面一打开，就应该要显示图片
+//    showGirl();
+//
+//
+//
+//    function showGirl() {
+//        //2.1 获取当前的系统时间
+//        var date = new Date();
+//        var hour = date.getHours();
+//        var min = date.getMinutes();
+//        var sec = date.getSeconds();
+//
+//        //2.2 如果获取到的时分秒小于10，前面要补0
+//        if(hour < 10){
+//            hour = "0"+hour;
+//        }
+//        if(min < 10){
+//            min = "0" + min;
+//        }
+//        if(sec <10){
+//            sec = "0" + sec;
+//        }
+//
+//        //2.3 根据当前的系统时分来拼接字符串
+//        var str = hour+"_"+sec+".jpg";
+//
+//        //2.4 给img标签设置src属性
+//        pic.src = "meimei/"+str;
+//        console.log("meimei/"+str);
+//    }
+//
+//
+//
+//    //2.设置计时器
+//    setInterval(showGirl,1000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .one{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="旋转" id="btn"/>
+<br/><br/><br/>
+<div class="one" id="box">7</div>
+</body>
+</html>
+
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+    var divDeg=0;
+    btn.onclick=function(){
+        divDeg+=45;
+        box.style.transform="rotate("+divDeg+"deg)";
+    }
+
+</script>

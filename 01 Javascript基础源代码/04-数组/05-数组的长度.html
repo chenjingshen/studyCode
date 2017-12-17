@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        数组长度可以变
+                可以增大：用undefined补齐
+                可以减小：后面的那些元素就删掉，也再找不回来
+
+
+        数组长度妙用：可以按顺序给一个数组加元素
+
+                数组名[数组名.length] = 数据;
+
+
+        清空数组两种方法：
+                1.直接把长度改为0
+                2.让数组赋值为一个空数组
+
+
+         JS是一门动态的语法：就像我们数组的长度可以任意更改，这就叫JS的动态性
+
+
+    -->
+
+
+    <script>
+
+        /*
+//        var nums = [10,20,30];
+//
+//        console.log(nums);//只有3个元素
+//
+//        //数组的长度可以取值外也可以赋值
+//        //赋值后会改变原来的长度
+//        nums.length = 5;
+//
+//        console.log(nums);//有5个元素，多出来的元素是undefined
+
+        var nums = [10,20,30,40,50];
+
+        console.log(nums);//长度为5
+
+        //长度也可以变小，变小后，后面那些元素就删掉了
+        nums.length = 3;
+
+        console.log(nums);//长度为3
+
+        console.log(nums[4]);//取出来的是undefined
+
+        nums.length = 5;//改回5
+        console.log(nums);//哪怕再改回原来的长度也不会找到原来的数据
+        */
+
+        var nums = [];//长度为0
+
+//        nums[0] = 10; //长度为1
+//        nums[1] = 20;//长度为2
+//        nums[2] = 30;//长度为3
+
+//        如果希望按顺序一个一个加长度，可以如此
+
+        nums[nums.length] = 10;
+        nums[nums.length] = 20;
+        nums[nums.length] = 30;
+        nums[nums.length] = 40;
+
+        console.log(nums);
+
+        //数组长度改为0，就可以清空数组
+//        nums.length = 0;
+//        console.log(nums);
+
+        //清空数组另外一个方法
+        //让它重新赋值为一个空数组
+        nums = [];
+        console.log(nums);
+
+
+//        数组元素可以存任意类型
+//        我们使用时不建议数组中放不同的类型，而是放同一种类型的
+        var arr = ['abc','zxc',123,undefined,true,null,NaN];
+
+        console.log(arr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

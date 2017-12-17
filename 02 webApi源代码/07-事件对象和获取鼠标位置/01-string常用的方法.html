@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+
+    字符串的恒定性：
+        字符串不可改
+        例：
+                    var str = "abc";
+                    str[0] = "z";
+                    console.log(str);//abc
+
+        length：获取字符串中字符的个数
+        charAt(索引) ：获得字符串中的某个字符
+                简写是：字符串[索引]  IE7不支持
+        indexOf:查找字符串中是否包含某个字符
+                如果包含返回这个字符的首字母索引，如果不包含返回-1
+                如果查的是空字符串，返回0
+                从左往右找字符，找到返回这个字符的下标
+                参数2：传入从哪个位置开始从左往右找
+
+        lastIndexOf:
+                从右往左找，找到则返回字符的下标
+                如果传入空字符串，会得到字符串的长度
+                参数2：传入从哪个位置开始从右往左找
+
+        concat:连接两个字符串，会返回一个新的字符串，不会改变的原来的字符串
+                  可以用 + 替代
+
+
+        replace:
+                替换字符串中的某些字符。
+                参数1：要被替换的内容
+                参数2：替换成的新内容
+               不会影响原来字符串，会得到一个新的字符串
+               忽略大小写：/字符串/i
+               全局替换：所有出现的内容都替换
+                        /字符串/g
+
+
+        slice：
+                参数1：从哪个位置开始截
+                参数2：到哪个位置结束（不包括这个位置）
+
+                如果只传了1个参数，就代表这个位置开始，一直截取到字符串最后
+
+        substr：
+               参数1：从哪个位置开始
+               参数2：截取多少个长度
+               如果只传1个， 就是从这个位置截取到字符串最后
+
+        substring：
+                跟slice一样，只是不能传负数
+
+
+        split:把字符串根据某个字符分割成数组
+               如果传入空字符串，那么字符串的每个字符都是数组中的一个元素
+               如果找不到传入的字符，那么也会变成一个数组，只不过数组只有一个元素，元素就是这个字符串
+
+        toUpperCase：
+                把字符串全部转成大写
+
+        toLowerCase：
+                把字符串全部转成小写
+
+    -->
+</head>
+<body>
+
+
+</body>
+</html>
+
+<script>
+    //    var str = "abcdefg";
+
+    //    console.log(str.length);//获得这个字符串里字符的个数
+    //    //    console.log(str[0]);//获得这个字符串里字符的个数 大部分支持，只有IE7以及7之前的版本不支持
+    //    console.log(str.charAt(0));//获取字符串中的某个字符
+
+
+    //    for (var i = 0; i < str.length; i++) {
+    //
+    //        console.log(str.charAt(i));
+    //    }
+
+    //统计出字符串"dsfdfdsnfasabajhgdsDsdas"里，有多少个f
+    /*
+     var str = "dsfdfdsnfasabajhgdsDsdasfff";
+     var count = 0;
+
+     for (var i = 0; i < str.length; i++) {
+
+     if (str.charAt(i) == "f") {
+     //次数+1
+     count++;
+     }
+     }
+
+     console.log(count);
+     */
+
+    /*
+     var str = "hello";
+     var res = str.indexOf("");
+     //    console.log(res);
+     //a = 97 b = 98 c = 99
+     //    console.log(str.charCodeAt(0)); 这个返回的不是实际的字符，而是这个字符的ascii码
+
+     //故事：
+     //utf-8  几乎包含了全世界的语种
+     //utf-16  unicode
+     //gb2312  国标。中国弄的，里面主要是转换汉字，简体
+     //BIG5    繁体的
+     */
+
+    //    var str1 = "abcd";
+    //    var str2 = "zxc";
+
+    //也不会原来的字符串，会拼接后得到一个新的字符串
+    //    var res = str1.concat(str2);
+
+    //    var res = str1 + str2;
+    //
+    //    console.log(str1);//abcd
+    //    console.log(str2);//zxc
+    //    console.log(res);//abcdzxc
+
+    //    console.log(String.fromCharCode(65));
+
+
+    //    var str = "bacdxsa";
+    //    console.log(str.indexOf('a'));//1
+    //console.log(str.lastIndexOf(''));//如果传空字符串，得到的是字符串长度
+
+    //    console.log(str.lastIndexOf("a"));//6
+    //    console.log(str.lastIndexOf("a",4));//1,一般很少用参数2
+
+
+    //    console.log(str.indexOf("a"));//1
+    //
+    //    console.log(str.indexOf("a", 4));//6
+
+    //    var str = "hello world";
+
+    //把world替换成JavaScript
+    //默认情况下大小写敏感(就需要写正则)
+    ///World/i 这种写法可以忽略大小写
+    //    var res = str.replace(/World/i, "JavaScript");
+    //    console.log(str);
+    //    console.log(res);
+
+
+    //    var str = "hello world";
+
+    //不包括结束的位置
+    //第二个参数：结束的下标，但是截取的内容不包括结束下标上的字符
+    //    var res = str.slice(1, 5);
+
+    //    console.log(str, res);
+
+    //    var str = "good good study day day up";
+    //
+    //    var res = str.slice(5,9);//good
+    //
+    //    console.log(res);
+
+    //    var str = "hello world";
+    //    console.log(str.slice(6));//world
+
+    /*
+     var nums = ["刘德华", "张学友", "郭富城", "张威的爸爸"];
+
+     var str = nums.join("|");
+
+     console.log(str);
+     */
+
+    //字符串分割成数组
+    //    var str = "张学友，张韶涵，张三丰，张含韵，张益达";
+    //
+    //    var res = str.split("|")
+    //
+    //    console.log(res);
+
+    //    var str = "张学友，张三丰|张惠妹";
+    //    var res = str.split("，");
+    //
+    //    console.log(res);
+
+    //
+    //    var str = "hello";
+    //    console.log(str.slice(1, 3));//el，参数2指的是结束的下标（不包括这个下标上的元素）
+    //    console.log(str.substr(1, 3));//ell 参数2指的是长度
+    //    console.log(str.substring(1, 3));//el ,基本用法跟slice一样一样的
+
+    //    var str = "hello wolrd";
+    //    console.log(str.toUpperCase());//HELLO WORLD
+
+    //    var str = "HELLO EAT NO?";
+    //    console.log(str.toLowerCase());
+
+
+
+</script>

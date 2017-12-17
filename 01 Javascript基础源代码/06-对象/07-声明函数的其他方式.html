@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        函数的参数可以是任意类型的，包括函数（意思就是让另外一个函数成为某个一函数的参数传过去）
+
+        函数也可以作为返回值来返回
+
+
+
+    -->
+
+    <script>
+
+        //第一种
+        //        function f1() {
+        //        }
+        //
+        //
+        //        //第二种  匿名
+        var f2 = function (a, b) {
+
+            console.log('我是f2' + a + b);
+        }
+
+        //        f2(10,20);
+
+
+        //任意类型的
+        function test(a) {
+
+//            a(10,20);
+
+            return function () {
+
+                console.log('我是返回出来的函数');
+            };
+        }
+
+        var res = test(f2);
+
+        res();
+//        console.log(res);
+
+
+        //第三种（了解）
+        //前面的是参数，最后一个就是函数体，都是需要传字符串
+        //        var f3 = new Function("a","b","c", "console.log('我是f3'); ");
+        //        f3();
+        //        console.log(f3);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

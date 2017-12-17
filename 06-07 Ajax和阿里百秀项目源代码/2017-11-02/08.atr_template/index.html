@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- type属性 一般写的是 script 或者省略不写
+      都会解析成 js
+     如果type设置为 不是 script标签
+        那么内部的内容就不会解析为 js 同时页面上也看不到
+        我们一般使用这种方法 来定义模板
+        但是建议携程 text/html 目的是语法高亮
+-->
+<script type='text/html' id='template'>
+    <ul>
+        <li>我叫{{name}}</li>
+        <li>我擅长{{skill}}</li>
+        <li>我最喜欢吃{{food}}</li>
+    </ul>
+</script>
+<!-- 模板引擎使用步骤
+    1.准备模板
+    2.挖坑 起名字
+    3.准备数据
+    4.调用模板引擎的方法 完成数据的填充 填坑
+-->
+<script  src="./js/template-web.js"></script>
+<script>
+    // 数据
+    var obj = {
+        name:'皮皮虾',
+        skill:'怎么吃都好吃',
+        food:'微生物'
+    };
+    var obj2 = {
+        name:'碳烤林',
+        skill:'黑黑黑',
+        food:'烤串'
+    };
+
+    // 调用方法
+    var result = template('template', obj2);
+    console.log(result);
+</script>

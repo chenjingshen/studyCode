@@ -1,0 +1,164 @@
+.section1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section1 .texts img{
+    margin: 0px 10px;
+    opacity: 0.3;
+}
+
+/* 如果我的setion1这个父盒子，同时具有animate这个类， 那么下面的这段css才会执行 */
+.section1.animate .texts img {
+    transition: all 0.5s;
+    margin: 0px;
+    opacity: 1;
+}
+
+/* 第二屏 */
+.section2 > div {
+    /* 代表div的最小宽度是1200 */
+    min-width: 1200px;
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section2 .left {
+    width: 500px;
+    height: 400px;
+    /* background-color: rgba(100, 100, 100, 0.5); */
+}
+
+.section2 .left img:nth-child(3) {
+    transform: translate(200px, 200px) rotate(180deg);
+}
+
+/* 
+    三个问题
+    1. 怎么样才能发生动画
+    2. 什么时候发生动画
+    3. 怎么触发动画
+*/
+.section2.animate img:nth-child(3) {
+    transition:  all 1s;
+    transform: translate(0px, 0px) rotate(0deg);
+}
+
+/* 第三屏 */
+.section3 > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section3 .right {
+    background: url("../images/circle.png") no-repeat left top;
+    width: 453px;
+    height: 449px;
+
+    position: relative;
+}
+
+.section3 .rocket {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    transform: translate(-500px, 300px);
+}
+
+.section3.animate .rocket {
+    transition:  all 0.5s;
+    transform: none;
+}
+
+/* 第四屏 */
+.section4 > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section4 .left {
+    margin-top: 100px;
+    width: 529px;
+    height: 438px;
+    /* background-color: rgba(100, 100, 100, 0.5); */
+
+    position: relative;
+}
+
+.section4 .left .search {
+    position: absolute;
+    left: 0;
+    top: 0; 
+    width: 529px;
+    height: 66px;
+    background: url("../images/search.png") no-repeat;
+
+    transform: translateX(-1000px);
+}
+
+.section4.animate .left .search {
+    transition:  all 1s;
+    transform: none;
+}
+
+.section4 .key {
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    /* width: 99px; */
+    width: 0px;
+    height: 22px;
+    background: url("../images/key.png") no-repeat;
+}
+
+.section4.animate .key {
+    /* steps(n), 代表动画分几步完成 */
+    transition: all 1s steps(5) 1s;
+    width: 99px;
+}
+
+.section4 .left .result {
+    position: absolute;
+    left: 0;
+    top: 66px;
+    width: 529px;
+    /* height: 372px; */
+    height: 0px;
+    background: url("../images/result.png") no-repeat;
+}
+
+.section4.animate .result {
+    transition: all 1s 2s;
+    height: 372px;
+}
+
+/* 第五屏 */
+.section5 > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section5 .top {
+    margin: 15px 0px;
+    flex-basis: 134px;
+}
+
+.section5 .bottom {
+    width: 1004px;
+    flex: 1;
+    background: 
+        url("../images/toolbar.png") left top no-repeat, 
+        url("../images/extra.png") right bottom no-repeat;
+    border: 2px solid #fff;
+    margin: 15px 0px;
+}
+
+

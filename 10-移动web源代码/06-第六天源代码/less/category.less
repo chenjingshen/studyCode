@@ -1,0 +1,129 @@
+@import 'base.less';
+
+/* 顶部搜索框 */
+
+#topbar {
+    background-color: #eee;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    /* position: absolute; */
+    width: 100%;
+    float: left;
+    >.icon-back {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        border:10px solid transparent;
+        background-image: url(../images/sprites.png);
+        background-size: 200px 200px;
+        background-position: -20px 0;
+        /* 调整背景图定位的起点 */
+        background-origin: content-box; 
+        /* 背景图的裁切 */
+		  background-clip: content-box;
+		  background-repeat: no-repeat;
+    }
+    >form {
+        margin-left: 40px;
+        margin-right: 40px;
+        height: 40px;
+        >input {
+            width: 100%;
+            height: 30px;
+            border:1px solid #ccc;
+            margin-top: 5px;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+    }
+    .icon-menu {
+    	  width: 40px;
+        height: 40px;
+        position: absolute;
+        padding: 10px;
+        right: 0;
+        top: 0;
+        background-image: url(../images/sprites.png);
+        background-size: 200px 200px;
+        background-position: -60px 0;
+        /* 调整背景图定位的起点 */
+        background-origin: content-box;
+        /* 背景图的裁切 */
+		  background-clip: content-box;
+		  background-repeat: no-repeat;
+    }
+}
+html , body{
+    height: 100%;
+}
+/* 分类主体 */
+#category{
+    height: 100%;
+    padding-top: 40px;
+    .category-left{
+        width: 100px;
+        float: left;
+        height: 100%;
+        overflow: hidden;
+        >ul{
+            >li{
+                >a{
+                    width: 100px;
+                    height: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    font-size: 14px;
+                    display: block;
+                    border-right: 1px solid #ccc;
+                    border-bottom: 1px solid #ccc;
+                    background-color: #eee;
+                }
+                &.active{
+                    >a{
+                        background-color: #fff;
+                        color: @main-color;
+                    }
+                }
+            }
+        }
+    }
+    .category-right{
+         overflow: hidden; 
+        /* margin-left: 100px; */
+        background-color: #eee;        
+        /* 会裁切掉左边100px文本过不来的区域 */
+        padding: 10px;
+        height: 100%;
+        /* 为了让滚动条相对当前的容器 */
+        position: relative;
+        a{
+            display: block;
+            img{
+                width: 100%;
+            }
+        }
+        .product{
+            background-color: #fff;
+            >h4{
+
+            }
+            >ul{
+                >li{
+                    width: 33.33%;      
+                    float: left;
+                    >a{
+                        display: block;
+                        text-align: center;
+                        >img{
+                            width: 50px;
+                            height: 50px;
+                        }
+                        >p{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

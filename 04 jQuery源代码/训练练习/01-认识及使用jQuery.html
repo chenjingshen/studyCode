@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+
+            //隔行变色
+            $("li:even").css("backgroundColor","skyblue");
+            $("li:odd").css("backgroundColor","pink");
+            $("li").mouseenter(function () {
+                $("li:even").css("backgroundColor", "skyblue");
+                $("li:odd").css("backgroundColor", "pink");
+                $(this).css("backgroundColor","red");
+            })
+
+
+
+        })
+
+
+
+    </script>
+
+</head>
+<body>
+
+<ul>
+    <li>"我是第1个li"</li>
+    <li>"我是第2个li"</li>
+    <li>"我是第3个li"</li>
+    <li>"我是第4个li"</li>
+    <li>"我是第5个li"</li>
+    <li>"我是第6个li"</li>
+    <li>"我是第7个li"</li>
+    <li>"我是第8个li"</li>
+    <li>"我是第9个li"</li>
+    <li>"我是第10个li"</li>
+</ul>
+
+</body>
+</html>

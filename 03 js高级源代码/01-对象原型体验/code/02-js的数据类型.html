@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  /*
+  1.js的数据类型
+   01：基本类型
+      string number boolean
+   02：JavaScript 的复合类型有 Array Math Date RegExp String  Number Boolean  还有两个核心类型: Object Function
+
+   03:还有两个空类型: null undefined
+
+
+
+ 2.如何检测数据类型
+   01.typeof
+   语法： typeof 需要检测的内容
+         typeof (需要检测的内容)
+
+   可以检测除了null之外的所有的基本数据类型，还有function
+
+
+   02. instanceof
+     用他来判断数据类型，其实不严谨
+
+
+   03. Object.prototype.toString.call(需要检测的内容);
+
+
+
+
+  * */
+  //var arr = [1,2,3];
+  //console.log(Object.prototype.toString.call(arr)); // "[object Array]"
+  //console.log(Object.prototype.toString.call(123));
+  //console.log(Object.prototype.toString.call("abc"));
+  //console.log(Object.prototype.toString.call(null));
+  //function test(){
+  //  console.log("哈哈");
+  //}
+  //console.log(Object.prototype.toString.call(test));
+
+
+
+  //var arr = [1,2,3];
+  //console.log(arr instanceof Array); //true
+  //console.log(arr instanceof Object); //true
+
+
+  //var num1 = 10;
+  //var num2 = 20;
+  //console.log(typeof  (num1 + num2));
+
+
+  // function test(){
+  //   console.log("哈哈");
+  // }
+//
+//
+  // console.log(typeof 123);
+  // console.log(typeof "abc");
+  // console.log(typeof true);
+  // console.log(typeof undefined);
+  // console.log(typeof null);
+  // console.log(typeof test);
+
+
+
+  //var  num1 = null;
+  //var sb =  document.getElementById("one");
+  //console.log(sb);
+
+  //var num;
+  //console.log(num);
+
+
+
+
+
+
+  //var num = 123;
+  //console.log(num.toString());
+
+
+  //var num = new Number(123); //基本包装类型
+  //console.log(num);
+  //console.log(num.toString()); // "123"
+  //console.log(num.valueOf()); //123
+</script>
+</body>
+</html>

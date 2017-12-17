@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var x = 20;
+
+//    setInterval(function () {
+//        //1. 先把画布清空
+//        context.clearRect(0, 0, canvas.width, canvas.height);
+//        //2. 画小球
+//        context.beginPath();
+//        context.arc(x, 200, 20, 0, 2*Math.PI);
+//        context.fill();
+//        //3. x要移动
+//        x += 10;
+//    }, 16.7);
+    //电脑的帧率是1秒钟60Hz， 就相当于一秒钟可以播放60张图片，就相当于播放一张图片使用16.7ms
+
+    function draw () {
+        //1. 先把画布清空
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        //2. 画小球
+        context.beginPath();
+        context.arc(x, 200, 20, 0, 2*Math.PI);
+        context.fill();
+        //3. x要移动
+        x += 10;
+
+        //被优化过的动画执行方向1.递归调用；2.可以自适应浏览器的刷新的帧率
+        window.requestAnimationFrame(draw);
+    }
+
+    draw();
+
+</script>

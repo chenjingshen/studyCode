@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        arguments：这个关键字在函数外没法使用，会报错
+                    在函数内没问题
+
+                    其实就是一个伪数组，数组里面保存的是调用时传递过来的实际参数，它只有数组的基本功能（下标，长度,但是没有数组提供的其他方法）；
+
+                   如果在函数内改变形参的值，arguments里面的元素也改了，arguments改了，形参也改
+
+
+                  arguments可以理解为是所有的传过来的实参，只不过组成了一个数组
+    -->
+
+    <script>
+
+        //        console.log(arguments);//这里会报错
+
+        function test(n1, n2) {
+
+//            console.log(n1,n2);
+//            arguments[0] = 3000;
+            console.log(n1, n2);
+
+//            arguments.slice(0);
+
+            console.log(arguments);
+//            console.log(arguments[0]);//300
+//            console.log(arguments[1]);//20
+//            console.log(arguments.length);
+        }
+
+        test(10, 20, 30, 40);
+
+        var arr = [10, 20, 30, 40];
+
+        //从下标0的位置开始克隆数组
+        //可以传一个参数：参数代表从哪个下标开始克隆，不传默认就是从下标0开始
+        //参数2：克隆到哪个下标结束,不包括这个消息
+        var arr2 = arr.slice(0);
+
+        arr2[0] = 1000;
+
+        console.log(arr[0]);//10
+        console.log(arr2[0]);//1000
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+
+</head>
+<body>
+<script>
+    var arr = [10,20,30,40,50];
+
+    //1.删除最后一个元素
+    var num = arr.pop();
+    console.log(num);
+    console.log(arr);
+
+    //2.添加元素到第一个
+    arr.unshift(60);
+    console.log(arr);
+
+    //3.把删掉的最后一个元素，添加到第一个位置上
+    arr.unshift(arr.pop());
+    arr.unshift(arr.pop());
+    console.log(arr);
+
+    //-----------------------------------------------------------------
+    //4.删除掉第一个元素
+    var num = arr.shift();
+    console.log(num);
+    console.log(arr);
+
+    //5.添加最后一个元素
+    arr.push(60);
+    console.log(arr);
+
+
+    //6.把删掉的第一个元素添加到最后一个位置上
+    arr.push(arr.shift());
+    arr.push(arr.shift());
+    console.log(arr);
+
+</script>
+</body>
+</html>

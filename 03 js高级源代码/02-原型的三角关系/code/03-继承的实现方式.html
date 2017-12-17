@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.继承的实现方式
+  //a.混入式
+  //  var jianLin = {
+  //    house:{
+  //      price:10000000,
+  //      addres:"东京"
+  //    },
+  //    car:{
+  //      brand:"法拉利",
+  //      price:5000000,
+  //    }
+  //  };
+//
+  //  var siCong = {
+  //    girlFriends:["都得","更新","苏皖","雪梨糖水","0009001"]
+  //  };
+  //  //siCong这个对象，想拥有jianLin这个对象的所有成员，就可以让siCong继承自jianLin。
+  //   for(var key in jianLin){
+  //     siCong[key] = jianLin[key];
+  //   }
+//
+  //  console.log(siCong);
+
+
+
+  //b.替换原型
+  // var jianLin = {
+  //   house:{
+  //     price:10000000,
+  //     addres:"东京"
+  //   },
+  //   car:{
+  //     brand:"法拉利",
+  //     price:5000000,
+  //   }
+  // };
+//
+  // //渣男构造函数
+  // function ZhaNan(gfs){
+  //   this.gfs = gfs;
+  // }
+  // //每一个渣男都会花钱，所以这个花钱的方法写在原型中。
+  // ZhaNan.prototype.huaQian = function () {
+  //   console.log("拉拉啊，我很会花钱...");
+  // }
+//
+  // //把 渣男构造函数 对应的原型替换成 jianLin对象。
+  // ZhaNan.prototype = jianLin;
+//
+  // var siCong = new ZhaNan(["都得","更新","苏皖","雪梨糖水","0009001"]);
+  // console.log(siCong);
+ //
+  // var xiaoQun = new ZhaNan(["五姑凉","猫咪","小林林","充气的"]);
+  // console.log(xiaoQun);
+  //
+
+
+
+  //3.混合式
+  var jianLin = {
+    house:{
+      price:10000000,
+      addres:"东京"
+    },
+    car:{
+      brand:"法拉利",
+      price:5000000,
+    }
+  };
+
+  //渣男构造函数
+  function ZhaNan(gfs){
+    this.gfs = gfs;
+  }
+  //每一个渣男都会花钱，所以这个花钱的方法写在原型中。
+  ZhaNan.prototype.huaQian = function () {
+    console.log("拉拉啊，我很会花钱...");
+  }
+
+  //把jianLin对象里面的成员，添加给ZhaNan这个构造函数的原型。
+  for(var key in jianLin){
+    ZhaNan.prototype[key] = jianLin[key];
+  }
+
+
+  var siCong = new ZhaNan(["都得","更新","苏皖","雪梨糖水","0009001"]);
+  console.log(siCong);
+
+
+
+
+</script>
+</body>
+</html>

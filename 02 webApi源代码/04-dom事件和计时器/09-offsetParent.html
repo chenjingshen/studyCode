@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        定位：position
+
+        相对定位和绝对定位
+        如果父元素也有定位，就参照父元素的位置
+        如果父元素没有定位，那么就找父元素的父元素看有没有定位，如果有就参照父元素的父元素来定位，一直往上找，如果没有任何父元素定位，那么就参照body来定位
+
+
+        固定定位：fixed
+        相对于浏览器窗口（可视区域）的定位
+
+        offsetParent其实就是获取到某个元素参照的定位元素是谁
+
+
+     总结：
+        只要用的是固定定位，不管是谁的子元素，offsetParent都获取到null
+
+        如果父元素有定位，那么获取到的就是父元素
+
+        如果父元素没有定位，就会一级一级往上找，找到离自己最近的已定位的父元素，如果父元素都没有定位，那么得到是body
+
+    -->
+
+    <style>
+        #box{
+            /*position: relative;*/
+
+            top: 100px;
+            left: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #childBox{
+
+            /*position: fixed;*/
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+        
+        #sunzi{
+
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+
+    <div id="childBox">
+
+        <div id="sunzi"></div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    var box = document.getElementById("box");
+    
+    var childBox = document.getElementById("childBox");
+    
+    var sunzi = document.getElementById("sunzi");
+
+    //如果是body下的子元素，用的是固定定位，获取到是null
+//    console.log(box.offsetParent);
+
+    //如果是body下的子元素，用的是非固定定位（绝对，相对），获取到的是body
+//    console.log(box.offsetParent);
+
+
+    //如果是某个元素的子元素，用的固定定位，获取到的是nul
+//    console.log(childBox.offsetParent);//null
+
+    //如果是某个元素的子元素，用的是非固定定位，并且父元素也有定位，那么获取到的就是它的父元素
+//    console.log(childBox.offsetParent);
+
+
+    //如果是某个元素的子元素，用的是非固定定位，并且父元素没有定位，那么获取到的是body
+//    console.log(childBox.offsetParent);
+
+
+    //如果是孙子子元素，用的是固定定位，那么到的是null
+//    console.log(sunzi.offsetParent);
+
+    //如果是孙子元素，用的是非固定定位，并且它的父元素有定位，那么获取到的是父元素
+//    console.log(sunzi.offsetParent);
+
+    //如果是孙子元素，用的是非固定定位，并且它父元素没有定位，那么就往上找爷爷元素，如果爷爷有元素有定位，那么获取到就是爷爷元素
+//    console.log(sunzi.offsetParent);
+
+    //如果它所有的父元素都没有定位，那么获取到是body
+//    console.log(sunzi.offsetParent);
+
+
+    //body的offsetParent为null
+    console.log(document.body.offsetParent);
+
+</script>

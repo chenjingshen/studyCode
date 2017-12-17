@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    for (var i = 10; i > 0; i--) {
+        //画了一个圆的路径
+        context.beginPath();
+        context.arc(300, 200, 15*i, 0, 2*Math.PI);
+        context.fillStyle = i % 2 != 0 ? "red" : "white";
+        context.fill();
+    }
+
+
+</script>

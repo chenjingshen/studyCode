@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+
+            top:50px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="往右走400" id="btn1"/>
+<input type="button" value="往下走400" id="btn2"/>
+<input type="button" value="变宽到300" id="btn3"/>
+<input type="button" value="变高到300" id="btn4"/>
+
+<div id="box"></div>
+</body>
+</html>
+
+<script src="js/common.js"></script>
+<script src="js/animate.js"></script>
+<script>
+    var box = document.getElementById("box");
+
+    //往右走
+    document.getElementById("btn1").onclick = function () {
+
+        animateSlow(box,400,"left");
+    };
+
+    //往下走
+    document.getElementById("btn2").onclick = function () {
+
+        animateSlow(box,400,"top");
+    };
+
+
+    //变宽
+    document.getElementById("btn3").onclick = function () {
+
+        animateSlow(box,1000,"width");
+    };
+
+    //变高
+    document.getElementById("btn4").onclick = function () {
+
+        animateSlow(box,500,"height");
+    };
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        创建input，默认是text（文本框）
+
+        如果要创建密码框或者按钮或者多选框，那么要改type属性
+    -->
+</head>
+<body>
+
+<input type="button" value="创建" id="add"/>
+
+<hr/>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("add").onclick = function () {
+
+        //如果创建input，默认是文本框（text）
+        var input =  document.createElement("input");
+
+        document.body.appendChild(input);
+        //如果要创建密码框
+        var pwd =  document.createElement("input");
+
+        pwd.type = "password";
+
+        document.body.appendChild(pwd);
+
+        //创建button
+        var btn =  document.createElement("input");
+
+        btn.type = "button";
+
+        btn.value = "点你啊";
+
+        document.body.appendChild(btn);
+
+
+    }
+</script>

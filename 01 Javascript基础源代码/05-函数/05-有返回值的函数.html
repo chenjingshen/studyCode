@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        /*
+
+         苍老师的班上有3个学生，一次考试后，需要统计全班的成绩
+
+         如果你要用之前算总分的函数，就必须拿到算到的结果
+
+         但是现在，函数是算出一个结果，但是函数自己私自把结果给处理了
+
+
+         所以我们发现：有时候函数完成一个功能，会得到一个结果，而这个结果是调用者想用拿到的
+
+         所以这时候，就需要对这个值进行返回（把值交给调用者）
+
+         这就叫返回值
+
+         需要用一个关键字：
+         retuen 值;
+
+         return关键字作用：
+         1.可以让函数内返回一个值
+         2.可以立即结束这个函数
+         3.return后面也可以不加任何值，也有返回值，返回值是undefined
+         4.函数内如果没有写return,那么也会有返回值，只不过返回值是undefined
+
+
+         函数有以下几种形式：
+                1.无参数无返回值的函数（本质上来说也有返回值，只不过返回值是undefined）
+                2.有参数无返回值的函数
+                3.无参数有返回值
+                4.有参数有返回值的函数
+
+         */
+
+        //写一个函数，功能是计算语文和数学成绩的总和
+        //        并且不会私下打印，而是会把结果返回给调用者
+
+        /*
+         function getScore(yuwen, shuxue) {
+
+         var score = yuwen + shuxue;
+         console.log('return之前');
+
+         return score;
+
+         console.log('return之后');//这句话永远不会被执行
+         }
+
+
+         var score1 = getScore(100, 90);
+         //        console.log(score1);
+
+         var score2 = getScore(80, 85);
+
+         var score3 = getScore(95, 90);
+
+         //班级总分
+         var sum = score1 + score2 + score3;
+
+         console.log('总分是：' + sum);
+         */
+
+
+        function test() {
+
+            console.log('test被调用了');
+
+            return 'a';
+        }
+
+//        var result = test();
+//
+//        console.log(result);
+
+//
+//        console.log('abc');
+//
+//        alert('我是alert');
+
+//        prompt('请输入内容');
+
+//        document.write('xxx');
+
+        var n1 = 10;
+        var n2 = 20;
+
+
+        //因为alert函数没有返回值，所以默认返回的是undefined
+        var res = n1 > n2 ? alert(n1) : alert(n2);
+
+        alert(res);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.原型中 有一个属性constructor， 指向这个原型对应的那个构造函数。
+  function Dog(pingZhong,name){
+    this.pingZhong = pingZhong;
+    this.name = name;
+  }
+
+  //console.log(Dog.prototype.constructor === Dog); //true
+
+
+  //d1中没有constructor这个属性，但是d1指向的原型中有，所以可以访问。
+  //var d1 = new Dog("中华田园犬","小林林");
+  //console.log(d1.constructor);
+
+
+
+  //var d2 = new  Dog.prototype.constructor("泰迪","怼天怼地...");
+  //console.log(d2);
+
+
+
+  //原型被修改了,原型里面的constructor 指向就丢失了
+  //如果你想要的话，还是可以指回来的。
+  Dog.prototype = {
+    constructor:Dog
+  };
+  console.log(Dog.prototype.constructor === Dog); //true
+
+
+</script>
+</body>
+</html>

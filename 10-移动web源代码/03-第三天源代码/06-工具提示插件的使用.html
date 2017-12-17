@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <style>
+    button {
+        margin-left: 200px;
+        margin-top: 200px;
+    }
+    </style>
+</head>
+
+<body>
+	<!-- data-toggle="tooltip" 控制工具提示是否开启 -->
+	<!-- data-placement="top" 提示的方向 -->
+	<!-- title="Tooltip on top" 提示的内容 -->
+	<!-- bootstrap的JS插件都是只和属性有关系 和标签和类名都没关系 -->
+    <button data-toggle="tooltip" data-placement="top" title="哈哈哈哈">嘻嘻嘻</button>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script>
+    $(function() {
+        /*初始化工具提示插件*/
+        // 属性选择器 选中所有属性 data-toggle="tooltip" 的元素 调用tooltip方法初始化
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+    </script>
+</body>
+
+</html>

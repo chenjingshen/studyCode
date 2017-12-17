@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        //系统帮我们写好的一些对象，其中一个就是日期对象
+
+        //获取当前日期
+
+         var date = new Date();
+
+         console.log(date);//内部调用了toString();
+         console.log(date.toString());
+
+         console.log(date.toDateString());//老外用的多
+         console.log(date.toLocaleDateString());//打印出当地日期，他得到 年/月/日 不包括时间
+
+         console.log(date.toTimeString());//老外用的多
+         console.log(date.toLocaleTimeString());//转换本地的时间
+
+         //得到年
+         var year = date.getFullYear();
+
+         //date.getYear();//这里得到的是距离1900年已经多少年了，并不能取到具体的年份
+         //得到月
+         var month = date.getMonth() + 1; //它是从0开始，也就是说0就代表1月，1代表2月，如果转换成生活中月份+1
+         //得到日
+         var day = date.getDate();
+
+         //var day = date.getDay();//这个星期的第几天，也是从0开始，并且遵从的是周日为0，周一为1，周二为2
+
+         console.log(year,month,day);
+
+
+
+        //从左往右依次是年，月，日，时，分，秒
+        /*
+         var date = new Date(1900,0,3,15,30,45);//月份从0开始
+
+         console.log(date);
+         console.log(date.toLocaleDateString());
+         */
+
+        //        var date = new Date("1900-3-5 13:45:30");//字符串里写的是几月，那就是几月
+        //        console.log(date.toLocaleDateString());
+
+
+        //把当前时间转换为 yyyy-MM-dd 这种形式： 1999-05-21
+
+        var date = new Date();//取到当前时间
+
+        var month = date.getMonth() + 1;
+
+
+        month = month < 10 ? "0" + month : month;
+
+        var str = date.getFullYear() + '-' + month + '-' + date.getDate();
+
+        console.log(str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #father {
+            width: 200px;
+            height: 300px;
+            background-color: green;
+            position: absolute;
+
+        }
+
+        #son {
+
+            width: 100%;
+            height: 100px;
+            background-color: hotpink;
+            cursor: move;
+
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="father">
+
+    <div id="son"></div>
+</div>
+
+</body>
+</html>
+
+<script src="common.js"></script>
+
+<script>
+    var son = document.getElementById("son");
+
+    //找到大盒子
+    var father = document.getElementById("father");
+
+    /*
+     onmousedown就是鼠标按下触发（不用等弹起）
+     onmouseup就是鼠标按下时不触发，鼠标弹起时触发
+     onclick：既要鼠标按下还要鼠标弹起才触发
+
+     onmousemove：鼠标移动触发
+
+
+     思路：
+     1.要找到子盒子（子盒子是为了给它添加鼠标按下事件）和父盒子（是为了移动）
+     2.给子盒子加一个鼠标按下事件(需要传递一个事件对象，为了算点击的相对于子盒子的位置)
+     3.在鼠标按下事件里给整个文档加一个鼠标移动事件
+     3.2 鼠标移动事件里，获取当前移动到页面的位置，然后赋值给父盒子
+     此时赋值完，可以动。但是是父盒子的左上角到了你鼠标移动的位置
+     3.3解决点在哪，移动时定位在哪的问题
+     要用在页面的坐标 - 点击相对于小盒子的坐标
+     4.给小盒子加一个鼠标弹起事件
+     在弹起事件里清楚文档的鼠标移动事件（赋值为null）
+     */
+
+    son.onmousedown = function (e) {
+
+        var x = getPagePosition(e).pageX - son.offsetLeft - father.offsetLeft;
+        var y = getPagePosition(e).pageY - son.offsetTop - father.offsetTop;
+
+
+        //先等鼠标按下，然后再给整个页面加一个鼠标移动事件
+        document.onmousemove = function (event) {
+
+            var event = event || window.event;
+
+//            console.log(getPagePosition(event).pageX + ":" + getPagePosition(event).pageY);
+
+            father.style.left = getPagePosition(event).pageX - x + "px";
+            father.style.top = getPagePosition(event).pageY - y + "px";
+
+//            father.style.left = getPagePosition(event).pageX - e.offsetX + "px";
+//            father.style.top = getPagePosition(event).pageY - e.offsetY + "px";
+        }
+    }
+
+    son.onmouseup = function () {
+
+        document.onmousemove = null;
+    }
+</script>

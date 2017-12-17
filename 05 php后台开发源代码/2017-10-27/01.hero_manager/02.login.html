@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <style>
+    .modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+   
+    
+  </style>
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade" data-backdrop="static" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">登陆</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="userName">用户名</label>
+              <input type="text" name='userName' class="form-control" id="userName" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="userPass">密码</label>
+              <input type="password" name='userPass' class="form-control" id="userPass" placeholder="Password">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-info">登陆</button>
+              <a type="submit" class="btn btn-danger">注册</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="lib/js/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/js/bootstrap.min.js"></script>
+<script>
+  // 默认显示模态框
+  $(function () {
+    $('#myModal').modal('show');
+  })
+</script>

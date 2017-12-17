@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="father" id="father">
+    <div>我是第1个子div
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>
+    </div>
+    <div>我是第2个子div</div>
+    <div>我是第3个子div</div>
+    <p>我是第1个p标签
+        <b>1</b>
+        <b>2</b>
+        <b>3</b>
+    </p>
+
+    <p>我是第2个p标签</p>
+
+    <p>我是第3个p标签</p>
+    <ul id="ul1">
+        <li>我是第1个li标签</li>
+        <li>我是第2个li标签</li>
+        <li>我是第3个li标签</li>
+        <li>我是第4个li标签</li>
+        <li>我是第5个li标签</li>
+    </ul>
+</div>
+</body>
+</html>
+
+
+<script>
+
+    //第三天
+
+    //    //1.递归
+    //    //函数自己调用自己，要有结束的时候
+    //    var i=0;
+    //    function test () {
+    //        console.log("哈哈"+i);
+    //        i++;
+    //        if(i<5){
+    //            test();
+    //        }
+    //        console.log("呵呵"+i);
+    //    }
+    //    test();
+
+
+    //1.求1-n之间的整数和
+    //    function getSum(n){
+    //        if(n==1){
+    //            return 1;
+    //        }else{
+    //            return n+getSum(n-1);
+    //        }
+    //    }
+    //    console.log(getSum(5));
+
+    //递归，求1-n之间的整数和
+//    function qiuHe(n){
+//        if(n==1){
+//            return 1;
+//        }else{
+//            return n+qiuHe(n-1)
+//        }
+//    }
+//    console.log(qiuHe(5));
+
+
+    //2.求1-n之间的累积
+    //    function getJi(n){
+    //        if(n==1){
+    //            return 1;
+    //        }else{
+    //            return n*getJi(n-1);
+    //        }
+    //    }
+    //    console.log(getJi(5));   //120
+
+    //求1-n之间的累积
+//    function qiuJi(n){
+//        if(n==1){
+//            return 1;
+//        }else{
+//            return n*qiuJi(n-1);
+//        }
+//    }
+//    console.log(qiuJi(5));
+
+    //3.求斐波那契数列中第 n位数是多少？
+    //1 1 2 3 5 8 13 21 34  55
+    //n   (n-1) +  (n-2)
+    //    function getFb(n){
+    //        if(n<=2){
+    //            return 1;
+    //        }else{
+    //            return getFb(n-1)+getFb(n-2);
+    //        }
+    //    }
+    //    console.log(getFb(10));  //55
+
+    //求斐波那契数列第n个是多少
+//    function qiuFb(n){
+//        if(n<=2){
+//            return 1;
+//        }else{
+//            return qiuFb(n-1)+qiuFb(n-2);
+//        }
+//    }
+//       console.log(qiuFb(10));  //55
+
+
+    //4.解决用递归求斐波那契数列所存在的性能问题
+    //        var obj={};//这个对象是记录求过的斐波那契项的值。
+    //        function getFb(n){
+    //            if(obj[n]){
+    //                return obj[n];
+    //            }else{
+    //                if(n<=2){
+    //                    obj[n]=1;
+    //                }else{
+    //                    obj[n]=getFb(n-1)+getFb(n-2);
+    //                }
+    //                return obj[n];
+    //            }
+    //        }
+    //        console.log(getFb(50));
+
+    //解决用递归求斐波那契数列所存在的性能问题
+//    var obj={};
+//    function qiuFb(n){
+//        if(obj[n]){
+//            return obj[n];
+//        }else if(n<=2){
+//                obj[n]=1;
+//            }else{
+//            obj[n]=qiuFb(n-1)+qiuFb(n-2);
+//        }
+//        return obj[n];
+//    }
+//    console.log(qiuFb(50));
+
+    //  var obj = {
+    //    0:100,
+    //    1:200
+    //  }
+    //  console.log(obj[0]); //100
+    //  console.log(obj[2]); //undefiend
+
+
+    //5.求某个元素的所有后代元素
+    //    var father= document.getElementById("father");
+    //    var list=[];   //保存的是后代元素
+    //    function getEles(ele){
+    //        var childEles=ele.children;
+    //        for (var i = 0; i < childEles.length; i++) {
+    //            list.push(childEles[i]);
+    //            getEles(childEles[i]);
+    //        }
+    //    }
+    //    getEles(father);
+    //    console.log(list);
+
+
+    //6.闭包   闭包就是声明在一个函数中的函数
+    //    function test1() {
+    //        var num = 10;
+    //
+    //        function test2() {
+    //            return num;
+    //        }
+    //
+    //        return test2;
+    //    }
+    //     test1();
+    //    //此时调用test1函数得到的返回值f1，其实就是这个test2函数本身。
+    //    console.log(f1());
+
+    //=========================================
+    //    var test = (function () {
+    //        var num = 10;
+    //        function inner(){
+    //            return num;
+    //        }
+    //        return inner;
+    //    }());
+    //    //这是一个自执行函数，不需要我们手动调用
+    //    console.log(test());
+
+    //7.闭包需要注意的地方
+
+
+    //8.闭包的作用1
+    //a.延长变量的生命周期
+    //    function test (){
+    //        var num=10;
+    //        function test1(){
+    //            return num;
+    //        }
+    //        return test1;
+    //    }
+    //    console.log(test()());
+
+
+    //9.闭包的作用2
+    //b.提供有限的访问权限
+    //    function test (){
+    //        var num=10;
+    //        function getnum(){
+    //            return num;
+    //        }
+    //        function setnum(value){
+    //            if(value>0){
+    //                num=value;
+    //            }
+    //        }
+    //        return{
+    //            get:getnum,
+    //            set:setnum
+    //        }
+    //    }
+    //    var obj=test();
+    //    console.log(obj.get());
+    //    obj.set(100);
+    //    console.log(obj.get());
+
+
+    //10.闭包案例1-点击显示li标签的索引
+    //    var lis= document.getElementsByTagName("li");
+    //    for (var i = 0; i < lis.length; i++) {
+    //        function outer (){
+    //            var j=i;
+    //            function inner(){
+    //                console.log(j);
+    //            }
+    //            return inner;
+    //        }
+    //        lis[i].onclick=outer();
+    //    }
+
+
+    //11.闭包案例2-for循环setTimeout的问题
+    //setTimeout("console.log('哈哈')",2000);
+
+    //    setTimeout(function () {
+    //        console.log("哈哈");
+    //    },2000);
+
+    //    function test1(){
+    //        console.log("哈哈");
+    //    }
+    //    setTimeout(test1,2000);  //此时的test1代表的是test1这个函数，正是定时器需要的
+
+
+    //====================================
+    //js其实是单线程的。
+    //先做主要任务，然后做次要任务
+    //比如for循环就是主要任务，  比如setTimeout/setInterval的回调函数，就是次要任务
+    //     for(var i = 0 ; i < 5; i++){
+    //     	setTimeout("console.log(i)",2000);
+    //     }
+
+    //    for (var i = 0; i < 5; i++) {
+    //        function outer(){
+    //            var j=i;
+    //            function inner (){
+    //                console.log(j);
+    //            }
+    //            return inner;
+    //        }
+    //        setTimeout(outer(),2000);
+    //    }
+
+
+    //12.闭包的思考题
+    //    var obj = {};
+    //    function feiBo(n){
+    //        var num = obj[n]; //先去看第n位有没有已经求过，放在这个对象中了。
+    //        if(num == undefined){
+    //            if(n == 1 || n == 2){
+    //                obj[n] = 1;
+    //            }else {
+    //                obj[n] = feiBo(n-1) + feiBo(n-2);
+    //            }
+    //        }
+    //        return obj[n];
+    //    }
+    //    console.log(feiBo(50));
+
+    //a.
+    //  var name = "The Window";
+    //  var object = {
+    //    name: "My Object",
+    //    getNameFunc: function () {
+    //      return function () {
+    //        return this.name;
+    //      };
+    //    }
+    //  };
+    //  console.log(object.getNameFunc()())
+
+
+    //b.
+    //    var name = "The Window";
+    //    var object = {
+    //        name: "My Object",
+    //        getNameFunc: function () {
+    //            var that = this;
+    //            return function () {
+    //                return that.name;
+    //            };
+    //        }
+    //    };
+    //    console.log(object.getNameFunc()());
+
+
+    //13.js闭包的一种使用场景--沙箱
+    //模块化开发的，为了避免变量的污染
+    //    (function (w) {
+    //        var list = [100];
+    //        function sayHi(){
+    //            console.log("呵呵");
+    //        }
+    //        w.list=list;
+    //        w.sayHi=sayHi;
+    //    }(window));
+
+
+    //14.函数执行的三种方式
+    //要看一个函数中的this是谁，就要看这个函数是怎么调用的，不要看他是怎么声明的。
+    //a.函数就作为普通函数调用，里面的this是window
+    //    function test (){
+    //        console.log("我是普通函数");
+    //        console.log(this);
+    //    }
+    //    test();
+
+    //b.函数作为方法来调用。
+    //函数里面的this看是哪个对象点出来调用的
+    //    var obj={
+    //        test: function () {
+    //            console.log(this);
+    //            console.log("我是一个方法");
+    //        }
+    //    }
+    //    obj.test();
+
+
+    //c.函数作为构造函数来调用
+    //如果是配合new关键字，当做构造函数来调用，那么这个函数里面的this就是那个new关键字创建出来的对象。
+    //    function Person (name,age){
+    //        this.name=name;
+    //        this.age=age;
+    //        console.log(this);
+    //    }
+    //    new Person("张三");//this--Person
+    //
+    //    //注意：如果把构造函数当成是一个普通的函数来调用，这个构造函数中的this就是window。
+    //    Person("随便");
+
+
+    //第四天
+
+    //1.复习--略
+
+
+    //2.函数上下文调用模式
+    //a。函数的调用模式：  函数调用  方法调用  构造函数调用  --这三种方式调用，函数里面的this是不能改变的。
+
+
+    //b.我就是要修改这个函数里面的this怎么办？
+    // 函数  上下文调用模式。 可以修改函数里面的this。
+    //使用函数的call（）  或者 apply（）
+
+    //c.call();
+    //语法：函数名.call(this需要指向的对象，参数1，参数2......);
+
+    //    var obj = {
+    //        name:"某某某"
+    //    };
+    //    function test (a,b){
+    //        console.log(this.name + ":" + (a + b));
+    //    }
+    //    test(10,20);
+    //    test.call(obj,10,20);
+
+    //d.apply();
+    //语法：函数名.apply（this需要指向的对象，数组或者伪数组）；
+    //    var name="某某";
+    //    var obj={
+    //        name:"某某某"
+    //    };
+    //    function test (a,b,c){
+    //        console.log(this.name + ":" + (a + b +c));
+    //    }
+    //    test(10,20,30);
+    //    test.call(obj,10,20,30);
+    //    test.apply(obj,[11,20,30]);  //会把数组中的元素依次的复制给形参
+
+
+    //e. call() 还有apply() 都是存在于Function.prototype里面的。
+    //意味着js中所有的函数对象，都有这两个方法。
+
+    //3.上下文调用模式的使用注意事项
+    //如果让一个函数里面的this指向window有几种方式
+    //    test.call();
+    //    test.call(null);
+    //    test.call(undefined);
+    //    test.call(window);
+
+    //test.call(123);  //Number
+    //test.call("abc");  //String
+    //test.call(true); //Boolean
+    //test.call(); //window
+    //test.call(null); //window
+    //test.call(undefined); //window
+
+    //4.案例一：自定义伪数组转数组
+    //伪数组：没有数组的方法
+    //    var weiArr={
+    //        0:"非洲群",
+    //        1:"泰国小林林",
+    //        2:"秋名山车神",
+    //        3:"黑马睡神",
+    //        4:"隔壁老王",
+    //        5:"帅帅的林",
+    //        6:"某威",
+    //        7:"某怡宁",
+    //        length:8
+    //    };
+    //    var arr=[];
+    //    arr.push.apply(arr,weiArr);
+    //    console.log(arr);
+
+
+    //5.案例二：伪数组排序
+    //    var disArr = {
+    //        0:11,
+    //        1:21,
+    //        2:18,
+    //        3:50,
+    //        4:30,
+    //        5:6,
+    //        length:6
+    //    };
+    //
+    //    //对这个伪数组disArr他排序
+    //
+    //    //disArr.sort(); //报错的
+    //
+    //    //因为disArr是一个伪数组，没有sort方法，但是可以借用sort方法
+    //    var arr =  Array.prototype.sort.call(disArr, function (a,b) {
+    //        return a<b;  //从大到小排序
+    //    });
+    //    console.log(arr);
+    //
+    //
+    //    //复习了sort方法
+    //    var arr = [10,20,11,32,5];
+    //    arr = arr.sort(function (a, b) {
+    //        return a > b;  //从小到大排序
+    //    });
+    //    console.log(arr);
+
+
+    //6.案例三：求数组中的最大值
+    //以前的做法
+    //    var arr=[10,4,5,40,6];
+    //    var max=arr[0];
+    //    for (var i = 0; i < arr.length; i++) {
+    //        max = max > arr[i] ? max : arr[i];
+    //    }
+    //    console.log(max);
+    //
+    //    //现在的做法
+    //    // var max=Math.max(10,4,5,40,6);
+    //    var max1=Math.max.apply(Math,arr)
+    //    console.log(max1);
+
+    //7.案例四：借用构造函数继承
+    //并不常用，因为这种方式只能继承this.xxx=value;
+    //    function Person (){
+    //        //Person函数里面的this，现在是new关键字创建出来的对象。
+    //        this.name="张三";
+    //        this.age=18;
+    //    }
+    //    function Student(){
+    //        //Student()构造函数里面的this是new关键字创建出来的对象。
+    //
+    //        //使用上下文模式调用Person函数，改变了这个Person函数里面的this
+    //        Person.call(this);
+    //    }
+    //    var s1=new Student();
+    //    console.log(s1);
+
+
+    //8.案例五：检测数据类型
+
+    //    var num=10;
+    //    console.log(Object.prototype.toString.call(num));
+    //
+    //    var arr=[43,6,6,7,3,6];
+    //    console.log(Object.prototype.toString.call(arr));
+    //
+    //    var test=function () {
+    //        console.log("haha");
+    //    }
+    //    console.log(Object.prototype.toString.call(test));
+
+
+    //9.bind()方法
+    //函数上下文调用的三种方法 。 call()  apply()  bind()
+
+    //    var obj={
+    //        name:"张三",
+    //    }
+    //    function test (a,b){
+    //        console.log(this);
+    //        console.log(a + b);
+    //    }
+    //    test(10,20);
+    //    var f1=test.bind(obj);  //返回值f1其实就是修改了this指向的那个test
+    //    f1(10,20);
+
+
+</script>

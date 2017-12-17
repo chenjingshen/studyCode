@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <script>
+        /*
+         //
+         // 直接量：直接写的数据都是直接量，它可以直接拿来使用
+         //变量：就是在内存中开辟一块空间，空间可以用来保存任何数据
+         //变量的声明语法：
+         var 变量名;  声明一个变量
+
+         var n1,n2,n3,n4; //同时声明多个变量
+
+         如果变量没赋值只声明，有值，值是undefined
+
+
+         基本数据类型：string,number,bool,null,undefined
+
+         NaN不是一个数字，属于number类型
+
+         复杂数据类型：数组、函数、对象(Object)
+
+         转换成number
+         Number(值);
+         字符串中带了任何字母，都不会转换成功
+
+
+         true和false本质上也是数字，true为1，false为0
+
+         parseInt():从左往右来转换，如果是数字就转，直到任何一个非数字就停止
+         如果一开始就是非数字，那么会得到NaN
+
+         parseFloat():
+         跟上面一样一样的，只不过会把遇到的第一个点，作为小数点，后面遇到点就停止
+
+         转换字符串：
+         String()
+         任何数据.toString():直接量不能使用
+
+         原来是什么，字符串就是什么，相当于就是给原来的值加一对双引号
+
+         转换成bool
+         Boolean()
+
+
+         算术运算符：
+         跟数学中的算法是一样的
+         +:  +两边有一边是字符串，那么+的作用就变成了字符串连接
+         -:
+         *:
+         /:
+         %:
+
+         优先级：先算乘除再算加减，如果是同级，那么从左往右依次计算，有括号的先算括号里的
+         其他算术符号，有字符串，会把字符串先隐式转换成数字再来运算
+
+         复合运算符：
+         +=
+         -=
+         *=
+         /=
+         %=
+
+         在原本自身的值的基础上进行+、-、*、/、%
+
+         自增和自减
+         ++：在自身值的基础上+1
+         --：在自身值的基础上-1
+
+         参与运算式，前自增和后自增的区别
+         前：先自增，然后用自增的值进行运算
+         后：用原来的值参与运算，自增
+
+
+         比较运算符：
+         >
+         <
+         >=
+         <=
+         !=
+         == :只要值相等，那么就会返回true
+         ===：除了值以外，类型也要相等于，这才会返回true，否则都是false  全等
+
+         这些运算都是判断左边跟右边的关系，会得到一个结果，这个结果是bool类型的，要么是true要么是false
+
+
+         逗号运算符：用的少
+         逗号运算符连接起来的式子，前面的执行，但是整个式子的结果为最后表达式的结果
+
+         typeof 运算符：
+         检测右边的值是什么类型的,结果是字符串表示的
+
+
+         逻辑运算符：
+         &&：并且    只要有一边为假，就都为假，两边为真才为真
+         一假则假
+         ||：或者    只要有一边为真，就都为真，两边为假才为假
+         一真则真
+
+         !：取反     真变假，假变真
+
+         逻辑运算有短路问题
+         存在于&&和||
+
+         &&短路：左边为假，那么右边不会再执行
+         ||短路：左边为真，那么右边就不会再执行
+
+         逻辑运算符的结果：
+         没有短路的时候，整体表达式的结果就是右边的表达式结果
+         有短路的时候，整体表达式的结果就是左边表达式的结果
+         */
+
+
+        //交换两个变量的值
+//        var num1 = 10;
+//        var num2 = 20;
+//
+//        //        var temp = num1;
+//        //        num1 = num2;
+//        //        num2 = temp;
+//
+//
+//        num1 = num1 + num2; //30 也就是说此时num1保存的是和
+//        num2 = num1 - num2; //30-20=10        得到原来num1的值，再把结果给num2，就代表num2保存的就是原来num1的值
+//        num1 = num1 - num2; //30-10 = 20  得到原来num2的值
+//
+//        console.log(num1, num2);
+
+
+        //利用逻辑运算符做的兼容
+        // e || window.event;
+
+        //        var num1 = 10;
+        //        var num2 = 20;
+        //
+        //        var res = num1 + 30 || num2++;//有短路
+        //        console.log(res,num1,num2);//40  10  20
+
+        //        var res = true || false;
+        //        console.log(res);//true
+        //
+        //        var res2 = true && false;
+        //        console.log(res2);//false
+        //
+        //        var res3 = !10;
+        //        console.log(res3);//false
+
+
+        //        var num1 = 10;
+        //        var num2 = 20;
+        //        var res = (num1++, num2++, num1 + num2);
+        //        console.log(num1, num2, res);//11,21,32
+
+
+        //        if(1 === true){
+        //
+        //            alert("真");
+        //        }else{
+        //            alert("假");
+        //        }
+
+        //        var num1 = 10;
+        //        var num2 = 20;
+        //
+        //        var sum = num1++ + ++num2;//10 + 21 = 31
+        //        console.log(num1,num2,sum);//11,21,31
+
+        //        var num1 = 10; //12
+        //        var num2 = 20;//21
+        //
+        //        var sum = num1++ + ++num2 + ++num1;//10 + 21 + 12 = 43
+        //        console.log(num1,num2,sum);//12  21  43
+
+        //        var num1 = 0;
+        //        if(num1++){ //if(0)
+        //
+        //            alert("我为真哦！");
+        //        }else{
+        //            alert("我为假哦！");
+        //        }
+        //
+        //        console.log(num1);
+
+
+        //        var num1 = 0;
+        //        var num2 = 0;
+        //        if(num1++ + --num2){ //if(0+-1)
+        //
+        //            alert("我为真哦！");
+        //        }else{
+        //            alert("我为假哦！");
+        //        }
+
+
+        //        var num = 10;
+        //        num++;
+        //        console.log(num);
+
+        //        var num = 10;
+        //        num*=2;
+        //        console.log(num);
+
+        //        var n1 = 10;
+        //        var n2 = "5";
+        //        var res = n1 / n2;
+        //        console.log(res);
+
+
+        //        var n1 = 20,n2,n3=300;
+        //
+        //        console.log(n1, n2, n3);
+
+        //各种类型之间转换
+        //        var res = Number("123abc"); //得到NaN
+        //        var res = Number(true); //得到NaN
+        //        console.log(res);
+
+        //        var res = parseInt("123abc");//123
+        //        var res = parseInt("123.45");//123
+        //        var res = parseInt("a123.45");//NaN
+        //        console.log(res);
+
+        //        var res = parseFloat("123.456.436");//123.456
+        //        console.log(res);
+
+
+        //        var str = String(123);//"123"
+        //        console.log(str);
+        //
+        //        var str = 123;//"123"
+        //        console.log(str.toString());
+
+        //        console.log(String(true));
+
+
+        //非0为真，0为假。undefined也为假，null也为假，空字符串为假("")，NaN为假
+        //        var res = Boolean(-20);
+        //        console.log(res);//true
+        //
+        //        var res2 = Boolean(0);
+        //        console.log(res2);//false
+        //
+        //        var res3 = Boolean("abc");
+        //        console.log(res3);//true
+        //        var res4 = Boolean("  ");
+        //        console.log(res4);//true
+        //        var res5 = Boolean("");
+        //        console.log(res5);//false
+        //        var res6 = Boolean(undefined);
+        //        console.log(res6);//false
+        //        var res7 = Boolean(null);
+        //        console.log(res7);//false
+        //        var res8 = Boolean(NaN);
+        //        console.log(res8);//false
+        //
+        //        //如果有，肯定不是undefine转为true，代表有，否则为false，就进到else
+        //        if(e.stopPropagation){
+        //
+        //
+        //        }else{
+        //
+        //        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

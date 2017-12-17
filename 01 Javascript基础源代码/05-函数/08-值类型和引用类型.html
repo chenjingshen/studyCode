@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        基本数据类型都是：值类型
+
+
+        复杂数据类型都是：引用类型
+    -->
+
+    <script>
+
+        //值类型：赋值时拷贝的是真正的数据，那么就叫值类型
+        //值类型赋值以后，如果改变某个变量的值，不会影响另外一个变量
+        //        var num1 = 10;
+        //
+        //        var num2 = num1;
+        //
+        //        num2 = 300;
+        //
+        //        console.log(num1,num2);//10,300
+
+
+        //引用类型：赋值时拷贝的是地址，而不是真正的数据，像这种就叫引用类型
+        //引用类型去改变数组中元素，也会影响，因为他们本质上指向都是一个数组对象
+
+        //引用类型就像：存折和银行卡，指向的都是同一个账户
+        //        var arr1 = [10, 20, 30];
+        //        var arr2 = arr1;
+        //
+        //        arr2[0] = 1000;
+        //
+        //        console.log(arr1[0],arr2[0]);//1000 1000
+
+        /*
+         function test1(num){
+
+         num = 1000;
+         }
+
+         var num1 = 10;
+
+         test1(num1);
+
+         console.log(num1);//10
+         */
+
+        /*
+        function test2(arr) {
+
+            arr[0] = 300;
+        }
+
+        var arr1 = [10, 20, 30];
+
+        test2(arr1);
+
+        console.log(arr1[0]);//300
+        */
+
+        function test3(num,arr){
+
+            num = 1000;
+
+            arr[0] = 20000;
+        }
+
+        var n1 = 100;
+        var arr = [10,20,30];
+
+        test3(n1,arr);
+
+        console.log(n1,arr[0]);//100   20000
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

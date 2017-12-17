@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+    //隔行变色
+
+        window.onload=function() {
+        /*
+            var lifirst = document.getElementById("first");
+            var one = lifirst.getElementsByTagName("li");
+            for (var i = 0; i < one.length; i++) {
+                if (i % 2 == 0) {
+                    one[i].style.backgroundColor = "green";
+                } else {
+                    one[i].style.backgroundColor = "yellow";
+                }
+
+                var oldColor;
+                one[i].onmouseover = function () {
+                    oldColor = this.style.backgroundColor;
+                    this.style.backgroundColor = "red";
+                }
+                one[i].onmouseout = function () {
+                    this.style.backgroundColor = oldColor;
+                }
+            }
+
+         var lilast=document.getElementById("last");
+         var two=lilast.getElementsByTagName("li");
+            for(var i=0;i<two.length;i++){
+                if(i%2==0){
+                    two[i].style.backgroundColor="hotpink";
+                }else{
+                    two[i].style.backgroundColor="yellowgreen";
+                }
+
+                var oldColor;
+                two[i].onmouseover = function () {
+                    oldColor = this.style.backgroundColor;
+                    this.style.backgroundColor = "blue";
+                }
+                two[i].onmouseout = function () {
+                    this.style.backgroundColor = oldColor;
+                }
+            }
+        */
+
+
+        //    哼哼哈哈点击案例
+       /*
+        var libut=document.getElementsByTagName("input");
+        for(var i=0;i<libut.length;i++){
+            libut[i].onclick=function(){
+                for(var j=0;j<libut.length;j++){
+                    libut[j].style.backgroundColor="";
+                    libut[j].value="哼哼";
+                }
+                this.value="哈哈";
+                this.style.backgroundColor="pink";
+            }
+        }
+        */
+
+
+            //开关灯案例
+            /*
+            var buts=document.getElementsByTagName("button");
+            buts[0].onclick=function(){
+                if(this.innerText=="关灯"){
+                    this.innerText="开灯";
+                    document.body.style.backgroundColor="black";
+                }else{
+                    this.innerText="关灯";
+                    document.body.style.backgroundColor="";
+                }
+            }
+            */
+
+
+
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <button>关灯</button>
+    <div class="one" style="text-align: center;">
+        <ul id="first">
+            <li>1这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>2这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>3这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>4这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>5这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>6这是一个寂寞的天，下着有些伤心的雨?</li>
+        </ul>
+        <ul id="last">
+            <li>1这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>2这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>3这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>4这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>5这是一个寂寞的天，下着有些伤心的雨?</li>
+            <li>6这是一个寂寞的天，下着有些伤心的雨?</li>
+        </ul>
+    </div>
+    <!--<div>-->
+        <!--<input type="button" value="哼哼"/>-->
+        <!--<input type="button" value="哼哼"/>-->
+        <!--<input type="button" value="哼哼"/>-->
+        <!--<input type="button" value="哼哼"/>-->
+        <!--<input type="button" value="哼哼"/>-->
+    <!--</div>-->
+
+    账号：<input type="text"/>
+    <hr/>
+    密码：<input type="password"/>
+    <hr/>
+    <input type="button" value="登录"/>
+</body>
+</html>
+<script>
+    var butput=document.getElementsByTagName("input");
+    butput[2].onclick=function(){
+        if(butput[0].value!="admin"||butput[1].value!=88888){
+            alert("账号或密码错误");
+        }else{
+            alert("登陆成功");
+        }
+    }
+</script>

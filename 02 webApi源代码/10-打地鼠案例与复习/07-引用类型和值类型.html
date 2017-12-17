@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        /*
+         基本数据类型都是值类型
+
+         复杂数据类型都是引用类型
+
+         值类型传递数据，值的副本
+
+         引用类型：传递的是地址，也就意味着形参发生改变也会影响实参
+
+         */
+
+//        var num1 = 10;
+//        var num2 = num1;
+//
+//        num2 = 3000;
+//        console.log(num1, num2);
+
+//        var nums = [10,20,30];
+//        var nums2 = nums;
+//
+//        nums2[0] = 999;
+//
+//        console.log(nums, nums2);
+
+
+        function test1(a){
+
+            a[0] = 30000;
+        }
+
+        var nums = [10,20,30,40];
+
+        test1(nums);
+
+        console.log(nums);
+
+
+        function test2(a){
+
+            a.name = "andy";
+        }
+
+
+        var p = new Object();
+
+        p.name = "rose";
+
+        test2(p);
+
+        console.log(p.name);//andy
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        onkeydown
+        和onkeypress   最大的区别在于：onkeypress可以区分大小写，down不能区分，press可以过滤掉系统的特殊按键，所以我们一般用onkeypress
+
+        获取用户按的哪个键就用事件对象的属性
+        但是要有兼容性的问题：
+                var code = e.charCode || e.keyCode || e.which
+
+        把键的值转换成对应的字母
+                String.fromCharCode(对应的值);
+
+
+         target：事件的源头是谁
+                target要有兼容写法
+                    var src = e.target || e.srcElement;
+
+         currentTarget: 等同于this，代表当前正在处理的事件的元素是谁
+
+
+    基本包装类型：String Number Boolean
+
+    基本数据类型也可以直接调用方法和属性，它相当于浏览器帮你自己转换成了以上这些包装类型的对象
+    -->
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: black;
+
+            /* 开启近大远小 */
+            perspective: 600px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 100px auto;
+            width: 200px;
+            height: 300px;
+            background-color: white;
+            position: relative;
+            transition: all 1s;
+
+
+            /* 开启3d效果 */
+            transform-style: preserve-3d;
+            /* 以底部为旋转轴 */
+            transform-origin: bottom;
+        }
+
+        ul:hover {
+            transform: rotateX(60deg) rotateZ(15deg);
+        }
+
+        ul li {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            transition: all 1s 1s;
+            /* li元素叠在一起 */
+            position: absolute;
+
+            border: 1px solid gold;
+            box-shadow: 0px 0px 5px gold;
+
+            /* 给纸张开启3d效果 */
+            transform-style: preserve-3d;
+        }
+
+        ul:hover li:nth-child(5) {
+            transform: translateZ(100px);
+        }
+
+        ul:hover li:nth-child(4) {
+            transform: translateZ(80px);
+        }
+
+        ul:hover li:nth-child(3) {
+            transform: translateZ(60px);
+        }
+
+        ul:hover li:nth-child(2) {
+            transform: translateZ(40px);
+        }
+
+        ul:hover li:nth-child(1) {
+            transform: translateZ(20px);
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+
+<!-- 
+    总结
+    1. ul就相当于这本书， li就相当于书里面的书页
+    2. ul要斜着倒下去， 并且有一个近大远小的效果
+        * 所以要对ul开启3d效果： transform-style: preserve-3d;
+        * 近大远小， 所以对body添加： perspective: 600px;
+        * 以底部为轴倒下去， transform-origin: bottom
+        * 斜着倒下去， transform： rotateX(60deg) rotateZ(15deg)
+    3. 书页要打开（沿着z轴移动）
+        * li要开启3d效果： transform-style: preserve-3d;
+        * 因为其父盒子已经变形了， 子元素就会自动被挤变形， 就不再需要给ul添加perspective了
+        * 每一个li移动的距离不一样， 就实现了纸张打开的效果
+-->
+
+<!-- 
+    3d变换里面的属性
+    1. 在3d世界， 多了一个z轴， translateZ(10px)
+    2. 在3d世界， 有了空间， 所以就可以绕着x轴或者是y轴旋转 rotateX(10deg), rotateY(10deg)
+    3. 如果我们需要给某个子元素添加3d效果， 就需要开启它。 transform-style: preserve-3d
+    4. 如果我们想要实现近大远小的效果， 就需要给其父元素添加 perspective: 300px;值越小， 效果越明显
+    5. 如果我们想要改变旋转轴， 那么就需要设置 transform-origin: top, left, right, bottom
+ -->

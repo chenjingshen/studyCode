@@ -1,0 +1,126 @@
+!
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width='600' height='400' id='canvas'></canvas>
+</body>
+
+</html>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+
+
+    function draw() {
+        // 记录原始状态的值
+        context.save();
+        // 清空画布
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //1 画圆盘
+        context.beginPath();
+        context.arc(300, 200, 130, 0, Math.PI * 2);
+        context.strokeStyle = 'blue';
+        context.lineWidth = 3;
+        context.stroke();
+
+        // 移动画布中心点
+        context.translate(300, 200);
+        context.rotate(-0.5*Math.PI);
+        //2 画时针刻度
+        context.beginPath();
+        for(var i=0;i<12;i++){
+            context.moveTo(115, 0);
+            context.lineTo(125, 0);
+            context.rotate(30/180*Math.PI);
+        }
+        context.lineWidth=5;
+        context.strokeStyle='red';
+        context.stroke();
+
+        // 3.画分针的刻度
+        context.beginPath();
+        for(var i=0;i<60;i++){
+            if(i%5!=0){
+                context.moveTo(120, 0);
+                context.lineTo(125, 0);
+            }
+            context.rotate(6/180*Math.PI);
+        }
+        context.lineWidth=3;
+        context.strokeStyle='black';
+        context.stroke();
+
+        // 4.算出指针的旋转角度
+        var now=new Date();
+        var h=now.getHours();
+        var m=now.getMinutes();
+        var s=now.getSeconds();
+
+        m= s/60+m;
+        h= m/60+h;
+
+        // 算出当前时间所对应的弧度数
+        var hd=h/12*2*Math.PI;
+        var md=m/60*2*Math.PI;
+        var sd=s/60*2*Math.PI;
+
+        // 5.画时针
+        context.save();//记录原始值
+        context.rotate(hd);
+        context.beginPath();
+        context.moveTo(-20, 0);
+        context.lineTo(50, 0);
+        context.lineWidth=6;
+        context.lineCap='round';
+        context.strokeStyle='red';
+        context.stroke();
+        
+        // 执行完下面这句话后，坐标系又回到了最近一次save时的状态，也就是0点方向
+        context.restore();
+        
+        // 6.画分针
+        context.save();//记录原始值
+        context.rotate(md);
+        context.beginPath();
+        context.moveTo(-20, 0);
+        context.lineTo(70, 0);
+        context.lineWidth=5;
+        context.lineCap='round';
+        context.strokeStyle='blue';
+        context.stroke();
+        context.restore();
+
+          // 6.画秒针
+        context.save();//记录原始值
+        context.rotate(sd);
+        context.beginPath();
+        context.moveTo(-20, 0);
+        context.lineTo(90, 0);
+        context.lineWidth=2;
+        context.lineCap='round';
+        context.strokeStyle='gold';
+        context.stroke();
+        context.restore();
+
+        context.beginPath();
+        context.arc(0, 0, 10, 0, Math.PI*2);
+        context.fillStyle='red';
+        context.fill();
+        
+        context.restore();
+    }
+    setInterval(draw,1000);
+</script>

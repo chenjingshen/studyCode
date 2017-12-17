@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  function test(){
+    console.log("哈哈");
+  }
+  //给test对象添加一个sb属性。
+  test.sb = "sb";
+  console.log(test.sb);
+  //给test这个对象添加一个dsb方法。
+  test.dsb = function () {
+    console.log("哈哈啊，你是一个dsb...");
+  }
+  test.dsb();
+
+  //把函数作为对象来查看
+  //console.log(test); //只能查看函数的函数体
+  //console.dir(test);
+
+
+  //得出结论： 函数其实也是一个对象。问题来了？ 请问函数是由那个构造函数产生的？   Function()构造函数
+
+  console.log(test.__proto__.constructor); //Function()构造函数
+
+  console.log(test.__proto__ === Function.prototype); //true
+
+
+</script>
+</body>
+</html>

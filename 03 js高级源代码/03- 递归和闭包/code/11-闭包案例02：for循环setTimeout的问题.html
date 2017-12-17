@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+//setTimeout("console.log('哈哈')",2000);
+
+//  setTimeout(function () {
+//    console.log("哈哈");
+//  },2000)
+
+
+//   function test1(){
+//     console.log("哈哈");
+//   }
+//   setTimeout(test1,2000);
+
+
+//   function test1(){
+//     console.log("哈哈");
+//   }
+//   setTimeout(console.log(test1()),2000);
+
+
+
+
+
+  //====================================
+  //js其实是单线程的。
+  //先做主要任务，然后做次要任务
+  //比如for循环就是主要任务，  比如setTimeout/setInterval的回调函数，就是次要任务
+  // for(var i = 0 ; i < 5; i++){
+  // 	setTimeout("console.log(i)",2000);
+  // }
+
+
+
+
+//  for(var i = 0 ; i < 5; i++){
+//
+//    function outer(){
+//      var j = i;
+//      function inner(){
+//        console.log(j);
+//      }
+//      return inner;
+//    }
+//
+//    setTimeout(outer(),2000);
+//  }
+
+
+
+
+
+
+</script>
+</body>
+</html>

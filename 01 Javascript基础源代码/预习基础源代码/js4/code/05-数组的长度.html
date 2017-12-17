@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.数组的长度- 数组元素的个数-也就是数组中存放数据的个数。
+
+    //2.可以用数组名.length来获取数组的长度。
+    //数组最大的下标+1 = 数组的长度。
+    //  var arr1 = [10,20,30,40,50];
+    //  arr1[7] = 700;
+    //  console.log(arr1);
+    //  console.log(arr1.length);
+
+
+    //3.可以使用  数组名.length = 值  设置数组的长度。
+    //var arr2 = [10,20,30,40,50];
+    //console.log(arr2.length); //5
+
+    //3.1 可以修改数组的长度。 把长度改大了
+    // arr2.length = 10;
+    // console.log(arr2.length); //10
+    // console.log(arr2[6]);
+    // console.log(arr2[7]); //undefined
+
+    //3.2 可以修改数组的长度。 把长度改小了
+    //如果使用数组名.length的方式把数组的长度改小了，那么会丢失数组的元素，并且这是不可逆的。
+    //  arr2.length = 3; //[10,20,30]
+    //  console.log(arr2.length);
+    //  console.log(arr2[3]); //undefined
+    //  console.log(arr2[4]); //undefined
+
+    //  arr2.length = 5;
+    //  console.log(arr2[3]);//undefined
+    //  console.log(arr2[4]);//undefined
+
+
+
+    //4.清空数组。
+    //4.1 可以利用把数组的长度改为0的方式清空数组。
+    //  var arr3 = [10,20,30];
+    //  arr3.length = 0;
+    //  console.log(arr3);
+
+    //4.2 可以让某一个数组重新的指向一个空数组。
+    //  var arr4 = [50,60,70];
+    //  arr4 = [];
+    //  console.log(arr4);
+
+
+
+    //5.可以使用数组的长度来添加新元素。
+    //  var arr = [10,20,30];  //此时这个数组的长度是3
+    //  //添加新元素
+    //  //arr[3] = 40;
+    //  arr[arr.length] = 40;  //[10,20,30,40]  此时数组的长度是4
+    //  //添加新元素
+    //  //arr[4] = 50;
+    //  arr[arr.length] = 50;  //[10,20,30,40,50]  此时数组的长度为5
+    //  //添加新元素
+    //  //arr[5] = 60;
+    //  arr[arr.length] = 60;
+    //  console.log(arr);
+
+
+    //js是一门弱类型的动态语言
+    //6.js中的数组 特点。
+    //a.他的长度是可以动态改变的。
+    //b.数组中的元素可以是任意类型的,但是不推荐这样使用。 推荐数组的元素类型一致，方便使用管理数组的元素。
+    //var arr = [10,"abc",true, function () {},{},[]];
+    //console.log(arr);
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

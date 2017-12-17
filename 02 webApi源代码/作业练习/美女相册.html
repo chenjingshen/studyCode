@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .small {
+            width: 180px;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        ul {
+            width: 1000px;
+            margin: 0 auto;
+
+            height: 160px;
+
+        }
+
+        .father {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .father #bigPic {
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li><a href="images/01.jpg"><img src="images/01.jpg" alt="" class="small"/></a></li>
+    <li><a href="images/02.jpg"><img src="images/02.jpg" alt="" class="small"/></a></li>
+    <li><a href="images/03.jpg"><img src="images/03.jpg" alt="" class="small"/></a></li>
+    <li><a href="images/04.jpg"><img src="images/04.jpg" alt="" class="small"/></a></li>
+    <li><a href="images/05.jpg"><img src="images/05.jpg" alt="" class="small"/></a></li>
+</ul>
+
+<div class="father">
+    <img src="images/01.jpg" alt="" id="bigPic"/>
+</div>
+</body>
+</html>
+<script>
+    var ul=document.getElementById("ul1");
+    var alist=ul.getElementsByTagName("a");
+    var bigpic=document.getElementById("bigPic");
+    for(var i=0;i<alist.length;i++){
+        alist[i].onclick=function(){
+            bigpic.src=this.href;
+            return false;
+        }
+    }
+</script>

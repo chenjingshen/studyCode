@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section {
+            width: 100%;
+            height: 100%;
+            font-size: 150px;
+            font-weight: 900;
+        }
+
+        .section:nth-child(2n) {
+            background-color: yellowgreen;
+        }
+
+        .section:nth-child(2) {
+            background: url("./images/fisrtbg.jpg") fixed no-repeat center;
+        }
+
+        .section:nth-child(4) {
+            background: url("./images/blog.jpg") fixed no-repeat center;
+        }
+
+        .bar {
+            width: 100%;
+            height: 100px;
+            background-color: tomato;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section section1">1</div>
+    <div class="section section2">2</div>
+    <div class="section section3">3</div>
+    <div class="section section4">4</div>
+    <div class="section section5">5</div>
+    <div class="bar">土地， 我的金姑棒在哪里？ 大圣，你的金姑， 棒就棒在特别配你的头型</div>
+</body>
+</html>
+
+<script>
+    window.onscroll = function(event){
+        //从上往下滚动了多远
+        var scrollY = window.scrollY;
+        var height = document.querySelector(".section1").offsetHeight;
+
+        if (height - scrollY < 100) {
+            document.querySelector(".bar").classList.add("show");
+            document.querySelector(".bar").classList.remove("hide");
+        } else {
+            document.querySelector(".bar").classList.add("hide");
+            document.querySelector(".bar").classList.remove("show");
+        }
+    }
+</script>

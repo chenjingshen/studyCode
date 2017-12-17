@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <!--
+       如何找元素
+        找window对象，就直接window
+        找document，就直接document.全称是window.document
+        找html,就document.documentElement
+        找body，就document.body
+    -->
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color: orange;
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+
+    //没有兼容性问题：可以监听网页的滚动
+    //当网页整体滚动就会触发此事件
+    window.onscroll = function () {
+
+//        console.log("...");
+
+//        console.log(document.documentElement.scrollTop);
+
+        if(document.documentElement.scrollTop >= 500){
+
+            alert("别拉了，再拉见到底了");
+        }
+    }
+
+    //证明可以监听网页滚动，但是有兼容性问题
+    //谷歌和火狐可以，但是IE8以及IE8以后不行
+//    document.body.onscroll = function () {
+//
+//        console.log("....");
+//    }
+
+    //也可以监听网页滚动，但是有兼容性问题，谷歌和火狐可以
+    //但是IE8以及以前的版本不支持
+//    document.onscroll = function () {
+//
+//        console.log("...");
+//    }
+
+//    console.log(document.documentElement);
+
+    //IE全系列都支持，但是谷歌和火狐不支持
+    document.documentElement.onscroll = function () {
+
+        console.log('...');
+    }
+</script>

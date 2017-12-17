@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        //案例1
+            //只有函数才会开辟作用域,这里写的实际上是一个对象
+                {
+                    var num = 5;
+                }
+                console.log(typeof num);//5，不会报错
+
+
+        //案例2
+//                var num = 5;
+//                if (num > 3) {
+//                    var sum = 7;
+//                }
+//                console.log(sum);//7
+
+        //案例3  其它语言中变量i只能在for循环内部访问（局部变量）
+//                for (var i = 0; i < 10; i++) {
+//
+//                    //for循环里最大只能访问到9
+//                }
+//                console.log(i);//10
+
+
+        //案例4 全局变量
+
+            //因为函数调用了，并且函数内没有再声明name，所以访问的是0级的name
+//        改值就改变了0级的name
+//                var name = "zs";
+//                function f() {
+//                    name = "ww";
+//                }
+//                f();
+//                console.log(name);//ww
+
+        //案例5 局部变量,现在函数内部的作用域找变量name，如果找到则使用，如果找不到去父级作用域找name变量
+//               function f() {
+//                   var name1 = "zs";
+//               }
+//               f();
+//               console.log(name1);//报错
+
+
+        //案例6 作用域链
+         var color = "red";
+         function getColor() {
+             var anotherColor = "blue";
+
+             function swapColor() {
+                 var tmpColor = color;
+                 color = anotherColor;
+                 anotherColor = tmpColor;
+             }
+             swapColor();
+         }
+
+         getColor();
+         console.log(color);//blue
+    </script>
+</head>
+<body>
+
+</body>
+</html>

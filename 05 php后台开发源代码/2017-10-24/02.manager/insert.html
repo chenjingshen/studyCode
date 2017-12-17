@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        table{
+            width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+            border-radius: 10px;
+        }
+        thead{
+            background-color: yellowgreen;
+            border-radius: 10px;
+        }
+        tbody{
+            background-color: hotpink;
+        }
+        th{
+            font-size:25px;
+            border-radius: 10px;
+        }
+        th,td{
+            /* border: 1px solid #000; */
+            border-radius: 10px;
+        }
+        body{
+            text-align: center;
+        }
+        input{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        安装了 ease server插件之后
+        ctrl+shift+enter 即可开启实时预览
+     -->
+     <h2>新增</h2>
+     <form method="post" action="./doInsert.php">
+         <input name='userName' type="text"  placeholder="用户名">
+         <br>
+         <input name='userPass' type="password"  placeholder="密码">
+         <br>
+         <input name='userAddress' type="text"  placeholder="地址">
+         <br>
+         <input name='userHabbit' type="text"  placeholder="爱好">
+         <br>
+         <!-- 提交按钮 -->
+         <input type="submit" value='保存'>
+     
+         <!-- 点击取消之后 去首页 -->
+         <input class='cancel' type="button" value='取消'>
+     </form>
+</body>
+</html>
+<script>
+    // 绑定点击事件
+    document.querySelector('.cancel').onclick = function(){
+        window.location.href='./index.php';
+    }
+
+</script>

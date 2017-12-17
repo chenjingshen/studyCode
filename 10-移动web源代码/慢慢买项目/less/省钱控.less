@@ -1,0 +1,139 @@
+@import 'base.less';
+// 头部logo部分
+#header {
+    width: 320px;
+    height: 50px;
+    background-color: @header-color;
+    .row {
+        .glyphicon {
+            font-size: 25px;
+            font-weight: 100;
+            color: #fff;
+            line-height: 50px;
+        }
+        .zhuti{
+            line-height: 10px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+
+        }
+        img.app {
+            float: right;
+            width: 34px;
+            height: 34px;
+            margin: 5px 0;
+        }
+    }
+}
+
+
+// 商品部分
+#more-goods {
+    .media {
+        position: relative;
+        padding: 14px 8px;
+        a {
+            display: block;
+            >img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        h4 {
+            font-size: 16px;
+            span {
+                color: #ff6c00;
+            }
+        }
+        .media-bottom {
+            color: #a1a1a1;
+            float: left;
+            font-size: 12px;
+            margin-top: 30px;
+            i {
+                position: absolute;
+                bottom: 28px;
+                right: 10px;
+            }
+        }
+    }
+}
+
+
+
+
+// 翻页按钮
+.btn-group{
+    width: 100%;
+    .baifenbi{
+        width: 30%;
+    }
+    .dropdown-toggle{
+        width: 10%;
+    }
+    .dropdown-menu{
+        margin-left: 30%;
+        min-width: 130px;
+    }
+}
+
+// 搜索部分
+#fanhuishouye{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 320px;
+    height: 38px;
+    background-color: #f7f7f7;
+    line-height: 38px;
+    padding-left: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+// 底部
+#dibu {
+    padding: 10px 0;
+    background-color: #f2f2f2;
+    .login-father {
+        padding: 10px 0;
+        .login {
+            width: 320px;
+            height: 36px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            span {
+                padding: 7px 31px;
+                float: left;
+                border-right: 1px solid #ccc;
+                &:last-of-type {
+                    border-right: none;
+                    img {
+                        width: 15px;
+                        height: 15px;
+                        margin-top: -5px;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        text-align: center;
+        p {
+            margin-bottom: 0;
+            a {
+                color: #666;
+                font-size: 12px;
+            }
+            &:first-of-type {
+                a:first-child {
+                    color: red;
+                }
+            }
+        }
+    }
+}

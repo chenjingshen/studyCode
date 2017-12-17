@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转木马轮播图</title>
+    <link rel="stylesheet" href="css/demo1.css"/>
+    <script src="js/animate.js"></script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li class="one"><a href="#"><img src="images/bingbing.jpg" alt=""/></a></li>
+            <li class="two"><a href="#"><img src="images/lingengxin.jpg" alt=""/></a></li>
+            <li class="three"><a href="#"><img src="images/yuanyuan.png" alt=""/></a></li>
+            <li class="four"><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+            <li class="five"><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="prev" id="arrLeft"></a>
+            <a href="javascript:;" class="next" id="arrRight"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+
+    var config = [
+        {
+            "width": 400,
+            "top": 20,
+            "left": 50,
+            "opacity": 0.2,
+            "z-index": 2
+        },//0
+        {
+            "width": 600,
+            "top": 70,
+            "left": 0,
+            "opacity": 0.8,
+            "z-index": 3
+        },//1
+        {
+            "width": 800,
+            "top": 100,
+            "left": 200,
+            "opacity": 1,
+            "z-index": 4
+        },//2
+        {
+            "width": 600,
+            "top": 70,
+            "left": 600,
+            "opacity": 0.8,
+            "z-index": 3
+        },//3
+        {
+            "width": 400,
+            "top": 20,
+            "left": 750,
+            "opacity": 0.2,
+            "z-index": 2
+        }//4
+    ];
+
+    //第三遍
+    var liList = document.getElementsByTagName("li");
+    for (var i = 0; i < liList.length; i++) {
+        animateSlow(liList[i],config[i]);
+    }
+    var wrap= document.getElementById("wrap");
+    var arrow= document.getElementById("arrow");
+    var prev= document.getElementById("arrLeft");
+    var next= document.getElementById("arrRight");
+    wrap.onmouseover= function () {
+        animateSlow(arrow,{"opacity":1})
+        clearInterval(timerID);
+    }
+    wrap.onmouseout= function () {
+        animateSlow(arrow,{"opacity":0})
+        timerID=setInterval(function () {
+            fn();
+        },1000)
+    }
+    
+    var canclick=true;
+    next.onclick= function () {
+        fn();
+    }
+    function fn(){
+        if(canclick){
+            canclick=false;
+            config.unshift(config.pop());
+            for (var i = 0; i < liList.length; i++) {
+                animateSlow(liList[i],config[i], function () {canclick=true});
+            }
+        }
+    }
+    prev.onclick= function () {
+        if(canclick){
+            canclick=false;
+            config.push(config.shift());
+            for (var i = 0; i < liList.length; i++) {
+                animateSlow(liList[i],config[i], function () {canclick=true});
+            }
+        }
+    }
+    var timerID=setInterval(function () {
+        fn();
+    },1000)
+
+
+
+
+//    //第二遍
+//    //找到所有li标签
+//    var liList = document.getElementsByTagName("li");
+//    for (var i = 0; i < liList.length; i++) {
+//        animateSlow(liList[i], config[i])
+//    }
+//    //找到大盒子
+//    var wrap = document.getElementById("wrap");
+//    var arrow = document.getElementById("arrow");
+//    wrap.onmouseover = function () {
+//        animateSlow(arrow, {"opacity": 1})
+//        clearInterval(timerID);
+//    }
+//    wrap.onmouseout = function () {
+//        animateSlow(arrow, {"opacity": 0})
+//        timerID=setInterval(function () {
+//            fn()
+//        },1000)
+//    }
+//
+//    //找到左箭头
+//    var prev = document.getElementById("arrLeft");
+//    //找到右箭头
+//    var next = document.getElementById("arrRight");
+//    //给左右箭头添加点击事件
+//    var carclick = true;
+//    next.onclick = function () {
+//        fn();
+//    }
+//    prev.onclick = function () {
+//        if (carclick) {
+//            carclick = false;
+//            config.push(config.shift());
+//            for (var i = 0; i < liList.length; i++) {
+//                animateSlow(liList[i], config[i], function () {
+//                    carclick = true;
+//                })
+//            }
+//        }
+//    }
+//    var timerID=setInterval(function () {
+//        fn()
+//    },1000)
+//
+//    function fn(){
+//        if (carclick) {
+//            carclick = false;
+//            config.unshift(config.pop());
+//            for (var i = 0; i < liList.length; i++) {
+//                animateSlow(liList[i], config[i], function () {
+//                    carclick = true;
+//                })
+//            }
+//        }
+//    }
+
+    //第一遍
+    //找到所有的li标签
+    //    var liList= document.getElementsByTagName("li");
+    //    //找到大盒子
+    //    var wrap= document.getElementById("wrap");
+    //    //
+    //    var slide= document.getElementById("slide");
+    //    //循环遍历所有的li，给每一个li标签添加样式和缓动动画效果
+    //    for (var i = 0; i < liList.length; i++) {
+    //        animateSlow(liList[i],config[i]);
+    //    }
+    //    //找到左右箭头
+    //    var arrow= document.getElementById("arrow");
+    //    wrap.onmouseover= function () {
+    //        animateSlow(arrow,{
+    //            "opacity":1
+    //        })
+    //    }
+    //    wrap.onmouseout= function () {
+    //        animateSlow(arrow,{
+    //            "opacity":0
+    //        })
+    //    }
+    //    //找到左箭头
+    //    var prev= document.getElementById("arrLeft");
+    //    //找到右箭头
+    //    var next= document.getElementById("arrRight");
+    //
+    //    var canClick=true;
+    //    next.onclick= function () {
+    //        if(canClick){
+    //            canClick=false;
+    //            //把最后一个属性给给第0个元素
+    //            config.unshift(config.pop());
+    //        }
+    //        for (var i = 0; i < liList.length; i++) {
+    //            animateSlow(liList[i],config[i], function () {
+    //                canClick = true;
+    //            })
+    //        }
+    //    }
+    //    prev.onclick= function () {
+    //        if(canClick){
+    //            canClick=false;
+    //            //把第0个属性给最后一个元素
+    //            config.push(config.shift());
+    //        }
+    //        for (var i = 0; i < liList.length; i++) {
+    //            animateSlow(liList[i],config[i], function () {
+    //                canClick=true;
+    //            })
+    //        }
+    //    }
+
+</script>

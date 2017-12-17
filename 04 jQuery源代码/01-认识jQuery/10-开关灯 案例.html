@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+    <script src="jquery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+//            var $btns = $("button");  //jQuery对象
+//
+//            //关灯
+//            $btns[1].onclick = function () {
+//                $("body")[0].style.backgroundColor = "black";
+//            }
+//
+//            //开灯
+//            $btns[0].onclick = function () {
+//                $("body")[0].style.backgroundColor = "white";
+//            }
+
+
+            //关灯
+            $("button").eq(1).click(function () {
+               $("body").css("backgroundColor","black");
+           })
+            $("button").eq(0).click(function () {
+                $("body").css("backgroundColor","white");
+            })
+        });
+    </script>
+</head>
+<body>
+
+    <button>开灯</button>
+    <button>关灯</button>
+    <img src="images/coder.jpg"/>
+
+</body>
+</html>

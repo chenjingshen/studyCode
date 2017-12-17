@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1.画四条线（low， 略）
+
+    //2.直接传入 x， y， width， height， 就可以绘制一个矩形
+    //画在玻璃纸上
+//    context.rect(100, 100, 200, 200);
+//    context.strokeStyle = "red";
+//    context.stroke();
+//    context.fillStyle = "yellow";
+//    context.fill();
+
+
+    //3. 直接创建一个描边的矩形
+    //创建玻璃纸， 画矩形路径， 描边， 把玻璃纸销毁
+//    context.strokeStyle = "red";
+//    context.strokeRect(100, 100, 200, 200);
+
+    //4. 直接创建一个填充的矩形
+    //创建玻璃纸， 画矩形路径， 填充， 把玻璃纸销毁
+    context.fillRect(100, 100, 200, 200);
+
+    //黄色的边不会显示，是因为上面那一句，画完之后，就把玻璃纸销毁了
+    context.strokeStyle = "yellow";
+    context.stroke();
+
+
+
+</script>

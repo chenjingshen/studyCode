@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    html {}
+    
+    body {
+        /*font-size: 20px;*/
+    }
+    /*使用em单位不同字体大小需要设置的em不一样算起来麻烦 后面改起来也麻烦*/
+    .box1 {
+        font-size: 25px;
+        width: 8em;
+        height: 8em;
+        background-color: #f40;
+    }
+    
+    .box2 {
+        font-size: 30px;
+        width: 6.6666em;
+        height: 6.6666em;
+        background-color: pink;
+    }
+    .box3 {
+        font-size: 40px;
+        width: 5em;
+        height: 5em;
+        background-color: pink;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        我要20px的文字
+    </div>
+    <div class="box2">
+        我要30大小的文字
+    </div>
+    <div class="box3">
+        我要40大小的文字
+    </div>
+    <!-- <div class="box1"></div> -->
+    <!-- em: element  指的的当前元素的字体大小 1em=1倍当前元素的font-size 如果当前没写字体大小就是默认值或者父元素继承的字体 -->
+    <!-- rem: root element 根元素 指的的根元素（html元素）的字体大小 1rem = 1倍html的font-size  如果html元素没有设置字体大小默认也是16px-->
+</body>
+
+</html>

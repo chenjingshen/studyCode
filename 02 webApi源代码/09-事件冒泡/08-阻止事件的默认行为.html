@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<a href="02-事件冒泡.html">点我跳转</a>
+</body>
+</html>
+
+<!--
+    a标签默认就有点击事件，它的点击事件的默认行为就是：跳转到某一个网页
+
+    事件对象阻止默认的行为：
+            事件对象.preventDefault();
+-->
+
+<script>
+
+    var a = document.getElementsByTagName("a")[0];
+
+    a.onclick = function (e) {
+
+        e = e || window.event;
+        alert("我被点了");
+
+//        return false;
+
+        //阻止事件的默认行为
+//        e.preventDefault();
+
+//        e.returnValue = false;
+
+        stopDefault(e);
+    }
+
+    function stopDefault(e){
+
+        e = e || window.event;
+
+        if(e.preventDefault){
+
+            e.preventDefault();
+        }else{
+
+            e.returnValue = false
+        }
+    }
+
+</script>

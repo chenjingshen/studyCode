@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="common.js"></script>
+
+</head>
+
+<body>
+
+<input type="button" value="关灯" id='turn'/>
+
+
+</body>
+</html>
+
+
+<script>
+
+    var turnBtn = id("turn");
+
+    //给按钮加点击事件
+    turnBtn.onclick = function () {
+
+//        var res = document.getElementsByTagName('body');
+//        res[0].style.backgroundColor = "black";
+        //如果要找body有更好的方法,已经封装好了
+        if (this.value == "关灯") {
+            //如果按钮被点击的时候是关灯，那么先把文字变为开灯，然后把背景颜色变为黑色
+
+            this.value = "开灯";
+            document.body.style.backgroundColor = "black";
+
+
+        } else {
+            //按钮文字是开灯，所以先把文字变成关灯，背景颜色复原
+            this.value = "关灯";
+            document.body.style.backgroundColor = "";
+        }
+
+    }
+
+</script>
+
+

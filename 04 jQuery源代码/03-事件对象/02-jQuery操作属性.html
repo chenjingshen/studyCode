@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //原生js操作属性： setAttribute   getAttribute  removeAttribute
+      //jQuery操作属性： attr();  removeAtrr();
+
+      $("#btn1").on("click", function () {
+        //1.获取属性 attr("alt"); //要获取的是哪一个属性的值。
+        //console.log($("imggg").attr("alt")); //获取标签自带的属性
+        //console.log($("imggg").attr("zzz")); //获取标签对象自定义的属性
+        //console.log($("imggg").attr("index")); //也可以获取通过attr设置的属性。
+
+      });
+
+      $("#btn2").on("click", function () {
+        //2.设置属性 attr();
+        //修改原有的属性
+        //$("imggg").attr("title","周五玩水");
+        //$("imggg").attr("zzz","hhaha");
+        //$("imggg").attr("src","992.gif");
+
+        //添加单属性
+        $("img").attr("index","001");
+
+        //添加多属性，传一个对象
+        // $("imggg").attr({
+        //   "index":"001",
+        //   "aaa":"aaa"
+        // });
+      });
+
+
+      $("#btn3").on("click", function () {
+        //移除属性
+        //$("imggg").removeAttr("title"); //移除自带的属性
+      });
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="获取" id="btn1"/>
+<input type="button" value="设置" id="btn2"/>
+<input type="button" value="移除" id="btn3"/>
+<br/><br/>
+<img src="991.gif" alt="你的图破了" title="周五晚睡" zzz = "zzz"/>
+</body>
+</html>

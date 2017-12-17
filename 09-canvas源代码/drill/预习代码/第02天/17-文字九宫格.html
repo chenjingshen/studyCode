@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="600" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 把9宫格绘制出来
+    context.moveTo(0, 200);
+    context.lineTo(600, 200);
+
+    context.moveTo(0, 400);
+    context.lineTo(600, 400);
+
+    context.moveTo(200, 0);
+    context.lineTo(200, 600);
+
+    context.moveTo(400, 0);
+    context.lineTo(400, 600);
+
+    context.stroke();
+
+    context.font = "25px 微软雅黑";
+
+    //1. left top
+    context.textAlign = "left";
+    context.textBaseline = "top";
+    context.fillText("left top", 0, 0);
+
+    //2. left middle
+    context.textAlign = "left";
+    context.textBaseline = "middle";
+    context.fillText("left middle", 200, 100);
+
+    //3. left bottom
+    context.textAlign = "left";
+    context.textBaseline = "bottom";
+    context.fillText("left bottom", 400, 200);
+
+    //4. center top
+    context.textAlign = "center";
+    context.textBaseline = "top";
+    context.fillText("center top", 100, 200);
+
+    //5. center middle
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText("center middle", 300, 300);
+
+    //6. center bottom
+    context.textAlign = "center";
+    context.textBaseline = "bottom";
+    context.fillText("center bottom", 500, 400);
+
+    //7. right top
+    context.textAlign = "right";
+    context.textBaseline = "top";
+    context.fillText("right top", 200, 400);
+
+    //8. right middle
+    context.textAlign = "right";
+    context.textBaseline = "middle";
+    context.fillText("right middle", 400, 500);
+
+    //9. right bottom
+    context.textAlign = "right";
+    context.textBaseline = "bottom";
+    context.fillText("right bottom", 600, 600);
+</script>

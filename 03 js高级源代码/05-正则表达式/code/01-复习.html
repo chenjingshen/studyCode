@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.函数的上下文调用模式  call();  apply();  bind();
+  // function test(a,b){
+  //   return a +b;
+  // }
+  //
+  // test(10,20);
+  //
+  // //test.call(obj,10,20);
+  // //apply(obj,[10,20]);
+  // var f1 = test.bind(obj);
+  // f1();
+
+
+
+  //2.应用
+  // var disArr = {
+  //   0:"a",
+  //   1:"b",
+  //   2:"c",
+  //   3:"d",
+  //   length:4
+  // }
+
+  // var arr = [];
+  // arr.push.apply(arr,disArr);
+  // console.log(arr);
+
+  //var arr = [];
+  //arr = arr.concat.apply(arr,disArr);
+  //console.log(arr);
+
+  //var arr = Array.prototype.slice.call(disArr,0);
+  //console.log(arr);
+
+
+
+  // var arr = [10,9,8,20,55,90];
+  // var max = Math.max.apply(Math,arr);
+  // console.log(max);
+
+
+
+</script>
+</body>
+</html>

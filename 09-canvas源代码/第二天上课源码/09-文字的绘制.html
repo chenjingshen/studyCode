@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.moveTo(100, 0);
+    context.lineTo(100, 400);
+
+    context.moveTo(0, 100);
+    context.lineTo(600, 100);
+
+    context.stroke();
+
+    //设置文字的字体和大小
+    context.font = "60px 微软雅黑";
+    //设置垂直对齐方式的：
+    context.textBaseline = "middle";
+
+    //设置水平对齐方式
+    context.textAlign = "center";
+
+    //描边文字， 镂空文字
+    context.strokeText("张三", 100, 100);
+
+    //填充文字（实心文字）
+    context.fillText("张三", 100, 300);
+</script>
+
+<!--
+    已知坐标点画文字， 如何确定对齐式
+    1. 垂直对齐， 以y点画一条水平线， 看水平线在文字的什么位置， 线在底部，就是bottom， 如果线在顶部， 就是top， 如果线在中间， 就是middle
+
+    2.
+-->

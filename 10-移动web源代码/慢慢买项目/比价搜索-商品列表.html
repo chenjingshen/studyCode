@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>比价搜索-商品列表</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/比价搜索-商品列表.less">
+    <!-- 引入bootstrap css文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入bootstrap js文件 -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/比价搜索-商品列表.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 头部logo部分 -->
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-xs-8">
+                    <img class="logo" src="./images/header_logo.png" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img class="app" src="./images/header_app.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 搜索框部分 -->
+    <section id="seach" class="seach bb">
+        <input type="text" placeholder="请输入你想比价的商品">
+        <button>搜索</button>
+    </section>
+
+    <!-- 返回首页 -->
+    <a href="#" id="fanhuishouye">首页>全部分类></a>
+    </a>
+
+
+
+    <!-- 内容部分 -->
+    <div id="more-goods">
+
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object" src="http://img2017.manmanbuy.com/2017120012544237588.jpg" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">1号牛仔
+                    <span>59元包邮（需用券）</span>
+                </h4>
+                <div class="media-bottom">天猫旗舰店 | 12-02 12:54
+                    <i>
+                        <img src="./images/pinlun.png" alt="">0</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 上下翻页 -->
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default baifenbi">上一页</button>
+        <button type="button" class="btn btn-default baifenbi">
+            1/1
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li>
+                    <a href="#">1/1</a>
+                </li>
+                <li>
+                    <a href="#">2/1</a>
+                </li>
+                <li>
+                    <a href="#">3/1</a>
+                </li>
+            </ul>
+        </button>
+        <button type="button" class="btn btn-default baifenbi">下一页</button>
+    </div>
+
+
+    <!-- 底部 -->
+    <div id="dibu">
+        <div class="login-father">
+            <div class="login">
+                <span>登录</span>
+                <span>注册</span>
+                <span>
+                    <img src="http://www.zuyushop.com/wap/images/top.jpg" alt="">
+                    <a href="#header">返回顶部</a>
+                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>
+                <a href="#">手机APP下载</a>
+                <a href="#">慢慢买手机版 -- 掌上比价平台</a>
+            </p>
+            <p>
+                <a href="#">m.manmanbuy.com</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 引入template.js文件 -->
+<script src="./lib/template/template.js"></script>
+<script type="text/html" id="goods-tem">
+    {{each result as value i}}
+    <div class="media" media-productid="{{value.productId}}">
+        <div class="media-left media-middle">
+            <a href="#">
+                {{#value.productImg}}
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{value.productName}}
+                <span>{{value.brandName}}</span>
+            </h4>
+            <div class="media-bottom">{{value.productPrice}} {{value.productQuote}}
+                <i>
+                    <img src="./images/pinlun.png" alt="">{{value.productCom}}</i>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</script>
+
+<script type="text/html" id="huoqu-tem">
+    {{each result as value i}} 首页>全部分类>{{value.category}} {{/each}}
+</script>

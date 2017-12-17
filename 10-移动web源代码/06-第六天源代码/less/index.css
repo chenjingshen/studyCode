@@ -1,0 +1,290 @@
+/* 导入公共样式文件 */
+/* 原生移动web没有用框架 公共样式也要自己写 */
+* {
+  margin: 0px;
+  padding: 0px;
+  /* 防止移动页面被padding和border撑开滚动条 */
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #666;
+  /* 当手指按住a的时候会有蓝色高亮背景色 */
+  -webkit-tap-highlight-color: transparent;
+}
+input {
+  border: 0;
+  /* 内边框 */
+  outline: 0;
+}
+img {
+  /* 让图片和文字对齐 不会出现图片底部3px的问题 */
+  vertical-align: middle;
+}
+i {
+  font-style: normal;
+}
+/* 公共类 */
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.bl {
+  border-left: 1px solid #ccc;
+}
+.br {
+  border-right: 1px solid #ccc;
+}
+.bt {
+  border-top: 1px solid #ccc;
+}
+.bb {
+  border-bottom: 1px solid #ccc;
+}
+/* 定义全局变量 */
+/* 京东主体布局容器 */
+#layout {
+  max-width: 640px;
+  min-width: 300px;
+  /* height: 2000px; */
+  background-color: #ccc;
+  /* 容器块级元素居中 margin:0 auto   文字或者行内居中text-align:center;*/
+  margin: 0 auto;
+}
+/* 顶部通栏 */
+#topbar {
+  /* 固定定位就可以吸顶 */
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+  /* 固定定位的宽度100%相对的是浏览器的宽度不是父元素 */
+  width: 100%;
+  /* 如果要限制最大640  */
+  max-width: 640px;
+  height: 40px;
+}
+#topbar .icon-logo {
+  /* 要缩小一半 背景图也需要缩小一半 */
+  width: 58px;
+  height: 24px;
+  background-image: url(../images/sprites.png);
+  /* 图片是400 * 400宽高设置背景大小为200px * 200px */
+  background-size: 200px 200px;
+  background-position: 0 -109px;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+#topbar > form {
+  margin-left: 70px;
+  margin-right: 60px;
+}
+#topbar > form .icon-search {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 75px;
+  top: 10px;
+  background-image: url(../images/sprites.png);
+  /* 图片是400 * 400宽高设置背景大小为200px * 200px */
+  background-size: 200px 200px;
+  background-position: -60px -109px;
+}
+#topbar > form > input {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 15px;
+  padding-left: 25px;
+}
+#topbar .login {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  text-align: center;
+  color: #fff;
+}
+/* 轮播图的样式 */
+#slide {
+  /* slide就是一张图的宽度 */
+  width: 100%;
+  /* 宽度是10倍的轮播图 */
+  /* 因为子元素ul超出了页面宽度出滚动条 给父元素加隐藏溢出 */
+  position: relative;
+  overflow: hidden;
+  /* 小圆点的样式 */
+}
+#slide .carousel-inner {
+  /* 相对于父元素宽的1000% */
+  width: 1000%;
+  /* translateX(-10%) 相对于自身宽的10% */
+  transform: translateX(-10%);
+}
+#slide .carousel-inner .item {
+  /* 轮播图容器的1/10 */
+  width: 10%;
+  float: left;
+}
+#slide .carousel-inner .item > a {
+  display: block;
+  width: 100%;
+}
+#slide .carousel-inner .item > a > img {
+  width: 100%;
+}
+#slide .carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#slide .carousel-indicators > li {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #fff;
+  float: left;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+#slide .carousel-indicators > li.active {
+  background-color: #fff;
+}
+/* 导航菜单 */
+#nav {
+  padding: 10px;
+  background-color: #fff;
+}
+#nav > ul > li {
+  float: left;
+  width: 25%;
+}
+#nav > ul > li > a {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+#nav > ul > li > a > img {
+  width: 40px;
+  height: 40px;
+}
+#nav > ul > li > a > p {
+  font-size: 12px;
+}
+/* 主体商品 */
+#products {
+  /* 秒杀商品 */
+  padding: 0 10px;
+  /* 京东超市 */
+}
+#products .seckill {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+#products .seckill .seckill-title {
+  height: 40px;
+  line-height: 40px;
+}
+#products .seckill .seckill-title .seckill-icon {
+  width: 20px;
+  height: 25px;
+  float: left;
+  margin-left: 5px;
+  margin-top: 7px;
+}
+#products .seckill .seckill-title .seckill-name {
+  font-size: 14px;
+  color: #f23030;
+  float: left;
+  margin-left: 5px;
+}
+#products .seckill .seckill-title .seckill-count-down {
+  float: left;
+  margin-left: 5px;
+}
+#products .seckill .seckill-title .seckill-count-down > span {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+}
+#products .seckill .seckill-title .seckill-more {
+  float: right;
+  margin-right: 5px;
+  font-size: 14px;
+}
+#products .seckill .seckill-content > ul > li {
+  width: 33.33%;
+  float: left;
+  border-left: 1px solid #ccc;
+}
+#products .seckill .seckill-content > ul > li:first-of-type {
+  border-left: 0;
+}
+#products .seckill .seckill-content > ul > li > a {
+  display: block;
+  text-align: center;
+}
+#products .seckill .seckill-content > ul > li > a > img {
+  /* 这是特殊要实现图片的自适应  图片比一半还小是没问题的*/
+  /* width: 110px; */
+  /* height: 110px; */
+  width: 60%;
+}
+#products .seckill .seckill-content > ul > li > a > p {
+  font-size: 12px;
+}
+#products .seckill .seckill-content > ul > li > a > p:first-of-type {
+  color: #f23030;
+}
+#products .seckill .seckill-content > ul > li > a > p:last-of-type {
+  /* 添加中划线 */
+  text-decoration: line-through;
+}
+#products .jd-market {
+  margin-top: 20px;
+  background-color: #fff;
+}
+#products .jd-market .jd-market-title {
+  border-bottom: 1px solid #ccc;
+}
+#products .jd-market .jd-market-title > h4 {
+  font-weight: normal;
+  font-size: 14px;
+  padding-left: 40px;
+  line-height: 30px;
+  position: relative;
+}
+#products .jd-market .jd-market-title > h4::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 15px;
+  background-color: #f23030;
+  left: 25px;
+  top: 8px;
+}
+#products .jd-market .jd-market-content > div {
+  width: 50%;
+}
+#products .jd-market .jd-market-content > div > a {
+  display: block;
+}
+#products .jd-market .jd-market-content > div > a img {
+  width: 100%;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!--
+    基本类型：string,number,boolean,null,undefined
+    复杂类型：数组、函数、对象（Object）
+
+    对象类型：有属性，有方法
+
+    基本包装类型：String Number Boolean
+        基本类型也可以转成对象类型，但是不需要我们写代码转，你直接调用这些包装类型的方法或属性，就可以直接使用，浏览器会自动把你转成包装类型的对象
+-->
+
+<script>
+
+    //基本类型
+//    var str = "abc";
+//
+//    console.log(str.length);
+//    console.log(str.toString());
+//    console.log(typeof str);
+
+    //因为浏览器内部帮你把这个基本类型转换成了对象类型，它其实相当于做了一下这件事
+//    var str2 = new String("abc");
+//    console.log(str2.length);
+//    console.log(str2.toString());
+//
+//    console.log(typeof  str2);
+//    console.log(typeof  str2.valueOf());//得到原来的值
+
+    var num = 10;
+    console.log(num.toString());
+
+    //浏览器帮你自动转换成了Number这种对象类型
+    var n1 = new Number(20);
+    n1.toString();
+
+
+    var res = true;
+    res.toString();
+
+    var b = new Boolean(true);
+
+</script>

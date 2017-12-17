@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id='box'>
+    我是div
+<h1>我是标题</h1>
+</div>
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+    var box = id("box");
+
+    //克隆它只克隆标签以及标签里写的属性，但是不包括子节点
+    //这种克隆就叫 浅克隆 (传一个false,默认不传就是浅克隆)
+    //括号加true就叫 深克隆
+    //克隆出来只是相当于在内存中有这么一个对象，但是它没有加到dom树里面来
+    var newBox = box.cloneNode(true);
+
+    //因为不管是深克隆还是浅克隆都会标签的属性克隆过来，所以如果有id，还要改id
+    newBox.id = "new";
+
+    //把刚刚克隆出来的元素添加到body里面作为它的子元素
+    document.body.appendChild(newBox);
+
+//    console.log(newBox);
+</script>

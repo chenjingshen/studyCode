@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: hotpink;
+            /* 单独设置某一个角的圆角 */
+            border-top-left-radius: 40px 60px;
+            /* 下面的写法是四个角都是圆形角 */
+            border-radius: 40px 50px 80px 20px;
+            /* 椭圆角的写法 */
+            border-radius: 40px 20px 50px 80px/80px 70px 30px 40px;
+
+            /* 写的时候，老老实实地按照下面的写法写好，再填充， 就不会出错 */
+            /* border-radius: 0px 0px 0px 0px / 0px 0px 0px 0px; */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+
+<!-- 
+    总结
+    1. 圆角的原理,是在四个矩形角，有内切圆， 或者是内切的椭圆， 形成的圆角
+    2. 如果是内切圆，只需要设一个值就可以
+    3. 如果是椭圆， 那么需要设x半径和y半径， 格式 x1，x2, x3, x4/ y1, y2, y3, y4
+ -->

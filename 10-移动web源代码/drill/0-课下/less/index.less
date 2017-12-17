@@ -1,0 +1,322 @@
+// 定义灰色变量
+@gray: #666;
+// 定义一个主题色变量
+@main-color: #e92322;
+#header {
+    // 头部导航栏
+    .topbar {
+        border-bottom: 1px solid #ccc;
+        .container {
+            .row {
+                >div {
+                    height: 40px;
+                    line-height: 40px;
+                    border-left: 1px solid #ccc;
+                    &:first-child {
+                        border-left: none;
+                        >a {
+                            text-decoration: none;
+                            >img {
+                                z-index: 2;
+                                display: none;
+                                position: absolute;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+                            &:hover {
+                                >img {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    >a {
+                        text-decoration: none;
+                        color: @gray;
+                        &.btn-danger {
+                            color: #fff;
+                            background-color: @main-color;
+                        }
+                    }
+                }
+            }
+        }
+    } // 导航条
+    .navbar-default {
+        background-color: #fff;
+        margin-bottom: 0;
+        z-index: 5;
+        width: 100%;
+        top: 0;
+        .container {
+            .navbar-header {
+                .navbar-toggle {
+                    margin-top: 23px;
+                }
+                .navbar-brand {
+                    line-height: 50px;
+                    height: 80px;
+                    >i {
+                        font-size: 30px;
+                        &:first-child {
+                            color: @main-color;
+                        }
+                        &::last-child {
+                            color: black;
+                        }
+                    }
+                }
+            }
+            .navbar-collapse {
+                .navbar-nav {
+                    >li {
+                        >a {
+                            line-height: 50px;
+                            height: 80px;
+                            &:hover {
+                                border-bottom: 2px solid @main-color;
+                            }
+                        }
+                        &.active {
+                            >a {
+                                background-color: #fff;
+                                border-bottom: 2px solid @main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 轮播图区域
+#slide {
+    .pc-img {
+        display: block;
+        background-position: center center;
+        height: 410px;
+    }
+    .xs-img img {
+        width: 100%;
+    }
+}
+
+// 支付保障区域
+#payment {
+    padding: 30px 0;
+    .container {
+        .row {
+            .media {
+                margin-top: 10px;
+                >a {
+                    text-decoration: none;
+                    color: @gray;
+                    &:hover {
+                        color: @main-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 立即预约部分
+#booking {
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    padding: 20px 0;
+    .row {
+        >div:first-child {
+            a {
+                color: @main-color;
+            }
+        }
+    }
+}
+
+// 产品区域
+#products {
+    padding: 40px 0;
+    background-color: #f0f0f0;
+    #wrapper{
+        overflow: hidden;
+        position: relative;
+        height: 55px;
+    }
+    .nav-tabs {
+        width: 600px;
+        >li {
+            >a {
+                border: 0;
+                font-size: 16px;
+                color: #000;
+                background-color: #f0f0f0;
+            }
+            &.active {
+                >a {
+                    border-bottom: 3px solid @main-color;
+                }
+            }
+        }
+    }
+    .tab-content {
+        .tab-pane {
+            >.row {
+                >div {
+                    >.product {
+                        position: relative;
+                        margin-top: 20px;
+                        background-color: white;
+                        &.active {
+                            background-color: @main-color;
+                            color: white;
+                            &::before {
+                                content: "\e915";
+                                font-family: 'itcast';
+                                font-size: 30px;
+                                position: absolute;
+                                left: 0;
+                                top: -6px;
+                            }
+                        }
+                        .product-left {
+                            height: 160px;
+                            margin-right: 120px;
+                            padding: 10px;
+                            >.row {
+                                >div {
+                                    margin-bottom: 10px;
+                                    >p {
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .product-right {
+                            position: absolute;
+                            padding: 40px 0;
+                            width: 120px;
+                            height: 160px;
+                            right: 0;
+                            top: 0;
+                            border-left: 1px dashed #ccc;
+                            .tooltips {
+                                position: absolute;
+                                width: 100%;
+                                top: 20px;
+                                text-align: center;
+                                >a {
+                                    text-decoration: none;
+                                    &:first-of-type {
+                                        border: 1px solid @main-color;
+                                        color: @main-color;
+                                    }
+                                    &:last-of-type {
+                                        border: 1px solid #0f0;
+                                        color: #0f0;
+                                    }
+                                }
+                            }
+                            >p {
+                                >strong {
+                                    font-size: 30px;
+                                }
+                            }
+                            &::before,
+                            &::after {
+                                content: '';
+                                width: 16px;
+                                height: 16px;
+                                border-radius: 50%;
+                                background-color: #f0f0f0;
+                                position: absolute;
+                                left: -8px;
+                            }
+                            &::before {
+                                top: -8px;
+                            }
+                            &::after {
+                                bottom: -8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 新闻区域
+#news {
+    padding: 40px 0;
+    .row {
+        >div {
+            >h4 {
+                line-height: 40px;
+                position: relative;
+                border-bottom: 1px dashed #ccc;
+                &::after {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    position: absolute;
+                    border: 1px solid #ccc;
+                    content: '';
+                    right: -10px;
+                    bottom: -5px;
+                }
+            }
+        }
+    }
+    .nav-tabs {
+        font-size: 30px;
+        border-bottom: 0;
+        color: #ccc;
+        >li {
+            >a {
+                border: 0;
+                color: #ccc;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                &:hover {
+                    background-color: @main-color;
+                }
+            }
+            &.active{
+                >a{
+
+                    background-color: @main-color;
+                }
+            }
+        }
+    }
+    .tab-content{
+        ul{
+            list-style: none;
+            >li{
+                line-height: 40px;
+            }
+        }
+    }
+}
+
+
+// 合作伙伴区域
+#partner{
+    ul{
+        li{
+            width:100%/9;
+            float: left;
+            font-size: 60px;
+            list-style: none;
+            >a{
+                color: #666;
+                text-decoration: none;
+                &:hover{
+                    color: @main-color;
+                }
+            }
+        }
+    }
+}

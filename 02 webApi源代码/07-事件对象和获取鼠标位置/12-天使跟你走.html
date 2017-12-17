@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+        body {
+
+            height: 2000px;
+        }
+
+        img {
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+<img src="tianshi.gif" alt="" id="img"/>
+
+
+</body>
+</html>
+
+<script src="common.js"></script>
+
+<script>
+//    var div1= document.getElementById("div1");
+//    var imggg= document.getElementById("imggg");
+//    document.documentElement.onmousemove = function (event) {
+//        var e = event || window.event;
+//
+//        var pageX= e.pageX||getPageScroll().scrollLeft+ e.clientX;
+//        var pageY= e.pageY||getPageScroll().scrollTop+ e.clientY;
+//
+//        imggg.style.left=pageX+"px";
+//
+//        imggg.style.top=pageY+"px";
+//    };
+
+    var img= document.getElementById("img");
+    document.documentElement.onmousemove= function (e) {
+        var e=e||window.event;
+        img.style.left= getPagePosition(e).pageX+"px";
+        img.style.top= getPagePosition(e).pageY+"px";
+    }
+
+
+    //onscroll，用window来绑定所有浏览器通用，其他的最好都用document.documentElement
+    //自己试，先用window来加事件，如果不行，再换成document.documentElement
+
+    //获取图片
+//    var imggg = document.getElementById("imggg");
+//
+//
+//    //在页面任何地方鼠标移动都会触发
+//    //这个事件用document.documentElement可以触发
+//    document.documentElement.onmousemove = function (e) {
+//
+//        var e = e || window.event;
+//
+//        var pageX = e.pageX || getPageScroll().scrollLeft + e.clientX;
+//        var pageY = e.pageY || getPageScroll().scrollTop + e.clientY;
+//
+//        imggg.style.left = pageX + "px";
+//        imggg.style.top = pageY + "px";
+//    }
+</script>

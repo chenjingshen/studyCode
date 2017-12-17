@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>标题</title>
+<script>
+  /*
+   1.数据类型的补充
+      a.undefined 未定义  变量声明了没有赋值，变量的值就是undefined。
+        假如变量没有声明，变量直接不能使用。如果使用就报错。
+
+      b.null 空
+        变量不能直接等于null，除非手动的设置。
+        var num = null;
+        如果一个函数返回一个对象，返回失败了，就得到一个null。
+
+        console.log(null == undefiend); // true
+        console.log(null === undefiend); // false
+
+      c.NaN  非数字 not a number
+        他是Number类型中的一个值，是一个计算错误的一个值。
+
+      d.isNaN 用来判断一个值是否是 非数字
+         如果你是一个数字，就不是一个NaN,那么isNaN就是false。
+         如果你不是一个数字，就是一个NaN,那么isNaN就是true。
+
+         isNaN在判断的时候会发生隐式转换的。
+         isNaN("123"); //false
+
+
+    2.数据类型的转换
+      a.其他类型转换Number类型
+        Number(需要被转换的内容);
+        parseInt(需要被转换的内容);
+        parseFloat(需要被转换的内容);
+        在需要转换的内容前面加正号
+        让需要转换的内容做算术运算(和连接符号要区别开来。).
+
+        true 1   false  0
+
+      b.其他类型转换成String类型
+        String(需要被转换的内容);   "123"  "null"  "undefined"  "NaN"
+        需要被转换的内容.toString(); //undefined 和null不能toString
+        需要被转换的内容+"";
+
+      c.其他数据类型转布尔类型
+        Boolean(需要被转换的内容);
+          能被转换成布尔类型false的有：false 0 -0 NaN undefined null ""
+          !!需要被转换的内容.
+
+
+    3.关系运算符的补充
+       ===  !== 他们比较的是数据类型和值。
+
+       ==  != 他们比较的时候有一个隐式转换。
+
+    4.if结构
+       语法：
+         if(表达式){
+           表达式成立的时候需要执行的代码
+         }
+
+    5.if-else结构
+       语法：
+         if(表达式){
+            表达式成立的时候需要执行的代码
+         }else{
+             表达式不成立的时候需要执行的代码
+         }
+
+     6.if-else if-else
+         语法：
+         if(表达式1){
+              表达式1成立的时候需要执行的代码
+         }else if(表达式2){
+              表达式2成立的时候需要执行的代码
+         }else if(表达式3){
+              表达式3成立的时候需要执行的代码
+         }else {
+              以上的表达式全部不满足的时候执行的代码
+         }
+
+     7.switch-case
+       switch(表达式){
+         case  值1:
+             表达式结果和值1匹配上了，需要执行的代码.
+             break;
+         case  值2:
+             表达式结果和值2匹配上了，需要执行的代码.
+             break;
+          default：
+             表达式结果和以上case项后面的值都没有匹配上，需要执行的代码。
+             break;
+       }
+
+       a.如果执行switch-case结构中遇到了break，那么就会跳出这个结构，可以省略break，会往下一个case项穿透，直到遇到break或者程序结束为止。
+       b.default可以省略，如果表达式有可能取的值都在case里面罗列出来了，说明永远都不可能执行default，那么就可以省略default。
+       c.switch-case一般的用来做值匹配的，如果你要用它做范围匹配，那么就要在小括号里面写true。
+
+
+     8.三元运算符
+       ?:
+      语法： 表达式?值1:值2;
+
+       先判断表达式是否成立，如果成立就取值1,否则就取值2.
+
+     9.while循环
+       同一个时刻要把代码执行多次。
+
+       语法：
+         while(条件语句){
+            循环体、就是需要在同一个时刻反复执行的代码。
+         }
+
+       执行过程：
+
+
+       var i = 0;
+       while(i < 5){
+          console.log("哈哈");
+       }
+
+
+
+
+
+
+
+
+   * */
+
+  // var num = "133";
+  // console.log(isNaN(num)); //false
+  // console.log(typeof  num);
+
+
+  // var str = "123";
+  // var res = Number(str);
+  // console.log(res);
+  // console.log(typeof res);
+  // console.log(typeof str);
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

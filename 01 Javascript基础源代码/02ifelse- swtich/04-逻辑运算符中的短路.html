@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        &&：一假则假，两真才为真
+                如果逻辑运算符左边结果为true，能不能确定不能最终结果，还要看右边是什么，才能知道结果
+                    true && true  true
+                    true && false false
+
+                 如果左边为false,那么整体结果肯定就是false
+                    false && true   false
+                    false && false  false
+
+                  在这种时候就会发生短路
+
+                  短路：意思是指，不执行右边的表达式了
+
+
+            ||:
+                一真则真，也就是说我左边为真，整个表达式结果肯定为真
+                        true || false  true
+                        true || true   true
+
+                  左边为false，不能确定整个表达式的值，还要看右边
+                        false || true  ,true
+                        fasle || false ,false
+
+
+                  当左边为true时就发生短路
+
+
+
+           统一的思想：如果左边能确定整个表达式的结果，右边就不执行了
+
+
+    -->
+
+    <script>
+
+        //        var n1 = 10;
+        //        var n2 = 20;
+        //
+        //        var res = n1 < 100 && n2++ > 50;
+        //
+        //        console.log(res,n1,n2);//false  10  21
+
+
+//        var n1 = 10, n2 = 20;
+//
+//        var res = n1 < 5 || n2++ <100;
+//
+//        console.log(res,n1,n2);//true 10 21
+
+
+
+        var n1 = 0,n2 = 20;
+
+        var res = n1++ && n2++;  //var res  0 && 20
+
+        console.log(n1,n2);//1 20
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

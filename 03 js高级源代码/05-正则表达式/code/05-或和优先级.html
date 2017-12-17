@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1. 或  |
+  // console.log(/男|女/.test("男")); //true
+  // console.log(/男|女/.test("女")); //true
+  // console.log(/男|女/.test("不男不女"));//true
+  // console.log(/男|女/.test("abcdefg")); //false
+  // console.log(/男|女/.test("人妖")); //false
+  // console.log(/男|女/.test("1234556")); //false
+  // console.log(/男|女/.test("男男女女")); //true
+
+
+  //要么出现一次或者一次以上hei，要么出现一次或者一次以上ma
+  // console.log(/hei|ma/.test("hei"));  //true
+  // console.log(/hei|ma/.test("heihei")); //true
+  // console.log(/hei|ma/.test("ma")); //true
+  // console.log(/hei|ma/.test("mama")); //true
+  // console.log(/hei|ma/.test("heima")); //true
+  // console.log(/hei|ma/.test("heimaheima")); //true
+  // console.log(/hei|ma/.test("haebicmda")); //false
+  // console.log(/hei|ma/.test("heim!!!!a")); //true
+  // console.log(/hei|ma/.test("he@@@ima")); //true
+
+
+
+  //2. 优先级  ()  heia  hema
+  console.log(/he(i|m)a/.test("heia"));  // true
+  console.log(/he(i|m)a/.test("heiaheia")); //true
+  console.log(/he(i|m)a/.test("hema")); // true
+  console.log(/he(i|m)a/.test("hemahema")); // true
+  console.log(/he(i|m)a/.test("h!e!i!a")); //false
+  console.log(/he(i|m)a/.test("h!ema")); //false
+  console.log(/he(i|m)a/.test("hei")); //false
+  console.log(/he(i|m)a/.test("ma")); //false
+  console.log(/he(i|m)a/.test("heima")); //false
+
+</script>
+</body>
+</html>

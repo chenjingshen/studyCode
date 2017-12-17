@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        input {
+            display: block;
+            margin: 0 auto;
+        }
+
+        #box {
+            width: 150px;
+            height: 1000px;
+            margin: 50px auto;
+            background-color: hotpink;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            margin: 0;
+            width: 1000%;
+            height: 150px;
+            list-style: none;
+            padding: 0;
+            position: absolute;
+        }
+
+        li {
+            width: 150px;
+            height: 150px;
+            float: left;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动" id="move"/>
+
+<div id="box">
+    <ul id="ul1">
+        <li style="background-color: green"></li>
+        <li style="background-color: orange"></li>
+        <li style="background-color: deepskyblue"></li>
+        <li style="background-color: purple"></li>
+        <li style="background-color: yellowgreen"></li>
+    </ul>
+
+</div>
+
+
+</body>
+</html>
+
+
+<script src="animate.js"></script>
+
+<script>
+
+    //代表移出去的图片张数
+    var index = 0;
+
+    document.getElementById("move").onclick = function () {
+
+        //每点击一次，就要移动ul，而且是多移动一个盒子的宽度
+
+        var ul1 = document.getElementById("ul1");
+
+        var box = document.getElementById("box");
+
+        //代表出去的张数增加1个
+        index++;
+
+        //再根据出去的张数算left值
+//        ul1.style.left = -box.offsetWidth * index + "px";
+
+        animate(ul1, -box.offsetWidth * index);
+
+    };
+
+</script>

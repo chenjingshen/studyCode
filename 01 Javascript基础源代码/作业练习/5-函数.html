@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+//     将九九乘法表封装成函数
+        /*
+         function jiujiuchengfabiao(){
+         document.write("九九乘法表");
+         document.write("<br/>");
+         for(var i=1;i<=9;i++){
+         for(var j=1;j<=i;j++){
+         document.write(j+"*"+i+"="+i*j+"&nbsp&nbsp&nbsp&nbsp&nbsp")
+         }
+         document.write("<br/>");
+         }
+         }
+         jiujiuchengfabiao();
+         jiujiuchengfabiao();
+         */
+
+
+//      求任意数的平方
+        /*
+        function chengfang(n1){
+            alert(n1+"的平方为"+Math.pow(n1,2));
+        }
+        chengfang(10);
+        */
+
+
+//        以下案例都要写成函数的形式：
+//        1.求1-n之间所有数的和
+        /*
+        function he1daon(n){
+            var num=0;
+            if(n<1){
+                for(i=n;i<=1;i++){
+                    num+=i;
+                }
+            }else{
+                for(i=1;i<=n;i++){
+                    num+=i;
+                }
+            }
+            alert("1到"+n+"之间的和为"+num);
+        }
+        he1daon(100);
+        */
+
+
+//        2.求n-m之间所有数额和
+        /*
+        function he1daon(n,m){
+           var num=0;
+            if(n<m){
+                for(var i=n;i<=m;i++){
+                    num+=i;
+                }
+            }else{
+                for(var i=m;i<=n;i++){
+                    num+=i;
+                }
+            }
+            alert(n+"到"+m+"之间的和为"+num);
+        }
+        he1daon(4,-4);
+        */
+
+
+//        3.圆的面积
+        /*
+        function mianji(r){
+            var res=Math.PI*Math.pow(r,2);
+            alert("半径为"+r+"的圆面积为"+res);
+        }
+        mianji(100);
+        */
+
+
+//        4.求2个数中的最大值
+        /*
+        function twomax(n1,n2){
+            var max=n1>n2? n1:n2;
+            alert(n1+"和"+n2+"两数中的较大值为"+max);
+        }
+        twomax(3,5);
+        */
+
+
+//        5.求3个数中的最大值
+        /*
+        function theremax(a,b,c){
+            var max=a>b? a:b;
+            alert("三个数中的最大值为"+max>c? max:c);
+        }
+        theremax(1,5,9);
+        */
+
+//        6.判断一个数是否是素数
+//        素数：就只能被1和自身整除的数就是素数
+        /*
+        function sushu(){
+            var res=prompt("请输入一个数");
+            var deng=true;
+            for(var i=2;i<res/2;i++){
+                if(res%i==0){
+                    deng=false;
+                    break;
+                }
+            }
+            if(deng){
+                alert(res+"是一个素数");
+            }else{
+                alert(res+"不是一个素数");
+            }
+        }
+        sushu();
+        */
+
+//        9.求一组数中的最大值
+        /*
+        function zuida(arr){
+            var max=-Number.MAX_VALUE;
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]>max)
+                    max=arr[i];
+            }
+            alert("这组数中的最大值为"+max);
+        }
+        zuida([4,8,12]);
+        */
+      
+
+//        10.求一组数中的最小值
+        /*
+            function zuixiao(arr){
+                var min=Number.MAX_VALUE;
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i]<min){
+                        min=arr[i];
+                    }
+                }
+                alert("这个数组中的最小值为"+min);
+            }
+            zuixiao([55,6,8,0,-5,1]);
+         */
+
+
+//        11.求斐波那契数列Fibonacci中的第n个数是多少？      1 1 2 3 5 8 13 21...
+        /*
+        function fbnqsl(n){
+            var arr=[1,1];
+            for(var i=2;i<n;i++){
+                arr[i]=arr[i-1]+arr[i-2];
+            }
+            alert("斐波那契数列Fibonacci中的第"+n+"个数是"+arr[arr.length-1]);
+        }
+        fbnqsl(8);
+        */
+
+
+//        12.翻转数组，返回一个新数组
+        /*
+        function xin(arr){
+            var newArr=[];
+            for(var i=0;i<arr.length;i++){
+                newArr[newArr.length]=arr[arr.length-1-i];
+            }
+            alert("新数组是"+newArr);
+        }
+        xin([1,2,3,4,5,6,7,8,9]);
+        */
+
+//        13.对数组排序，从小到大
+        /*
+        function maopao(arr){
+            for(var i=0;i<arr.length-1;i++){
+                for(var j=0;j<arr.length-1-i;j++){
+                    if(arr[j]>arr[j+1]){
+                        var temp=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                    }
+                }
+            }
+            alert("从小到大依次是"+arr);
+        }
+        maopao([4,6,2,8,9,5])
+        */
+
+
+//        14.输入一个年份，判断是否是闰年(能被4整除而不能被100整除.2.能被400整除.)
+        /*
+        function yn(){
+            var res=+prompt("请输入年份");
+            if(res%4==0&&res%100!=0 || res%400==0){
+                alert(res+"年是闰年");
+            }else{
+                alert(res+"年不是闰年");
+            }
+        }
+        yn();
+        */
+
+//        15.输入某年某月某日，判断这一天是这一年的第几天
+            /*
+            function toDay(nian,yue,ri){
+                var arr=[31,28,31,30,31,30,31,31,30,31,30,31];
+                if(nian%400==0||(nian%4==0&&nian%100!=0)){
+                    arr[1]=29;
+                }
+                var day=ri;
+                for(var i=0;i<yue-1;i++){
+                    day+=arr[i];
+                }
+                alert(nian+"年"+yue+"月"+ri+"日是这一年的第"+day+"天");
+            }
+            toDay(2000,3,15);
+            */
+
+//      有返回值的函数(return关键字)
+        /*
+        function he(a,b){
+            var num=a+b;
+            return num;
+        }
+        var res=he(100,50);
+        alert(res);
+        */
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

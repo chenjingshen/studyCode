@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.如何把函数里面产生的结果，返回给调用者呢？
+    //使用return关键字。 retrue 值;
+
+    //求任意两个数的和。
+    //  function getSum(num1,num2){
+    //    var res = num1 + num2;
+    //    return res;
+    //  }
+
+    //console.log(getSum(100, 200));
+
+    //var sum1 = getSum(10,20);
+    //document.write(sum1);
+
+
+
+    //3.注意：
+    //a.函数只能返回一个值；如果你真的要返回2个结果或者多个结果，那么可以使用数组。
+    //b.如果函数中有return关键字，那么return后面的代码是不会执行的； 函数提前结束了。
+    //c.如果函数中return关键字，这个关键字后面没有值，那么这个函数也是有返回值的，返回值是undefined。
+    //d.如果函数中没有return关键字，那么函数也是有默认的返回值undefined。
+
+    // function getValue(num1,num2){
+    //   var res1 = num1 + num2;
+    //   var res2 = num1 - num2;
+    // }
+
+    //  var res  = getValue(100, 50);
+    // console.log(res);
+
+
+    //4.总结
+    //a.如果函数中没有return关键字，那么函数有默认的返回值undefined。
+    //b.如果函数中有return关键字，那么这个关键字后面的代码是不会执行的。
+    //c.如果函数中有retruen关键字，这个关键字后面没有值，那么这个函数有返回值是undefined。
+    //d.如果函数中有retruen关键字，这个关键字后面有值，那么这个值就是这个函数的返回值。
+
+
+    //5.函数的形态
+    //a.无参无返回值。
+    //b.有参无返回值。
+    //c.无参有返回值。
+    //d.有参有返回值。
+
+
+    //6.函数的注释
+    /**
+     * 这个函数是用来求和的
+     * @param a 函数的第一个参数，求和的第一个数
+     * @param b 求和的第二个数
+     * @returns {*} 返回的求和的数。
+     */
+    // function test(a,b){
+    //   return a + b;
+    // }
+
+
+    //7.三元运算符的
+    // var num = 10;
+    // var res = num >0?alert("哈哈"):alert("呵呵");
+    // console.log(res);
+
+
+    //8.什么时候我们要写函数返回值？
+    //a.调用者需要函数里面产生的结果，就应该把这个结果给返回。
+    //b.可以使用return关键字，在某一个时刻的时候提前结束函数。
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

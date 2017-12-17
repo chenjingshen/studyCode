@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+            height: 24px;
+        }
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>
+            <input type="checkbox" name="" id="checkAll"/>全选/全不选
+        </th>
+        <th>菜名</th>
+        <th>商家</th>
+        <th>价格</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="check"/>
+        </td>
+        <td>红烧肉</td>
+        <td>隆江猪脚饭</td>
+        <td>￥200</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="check"/>
+        </td>
+        <td>香酥排骨</td>
+        <td>隆江猪脚饭</td>
+        <td>￥998</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="check"/>
+        </td>
+        <td>北京烤鸭</td>
+        <td>隆江猪脚饭</td>
+        <td>￥88</td>
+    </tr>
+</table>
+</body>
+</html>
+
+<script>
+    var checkAll=document.getElementById("checkAll");
+    var check=document.getElementsByName("check");
+    checkAll.onclick=function(){
+        for(var i=0;i<check.length;i++){
+            check[i].checked=this.checked;
+        }
+    }
+    for(var i=0;i<check.length;i++){
+        check[i].onclick=function(){
+            for(var j=0;j<check.length;j++){
+                if(check[j]==false){
+                    checkAll.checked=false;
+                }else if(check[j]==true){
+                    checkAll.checked=true;
+                }
+            }
+        }
+    }
+</script>
+//3.点击下面那三个多选框。
+//给下方那每一个多选框设置一个单击事件
+for(var i = 0 ; i < chks.length; i++){
+chks[i].onclick = function () {
+//3.1 假设我在单击这个多选框的时候，全选全不选哪个多选框可以被选中。
+var flag = true;
+//3.2 能不能被选中，我要去判断
+//判断下面那个三个多选框的checked属性值，如果有一个为false，那么说明假设失败。
+for(var j = 0 ; j < chks.length; j++){
+if(chks[j].checked == false){
+flag = false; //假设失败
+break;
+}
+}
+//3.3 判断结束，此时flag如果还是true，说明全选全不选多选框需要被选中。
+if(flag){
+checkAll.checked = true;
+}else {
+checkAll.checked = false;
+}
+}
+}

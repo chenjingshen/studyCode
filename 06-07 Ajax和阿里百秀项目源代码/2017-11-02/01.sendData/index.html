@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class='get' type="button" value='get请求'>
+    <input class='post' type="button" value='post请求'>
+    <input class='xml' type="button" value='获取XML数据'>
+    <input class='json' type="button" value='获取json数据'>
+</body>
+
+</html>
+<!-- 引入js -->
+<script src="./ajaxTool.js"></script>
+<script>
+    // ajax通过get发送请求
+    document.querySelector('.get').onclick = function () {
+        /*
+                // 创建对象
+                var xhr = new XMLHttpRequest();
+
+                // 设置请求行
+                xhr.open('get','getData.php?name=大娃&skill=力大无穷');
+
+                // 设置请求头  get可以省略
+
+                // 注册回调函数
+                xhr.onload = function(){
+                    console.log(xhr.responseText);
+                }
+
+                // 设置请求主体发送请求 get请求这里一般写的是null
+                xhr.send(null)
+        */
+        // 调用 get函数
+        get('./getData.php','name=五娃&skill=吸水喷水',function(data){
+            // console.log('1213123');
+            console.log(data);
+        })
+    }
+    // ajax通过post发送请求
+    document.querySelector('.post').onclick = function () {
+    /*
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('post', 'postData.php');
+
+        // 设置请求头  get可以省略
+        // git github 把代码段上传到 这个地方
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        // 注册回调函数
+        xhr.onload = function () {
+            console.log(xhr.responseText);
+        }
+
+        // 设置请求主体发送请求 get请求这里一般写的是null
+        xhr.send('name=二娃&skill=千里眼');
+    */
+    post('./postData.php','name=黑猫警长&skill=抓一只耳',function(data){
+        console.log(data);
+        })
+    }
+    // ajax获取XML数据
+    document.querySelector('.xml').onclick = function () {
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('get', 'backXML.php');
+
+        // 设置请求头  get可以省略
+
+        // 注册回调函数
+        xhr.onload = function () {
+            // console.log(xhr.responseText);
+            console.log(xhr.responseXML);
+            console.log(xhr.responseXML.querySelector('skill').innerHTML);
+        }
+
+        // 设置请求主体发送请求 get请求这里一般写的是null
+        xhr.send(null);
+    }
+    // ajax获取JSON数据
+    document.querySelector('.json').onclick = function () {
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('get', 'backJSON.php');
+
+        // 设置请求头  get可以省略
+
+        // 注册回调函数
+        xhr.onload = function () {
+            console.log(JSON.parse(xhr.responseText));
+        }
+
+        // 设置请求主体发送请求 get请求这里一般写的是null
+        xhr.send(null);
+    }
+</script>

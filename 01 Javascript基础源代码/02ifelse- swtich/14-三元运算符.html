@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        一元运算符：只需要一个操作数  ++,--    var num = 100; num++;   取反（!）
+        二元运算符：需要两个操作数， +，-，*，/     10+20
+        三元运算符：指的是需要三个操作数的运算符
+
+            ?:
+
+       语法：  表达式1? 表达式2 : 表达式3
+       语义：先执行表达式1，然后拿到表达式1的结果，如果结果为true，那么就执行表达式2，如果结果为false就执行表达式3
+
+       三元表达式可以跟if-else语句互换
+
+       三元表达式也是个运算式，那么它肯定有一个结果，它的结果是什么？
+            如果表达式1为true，那么整体式子的结果就是表达式2的结果
+            如果表达式1为false，那么整体式子的结果就是表达式3的结果
+    -->
+
+    <script>
+        //        var age = 10;
+        //
+        //        var res = age > 18 ? alert('成年') : alert('未成年');
+        //
+        //        alert(res);
+
+        //        if(age > 18){
+        //
+        //            alert('成年');
+        //
+        //        }else{
+        //            alert('未成年');
+        //        }
+
+
+        //        var age = 19;
+        //
+        //        var res = age >= 18 ? age + 10 : 200;
+        //
+        //        console.log(res);
+
+        var name = '利群';
+        var gender = true; //true：男 false为女
+
+        console.log('大家好，我叫' + name + '，我是' + (gender? '男':'女')  + '生');
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

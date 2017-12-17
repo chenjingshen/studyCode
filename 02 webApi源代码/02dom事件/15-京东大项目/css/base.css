@@ -1,0 +1,514 @@
+/*css 初始化 */
+@charset "UTF-8";
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+  margin: 0;
+  padding: 0;  /*清除元素的内外边距*/
+}
+
+fieldset, img, input, button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline-style: none;  /*外面环绕线*/
+}
+
+ul, ol {
+  list-style: none;/*去掉原样式中的小黑点*/
+}
+
+
+input {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: "SimSun", "宋体" ;  /*字体的自动识别*/
+}
+
+select, input {
+  vertical-align: middle;
+}
+
+
+select, input, textarea {
+  font-size: 12px;
+  margin: 0;
+}
+
+
+textarea {
+  resize: none;  /*不可以随意拖动*/
+}
+
+
+img {
+  border: 0;
+  vertical-align: middle; /*  去掉图片底部默认的3像素空白缝隙*/
+}
+
+table {
+  border-collapse: collapse; /*合并外连线*/
+}
+
+body {
+  font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
+  color: #666; /*150%基于当前字体尺寸的百分比行间距*/
+  background: #F6F6F6;
+}
+
+.clearfix:before, .clearfix:after {
+  /*清除浮动，最好最标准的写法*/
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1; /*IE/7/6*/  /*兼容IE6下的写法*/
+}
+
+a {
+  color: #666;   /*a 标签是不继承颜色 的*/
+  text-decoration: none;
+}
+
+a:hover {
+  color: #C81623;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+s, i, em {  /*一般是起装饰作用*/
+  font-style: normal;  /*去掉原有的样式*/
+  text-decoration: none;  /*去掉下划线或是删除线*/
+}
+
+.col-red {
+  color: #C81623 !important;/*京东主色调*/
+}
+
+/*公共类*/
+.w {
+  /*版心 提取 */
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.al {
+  text-align: left;
+}
+
+.ac {
+  text-align: center;
+}
+
+.ar {
+  text-align: right;
+}
+
+.hide {
+  display: none;
+}
+
+/*css初始化完成*/
+
+
+/*使用图标字体*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/iconfont.woff') format('woff'),
+  url('../font/iconfont.ttf') format('truetype'),
+  url('../font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+/*页面顶部banner开始*/
+.banner {
+  height: 80px;
+  background-color: #01154E;
+}
+.banner-bg {
+  height: 80px;
+  background: url("../images/banner-bg.jpg");
+  /*设置了定位，如果不写tblr，位置在当前位置*/
+  position: relative;
+}
+.banner-bg a {
+  display: inline-block;
+  width: 1190px;
+  height: 80px;
+}
+.banner-bg i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-color: rgb(45,45,45);
+  font-size: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #ffffff;
+  /*透明度，里面的内容也会跟着透明*/
+  opacity: .3;
+  filter: Alpha(opacity: 30);
+}
+/*页面顶部banner结束*/
+
+/*页面shortcut开始*/
+.shortcut {
+  height: 30px;
+  background-color: #E3E4E5;
+  border-bottom: 1px solid #DDDDDD;
+  line-height: 30px;
+}
+.shortcut-left {
+  margin-left: 209px;
+}
+.shortcut-left i {
+  color: red;
+}
+.shortcut-right ul li {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.shortcut-right .line {
+  height: 10px;
+  width: 1px;
+  background-color: #CCCCCC;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.shortcut-right .iconfontli {
+  position: relative;
+  padding-right: 26px;
+}
+.shortcut-right .iconfontli i {
+  font-size: 12px;
+  position: absolute;
+  top: 2px;
+  right: 10px;
+}
+/*页面shortcut结束*/
+
+/*页面头部header部分开始*/
+.header {
+  height: 140px;
+  /*background-color: pink;*/
+  position: relative;
+}
+.header .logo a {
+  display: inline-block;
+  width: 190px;
+  height: 171px;
+  background: #fff url("../images/logo.v2.png");
+  text-indent: -999em;
+  position: absolute;
+  top: -31px;
+  left: 0px;
+}
+
+
+.header .search{
+  width: 549px;
+  height: 33px;
+  border:  1px solid #F10215;
+  position: absolute;
+  top: 25px;
+  left: 320px;
+}
+.header .search input {
+  width: 498px;
+  height: 33px;
+  font-size: 14px;
+}
+.header .search button  {
+  height: 33px;
+  width: 50px;
+  background: #F10215;
+  color: #fff;
+}
+.header .search button i {
+  font-size: 30px;
+}
+
+.header .hotwords {
+  width: 550px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  top: 60px;
+  left: 320px;
+}
+.header .hotwords ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+
+.header .buyCar {
+  width: 188px;
+  height: 33px;
+  border:  1px solid #E3E4E5;
+  position: absolute;
+  top: 25px;
+  right: 99px;
+  background-color: #fff;
+  color: red;
+  line-height: 33px;
+  text-align: center;
+}
+.header .buyCar i {
+  position: absolute;
+  top:  -1px;
+  left:  38px;
+}
+.header .buyCar span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: red;
+  line-height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  right: 45px;
+  color: #fff;
+}
+.header .naviItems {
+  height: 40px;
+  width: 790px;
+  /*background-color: pink;*/
+  position: absolute;
+  bottom: 0px;
+  left: 200px;
+}
+.naviItems ul li {
+  float: left;
+  margin-left: 30px;
+}
+.naviItems ul .noMarginL30 {
+  margin-left: 20px;
+}
+.naviItems ul li a {
+  height: 40px;
+  line-height: 40px;
+  color: #555;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "microsoft yahei";
+}
+.naviItems .navi-line {
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background-color: #ccc;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+/*页面头部header部分结束*/
+
+
+
+
+
+
+
+/*页面底部footer开始*/
+.footer {
+  height: 500px;
+  background-color: #EAEAEA;
+}
+.footer-service {
+  height: 72px;
+  /*background-color: #EAEAEA;*/
+  border-bottom: 1px solid #DEDEDE;
+  padding-top: 30px;
+}
+.footer-service ul {
+  height: 42px;
+  /*background-color: skyblue;*/
+  padding-left: 35px;
+  width: 1155px;
+}
+.footer-service ul li {
+  line-height: 42px;
+  margin-right: 90px;
+}
+.footer-service ul li.noMarginR90 {
+  margin-right: 0px;
+}
+.footer-service ul li ,
+.footer-service ul li h5,
+.footer-service ul li span
+{
+  float: left;
+}
+.footer-service ul li h5 {
+  width: 36px;
+  height: 42px;
+  background: url(../images/ico_service.png);
+  text-indent: -999em;
+}
+.footer-service ul li h5.kuai {
+  background-position: 0 -43px;
+}
+.footer-service ul li h5.hao {
+  background-position: 0 -86px;
+}
+.footer-service ul li h5.sheng {
+  background-position: 0 -129px;
+}
+.footer-service ul li span {
+  margin-left: 9px;
+  font-weight: 900;
+  color: #444444;
+  font-size: 18px;
+  font-family: "microsoft yahei";
+}
+
+
+.footer-help {
+  height: 180px;
+  /*background-color: #EAEAEA;*/
+  border-bottom: 1px solid  #DEDEDE;
+  padding-top: 20px;
+}
+
+.footer-help-list,
+.footer-help-cover {
+  width: 198px;
+  float: left;
+}
+.footer-help-list h5 {
+  font-family: "microsoft yahei";
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.footer-help-list li {
+  height: 21px;
+  line-height: 21px;
+
+}
+.footer-help-list li a {
+  font-family: "microsoft yahei";
+  color: #666;
+}
+.footer-help-list li a:hover {
+  color: #ff0000;
+}
+
+.footer-help-cover {
+  width: 200px;
+  height: 150px;
+  background: url(../images/ico_footer.png);
+}
+.footer-help-cover h5 {
+  color: #666;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+  margin-top: 4px;
+  text-align: center;
+  font-weight: 900;
+}
+.footer-help-cover-info {
+  width: 172px;
+  line-height: 18px;
+  margin-left: 8px;
+  margin-top: 18px;
+}
+.footer-help-cover-more {
+  margin-right: 3px;
+  text-align: right;
+}
+.footer-help-cover-more i {
+  font-size: 12px;
+}
+
+.footer-copyright {
+  height: 196px;
+  text-align: center;
+}
+
+.footer-Copyright-links {
+  color: #666;
+  margin-top: 18px;
+
+}
+
+.copyright-split {
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  background-color: #D0D8E2;
+  margin: 0px 11px;
+  vertical-align: middle;
+}
+
+.footer-Copyright-info {
+  line-height: 20px;
+  margin-top: 13px;
+}
+
+.footer-Copyright-auth {
+  margin-top: 12px;
+}
+.footer-Copyright-auth a {
+  display: inline-block;
+  width: 103px;
+  height: 32px;
+  background: url("../images/ico_footer.png") ;
+}
+.footer-Copyright-auth a.auth1 {
+  background-position: 0px -151px;
+}
+.footer-Copyright-auth a.auth2 {
+  background-position: -104px -151px;
+}
+.footer-Copyright-auth a.auth3 {
+  background-position: 0px -184px;
+}
+.footer-Copyright-auth a.auth4 {
+  background-position: -104px -184px;
+}
+.footer-Copyright-auth a.auth5 {
+  background-position: 0px -217px;
+}
+.footer-Copyright-auth a.auth6 {
+  background-position: -104px -217px;
+}
+
+/*页面底部footer结束*/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    html,
+    body {
+        height: 100%;
+    }
+    
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .topbar {
+        height: 45px;
+        background-color: #ccc;
+    }
+    /*滑动的父元素 父元素的高度固定*/
+    
+    .left {
+        /*总高度541-45=496px*/
+        overflow: hidden;
+        /*height: 523px;*/
+    }
+    /*滑动的子元素 子元素的高度要超过父元素的高度*/
+    
+    ul {
+        /*高度是整个内容的高度*/
+        height: 1700px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="topbar"></div>
+    <main>
+        <div class="left">
+            <ul></ul>
+        </div>
+    </main>
+    <script>
+    /*	1. 获取页面的高度
+        	2. 获取头部的高度
+        	3. 用页面的高度-头部的高度 
+        	4. 把高度设置给左侧父元素*/
+    // 如果要用JS获取页面高度必须html,body有100%的高度
+    var windowHeight = document.body.offsetHeight;
+    console.log(windowHeight);
+    var topbarHeihgt = document.querySelector('.topbar').offsetHeight;
+
+    var height = windowHeight - topbarHeihgt;
+    document.querySelector('.left').style.height = height + 'px';
+    </script>
+</body>
+
+</html>

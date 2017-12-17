@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        /*
+
+        null:
+              变量任何时候都不会自己变成null，除非程序员自己写代码赋值为null
+              代表空的意思,它属于object这种数据类型
+
+         NaN:属于number类型，它不代表任何数字，因为它的意思就是： 不是数字
+                Not a Number
+
+         把其他类型转换为Number类型
+                Number()：
+
+                字符串转number：
+                         如果字符串的内容是纯数字，哪怕前面或者后面有空格，那么可以转换出这个数字
+
+         如果字符串的内容是小数，那么也可以转换成功
+
+         如果数字中间有空格，会转换成NaN
+
+         如果字符串里有字母，那么会转换成NaN
+
+
+                bool转number:
+                        true转换成1，false转换成0
+
+                undefined转会转成NaN
+
+                null转会转换成0
+
+
+                总结：如果内容本身就属于数字，可以转成这个数字，如果是undefined以及字符串中有任意的字母，都会转成NaN
+                特殊的Null转成0
+
+
+            parseInt：
+                    只能转成整数
+
+                    内部工作原理：从左往右依次来转，如果是数字就转换成数字，直到遇到第一个非数字就停止转换
+                        但是如果前面是空格可以转
+
+
+            parseFloat:
+                    原理跟上面差不多，只不过会把遇到的第一个.当作数字，后面再遇到点或者其他字母就结束转换
+
+
+         转换成string类型
+                String();
+
+                    原来是什么，那么就转换成字符串的什么
+                    例如：123转成"123"
+                            undefined 转成"undefined"
+
+                调用变量的.toString()
+                       把内容转换成字符串
+                       第一：只能用变量
+                       第二：undefined不能转,null不能转
+                       第三：NaN可以转
+
+         转换成bool类型
+                Boolean();
+
+                 几乎所有数据转换过来都是true
+
+                 只有几个个别情况转换为false
+
+                       变false的情况有：0,""(空字符串，空格都没有),NaN,null,undefined
+
+         */
+
+        /*
+//        var str = "123.321";
+//
+//        var num = Number(str);
+//
+//        console.log(num);
+//        console.log(typeof num);
+
+//        bool类型转Number
+//        var num = Number(true);
+//        console.log(num);//1
+
+//        var num = Number(false);
+//        console.log(num);//0
+
+
+//        var num = Number(undefined);
+//        console.log(num);//NaN
+
+
+        var num = Number(null);
+        console.log(num);//0
+       */
+
+        /*
+//        var num = parseInt("   123");
+//        console.log(num);//123
+
+//        var num = parseInt("12a3");
+//        console.log(num);//12
+
+//        var num = parseInt("a123");
+//        console.log(num);//NaN
+
+
+//        var num = parseFloat("123.456");
+//        console.log(num);//123.456
+    */
+
+        /*
+//        var str = String(NaN);
+//        console.log(str);
+
+        var num = NaN;
+        var str = num.toString();
+
+        console.log(str);
+       */
+
+        var res = Boolean(undefined);
+        console.log(res);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

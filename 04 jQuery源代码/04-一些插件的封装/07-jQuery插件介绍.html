@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="plugin/jquery.color.js"></script>
+  <script>
+    $(function () {
+
+       $('#btn').on('click', function () {
+         $('div').animate({
+           'backgroundColor':"green"
+         },2000);
+       });
+
+    });
+  </script>
+
+</head>
+<body>
+<input type="button" value="颜色变化" id="btn"/>
+<div></div>
+</body>
+</html>

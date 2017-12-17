@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //window.online当网络连接时调用
+    //当网络断开时调用
+    window.addEventListener('online',function(){
+        alert('网络已连接');
+    })
+    window.addEventListener('offline',function(){
+        alert('网络连接已断开');
+    })
+</script>

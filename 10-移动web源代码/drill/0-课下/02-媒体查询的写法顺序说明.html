@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .row div{
+            height: 100px;
+            line-height: 100;
+            border: 1px solid #000;
+            text-align: center;
+            box-sizing: border-box;
+            float: left;
+            /* 小于768执行 */
+            width: 100%;
+        }
+        /* 大于768执行 */
+        @media(min-width:768px){
+            .row div{
+                width:50%;
+            }
+        }
+        /* 大于992执行 */
+        @media(min-width:992px){
+            .row div{
+                width:33.33%;
+            }
+        }
+        /* 大于1200执行 */
+        @media(min-width:1200px){
+            .row div{
+                width:25%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+    </div>
+</body>
+</html>

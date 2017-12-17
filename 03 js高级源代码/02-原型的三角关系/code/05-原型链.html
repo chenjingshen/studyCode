@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.原型链
+  //每一个对象都有一个原型，原型又是对象， 所以原型又有原型，这样就形成了一个链式结构，称为原型链。
+
+  function Person(name,age){
+    this.age = age;
+    this.name = name;
+    this.sayHi = function () {
+      console.log("哈哈哈，你好!");
+    }
+  }
+  Person.prototype.type = "人类";
+  Person.prototype.eat = function () {
+    console.log("啦啦，我在吃东西....");
+  }
+
+  var p1 = new Person("张三",18);
+  console.log(p1);
+  // console.log(p1.age); // p1对象里面本身就有age属性。
+  // p1.sayHi(); //p1对象里面本身就有这个sayHi方法。
+  // console.log(p1.type); //p1对象中没有这个type属性，但是p1对应的原型中有这个type属性。
+  // p1.eat();//p1对象中没有这个eat方法 ，但是p1对应的原型中有这个eat方法。
+//
+  // console.log(p1.gender); //undefined p1对象自己没有gender，他对应的原型也没有这个gender属性。
+  // p1.run(); //报错了， p1对象自己没有run方法，他对应的原型中也没有这个run方法。
+
+
+  //p1.toString(); //p1自己没有，p1对应的原型中也没有，那为什么这里没有报错。  因为p1的原型的原型中有这个方法。
+
+
+
+
+  console.log(p1.__proto__.__proto__ === Object.prototype); //true
+
+  console.log(p1.__proto__.__proto__.__proto__); //null
+
+
+
+
+  //2.对象访问成员的访问规则：
+  //对象访问一个成员，先看自己里面有没有这个成员，如果没有就看自己的原型中有没有，如果自己的原型中没有，就沿着原型链往上找，直到找到为止，如果这个原型链找完了还没有找到，就返回undefined或者报错。
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            transition: all 1s;
+        }
+        div:hover{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <input type="button" value='ajax请求'>
+</body>
+</html>
+<script>
+    // 点击按钮 发送请求
+    document.querySelector('input').onclick = function(){
+        // 创建异步对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        // 参数3 是否使用 异步 默认是 true
+        // 如果设置为false 不使用 异步 使用同步
+        // 如果使用同步 请求响应回来之后 页面才能继续操作
+        // 一般设置的是 true 默认是就是true 一般参数3不设置
+        xhr.open('get','xxx.php',false);
+
+        // 设置请求头
+
+        // 注册回调函数
+        xhr.onload = function(){
+            console.log(xhr.responseText);
+        }
+
+        // 设置请求主体 发送
+        xhr.send(null);
+    }
+
+</script>

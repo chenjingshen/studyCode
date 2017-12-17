@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>专题列表</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/subject.less">
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+    <!-- 引入bootstrap文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/subject.js"></script>
+    <!-- 引入template.js文件 -->
+    <script src="./js/template-web.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 整体的大盒子 -->
+    <div id="layout">
+        <!-- 顶部 -->
+        <header id="top-banner" class="bb">
+            <a href="./index.html" class="glyphicon glyphicon-menu-left">
+            </a>
+            <p>专题列表</p>
+        </header>
+
+        <!-- 内容部分 -->
+        <div id="body">
+            <div class="container-body">
+                <a href="#">
+                    <img src="#" alt="">
+                </a>
+                <p>2016年七月新番</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 连载动漫渲染 -->
+<script id='subject-template' type="text/html">
+    {{each}}
+    <div class="container-body">
+        <a href="{{$value.url}}">
+            <img src="{{$value.img}}" alt="">
+        </a>
+        <p>{{$value.title}}</p>
+    </div>
+    {{/each}}
+</script>

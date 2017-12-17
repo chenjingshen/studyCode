@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 画出坐标系
+    context.moveTo(30, 30);
+    context.lineTo(30, canvas.height-30);
+    context.lineTo(canvas.width-30, canvas.height-30);
+    context.stroke();
+    
+
+    // 模拟数据
+    var postArr=[8000,5000,5500,6700,9000,7900];
+    var colorArr=['red','green','skyblue','blue','gray','gold'];
+
+    for(var i=0;i<postArr.length;i++){
+
+        // 每次画图都重新创建一张玻璃纸
+        context.beginPath();
+        // 算出x
+        var cw=canvas.width-60;//坐标的宽度
+        var w=30;
+        var jx=cw/7-w;
+        var x=30+jx+i*(jx+w);
+
+        // 算出y
+        var ch=canvas.height-60;
+        var bilv=postArr[i]/10000;
+        var h=ch*bilv;
+        var y=ch-h+30;
+
+        context.rect(x, y, w, h);
+        context.fillStyle=colorArr[i];
+        context.fill();
+    }
+</script>
+</body>
+</html>

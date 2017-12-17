@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="变化" id="btn1"/>
+<input type="button" value="先变化再复原" id="btn2"/>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+    var box = document.getElementById("box");
+    document.getElementById("btn1").onclick = function () {
+
+        animateSlow(box, {
+            "width": "400px",
+            "left": "400px",
+            "top": "300px"
+        })
+    }
+
+
+    document.getElementById("btn2").onclick = function () {
+
+        animateSlow(box, {
+            "width": "400px",
+            "left": "400px",
+            "top": "300px"
+
+        },recover);
+    }
+
+
+    function recover() {
+
+        animateSlow(box, {
+
+            "width": "100px",
+            "height": "100px",
+            "left": "10px",
+            "top": "50px"
+        })
+
+    }
+
+    /*
+     一个函数作为另外一个函数的参数，那么这个函数就是回调函数
+
+     */
+    //    setInterval(test,1000);
+    //
+    //    function test(){
+    //
+    //        console.log("hahahah");
+    //    }
+
+
+    function animateSlow(obj, attrs, callback) {
+
+        //清除原来的计时器
+        clearInterval(obj.timerID);
+
+
+        //匀速：运动过程中的运动速度是一样的
+        obj.timerID = setInterval(function () {
+
+            //默认当你全部都完成了，应该停止计时器了
+            var isFinish = true;
+
+            for (var key in attrs) {
+
+                //此时目标就是你遍历到的value值
+                var target = parseInt(attrs[key]);
+
+                //取到当前值(key就是要取的当前属性)
+                //例如当前遍历到的key为left，这里取到的就是当前left的值
+                var currentValue = parseInt(getStyle(obj, key));
+
+                //先快后慢的算法
+                var res = (target - currentValue ) / 10;
+
+                var step = res > 0 ? Math.ceil(res) : Math.floor(res);
+
+                //得到应该变化的值
+                var offset = currentValue + step;
+
+                //例如当前取到的是left，就代表赋值给left
+                obj.style[key] = offset + "px";
+
+                console.log("key=" + key + "---" + "当前已经到了=" + offset);
+
+                //不能在这里停止，应该所有都到了，我才停止
+                //当前位置还没有到目标
+                if (offset != target) {
+
+                    //没到目标就不允许停止计时器
+                    isFinish = false;
+                }
+
+            }
+
+            if (isFinish) {
+
+                clearInterval(obj.timerID);
+
+                //如果是函数，才当作函数来调用
+                if (callback instanceof  Function) {
+                    callback();
+                }
+            }
+
+        }, 50);
+    }
+
+</script>

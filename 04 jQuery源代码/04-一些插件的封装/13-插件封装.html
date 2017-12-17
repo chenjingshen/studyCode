@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jQuery.bgColor.js"></script>
+  <script>
+    $(function () {
+
+      // 给数组扩展一个方法。
+      // var arr = [10,20,30];
+      // Array.prototype.sayHi = function () {
+      //   console.log("呵呵");
+      // }
+      // arr.sayHi();
+
+
+
+      //给$扩展方法，就是自己写jQuery插件
+      //$.method = fn        静态方法
+      //$.fn.method = fn    实例方法
+
+
+
+      // ('div').width(100).height(100).css({
+      //   'backgroundColor':'red'
+      // });
+
+
+      $('div').width(100).height(100).bgColor('green');
+
+
+      $('p').bgColor('yellow').width(200).height(200);
+
+    });
+  </script>
+</head>
+<body>
+<div></div>
+
+<p>我是一个p元素</p>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    /*
+     1.截取字符串"我爱中华人民共和国"，中的"中华"  把中华取出来
+
+     扩展问题：删除中华，变成 我爱人民共和国
+
+     var words = "我爱中华人民共和国";
+     var index = words.indexOf("中华");//先找到中华两字的首字母索引
+     console.log(words.substr(index, 2));//从首字母索引开始，截取两个长度
+
+     console.log(words.replace("中华", ""));
+     */
+
+
+    /*
+     //     2.abcoefoxyozzopp"查找字符串中所有o出现的位置(打印出来下标)。
+     //
+     //     3.把字符串中所有的o替换成!
+
+     var str = "abcoefoxyozzopp"
+     for (var i = 0; i < str.length; i++) {
+
+     if(str[i] == "o"){
+
+     console.log(i);
+     }
+     }
+
+     console.log(str.replace(/o/g,"!"));
+     */
+
+    /*
+     给定一个字符串如：“abaasdffggghhjjkkgfddsssss3444343”问题如下：?
+
+     1、输出字符串的长度?
+
+     2、取出指定位置的字符，如：0,3,5,9等?
+
+     3、查找指定字符是否在以上字符串中存在，如：i，c?，b等?
+
+     4、替换指定的字符，如：g替换为22,ss替换为b等操作方法?
+
+     5、截取指定开始位置到结束位置的字符串，如：取得1-5的字符串（包括下标5）
+
+
+     var str = "abaasdffggghhjjkkgfddsssss3444343";
+     console.log(str.length);
+     console.log(str.charAt(0));
+     console.log(str.charAt(3));
+     console.log(str.charAt(5));
+     console.log(str.charAt(9));
+
+     if(str.indexOf("i") != -1){
+     console.log("i存在");
+     }
+     if(str.indexOf("c") != -1){
+     console.log("c存在");
+     }
+     if(str.indexOf("b") != -1){
+     console.log("b存在");
+     }
+
+     //    console.log(str.replace(/g/g, "22"));
+     //    console.log(str.replace(/ss/g, "b"));
+
+     console.log(str.slice(1, 6));
+     console.log(str.substr(1,5));//从下标1开始,长度，代表从1开始，一共截5个长度
+     console.log(str.substring(1,6));
+     */
+
+    /*
+     //    var str = "abaasdffggghhjjkkgfddsssss3444343";
+     var str = "addddxdse";
+     //找出这个字符串中出现的次数最多的字符，以及它出现的次数
+     //先从第一个找起，找到第1个字符一共出现的次数，保存起来，假设第一个字符次数就是最多的
+     //再找第二个字符，找到第二个字符一共出现的次数，然后跟我认为的次数最多的次数做比较，如果更大，就把我认为次数替换一下
+     //依次类推
+
+     //要准备一个字符串，用来保存所有已经数过过的字符
+     var checkedStr = "";
+     //要准备一个字符串，保存出现的最多次数的字符
+     var mostStr = "";
+     //要准备一个变量保存最多的次数
+     var maxCount = 0;
+
+     //外面这个循环是为了拿到所有的字符
+     for (var i = 0; i < str.length; i++) {
+
+     //取到当前遍历到的字符，用这个字符来找次数
+     var currentStr = str[i];
+
+     //记录次数
+     var count = 0;
+     //如果等于-1，代表不存在已经判断过的字符串里，可以来判断
+     if( checkedStr.indexOf( str[i] ) == -1 ){
+
+     //这个循环走完，就代表某个字母全部找完了
+     //这个循环是为了统计拿到的字符的次数
+     for (var j = 0; j < str.length; j++) {
+
+     //如果当前字符等于遍历到的字符，就让次数+1
+     if(currentStr == str[j]){
+
+     count++;
+     }
+     }
+
+     //用当前这个字符的次数判断是否大于我认为的最多次数，如果大于
+     //我就把我认为的最多次数替换为你这个数
+     if(count > maxCount){
+
+     maxCount = count;
+     //次数要变以外，我认为最多次数的字符也要变
+     mostStr = currentStr;
+     }
+
+     //走到这里，代表当前这个字符已经经过判断了，所以加入到已经判断的列表里
+     checkedStr += currentStr;
+     }
+     }
+
+     console.log(maxCount,mostStr);
+     */
+
+    //遍历字符串，并将遍历出的字符两头添加符号“@”输出至当前的文档页面。
+    /*
+     var str = "dfdsfsdfdsfs";
+
+     str += "@";
+
+     console.log("@" + str);
+     */
+
+
+     var foo = "get-element-by-id";//先转换成数组get,element,by,id
+     //总体思路：先转换成数组，然后把下标1开始的元素的首字母转成大写就行了
+//     var arr = foo.split("-");
+//     for (var i = 1; i < arr.length; i++) {
+//     var countArr = arr[i];
+//     var bigarr=countArr[0].toUpperCase();
+//      arr[i]=countArr.replace(countArr[0],bigarr);
+//     }
+//     console.log(arr.join(""));
+    var arr=foo.split("-");
+    for (var i = 1; i < arr.length; i++) {
+     var countArr=arr[i];
+     var bigArr=countArr[0].toUpperCase();
+     arr[i]=countArr.replace(countArr[0],bigArr);
+    }
+    console.log(arr.join(""));
+
+
+    /*
+     var foo = "get-element-by-id";//先转换成数组get,element,by,id
+     //总体思路：先转换成数组，然后把下标1开始的元素的首字母转成大写就行了
+
+     var arr = foo.split("-");
+
+     for (var i = 1; i < arr.length; i++) {
+
+     var currentStr = arr[i];
+
+     //把每个元素的首字母变成大写，每个首字母就是这个字符串的第0个元素
+     var bigStr = currentStr[0].toUpperCase();
+
+     //把字符串的第0个字母替换为转换为大写的字母,再赋值给数组的这个元素
+     arr[i] = currentStr.replace(currentStr[0], bigStr);
+
+     }
+
+     console.log(arr.join(""));
+     */
+
+
+    //9.书写一个函数，随机生成十六进制颜色值比如： #ff6600  16进制值0-f之间的数。
+
+//    console.log(getColor());
+//    console.log(getColor());
+//
+//
+//    function getColor() {
+//
+//        var str = "#";
+//
+//        //保存16进制值的数组
+//        var colors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+//
+//        //生成6个就行了
+//        for (var i = 0; i < 6; i++) {
+//
+//            var index = Math.ceil(Math.random() * 15); //0-15之间的数,因为你要的是下标
+//            //    Math.floor(Math.random() * 16; //0-15之间的数,因为你要的是下标
+//
+//            str += colors[index];
+//        }
+//
+//        return str;
+//    }
+
+</script>
+
+九尺龙泉万卷书，上天生我意何如。
+不能报国平天下，枉为男儿大丈夫。
+水垢何曾相受，细看两俱无有，寄语揩背人，轻手，轻手，居士本来无垢。
+风吹马尾千条线，雨打羊毛一片毡。

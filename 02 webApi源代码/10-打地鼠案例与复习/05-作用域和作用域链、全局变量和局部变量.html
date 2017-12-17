@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        全局作用域：函数外的作用域都叫全局作用域
+
+        局部作用域：函数内的作用域都叫局部作用域
+
+        声明在全局作用域里的变量：全局变量
+                在任何地方都能访问
+
+        声明在局部作用域里的变量，局部变量
+                在自己所在的作用域里才能访问，出了作用域不能访问
+
+
+        访问变量规则：
+                就近原则：先访问自己这一个作用域链上声明的变量，如果没有，就再找上一级作用域链，一直找，直到找到0级作用域链，还没有就报错
+
+
+       全局作用域处于0级作用域链，每开一个函数，就多一条作用域链
+
+
+       预解析：变量的声明和函数的声明提升到自己所在作用域最前面（不包括赋值，只是声明）
+    -->
+    <script>
+
+        /*
+        var num = 100;//全局变量
+
+        function test(){
+
+            //局部作用域
+            console.log(num);
+        }
+
+        function test2(){
+
+            num = 20000;
+        }
+
+        test2();
+
+        console.log(num);//20000
+
+        num = 1000;
+
+        test();//1000
+        */
+
+
+        /*
+        function test1(){
+
+            var num = 10
+            console.log(num);
+
+            function f2(){
+
+                //2级作用域链
+            }
+        }
+
+        test1();
+
+        console.log(num);
+       */
+
+        /*
+        var num = 10;
+
+        function test1(){
+
+            console.log(num);
+        }
+
+        function test2(){
+
+            var num;
+            console.log(num);
+            num = 100;
+        }
+
+        num = 1000;
+
+        test1();//1000
+
+        test2();//undefined
+      */
+
+
+        /*
+        function test1(){
+
+            console.log(num);
+        }
+
+        function test2(){
+
+            num = 3000;
+        }
+
+        test2();
+
+        test1();//3000
+
+        var num;
+        */
+
+        function clearTime(){
+
+            clearInterval(myid);
+        }
+
+
+
+        var myid = setInterval(function () {
+
+            console.log("打印打印");
+        },1000);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

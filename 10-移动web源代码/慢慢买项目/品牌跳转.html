@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>品牌跳转</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/品牌跳转.less">
+    <!-- 引入bootstrap css文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 引入mui文件 -->
+    <link rel="stylesheet" href="./mui/css/mui.css">
+    <script src="./mui/js/mui.js"></script>
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入bootstrap js文件 -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/品牌跳转.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 头部logo部分 -->
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-xs-8">
+                    <img class="logo" src="./images/header_logo.png" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img class="app" src="./images/header_app.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 搜索框部分 -->
+    <section id="seach" class="seach bb">
+        <input type="text" placeholder="请输入你想比价的商品">
+        <button>搜索</button>
+    </section>
+    <!-- 跳转部分 -->
+    <div id="tiaozhuan">
+        <a href="./index.html" class="tiaozhuan-shouye">首页></a>
+        <a href="#" class="tiaozhuan-pinpai">品牌大全></a>
+        <a href="#" class="tiaozhuan-xuanran">哪个牌子好</a>
+    </div>
+
+
+    <!-- 热门 -->
+    <div id="hot">
+        <div class="hot-header">
+            <span>哪个牌子好</span>
+        </div>
+        <div class="container-fluid  clearfix">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="hot-body">
+                        <span class="mui-badge mui-badge-danger">45</span>
+                        <h3 class="body-left">平板电视十大品牌</h3>
+                        <i class="mui-icon mui-icon-arrowright"></i>
+                    </a>
+                    <a class="hot-body">
+                        <span class="mui-badge mui-badge-warning">3</span>
+                        <h3 class="body-left">LED电视十大品牌</h3>
+                        <i class="mui-icon mui-icon-arrowright"></i>
+                    </a>
+                    <a class="hot-body">
+                        <span class="mui-badge mui-badge-success">123</span>
+                        <h3 class="body-left">家庭影院十大品牌</h3>
+                        <i class="mui-icon mui-icon-arrowright"></i>
+                    </a>
+                    <a class="hot-body">
+                        <span class="mui-badge">1</span>
+                        <h3 class="body-left">"音响/音箱十大品牌</h3>
+                        <i class="mui-icon mui-icon-arrowright"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部 -->
+
+    <div class="login-father">
+        <div class="login">
+            <span>登录</span>
+            <span>注册</span>
+            <span>
+                <img src="http://www.zuyushop.com/wap/images/top.jpg" alt="">
+                <a href="#header">返回顶部</a>
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <p>
+            <a href="#">手机APP下载</a>
+            <a href="#">慢慢买手机版 -- 掌上比价平台</a>
+        </p>
+        <p>
+            <a href="#">m.manmanbuy.com</a>
+        </p>
+    </div>
+
+</body>
+
+</html>
+
+<!-- 引入template.js文件 -->
+<script src="./lib/template/template.js"></script>
+<script type="text/html" id="pinpai-tem">
+    {{each result as value i}}
+    
+    <a href='#' class="hot-body" hot-brandTitleId="{{value.brandTitleId}}">
+            <span class="mui-badge">{{i+1}}</span>
+        <h3 class="body-left">{{value.brandName}}</h3>
+        <br>
+        <p>{{value.brandInfo}}</p>
+        <i class="mui-icon mui-icon-arrowright"></i>
+    </a>
+    {{/each}}
+</script>

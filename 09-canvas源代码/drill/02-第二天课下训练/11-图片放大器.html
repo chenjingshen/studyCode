@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width='600' height='400' id='canvas'></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        var img = new Image();
+        img.src = './img/girl.jpg';
+        img.onload = function () {
+            // 先把图片放到左上角
+            context.drawImage(img, 0, 0, 100, 100);
+            // 在玻璃板上画一个矩形不填充
+            context.rect(0, 0, 100, 100);
+            // 监听鼠标的移动事件
+            canvas.onmousemove = function (e) {
+                var x = e.offsetX;
+                var y = e.offsetY;
+                // 可以判断点是否在区域里面
+                if (context.isPointInPath(x, y)) {
+                    var imgx=x*2;
+                    var imgy=y*2;
+                    // 以imgx  imgy为中心点，从原图切出30*30像素的图片展示在画布的右边
+                    // 看之前先清除画布
+                    context.clearRect(300, 200, 100, 100);
+                    context.drawImage(img, imgx-15, imgy-15,30,30,300,200,100,100);
+                    
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

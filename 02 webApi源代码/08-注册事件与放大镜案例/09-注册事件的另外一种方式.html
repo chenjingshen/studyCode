@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script>
+    var box = document.getElementById("box");
+
+    //以前用on事件名的形式加的事件，后面写的会覆盖前面写的
+    //    box.onclick = function () {
+    //
+    //        alert("呵呵");
+    //    }
+    //
+    //
+    //    box.onclick = function () {
+    //
+    //        alert("哈哈");
+    //    }
+
+
+    //addEvenListener
+
+    //参数1：事件的名字（不要加on）,字符串形式
+    //参数2：当触发事件后，用什么函数来响应，可以传匿名函数，也可以直接传一个定义好的函数的函数名
+    //参数3：可选，可以不传，也可以传，传的话是传bool类型，跟事件冒泡有关，后天再讲
+    //IE8以及以前的版本不支持
+    /*
+     box.addEventListener("click", function () {
+
+     alert("哈哈");
+     })
+
+     box.addEventListener("click",sayHi);
+
+
+     function sayHi(){
+
+     alert("嘿嘿");
+     }
+
+
+     box.addEventListener("click", function () {
+
+     confirm("请确认");
+     })
+     */
+
+
+    //IE8以前的方法,IE8以后不支持
+    //参数1：事件名，用字符串传入，但是注意要加on
+    //参数2：事件触发时，用什么函数来响应，可以传匿名函数，也可以直接传一个定义好的函数的函数名
+    //特点：后面加的事件反而在之前
+    //    box.attachEvent("onclick", function () {
+    //
+    //        alert("嘿嘿嘿");
+    //    })
+    //
+    //    box.attachEvent("onclick", function () {
+    //
+    //        alert("哈哈哈");
+    //    })
+
+    addEvent(box, "click", function () {
+
+        confirm("确认 ");
+    });
+
+
+    function addEvent(obj, eventName, f) {
+
+        if (obj.addEventListener) { //true
+
+            //如果是谷歌浏览器，肯定会进到这里来
+            obj.addEventListener(eventName, f)
+
+
+        } else {
+
+            //ie8以前，肯定会进到这里来，因为ie8里的addEventListener为undefined
+            //就会转成false，为false就来到这个else了
+            obj.attachEvent("on" + eventName, f)
+
+        }
+    }
+
+
+</script>

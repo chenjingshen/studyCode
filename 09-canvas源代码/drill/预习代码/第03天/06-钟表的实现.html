@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //画某一帧的方法
+    function draw() {
+        //0. 把坐标系的原始状态保存
+        context.save();
+
+        //1. 清空画布
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //2. 先平移坐标系到中心点，再旋转坐标系到12点钟的方向
+        context.translate(300, 200);
+        //往反方向旋转90度
+        context.rotate(-0.5*Math.PI);
+
+
+        //3. 画表盘
+        context.beginPath();
+        context.arc(0, 0, 130, 0, 2*Math.PI);
+        context.strokeStyle = "blue";
+        context.lineWidth = 3;
+        context.stroke();
+
+        //4. 画时针的刻度
+        context.beginPath();
+        for (var i = 0; i<12; i++) {
+            context.moveTo(115, 0);
+            context.lineTo(126, 0);
+            context.rotate(30/180*Math.PI);
+        }
+
+        context.strokeStyle = "#000";
+        context.lineWidth = 6;
+        context.stroke();
+
+        //5. 画分针的刻度
+        context.beginPath();
+        for (var i = 0; i<60; i++) {
+            if (i % 5 != 0) {
+                context.moveTo(120, 0);
+                context.lineTo(126, 0);
+            }
+
+            context.rotate(6/180*Math.PI);
+        }
+
+        context.lineWidth = 4;
+        context.stroke();
+
+        //6. 算出时针， 分针， 秒针的角度
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+
+        m = m + s/60; //精确到几点几分钟
+        h = h + m/60; //精确到几点几小时
+
+        var hradian = h / 12 * 2 * Math.PI;
+        var mradian = m / 60 * 2 * Math.PI;
+        var sradian = s / 60 * 2 * Math.PI;
+
+        //7. 画时针
+        context.save();
+        context.beginPath();
+        context.rotate(hradian);
+        context.moveTo(-15, 0);
+        context.lineTo(60, 0);
+        context.strokeStyle = "blue";
+        context.lineWidth = 6;
+        context.lineCap = "round";
+        context.stroke();
+        context.restore();
+
+        //8. 画分针
+        context.save();
+        context.beginPath();
+        context.rotate(mradian);
+        context.moveTo(-15, 0);
+        context.lineTo(70, 0);
+        context.strokeStyle = "blue";
+        context.lineWidth = 5;
+        context.lineCap = "round";
+        context.stroke();
+        context.restore();
+
+        //9. 画秒针
+        context.save();
+        context.beginPath();
+        context.rotate(sradian);
+        context.moveTo(-15, 0);
+        context.lineTo(85, 0);
+        context.strokeStyle = "red";
+        context.lineWidth = 3;
+        context.lineCap = "round";
+        context.stroke();
+        context.restore();
+
+        //10. 画表心
+        context.beginPath();
+        context.arc(0, 0, 5, 0, 2*Math.PI);
+        context.fillStyle = "red";
+        context.fill();
+
+        //11. 还原坐标系
+        context.restore();
+    }
+
+    //draw();
+
+    //没有必要使用requestAnimationFrame,因为这个钟表是一秒钟走一次
+    setInterval(draw, 1000);
+
+</script>

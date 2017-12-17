@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .Box {
+            width: 240px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        /*设置里面4个小的div*/
+        .con {
+            width: 100%;
+            height: 200px;
+            background-color: #cccccc;
+            border: 1px solid #000;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .current {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="Box" id="box">
+    <button class="current">按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <div class="con" style="display:block">内容1</div>
+    <div class="con">内容2</div>
+    <div class="con">内容3</div>
+    <div class="con">内容4</div>
+</div>
+</body>
+</html>
+<script>
+    var butlist=document.getElementsByTagName("button");
+    var divcon=document.getElementsByClassName("con");
+    for(var i=0;i<butlist.length;i++){
+        butlist[i].setAttribute("suoyin",i);//取到按钮数组的索引给suoyin保存
+        butlist[i].onclick=function(){
+            for(var i=0;i<butlist.length;i++){
+                butlist[i].removeAttribute("class");
+            }
+            this.setAttribute("class","current");
+            for(var i=0;i<divcon.length;i++){
+                divcon[i].style.display="none";
+            }
+            var suoyin=this.getAttribute("suoyin");//取到当前被点击按钮的索引
+            divcon[suoyin].style.display="block";
+        }
+    }
+</script>

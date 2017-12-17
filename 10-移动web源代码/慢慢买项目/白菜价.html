@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>白菜价</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/白菜价.less">
+    <!-- 引入bootstrap css文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 引入muicss文件 -->
+    <link rel="stylesheet" href="./mui/css/mui.css">
+    <!-- 引入muijs文件 -->
+    <script src="./mui/js/mui.js"></script>
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入bootstrap js文件 -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/白菜价.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 大盒子 -->
+    <div id="bigbox">
+        <!-- 头部logo部分 -->
+        <header id="header">
+            <span class="data-bcj">白菜价</span>
+            <input type="text" placeholder="好宝贝等你搜">
+            <i class="glyphicon glyphicon-th-list"></i>
+        </header>
+
+
+        <!-- 下拉框分类菜单 -->
+        <div id="classify">
+            <div class="class-cont">
+                <div class="mengban"></div>
+                <div class="class-content">
+                    <ul>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                        <li>
+                            <a href="#">全部</a>
+                        </li>
+                    </ul>
+                    <span>收起分类</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 轮播图部分 -->
+        <div id="lunbo">
+            <div id="slider" class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="./images/mmbweixin2.png">
+                        </a>
+                    </div>
+                    <!-- 第一张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="./images/mmbweixin2.png">
+                        </a>
+                    </div>
+                    <!-- 第二张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="./images/mmbweixin2.png">
+                        </a>
+                    </div>
+                    <!-- 第三张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="./images/mmbweixin2.png">
+                        </a>
+                    </div>
+                    <!-- 第四张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="./images/mmbweixin2.png">
+                        </a>
+                    </div>
+                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="./images/mmbweixin2.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 模块 -->
+        <div id="module">
+            <div class="container-fluid clearfix">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="./images/jie01.png" alt="">
+                        <span>热销</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <img src="./images/jie02.png" alt="">
+                        <span>9.9包邮</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <img src="./images/jie03.png" alt="">
+                        <span>19块邮</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <img src="./images/jie04.png" alt="">
+                        <span>超级人气榜</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 人气榜 -->
+        <div id="super">
+            <div class="super-header">
+                <h3 class="header-left">超级人气榜</h3>
+                <span class="header-right">更多</span>
+            </div>
+            <div class="super-main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <img src="https://img.alicdn.com/imgextra/i3/1778598989/TB2M5eepwMPMeJjy1XbXXcwxVXa_!!1778598989.jpg_310x310.jpg" alt="">
+                            <i>华为mate10</i>
+                            <span>￥5888
+                                <i>券后</i>
+                            </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="https://img.alicdn.com/imgextra/i1/3012913363/TB2OJTOfZrI8KJjy0FhXXbfnpXa_!!3012913363.jpg_310x310.jpg" alt="">
+                            <i>华为mate10</i>
+                            <span>￥5888
+                                <i>券后</i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 商品部分 -->
+        <div id="goods">
+            <div class="goods-header">
+                <h3>商家优惠信息 实时直播</h3>
+                <span>5585</span>
+            </div>
+            <div class="goods-main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <img src="https://img.alicdn.com/imgextra/i2/3451324715/TB2_SoiXMDD8KJjy0FdXXcjvXXa_!!3451324715.jpg" alt="">
+                            <i>门窗报警器</i>
+                            <span>
+                                券后
+                                <i>￥5888</i>
+                            </span>
+                            <span class="goods-span2">
+                                <i>&nbsp69</i>人已买
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 底部返回顶部 -->
+        <div id="dibu">
+            <div class="login-father">
+                <div class="login">
+                    <span>登录</span>
+                    <span>注册</span>
+                    <span>
+                        <img src="http://www.zuyushop.com/wap/images/top.jpg" alt="">
+                        <a href="#header">返回顶部</a>
+                    </span>
+                </div>
+            </div>
+            <div class="footer">
+                <p>
+                    <a href="#">手机APP下载</a>
+                    <a href="#">慢慢买手机版 -- 掌上比价平台</a>
+                </p>
+                <p>
+                    <a href="#">m.manmanbuy.com</a>
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+    //获得slider插件对象
+    var gallery = mui('.mui-slider');
+    gallery.slider({
+        interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+    });
+
+    var slider = mui("#slider");
+    document.getElementById("switch").addEventListener('toggle', function (e) {
+        if (e.detail.isActive) {
+            slider.slider({
+                interval: 2000
+            });
+        } else {
+            slider.slider({
+                interval: 0
+            });
+        }
+    });
+</script>
+<!-- 引入template.js文件 -->
+<script src="./lib/template/template.js"></script>
+<script type="text/html" id="module-tem">
+    {{each result as value i}}
+    <li data-titleId='{{value.titleId}}'>
+        <a href="#">{{value.title}}</a>
+    </li>
+    {{/each}}
+</script>
+
+<script type="text/html" id="neirong-tem">
+    {{each result as value i}}
+    <div class="col-xs-6">
+        {{#value.productImg}} {{#value.productName}} {{#value.productPrice}}
+
+        <a class="goods-span2" href="./白菜价-详情.html">
+            <i>&nbsp{{value.productId}}</i>人已买
+        </a>
+    </div>
+    {{/each}}
+</script>

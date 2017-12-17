@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        一个变量只能保存一个数据，再赋值时就会把之前的数据覆盖掉
+
+        如果想保存多个数据，那么JS里面可以用数组来实现
+
+
+        数组的基本使用：
+
+              创建一个数组语法：
+                    var 数组名 = new Array();
+
+               数组名自己随便起，但是遵从变量的命名规则
+
+               例：
+                    var scores = new Array();
+
+        创建完以后里面是没有数据的
+
+            给数组赋值的语法：
+                因为程序里面都是从0开始
+                     数组名[0] = 数据;  //保存第0个数据
+                     数组名[1] = 数据;  //保存第1个数据
+                     数组名[2] = 数据； //保存第2个数据
+
+            例：
+                   scores[0] = 60; //第0个数据保存的是60
+                   scores[1] = 90; //第1个数据保存的是90
+                   scores[2] = 100; //第2个数据保存的是100
+
+            怎么取数组的值
+
+                    数组名[0]；
+                    数组名[1];
+                    数组名[2];
+
+
+    数组中的几个名词
+            元素：就是指数组中保存的每个数据
+            下标（索引）：就是每个小空间的编号，编号是从0开始，依次递增，通过下标就可以设置某个小空间里的元素，以及取出这个元素
+            长度：是指数组中保存元素的个数（小空间的个数）
+
+                取当前长度的方法：
+                            数组名.length
+
+    -->
+
+    <script>
+
+        /*
+        //输入班级人数,然后依次输入学员成绩，计算班级学员的平均成绩和总成绩，并且把每个学生的成绩都保存起来
+
+        //        先接收用户输入的人数
+        var count = +prompt('请输入班级总人数');
+        //总成绩变量
+        var totalScore = 0;
+
+        //创建一个数组
+        var scores = new Array();
+        console.log(scores);
+
+        for (var i = 0; i < count; i++) {
+
+            scores[i] = +prompt('请输入第' + (i + 1) + '个学生的分数');
+
+            totalScore += scores[i];
+
+        }
+
+        console.log(scores);
+        console.log(totalScore);
+//        alert('总成绩为：' + totalScore+ '平均成绩为：' + (totalScore / count));
+   */
+
+        //创建一个数组，只不过是一个空数组，里面还没有数据
+        var scores = new Array();
+
+        console.log(scores.length);//0
+
+        scores[0] = 100;
+        scores[1] = 90;
+        scores[2] = 80
+        scores[3] = 70;
+
+//        如果不按顺序加元素，那么中间会自动帮你补元素,但是那些元素的值为undefined
+        scores[9] = 120;
+
+
+        console.log(scores[4],scores[5],scores[6],scores[7],scores[8]);
+
+//       通过length可以取到数组的当前的长度
+        console.log('长度为：'+scores.length);//10
+
+
+        console.log(scores[1]);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

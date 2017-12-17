@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        body {
+            background-color: gray;
+        }
+
+        .box {
+            margin: 150px auto;
+            text-align: center;
+            font-size: 100px;
+            font-weight: 900;
+            color: gray;
+            transition: all 0.5s;
+        }
+
+        .box:hover {
+            /* 四个参数： 水平偏移， 垂直偏移， 模糊程度， 颜色. 添加多个阴影， 用逗号隔开 */
+            text-shadow: -1px -1px 0px #FFF, 1px 1px 0px #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">I love you</div>
+</body>
+</html>

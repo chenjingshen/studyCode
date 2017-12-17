@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 加载图片
+    var image = new Image();
+    image.src = "./img/gls.jpg";
+    image.onload = function () {
+        //1. 先把大图画在右上角
+        context.drawImage(image, 0, 0, 150, 100);
+
+        //创建一个矩形的路径
+        context.rect(0, 0, 150, 100);
+
+        //2. 判断当前鼠标是否hover到上面的图片上了
+        canvas.onmousemove = function (event) {
+            //原图和左上角的图的比例是3： 1
+            var x = event.offsetX;
+            var y = event.offsetY;
+
+            //if (x >= 0 && x<=150 && y >=0 && y <= 100) {}
+            //当前 x， y这个点的位置，是否在玻璃纸上的路径的区域的内部
+            if (context.isPointInPath(x, y) == true) {
+                console.log("在内部");
+                x = x * 3 - 20;
+                y = y * 3 - 20;
+
+                //每一次在画之前，先把之前画的擦除
+                //某300， 200， 300， 200这个区域的东西全部擦除
+                context.clearRect(300, 200, 300, 200);
+
+                //从x， y这个点，截取40*40的局部小图，显示在图布， 300， 200， 80， 80这个区域，就形成了一个放大的效果
+                context.drawImage(image, x, y, 40, 40, 300, 200, 120, 120);
+            }
+
+//            else {
+//                console.log("不在内部");
+//            }
+        }
+
+    }
+
+</script>

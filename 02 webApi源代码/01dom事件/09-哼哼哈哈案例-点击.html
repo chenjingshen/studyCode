@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        window.onload = function () {
+
+            var btnList = document.getElementsByTagName('input');
+//            console.log(btnList);
+
+
+            for (var i = 0; i < btnList.length; i++) {
+
+                btnList[i].onclick = function () {
+
+                    //先让所有的按钮元素变成原样
+                    for (var j = 0; j < btnList.length; j++) {
+
+                        //样式给一个空字符串，就代表把这个属性恢复成默认样式
+                        btnList[j].style.backgroundColor = "";
+
+                        btnList[j].value = "哼哼";
+                    }
+
+                    //事件里的this，谁触发事件，那么this就是谁
+                    //console.log(this);
+                    //谁被点击，我就改变谁的value
+                    this.value = "哈哈";
+                    this.style.backgroundColor = "hotpink";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="哼哼"/>
+<input type="button" value="哼哼"/>
+<input type="button" value="哼哼"/>
+<input type="button" value="哼哼"/>
+<input type="button" value="哼哼"/>
+
+</body>
+</html>

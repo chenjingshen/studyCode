@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        30+20 = 50
+        20-10 = 10
+        2*3 = 6
+        6/2 = 3
+
+        10 % 3 = 1；
+
+        10 % 2 = 0；
+
+    如果谷歌浏览器控制台打印出来的数据是黑色，那么是字符串
+    如果不是黑色，肯定不是字符串
+
+    JS中也有跟数学中的加减乘除一样一样的符号
+
+    这就是算术运算符
+
+        +：加， 两边都是number类型时，就是把两个数据相加（求和）
+                只要有一边是string，那么是把两个数据连接起来变成一个新的字符串
+
+               在程序里面一般bool类型本质上也是数字，true为1，false为0
+
+        -：求两个数的差.
+              如果两边都是number类型，就直接算差
+              如果有一边是string类型，那么会尝试先把string转换为number类型再求差
+              如果string内容根本不是数字，那么结果是NaN(NaN：not a number 代表不是数字的意思)
+        *：跟减号规则一样一样，只不过是算积
+        /：规则也是一样一样的，只不过是算商
+        %：模。取余数，先把两个数整除，得到余数  10 % 3 = 1
+
+
+        优先级：跟数学一样，先算乘除再算加减，有小括号的先算小括号里面的
+
+        如果是同级呢？就从左往右依次运算
+
+
+     算术运算式：
+            用算术运算符连接起来的式子，就叫算术运算式
+
+    -->
+
+    <script>
+
+        //        var age = 38;
+        //        console.log('你的年龄是：' + age);
+
+//        console.log('hello' + 'world');
+
+//       number相加和一边有字符串的清空
+//        var num1 = 10;
+//
+//        number相加就是求和
+//        console.log(30 + num1); //40
+//        一边有字符串就是连接内容变成新的字符串
+//        console.log('30' + num1);//3010
+
+//        下面代表是为了说明控制台输出的颜色和类型的关系
+        //        console.log("10");
+        //        console.log(10);
+        //        console.log(true);
+
+//        var num1 = 10;
+//        console.log(num1 + true);//11    10+1
+//        console.log(num1 + false);//10   10+0s
+
+
+//        减号使用
+
+//        var n1 = 10;
+//        console.log(50 - n1);//40
+//        console.log("50" - n1);//注意，如果有一边是字符串，那么会把字符串变成数字，然后再相减
+//
+//        console.log(n1 - true); //9   10-1
+//        console.log(n1 - false); //10 10-0
+
+
+//        乘号
+//        var n1 = 10;
+//        console.log(n1 * 2);//20
+//        console.log(n1 * "2");//20
+
+//        除号
+
+//        var n1 = 10;
+
+//        小数在计算机中的存储是可能会有精度问题，这个精度误差并不大
+//        console.log(n1 / 3); //JS，数学里怎么算的除，这里还是怎么除
+
+//        如何相加得到精确的0.3
+//        console.log((0.1*10+0.2*10)/10);
+//        console.log(10 / "2");//5
+
+//        console.log(n1 / 0); //0不能作为除数，然后在JS里能除，不会报错，但是得到的结果为Infinity
+//        下面这句跟上句一样
+//        console.log(n1 / false);
+
+//        取余
+        var n1 = 10;
+        console.log(n1 % 3);//1
+        console.log(n1 % 2);//0
+        console.log(n1 % 0);//NaN,0在数学中不能做除数，虽然JS里面可以，但是得到结果肯定不是数学结果
+    </script>
+</head>
+<body>
+
+</body>
+</html>

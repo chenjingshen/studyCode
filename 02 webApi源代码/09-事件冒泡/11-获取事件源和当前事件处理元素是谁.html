@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #son {
+            width: 150px;
+            height: 150px;
+            background-color: hotpink;
+        }
+
+        #father {
+
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="father">
+    我是father
+    <div id="son">son</div>
+</div>
+
+</body>
+</html>
+
+
+<script>
+
+    /*
+     事件源元素：指的就是处于目标阶段的元素
+     换句话说：直接触发者是谁
+
+
+     this：当前正在执行事件的对象，并不是源头，只是当前谁在处理事件，那么this就是谁
+     事件对象.currentTarget：等于this
+     事件对象.target 获取的是：触发事件的源头那个元素
+                但是IE8不支持，IE8支持的是srcElement
+           兼容写法：    var src = e.target || e.srcElement;
+
+     */
+
+
+    document.getElementById("son").addEventListener("click", function (e) {
+
+        e = e || window.event;
+
+        //        alert("我是粉色的盒子:" + this.innerHTML );
+        //        alert("我是粉色的盒子:" + e.currentTarget.innerHTML);
+//     alert("我是粉色的盒子:" + e.target.innerHTML);
+
+        var src = e.target || e.srcElement;
+        alert("粉：" + src.innerHTML);
+
+    }, false);
+
+    document.getElementById("father").addEventListener("click", function (e) {
+
+        //        alert("我是绿色的盒子" + this.innerHTML );
+        alert("我是绿色的盒子" + e.target.innerHTML);
+
+    }, false);
+
+    document.body.addEventListener("click", function (e) {
+
+        e = e || window.event;
+        //        alert("我是body" + this.innerHTML);
+        alert("我是body" + e.target.innerHTML);
+
+    }, false);
+
+
+    /*
+     document.getElementById("son").attachEvent("onclick", function (e) {
+
+     e = e || window.event;
+
+     //        alert("粉：" + e.target.innerHTML);
+     alert("粉：" + e.srcElement.innerHTML);
+     });
+
+     document.getElementById("father").attachEvent("onclick", function (e) {
+
+     e = e || window.event;
+
+     alert("绿：" + e.srcElement.innerHTML);
+     });
+
+
+     document.body.attachEvent("onclick", function (e) {
+
+     e = e || window.event;
+
+     alert("body：" + e.srcElement.innerHTML);
+     });
+     */
+</script>

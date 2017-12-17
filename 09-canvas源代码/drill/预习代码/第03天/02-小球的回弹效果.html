@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //水平速度和垂直的速度
+    var xspeed = 10;
+    var yspeed = 10;
+
+    //小球的初始位置
+    var x = 20;
+    var y = 200;
+//
+//    setInterval(function () {
+//        context.clearRect(0, 0, canvas.width, canvas.height);
+//        //创建一张新的玻璃纸
+//        context.beginPath();
+//        context.arc(x, y, 20, 0, 2*Math.PI);
+//        context.fillStyle = "blue";
+//        context.fill();
+//
+//        x += xspeed;
+//        y += yspeed;
+//
+//    }, 16.7);
+
+    function draw() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        //创建一张新的玻璃纸
+        context.beginPath();
+        context.arc(x, y, 20, 0, 2*Math.PI);
+        context.fillStyle = "blue";
+        context.fill();
+
+        x += xspeed;
+        y += yspeed;
+
+        //水平方向到达了边界, 就调头， 速度往反方向
+        if (x < 20 || x > canvas.width - 20) {
+            xspeed = -xspeed;
+        }
+
+        if (y < 20 || y > canvas.height - 20) {
+            yspeed = -yspeed;
+        }
+
+
+        window.requestAnimationFrame(draw);
+    }
+
+    draw();
+
+</script>

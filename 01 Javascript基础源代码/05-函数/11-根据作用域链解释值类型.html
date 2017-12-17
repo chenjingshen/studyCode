@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        var num = 10;//0级
+
+        function test(num){
+            //形参就相当于是函数内声明的局部变量
+            //这里的num是1级
+
+            num = 300;
+        }
+
+        test();
+
+        console.log(num);//10
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>post发送数据</h2>
+    <input type="button" value='ajax发送post请求'>
+</body>
+</html>
+<script>
+    // 点击事件
+    document.querySelector('input').onclick = function(){
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('post','./backData.php');
+
+        // 设置请求头 如果用post发送数据 必须设置一个 头
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+        // 注册回调函数
+        xhr.onload = function(){
+            console.log(xhr.responseText);
+        }
+
+        // 设置请求主体 发送
+        // post的数据 全部写在 send方法中
+        // 格式是 key=value&key2=value2&key3=value3
+        xhr.send('name=葫芦小金刚&friend=穿山甲&girlfriend=小蝴蝶&enemy=一只耳');
+    }
+
+</script>

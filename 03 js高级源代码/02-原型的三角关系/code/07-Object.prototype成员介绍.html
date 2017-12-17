@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.不管是那个对象，最终的原型都指向了Object.prototype这个原型
+  //所以这个原型中的东西，所有的对象都可以访问。
+
+
+
+  //2.Object.prototype原型里面的成员。
+  //a.hasOwnProperty  判断对象自己是否拥有某个属性或者方法。
+  //  function Person(name){
+  //    this.name = name;
+  //    this.sayHi = function () {
+  //      console.log("哈哈");
+  //    }
+  //  }
+  //  Person.prototype.type = "人类";
+  //  Person.prototype.eat = function () {
+  //    console.log("吃吃...");
+  //  }
+  //  var p1 = new Person("张三");
+  //  p1.gender = "男";
+
+  // console.log(p1.hasOwnProperty("name")); //true
+  // console.log(p1.hasOwnProperty("sayHi")); //true
+  // console.log(p1.hasOwnProperty("type")); //false
+  // console.log(p1.hasOwnProperty("eat")); //false
+  // console.log(p1.hasOwnProperty("toString")); //false
+  // console.log(p1.hasOwnProperty("gender")); //true
+
+
+  //b.isPrototypeOf 判断某个对象是否是另外一个对象的原型。
+  // var obj1 = {};
+  // var obj2 = {};
+  // console.log(obj1.isPrototypeOf(obj2)); //false
+  // //把obj2的原型 改成了obj1.   此时obj1就是obj2的原型了。
+  // obj2.__proto__ = obj1;
+  // console.log(obj1.isPrototypeOf(obj2)); //true
+
+
+  //c.propertyIsEnumerable
+  //判断一个属性，是否可以遍历以及是否属于自己。
+  // function Person(name){
+  //   this.name = name;
+  //   this.sayHi = function () {
+  //     console.log("哈哈");
+  //   }
+  // }
+  // Person.prototype.type = "人类";
+  // Person.prototype.eat = function () {
+  //   console.log("吃吃...");
+  // }
+  // var p1 = new Person("张三");
+  // p1.gender = "男";
+//
+  // //自己往原型中添加的属性和方法 以及 对象自己拥有的属性和方法都可以遍历出来。
+  // // for(var key in p1){
+  // //   console.log(p1[key]);
+  // // }
+//
+  // console.log(p1.propertyIsEnumerable("name")); //true
+  // console.log(p1.propertyIsEnumerable("sayHi")); //true
+  // console.log(p1.propertyIsEnumerable("type")); //false
+  // console.log(p1.propertyIsEnumerable("eat"));//false
+
+
+  //d.valueOf
+  //返回原始值。
+
+
+</script>
+</body>
+</html>

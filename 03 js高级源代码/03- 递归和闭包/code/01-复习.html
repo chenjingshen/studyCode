@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  /*
+
+   //1.继承
+   //2.原型链
+   //  对象有原型,原型又是对象，所以原型又有原型，形成了一个链式结构，称为原型链。
+   // arr对象 - Array.prototype - Object.prototype- null
+   //3.属性、方法  访问规则
+   //4.Object对象里面的一些常用成员
+   //5.函数是对象- 他是Function()构造函数实例化出来的对象。
+   //6.构造函数也是函数，所以构造函数也是对象。 - 构造函数也是Function()构造函数创建出来的。
+   //7.构造函数的原型链
+   //8.完整的原型链
+   //9.静态成员、实例成员
+       p1.__proto__
+       Person.prototype
+       Math.random();
+   //  instansof  检测一个构造函数的prototype属性，在不在这个对象的原型链上。
+      语法： 对象  instanceof 构造函数
+            Object instanceof Object
+   //10. 面试题
+
+  * */
+
+
+
+
+  function F(){
+    console.log("哈哈");
+  }
+  console.log(F.__proto__ === Function.prototype);
+  console.log(Function.prototype.__proto__ === Object.prototype);
+
+
+
+
+  // function test(){
+  //   console.log("哈哈");
+  // }
+  // console.log(test); //函数体
+  // console.dir(test);
+
+</script>
+</body>
+</html>

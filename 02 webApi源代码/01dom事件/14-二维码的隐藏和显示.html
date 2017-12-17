@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        onmouseover:当鼠标被移入的时候触发
+
+        onmouseout:当鼠标被移出的时候触发
+    -->
+
+    <style> 
+        #small{
+            width: 50px;
+            height: 50px;
+            background: url("images/bgs.png") no-repeat -161px -50px;
+            position: absolute;
+            right: 10px;
+            top: 40%;
+        }
+
+        #erweima{
+
+            width: 210px;
+            height: 210px;
+            background: url("images/hmewm.jpg") no-repeat;
+            background-size: 210px;
+            position: absolute;
+            left: -210px;
+            top: 0;
+
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="small">
+
+    <div id="erweima">
+    </div>
+
+</div>
+
+</body>
+</html>
+
+<script src="common.js"></script>
+
+<script>
+
+    var smallDom = id("small");
+
+    var erweima = id("erweima");
+
+    //鼠标移入的事件
+    smallDom.onmouseover = function(){
+
+        erweima.style.display = "block";
+    }
+
+    //给小二维码加鼠标移出事件
+    smallDom.onmouseout = function () {
+
+        erweima.style.display = "none";
+    }
+</script>

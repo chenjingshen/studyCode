@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+
+<script>
+
+    //万物皆对象
+    var box =  document.getElementById("box");
+
+    //既然是对象，能不能动态的加属性！\
+    //不会在html标签里生成属性
+//    box.test = "测试";
+//
+//    console.log(box.test);
+
+    //使用这种方法会在html标签里生成属性
+    box.setAttribute("test","我是test");
+    console.log(box.getAttribute("test"));
+
+    box.innerHTML = "<h1>我是标题</h1>";
+
+
+//    var p1 = new Object();
+//    //对象都可以动态的加属性，JS是动态语言
+//    p1.name = "andy";
+</script>

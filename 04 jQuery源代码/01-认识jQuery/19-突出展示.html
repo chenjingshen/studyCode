@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+			      height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 3px double #cc0000;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        .wrap img {
+            display: block;
+			      border: 0;
+        }
+    </style>
+    <script src="jquery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //找到那些li标签，给这些li标签设置鼠标进入事件。
+            //找到那个大div，给这个div设置一个鼠标离开事件
+            //$("li");
+            //$(ul li);
+            //$(".wrap>ul>li");
+            //$(".wrap li");
+//
+//            //jQuery  隐式迭代   链式编程
+//            $(".wrap").find("li").mouseenter(function () {
+//                $(this).css("opacity","1").siblings("li").css("opacity","0.4");
+//            });
+//
+//            $(".wrap").mouseleave(function () {
+//                //找到那些li，设置这些li的"opacity","1"
+//                $(this).find("li").css("opacity","1");
+//            });
+
+            $(".wrap").find("li").mouseenter(function () {
+                $(this).css("opacity", "1").siblings("li").css("opacity", "0.4");
+            });
+            $(".wrap").mouseleave(function () {
+                $(this).find("li").css("opacity","1");
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/06.jpg" alt=""/></a></li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>非零填充原则</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    for (var i = 1; i < 10; i++) {
+        context.arc(300, 200, i * 15, 0, 2 * Math.PI, i % 2 == 0 ? false : true);
+    }
+
+    context.fillStyle = "red";
+    context.fill();
+
+</script>
+
+<!--
+ 非零填充原则：
+    1. 在由路长围绕的区域的内部， 随意向外， 拉出一条射线。 看和这条射线相交的路径有几条；如果路径的方向是顺时针， 其值为1， 如果路径的方向是逆时针，其值为 -1. 把所有和射线相交的路径的值相加， 如果结果是0， 就不填充， 如果结果非零，就填充。 这就是非零填充原则
+-->

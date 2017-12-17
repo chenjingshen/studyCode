@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <img id="girl" src="../img/fox.jpg" width="300" alt="" data-age="24" data-sex="female" data-info="从事演艺事业" data-name="某某空">
+</body>
+</html>
+<script>
+    var age=document.querySelector("#girl").getAttribute("data-age");
+    console.log(age);
+    var datas=document.querySelector("#girl").dataset;
+    console.log(datas);
+    console.log(datas.age);
+</script>

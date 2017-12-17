@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid #c0c0c0;
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+            height: 24px;
+        }
+
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>
+            <input type="checkbox" name="" id="checkAll"/>全选/全不选
+        </th>
+        <th>菜名</th>
+        <th>商家</th>
+        <th>价格</th>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="checkbox" name="check"/>
+        </td>
+        <td>红烧肉</td>
+        <td>隆江猪脚饭</td>
+        <td>￥200</td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="checkbox" name="check"/>
+        </td>
+        <td>香酥排骨</td>
+        <td>隆江猪脚饭</td>
+        <td>￥998</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="check"/>
+        </td>
+        <td>北京烤鸭</td>
+        <td>隆江猪脚饭</td>
+        <td>￥88</td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+    //拿到所有表格中的多选框
+    var checkboxList = document.getElementsByName("check");
+
+    //给找到的全选加点击事件
+    var checkAll = id("checkAll");
+
+    checkAll.onclick = function () {
+
+//        console.log(this.checked);
+
+        for (var i = 0; i < checkboxList.length; i++) {
+
+            //根据全选的状态来，如果全选为true就让所有的为true
+            //如果全选为false就让所有的为false
+            checkboxList[i].checked = this.checked;
+        }
+    }
+
+    //思路：只要有一个表格中的多选框为false，那么让全选也为fasle
+    //如果都不是false，就让全选为true
+
+    for (var i = 0; i < checkboxList.length; i++) {
+
+
+        checkboxList[i].onclick = function () {
+
+            //默认认为你是全选的
+            var flag = true;
+
+            for (var i = 0; i < checkboxList.length; i++) {
+
+                //只要有一个为false
+                if (checkboxList[i].checked == false) {
+
+                    //我就让全选赋的值也为false
+                    flag = false;
+                    break;
+                }
+            }
+
+            checkAll.checked = flag;
+        }
+    }
+
+</script>

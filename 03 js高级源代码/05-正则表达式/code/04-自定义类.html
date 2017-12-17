@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //console.log(/\d/.test("12345"));  //true
+
+
+  //1.自定义类  看检测的字符串里面有没有出现一次或者一次以上  正则里面的内容
+  //console.log(/d/.test("12345")); //false
+  //console.log(/d/.test("12345d")); //true
+  //console.log(/d/.test("12345ddddd")); //true
+
+
+  //检测的字符串里面，至少出现一次hei，结果才是为true
+  // console.log(/hei/.test("h")); //false
+  // console.log(/hei/.test("e")); //false
+  // console.log(/hei/.test("i")); //false
+  // console.log(/hei/.test("hei")); //true
+  // console.log(/hei/.test("heima")); //true
+  // console.log(/hei/.test("heihei")); //true
+  // console.log(/hei/.test("heimaheima")); //true
+  // console.log(/hei/.test("非洲小群真尼玛hei"));//true
+  // console.log(/hei/.test("haaaeccci")); //false
+  // console.log(/haebi/.test("haebi")); //true
+
+
+
+  console.log(/haha/.test("ha")); //false
+  console.log(/haha/.test("haha")); //true
+  console.log(/haha/.test("hahahahahahha")); //true
+  console.log(/haha/.test("!!!!!!haha$%#%%$")); //true
+  console.log(/haha/.test("!!!!!!ha0ha$%#%%$")); //false
+
+</script>
+</body>
+</html>

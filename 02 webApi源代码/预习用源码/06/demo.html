@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    var obj = new Object();
+    console.log(obj.aaa);
+    obj.aaa = function () {
+        alert(1);
+    }
+    console.log(obj.aaa);
+
+    console.log(document["onclick"]);
+
+    document.onclick = fn;
+
+    function fn(){
+        console.log(1);
+    }
+
+    console.log(document["onclick"]);
+
+</script>
+</body>
+</html>

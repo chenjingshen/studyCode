@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    div {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        display: none;
+    }
+    
+    a {
+        display: block;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        color: #000;
+        font-size: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <a href="https://so.m.jd.com/category/all.html">超链接</a>
+    <div></div>
+    <button>弹出</button>
+    <script>
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+    button.addEventListener('click', function() {
+        div.style.display = 'block';
+    });
+    // 给div添加一个轻触事件
+    // touch会比较快但是a超链接的点击是比较慢 很快隐藏了div之后就点到a链接
+    //这个叫做点透问题 会透过div点击到下面的元素超链接等
+    tap(div,function () {
+    	div.style.display = 'none';
+    })
+    // click和a标签是一样快 等div触发click隐藏div之后不会在点到a
+    // div.addEventListener('click', function() {
+    //     div.style.display = 'none';
+    // })
+
+    function tap(dom, callback) {
+        var isMove = false;
+        dom.addEventListener('touchstart', function() {
+            // console.log('touchstart');
+        });
+        dom.addEventListener('touchmove', function() {
+            // 表示发生了移动
+            isMove = true;
+            // console.log('touchmove');
+        });
+        dom.addEventListener('touchend', function() {
+            // console.log('touchend');
+            if (isMove == false) {
+                //表示没有触发move那就是单击操作
+                // console.log('这是使用touch模拟的单击事件');
+                if (callback) {
+                    callback();
+                }
+            }
+            // 滑动结束要重置isMove的值
+            isMove = false;
+        });
+    }
+    </script>
+</body>
+
+</html>

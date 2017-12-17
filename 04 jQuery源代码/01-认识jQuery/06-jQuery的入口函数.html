@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    //1.原生js window.onload
+    // window.onload = function () {
+    //   alert("原生jswindow.onload事件1");
+    // }
+
+     window.onload = function () {
+       alert("原生jswindow.onload事件2");
+     }
+
+
+    //2.jQuery的入口函数
+    $(document).ready(function () {
+      alert("jq的入口函数");
+    });
+
+     $(function () {
+       alert("jq的入口函数2");
+     });
+
+
+    //3.jQuery的入口函数，和window.onload事件的区别？
+    //a.执行时机
+    //window.onload事件，要等待页面上所有的资源(dom树、外部文件...)都加载完毕后执行.
+    //jquery入口函数，只需要页面dom树加载完后就执行。
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

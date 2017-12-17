@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* html {
+        font-size: 100px;
+    } */
+    
+    @media(min-width: 320px) {
+        html {
+            font-size: 50px;
+        }
+    }
+    /* 320 / 640 * 100 = 50
+    360/640 * 100  = 56.25px */
+    @media(min-width: 360px) {
+        html {
+            font-size: 56.25px;
+        }
+    }
+    @media(min-width: 375px) {
+        html {
+            font-size: 56.25px;
+        }
+    }
+
+    @media (min-width: 640px) {
+        html {
+            font-size: 100px;
+        }
+    }
+    
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    
+    ul li {
+        /*width: 128px;*/
+        /*1.28rem*100px = 128px*/
+        width: 1.28rem;
+        height: 1.28rem;
+        float: left;
+        list-style: none;
+        /*在64的时候字体大小是24px*/
+        /*怎么把px转成rem就是你需要设置的px / 根元素的字体大小 = rem的值*/
+        /*0.24rem*100 24px;*/
+        font-size: 0.24rem;
+        text-align: center;
+        line-height: 1.28rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

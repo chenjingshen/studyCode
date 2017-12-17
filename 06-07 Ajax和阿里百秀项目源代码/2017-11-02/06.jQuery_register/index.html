@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>表单注册</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      font-family: '微软雅黑';
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      /* background-color: #F7F7F7; */
+      background: url('./resource/images/wallpaper.jpg') no-repeat center /100% 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul {
+      margin: 0;
+      padding: 50px;
+      padding-top: 0px;
+      list-style: none;
+    }
+
+    .register {
+      width: 800px;
+      background-color: #F9F9F9;
+      border: 1px solid #CCC;
+      border-radius: 5px;
+    }
+
+    li {
+      display: flex;
+      margin: 20px 0;
+    }
+
+    label,
+    input {
+      display: block;
+      float: left;
+      height: 46px;
+      font-size: 24px;
+      box-sizing: border-box;
+      color: #333;
+    }
+
+    label {
+      width: 200px;
+      line-height: 46px;
+      margin-right: 30px;
+      text-align: right;
+    }
+
+    input {
+      width: 320px;
+      padding: 8px;
+      line-height: 1;
+      outline: none;
+      position: relative;
+    }
+
+    input.code {
+      width: 120px;
+    }
+
+    input.verify {
+      width: 190px;
+      margin-left: 10px;
+    }
+
+    input.disabled {
+      background-color: #CCC !important;
+      cursor: not-allowed !important;
+    }
+
+    input[type=button] {
+      border: none;
+      color: #FFF;
+      background-color: #E64145;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .tips {
+      width: 100%;
+      height: 40px;
+      text-align: center;
+    }
+
+    .tips p {
+      min-width: 300px;
+      max-width: 400px;
+      line-height: 40px;
+      margin: 0 auto;
+      color: #FFF;
+      display: none;
+      background-color: #C91623;
+    }
+
+    .submit:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+
+    span {
+      line-height: 46px;
+      padding-left: 20px;
+      font-size: 20px;
+      color: yellowgreen;
+      text-shadow: 0 0 20px yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register">
+    <div class="tips">
+      <p>用户名不能为空</p>
+    </div>
+    <form id="ajaxForm">
+      <ul>
+        <li>
+          <label for="">用户名</label>
+          <input type="text" name="name" class="name">
+        </li>
+        <li>
+          <label for="">请设置密码</label>
+          <input type="password" name="pass" class="pass">
+        </li>
+        <li>
+          <label for="">请确认密码</label>
+          <input type="password" name="repass" class="repass">
+        </li>
+        <li>
+          <label for="">验证手机</label>
+          <input type="text" name="mobile" class="mobile">
+        </li>
+        <li>
+          <label for="">短信验证码</label>
+          <input type="text" name="code" class="code">
+          <input type="button" value="获取验证码" class="verify">
+        </li>
+        <li>
+          <label for=""></label>
+          <input type="button" class="submit" value="立即注册">
+        </li>
+      </ul>
+    </form>
+  </div>
+  <!-- 提示信息 -->
+
+</body>
+
+</html>
+
+<!-- 导入jQuery  -->
+<script src="./js/jquery-1.12.4.min.js"></script>
+<!-- 自己的逻辑
+    需求1
+      失去焦点时 .name
+      ajax验证用户名
+        回调函数
+          提示用户 .tips p标签
+    需求2
+      失去焦点时 .mobile
+      ajax验证用户名
+        回调函数
+          提示用户 .tips p标签
+    需求3
+      获取验证码
+      点击事件 .verify
+        为 按钮添加disabled
+        修改内容
+        定时器间隔修改内容
+          倒计时完毕
+            移除类名
+            修改内容
+            清除定时器
+
+      ajax获取验证码
+        回掉函数中
+        填入验证码框 .code
+      
+      需求4
+        点击注册按钮 .submit
+        ajax注册用户
+-->
+<script>
+  $(function () {
+    // 需求1
+    $('.name').blur(function () {
+      $.ajax({
+        url: '_api/checkName.php',
+        // type:'get'
+        data: {
+          name: $(".name").val()
+        },
+        success: function (backData) {
+          console.log(backData);
+          $('.tips p').html(backData).fadeIn(1000).fadeOut(1000);
+        }
+      })
+    })
+
+    // 需求2
+    $('.mobile').blur(function () {
+      $.ajax({
+        url: '_api/checkMobile.php',
+        type: 'post',
+        data: {
+          mobile: $(".mobile").val()
+        },
+        success: function (backData) {
+          console.log(backData);
+          $(".tips p").html(backData).fadeIn(1000).fadeOut(1000);
+        }
+      })
+    })
+
+    // 需求3
+    $('.verify').click(function () {
+      // 判断是否有禁用的类名
+      if($(this).hasClass('disabled')){
+        alert('哥们，别点了，你点也没有用的');
+        return;
+      }
+      // 为 按钮添加disabled
+      $(this).addClass('disabled');
+      //   修改内容
+      $(this).val('还有5s');
+      // 总时间
+      var totalTime = 5;
+      //   定时器间隔修改内容
+      var interId = setInterval(function () {
+        // 修改事件
+        totalTime--;
+        $('.verify').val('还有'+totalTime+'s');
+        //     倒计时完毕
+        if (totalTime == 0) {
+          //       移除类名
+          $('.verify').removeClass('disabled');
+          //       修改内容
+          $('.verify').val('获取验证码');
+          //       清除定时器
+          clearInterval(interId);
+        }
+
+      }, 1000)
+
+
+
+
+      $.ajax({
+        url: '_api/code.php',
+        data: {
+          mobile: $(".mobile").val()
+        },
+        success: function (backData) {
+          console.log(backData);
+          $('.code').val(backData);
+        }
+      })
+    })
+
+    // 需求4
+    $('.submit').click(function(){
+
+      // 因为数据量较大
+      // 发动的是一个对象 对象的 属性名 刚好跟
+      // console.log($("#ajaxForm input[name]").length);
+      // console.log($("#ajaxForm input[name]"));
+      // 使用循环的方式 来拼接数据
+      // var $nameInput =$("#ajaxForm input[name]");
+      // var obj ={};
+      // for(var i=0;i<$nameInput.length;i++){
+      //   var currentObj = $nameInput[i];
+      //   // console.log(currentObj);
+      //   obj[currentObj.name] = currentObj.value;
+      // }
+      // console.log(obj);
+
+      
+      // jQuery直接格式化表单
+      // 格式化之后的值是 字符串
+      var sendData = $("#ajaxForm").serialize();
+      console.log(sendData);
+
+
+      $.ajax({
+        url:'_api/register.php',
+        type:'post',
+        // data:obj,
+        data:sendData,
+        success:function(backData){
+          console.log(backData);
+        }
+      })
+    })
+
+  })
+</script>

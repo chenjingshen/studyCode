@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        table {
+            border: 1px solid black;
+            /*合并单元格边框*/
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: center;
+
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var tb1 = document.getElementById("tb1");
+
+            for (var i = 1; i <= 9; i++) {  //控制的行
+
+                //每次循环创建一行
+                var tr = document.createElement("tr");
+
+                for (var j = 1; j <= i; j++) {
+
+                    //这里每次循环创建一列
+                    var td = document.createElement("td");
+
+                    td.innerHTML = j + " * " + i + " = " + i * j;
+
+                    //把这一列加到这一行里面
+                    tr.appendChild(td);
+                }
+
+                //把这一行加到表格
+                tb1.appendChild(tr);
+            }
+        }
+    </script>
+</head>
+<body>
+
+<table id="tb1"></table>
+
+</body>
+</html>

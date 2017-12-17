@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class="first">我是老1</li>
+        <li>我是老2</li>
+        <li>我是老3</li>
+        <li id="four">我是老4</li>
+        <li>我是老5</li>
+        <li>我是老6</li>
+        <li>我是老7</li>
+        <li>我是老8</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    var first = document.querySelector(".first");
+    var first1 = document.querySelector("li");
+    var four = document.querySelector("#four");
+
+    var allli = document.querySelectorAll("li");
+
+    
+</script>
+
+<!-- 
+    总结：
+    1. h5给我们提供了新的获取元素的方式
+        * querySelector(), 永远返回满足条件的第一个元素, 参数和传法和jqeury类似
+        * querySelectorAll(), 返回所有满足条件的元素的伪数组
+ -->

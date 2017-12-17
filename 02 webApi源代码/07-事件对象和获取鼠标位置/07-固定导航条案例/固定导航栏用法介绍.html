@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="top" id="topPart">
+    <img id="pic" src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+
+
+<script src="../common.js"></script>
+<script>
+
+
+    var topdiv= document.getElementById("topPart");
+    var navdiv= document.getElementById("navBar");
+    var maindiv= document.getElementById("mainPart");
+
+    window.onscroll= function () {
+        if (getPageScroll().scrollTop >= topdiv.offsetHeight) {
+            navdiv.className+=" fixed";
+            maindiv.style.marginTop=10+navdiv.offsetHeight+"px";
+        }else{
+            maindiv.style.marginTop="10px";
+            navdiv.className="nav";
+        }
+    }
+
+
+//    window.onscroll= function () {
+//        if (getPageScroll().scrollTop >= topdiv.offsetHeight) {
+//
+//            navdiv.className+=" fixed";
+//            maindiv.style.marginTop=navdiv.offsetHeight+10+"px";
+//        }else{
+//            navdiv.className="nav";
+//            maindiv.style.marginTop="10px";
+//        }
+//    }
+
+//    var topDiv = document.getElementById("topPart");
+//    var navDiv = document.getElementById("navBar");
+//    var mainDiv = document.getElementById("mainPart");
+//
+//
+//    window.onscroll = function () {
+//
+//        //监听滚动
+//        //拿到当前滚出去的top的值
+//        //判断是否大于或等于顶部的高度
+//        // 如果是，就让导航条固定
+//        if (getPageScroll().scrollTop >= topDiv.offsetHeight) {
+//
+//            navDiv.className += " fixed";
+//            //因为导航条区域用了固定定位就会脱标
+//            //那么下面的内容区域就会顶上去，为了不要顶上去，就给内容区域加一个margin-top
+//            //值为导航条的高度+间距
+//            mainDiv.style.marginTop = (navDiv.offsetHeight + 10) + "px";
+//
+//        } else {
+//
+//            navDiv.className = "nav";
+//            mainDiv.style.marginTop = "10px";
+//        }
+//
+//    }
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .row div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        /*一行放多个div要浮动*/
+        float: left;
+        /* 当屏幕宽度大于1200px的时候生效可以用默认值设置 */
+    }
+    /*需要小 中 大屏幕的样式一样的时候  宽度50%*/
+    /*当多个屏幕样式一致的时候使用最小的条件设置样式 让在大屏幕往上兼容（向上兼容）*/
+    
+    @media (min-width: 768px) {
+        .row div {
+            width: 50%;
+        }
+    }
+       @media (min-width: 992px) {
+        .row div {
+            width: 30%;
+        }
+    }
+    @media (min-width: 1200px) {
+        .row div {
+            width: 10%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+    </div>
+</body>
+
+</html>

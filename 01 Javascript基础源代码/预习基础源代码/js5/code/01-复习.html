@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    /*
+    1.逻辑与运算符就是短路运算的，如果第一个式子能够决定整个逻辑与表达式的值，所以就不会去算第二个式子的值。
+      逻辑与表达式的结果不一定是布尔类型的，有可能是其他的值：
+        如果第一个式子能够转换成布尔类型的false的话，整个逻辑与表达式的值就是第一个式子的值。
+        如果第一个式子不能转换成布尔类型的false的话，整个逻辑与表达式的值就是第二个式子的值，
+
+    2.逻辑或运算符也是短路运算的，如果第一个式子能够决定整个逻辑或表达式的值，所以就不会去算第二个式子的值。
+      逻辑或表达式的结果不一定是布尔类型的，有可能是其他的值：
+        如果第一个式子能够转换成布尔类型的true的话，，整个逻辑或表达式的值就是第一个式子的值。
+        如果第一个式子不能转换成布尔类型的true的话，整个逻辑或表达式的值就是第二个式子的值，
+
+
+    3.数组
+     a.数组的声明
+       var arr1 = new Array();
+       var arr2 = new Array(10,20,30,40); //
+       var arr3 = []; //字面量的方式来声明数组
+       var arr4 = [10,20,30,40];
+
+     b.赋值 - 下标索引
+       arr1[0] = 10;
+       arr4[4] = 50;
+
+
+     c.改值 - 重新赋值
+       arr4[0] = 100;
+
+     d.取值- 下标索引
+       console.log(arr4[0]);
+       console.log(arr4[8]); //undefined
+
+   4.数组的长度 - 数组中元素(存放的数据)的个数
+     可以用length表表示的。
+
+     a.可以用数组名.length 得到数组的长度
+     b.可以用数组名.lenght = 值; 设置数组的长度。
+       //如果修改后的长度比原来的长度要小，那么就会丢失数组的元素，不可逆的。
+     c.可以用 数组名.length = 0; 这种方式 清空数组。
+     d.可以利用长度  ，来给数组增加新的元素。
+        var arr = [10,20,30];
+        arr[arr.length] = 40; //[10,20,30,40] - arr.length = 4;
+
+
+   5.数组的遍历
+     用循环， 条件小于数组的长度。
+     for(var i = 0; i < arr.length  ;i++){
+        console.log(arr[i]);
+     }
+
+
+   6.数组的去重
+   var arr = [10,8,7,8,10,78,67];
+   var arrNew = [arr[0]];
+   for(var i = 1 ; i < arr.length; i++){
+   	 //1.假设当前这个arr[i]可以存进arrNew中。
+   	 var flag = true;
+   	 //2.到底能不能存，就要去判断？ 就把arr[i]去arrNew中看，有没有元素和他相等，如果有就假设失败。
+   	 for(var j = 0 ; j < arrNew.length; j++){
+   	 	if(arrNew[j] == arr[i]){
+   	 	   flag = false;
+   	 	   break;
+   	 	}
+   	 }
+   	 //3.如果到了这里，flag的值还是true，就说明假设成功。
+   	 if(flag == true){
+   	    arrNew[arrNew.length] = arr[i];
+   	 }
+   }
+
+
+
+   7.数组的类型检测
+     a.typeof不能检测数组的类型
+     b. Array.isArray(数组名);   //布尔类型的结果
+     c. 数组名 instanceof Array;  //布尔类型的结果
+     c. Object.prototype.toString.call(数组名);   //"[object Array]"
+
+   8.二维数组
+     数组的元素是一个数组。
+
+   9.数据类型
+     基本数据类型：String Number Boolean  undefiend  null       存在栈中的
+     复杂数据类型：Array Function Object  Math  Date  RegExp    存在堆中的
+
+
+   10.冒泡排序
+     var arr = [10,9,12,8,88,99,77];
+     for(var i = 0 ; i < arr.length-1; i++){ //外层控制的是比较的轮数
+
+       //假设当前这一轮，数组已经排好序了。
+       var flag = true;
+
+       for(var j = 0 ; j < arr.length-1-i; j++){
+       	   //比较的2个数的下标  j  j+1
+       	   if(arr[j] < arr[j+1]){
+       	      var temp = arr[j];
+       	      arr[j] = arr[j+1];
+       	      arr[j+1] = temp;
+       	      flag = false; //如果这一轮还有交换，说明没有排好序，那么就表示假设失败。
+       	   }
+       }
+
+       //如果flag还是为true，就说么假设成功。
+       if(flag){
+         break;
+       }
+
+     }
+
+
+
+     */
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

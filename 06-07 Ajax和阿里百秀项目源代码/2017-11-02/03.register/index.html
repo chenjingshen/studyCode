@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+<head>
+    <title>注册用户</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/init.css" />
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+    <style>
+        .sub.disabled {
+            /* background-color: gray !important; */
+            background: gray !important;
+            cursor: not-allowed !important;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/loading.gif') no-repeat center, gray;
+            opacity: .7;
+            display: none;
+        }
+
+        .tips {
+            position: absolute;
+            font-size: 20px;
+            color:red;
+            transform: translateY(-10px);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="bg"><img src="./Images/wallpaper.jpg" /></div>
+    <div id="register">
+        <div class="logo"><a href="./index.html"></a></div>
+        <div class="box">
+            <div class="regform">
+                <h2>工具函数实现版本</h2>
+                <form action="" method="post">
+                    <table>
+                        <tr>
+                            <td>用户名:</td>
+                            <td><input class='inputName' type="text" name="" value="" /></td>
+                            <td>
+                                <span class='tips'>占位文本</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center"><input type="button" class="sub disabled" value="注 册" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="quickreg">
+                <h2>快速注册</h2>
+                <div class="apps">
+                    <a class="qq" href="javascript:void(0)"></a>
+                    <a class="sina" href="javascript:void(0)"></a>
+                    <a class="taobao" href="javascript:void(0)"></a>
+                    <a class="tent" href="javascript:void(0)"></a>
+                    <a class="douban" href="javascript:void(0)"></a>
+                </div>
+                <div class="nowlog"><a href="./login.html">已有账号，现在去登陆！</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div id="footer">
+        <div class="copy">
+            <p>网站开发测试中...</p>
+            <p>版权所有 爱旅行 www.ailvxing.cc</p>
+        </div>
+    </div>
+    <div class="cover"></div>
+</body>
+
+</html>
+<!-- jQuery 操纵dom元素 不需要考虑兼容性问题 -->
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script  src="./js/ajaxTool.js"></script>
+<script>
+    /*
+        需求们
+            1.需求1
+                失去焦点时 .inputName
+                    弹出蒙板 .cover
+                    ajax
+                        参数 .inputName的value值
+                        回调函数
+                            关闭蒙板 .cover
+                            显示提示消息 .tips 
+                            增加&移除 disabled类名
+            2.需求2
+                点击事件 .sub
+                    如果有类名 提示用户 跳出代码
+                    弹出蒙板 .cover
+                    ajax
+                        参数 .inputName的value
+                        回调函数
+                            关闭蒙板 
+                            弹出提示信息
+                            禁用按钮 添加类名
+
+    */
+    $(function(){
+        // 触发的事件
+        $('.inputName').blur(function(){
+            // 发送ajax请求之前
+            $('.cover').show();
+            // 发送ajax请求
+            var sendData = 'name=jack';
+            ajax({
+                url:'_api/01.check.php',
+                data:'name='+$(".inputName").val(),
+                type:'get',
+                success:function(data){
+                    // 请求回来之后 回调函数
+                    // console.log(data);
+                    console.log(JSON.parse(data));
+                    $('.cover').hide();
+                    $('.tips').html(JSON.parse(data).message).fadeIn(1000).fadeOut(1000);
+
+                    // 判断是否可用
+                    var result = JSON.parse(data);
+                    if(result.status=='can'){
+                        $('.sub').removeClass('disabled');
+                    }else{
+                        $('.sub').addClass('disabled');
+                    }
+                }
+            });
+        })
+        
+        // 需求2
+        $('.sub').click(function(){
+            // 发送之前
+            if($(this).hasClass('disabled')){
+                alert('哥们,别着急，一步一步来吧');
+                return;
+            }
+            $('.cover').show();
+
+            // 发送数据
+            ajax({
+                url:'_api/register.php',
+                data:'name='+$('.inputName').val(), 
+                type:'post',
+                success:function(backData){
+                    console.log(backData);
+                    $('.cover').hide();
+                    $('.tips').html(backData).fadeIn(1000).fadeOut(1000);
+                    $('.sub').addClass('disabled');
+
+                }
+            })
+        })
+    })
+</script>

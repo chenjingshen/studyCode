@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Sky.js"></script>
+    <script src="Land.js"></script>
+    <script src="Pipe.js"></script>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="800" height="600" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 加载出所有的图片
+    var birdsImg = new Image();
+    birdsImg.src = "./img/birds.png";
+
+    var landImg = new Image();
+    landImg.src = "./img/land.png";
+
+    var skyImg = new Image();
+    skyImg.src = "./img/sky.png";
+
+    var pipe1Img = new Image();
+    pipe1Img.src = "./img/pipe1.png";
+
+    var pipe2Img = new Image();
+    pipe2Img.src = "./img/pipe2.png";
+
+    var imagesArr = [birdsImg, landImg, skyImg, pipe1Img, pipe2Img];
+    var count = 0;
+
+    imagesArr.forEach(function (image) {
+        image.onload = function () {
+            count += 1;
+            if (count == imagesArr.length) {
+                //console.log("所有的图片加载成功");
+
+                //所有的角色的数组
+                var rolesArr = [];
+
+                //使用类来创建角色
+                function createRoles() {
+                    //1. 创建所有的天空对象（生孩子）
+                    for (var i = 0; i<2; i++) {
+                        var sky = new Sky({
+                            x: i * canvas.width,
+                            image: skyImg,
+                            canvas: canvas,
+                            context: context
+                        })
+
+                        rolesArr.push(sky);
+                    }
+
+                    //2. 创建所有的陆地对象（生孩子）
+                    for (var i = 0; i<4; i++) {
+                        var land = new Land({
+                            x: i * landImg.width,
+                            canvas: canvas,
+                            context: context,
+                            image: landImg
+                        });
+                        rolesArr.push(land);
+                    }
+
+                    //3. 创建所有的管道对象（生孩）
+                    var gap = (canvas.width - 6 * pipe1Img.width)/5;
+                    for (var i = 0; i<6; i++) {
+                        var pipe = new Pipe({
+                            topImage: pipe2Img,
+                            bottomImage: pipe1Img,
+                            x: 300 + (pipe1Img.width + gap) * i,
+                            canvas: canvas,
+                            context: context,
+                            offsetY: landImg.height,
+                            gap: gap
+                        });
+
+                        rolesArr.push(pipe);
+                    }
+                }
+
+                //调用创建对象的方法
+                createRoles();
+                
+                //开始action
+                function action() {
+                    //1. 画布要清空
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    //2. 角色就开始自己绘制自己
+                    rolesArr.forEach(function (role) {
+                        role.draw();
+                    });
+
+                    //2. 添加动画
+                    window.requestAnimationFrame(action);
+                }
+
+                //开始绘制
+                action();
+            }
+        }
+    })
+
+</script>

@@ -1,0 +1,75 @@
+。<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        JS写法：行内
+                内嵌
+                外联
+
+        常用的阻止跳转：
+                就是在a的标签的href里写 javascript:void(0);
+
+                另外一种偶尔会用的是，自己写内嵌或者外联的JS代码，给a标签加点击事件，然后在绑定函数里return false;
+    -->
+
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!--想用a标签，而且也要给a标签加点击事件做我们想做的事，但是又不想让它跳转 -->
+<a id='one' href="#" target="_blank">点我超神</a>
+
+<!--点击后，不会变成已访问的样式，其他的会变-->
+<a id="two" href="javascript:void(0)" target="_blank">点我五课</a>
+
+
+
+
+<!--行内写JS不跳转的方法 -->
+<a href="#" target="_blank" onclick="alert('我超神了'); return false">点我超神2</a>
+
+
+<!--下面这两种是一样一样的-->
+<a href="#" target="_blank" onclick="test(); return false">点我超神3</a>
+<a href="#" target="_blank" onclick="return test(); ">点我超神4</a>
+
+
+
+
+</body>
+</html>
+
+<script>
+
+    document.getElementById("two").onclick = function () {
+        alert("五课超神");
+    }
+
+
+    //行内JS调用函数，在函数内返回false，是没有用的
+    function test(){
+
+        alert("test函数被调用了");
+        return false;
+    }
+
+
+    var one = document.getElementById("one");
+    one.onclick = function () {
+
+        alert('你已超神!');
+
+        //代表后面a标签的跳转不要跳转了
+        return false;
+    }
+
+</script>

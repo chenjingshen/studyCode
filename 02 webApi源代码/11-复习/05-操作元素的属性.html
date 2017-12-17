@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        className 获取或设置class，设置class时，如果要多加一个类，记得在类名前加空格
+
+
+        获取html标签内的属性：getAttribute("属性名");
+                    而且是只能获取到标签内写了的属性
+
+        设置html标签内的属性：setAttribute("属性名","属性值");
+                    也可以改class，但是请注意：你给什么值，它就把class覆盖成什么样子了，之前的没有保存
+
+
+        删除属性： removeAttribute("属性名");
+
+
+        元素.style 获取的是行内的样式，css的获取不了
+
+
+        window.getComputedStyle()
+                有两个参数：参数1：要获取属性的元素
+                           参数2：伪元素选择器（一般不用，不用只要给一个参数就行了）
+
+         得到的是一个对象，需要用点语法，点出属性
+         或者用[]传入属性名
+
+         得到结果是字符串类型，有单位的带单位，没单位的就没单位
+
+    -->
+
+    <style>
+        #div{
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div" tizhong="45kg" class="my"></div>
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("div")
+
+    box.setAttribute("class","my test");
+
+//    box.className = "box";
+
+    //通过这样的方式要加一个类名，记得在前面一定要加空格（双引号里）
+//    box.className += " test";
+
+
+//    console.log(box.getAttribute("tizhong"));
+
+//    console.log(box.tizhong);
+
+//    box.setAttribute("style","width:300px");
+
+//    console.log(box.getAttribute("style"));
+
+    //只是相当于给这个对象加了一个动态属性,你访问时也只能这样访问，在标签内得不到体现
+//    box.xxx = "abc";
+//
+//    console.log(box.xxx);
+//
+//    //通过这样的方式也不能
+//    console.log(box.getAttribute("xxx"));
+
+
+    //标签内本身可以有的属性，也可以用点语法访问
+    //只能获取行内的样式
+//    box.style.backgroundColor = "yellow";
+
+    //标签内本身没有的属性，用点语法相当于是动态添加的属性，在html标签内不会有体现
+
+
+    //既可以获取行内，也可以获取css的，哪个最终应用在元素身上获取的就是哪个
+    //简单来说：谁优先级更高，获取的就是谁
+//    console.log(window.getComputedStyle(box,null).width);
+
+    console.log(window.getComputedStyle(box).width);
+    console.log(window.getComputedStyle(box)["height"]);
+    console.log(window.getComputedStyle(box)["opacity"]);
+
+
+</script>

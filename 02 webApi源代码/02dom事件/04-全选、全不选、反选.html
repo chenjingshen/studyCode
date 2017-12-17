@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+篮球<input type="checkbox"/>
+足球<input type="checkbox"/>
+羽毛球<input type="checkbox"/>
+
+<hr/>
+
+<button id="checkAll">全选</button>
+<button id="uncheck">全不选</button>
+<button id="reverse">反选</button>
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+    //找到全选按钮
+    var checkAll = id("checkAll");
+
+    //拿到所有的多选框
+    var chkList = document.getElementsByTagName("input");
+
+    //找到反选按钮
+    var reverse = id("reverse");
+
+    //找到全不选
+    var uncheck = id("uncheck");
+
+    //给全选加点击事件
+    checkAll.onclick = function () {
+
+        //并且每个多选框加checked的属性
+        setCheckBoxChecked(true);
+    }
+
+    //全不选加点击事件
+    uncheck.onclick = function () {
+
+        setCheckBoxChecked(false);
+    }
+
+    function setCheckBoxChecked(check) {
+
+        for (var i = 0; i < chkList.length; i++) {
+
+            chkList[i].checked = check;
+        }
+    }
+
+    //给反选加点击事件
+    reverse.onclick = function () {
+
+        //拿到所有的checkbox，循环遍历里面的每一个checkbox，看他们的checked状态
+        //如果为true，改为false，如果为false改为true
+
+        for (var i = 0; i < chkList.length; i++) {
+
+//            if(chkList[i].checked){
+//
+//                chkList[i].checked = false;
+//            }else{
+//
+//                chkList[i].checked = true;
+//            }
+
+            //如果以前为true取个反就变false,再赋值给你
+            //如果以前为false取个反就变true，再赋值给你
+            chkList[i].checked = !chkList[i].checked;
+
+        }
+    }
+
+</script>

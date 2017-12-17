@@ -1,0 +1,144 @@
+/* less代码约定
+1. 最外层用id选择器限定容器 优先级高方便覆盖样式
+2. 当选择子元素标签的时候用直接子代选择器  避免误杀孙子曾孙子等元素 
+3. 尽量不要给父容器限定高度*/
+
+
+/* 定义灰色变量 */
+
+@gray: #666;
+
+/* 定义一个主题色变量 */
+
+@main-color: #e92322;
+
+/* 头部区域 */
+
+#header {
+    /* 顶部通栏 */
+    .topbar {
+        border-bottom: 1px solid #ccc;
+        .container {
+            .row {
+                > div {
+                    height: 40px;
+                    line-height: 40px;
+                    border-left: 1px solid #ccc;
+                    &:first-child {
+                        border-left: 0;
+                        >a {
+                            >img {
+                                display: none;
+                                position: absolute;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                z-index: 999;
+                            }
+                            &:hover {
+                                >img {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    >a {
+                        color: @gray;
+                        &.btn-danger {
+                            color: #fff;
+                            background-color: @main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* 导航条 */
+    .navbar-default {
+        background-color: #fff;
+        margin-bottom: 0;
+        .navbar-header {
+            .navbar-toggle {
+                margin-top: 23px;
+            }
+            .navbar-brand {
+                height: 80px;
+                line-height: 50px;
+                >i {
+                    font-size: 30px;
+                    &:first-child {
+                        color: @main-color;
+                    }
+                    &:last-child {
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .navbar-collapse {
+            .navbar-nav {
+                >li {
+                    >a {
+                        height: 80px;
+                        /* a标签有默认15px上下padding 减掉30px */
+                        line-height: 50px;
+                        &:hover {
+                            border-bottom: 2px solid @main-color;
+                        }
+                    }
+                    &.active {
+                        >a {
+                            background-color: #fff;
+                            border-bottom: 2px solid @main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 轮播图区域 */
+
+#slide {
+    .pc-img {
+        display: block;
+        background-position: center center;
+        height: 410px;
+    }
+    .mobile-img img {
+        width: 100%;
+    }
+}
+
+/* 支付交易保障 */
+
+#payment{
+    padding: 40px 0;
+    .container{
+        .row{
+            >div{
+                margin-top: 10px;
+                .media{
+                    >a{
+                        color:@gray;
+                        &:hover{
+                            color:@main-color;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 立即预约 */
+
+#booking{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0; 
+    /* 单行文本居中 */
+    /* line-height: 60px; */
+}

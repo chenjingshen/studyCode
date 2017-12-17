@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        var nums = [20, 15, 17, 121, 118, 122];
+
+        function sortNumber(a,b)
+        {
+//            return a - b//从小到大排列
+
+            return b - a;
+        }
+
+        nums.sort(sortNumber);
+
+        console.log(nums);
+
+
+        //删除数组中最后一个元素，并且返回被删除的那个元素
+        //        var res = nums.pop();
+        //
+        //        console.log(nums);
+        //        console.log(res);
+
+        //push，给数组末尾添加一个元素,如果要添加多个，以逗号隔开
+        //        nums.push(100,200);
+        //        console.log(nums);
+
+
+        //连接数组
+        //这个方法不会影响原来的数组，但是会产生一个新的数组，代表把你写的内容追加到原来数组的后面（原来数组没有影响
+        //        var newArr = nums.concat(80,90);
+
+        //        var newArr = nums.concat([1, 2, 3, 4, 5], [6, 7, 8, 9, 10])
+        //
+        //        console.log(nums);
+        //        console.log(newArr);
+
+        //join把数组中的内容，变成一个字符串，并且用你传入的分隔符来分割
+        //会返回一个新的分割好的字符串
+        //        var str = nums.join('-');
+        //        console.log(str);
+
+        //反转数组
+        //        nums.reverse();
+        //        console.log(nums);
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

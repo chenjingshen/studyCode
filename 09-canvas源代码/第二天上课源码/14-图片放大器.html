@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var img = new Image();
+    img.src = "./img/gls.jpg";
+
+    img.onload = function () {
+        //1. 先把图片画到左上角
+        context.drawImage(img, 0, 0, 150, 100);
+
+        context.rect(0, 0, 150, 100);
+
+        //2. 监听鼠标的移动事件
+        canvas.onmousemove = function (event) {
+            //鼠标的位置
+            var x = event.offsetX;
+            var y = event.offsetY;
+
+            //if (x >= 0 && x <= 150 && y >= 0 && y <= 100)
+            //可以判断点是否在路径里面, 可以做区域的判断
+            if (context.isPointInPath(x, y))
+            {
+                //对应的原图的坐标点(和原图是1:3的比例)
+                var imgx = x * 3;
+                var imgy = y * 3;
+
+                //以imgx, imgy为中心点， 从原图切出30*30像素的图片， 展示在画布的右边
+                context.clearRect(300, 200, 100, 100);
+                context.drawImage(img, imgx - 15, imgy - 15, 30, 30, 300, 200, 90, 90);
+            }
+        }
+    }
+
+</script>

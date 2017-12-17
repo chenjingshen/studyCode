@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    //拿到canvas
+    var canvas = document.getElementById("canvas");
+    //创建画图工具
+    var context = canvas.getContext("2d");
+
+    //画第一条线
+    context.moveTo(100, 100);
+    context.lineTo(300, 100);
+    context.lineTo(300, 200);
+
+    //画第二条线
+    context.moveTo(100, 300);
+    context.lineTo(300, 300);
+
+    //描边
+    context.stroke();
+
+    //为了避免重复印刷，我们就重新创建一张新的空白的玻璃纸，将后面要绘制的图形，画在这个新的玻璃纸上
+
+    //创建一张新的玻璃纸
+    context.beginPath();
+    //画第三条线
+    context.moveTo(500, 100);
+    context.lineTo(500, 300);
+
+    //只要执行stroke，都会玻璃纸上的图形重复印刷一次
+    context.stroke();
+
+</script>

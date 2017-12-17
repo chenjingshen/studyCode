@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* header的部分 */
+        .header {
+            width: 100%;
+            min-height: 100px;
+            background-color: hotpink;
+            /* 弹性布局，其子元素nav会被拉伸 */
+            display: flex;
+            border: 3px solid #fff;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            /* flex为1， 在水平方向独占了header的所有宽度， 高度被自动拉伸 */
+            flex: 1;
+            /* background-color: yellowgreen; */
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+        }
+
+        .nav a {
+            margin: 0px 10px;
+            min-width: 80px;
+            text-decoration: none;
+        }
+
+        /* main的部分 */
+        .main {
+            width: 100%;
+            background: lightblue;
+            display: flex;
+        }
+
+        .main .leftside {
+            flex: 1;
+            background-color: lightcoral;
+        }
+
+        .main .section {
+            flex: 2;
+            background-color: teal;
+        }
+
+        .main .rightside {
+            flex: 1;
+            background-color: tomato;
+        }
+
+        /* 左边的leftside */
+        .leftside {
+            display: flex;
+            flex-wrap: wrap;
+            border-left: 3px solid #fff;
+            box-sizing: border-box;
+        }
+
+        /*让a标签中的元素垂直居中*/
+        .leftside a {
+            min-height: 50px;
+            width: 100%;
+            border-bottom: 1px solid #fff;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /*section的弹性布局*/
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            border-left: 3px solid #fff;
+            border-right: 3px solid #fff;
+            box-sizing: border-box;
+        }
+
+        .good {
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            margin: 10px;
+        }
+
+        /* rightside的弹性布局 */
+        .rightside {
+            display: flex;
+            flex-wrap: wrap;
+            border-right: 3px solid #fff;
+            box-sizing: border-box;
+        }
+
+        .list {
+            width: 100%;
+            border-bottom: 1px solid #fff;
+            display: flex;
+        }
+
+        .list .good {
+            flex-basis: 100px;
+        }
+
+        .list .intro {
+            margin-top: 15px;
+            flex: 1;
+        }
+
+        /*footer的弹性布局*/
+        .footer {
+            width: 100%;
+            min-height: 100px;
+            background-color: indianred;
+            display: flex;
+            justify-content: space-around;
+            border: 3px solid #fff;
+            box-sizing: border-box;
+        }
+
+        .footer .ul {
+            padding-top:10px; 
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color:yellow;
+            border: 1px solid #fff; */
+        }
+
+        .footer .ul a {
+            min-height: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+            <a href="">点我哦</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="leftside">
+            <!-- lorem100 用来生成测试文字-->
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿其实你怕被我看穿其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿其实你怕被我看穿其实你怕被我看穿你说你还是喜欢孤单？其实你怕被我看穿其实你怕被我看穿其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+            <a href="">你说你还是喜欢孤单？其实你怕被我看穿</a>
+        </div>
+        <div class="section">
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+            <div class="good"></div>
+        </div>
+        <div class="rightside">
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+            <div class="list">
+                <div class="good"></div>
+                <div class="intro">我是商品，快来买走我哟，我是很信宜的哦，性价比超高</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="ul">
+            <a href="">百炼成钢，不练生锈1</a>
+            <a href="">百炼成钢，不练生锈2</a>
+            <a href="">百炼成钢，不练生锈3</a>
+            <a href="">百炼成钢，不练生锈4</a>
+        </div>
+        <div class="ul">
+            <a href="">百炼成钢，不练生锈1</a>
+            <a href="">百炼成钢，不练生锈2</a>
+            <a href="">百炼成钢，不练生锈3</a>
+            <a href="">百炼成钢，不练生锈4</a>
+        </div>
+        <div class="ul">
+            <a href="">百炼成钢，不练生锈1</a>
+            <a href="">百炼成钢，不练生锈2</a>
+            <a href="">百炼成钢，不练生锈3</a>
+            <a href="">百炼成钢，不练生锈4</a>
+        </div>
+        <div class="ul">
+            <a href="">百炼成钢，不练生锈1</a>
+            <a href="">百炼成钢，不练生锈2</a>
+            <a href="">百炼成钢，不练生锈3</a>
+            <a href="">百炼成钢，不练生锈4</a>
+        </div>
+    </div>
+</body>
+</html>

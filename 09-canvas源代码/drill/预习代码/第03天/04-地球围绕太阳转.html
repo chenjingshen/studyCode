@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var sun = new Image();
+    var earth = new Image();
+    sun.src = "./img/Canvas_sun.png";
+    earth.src = "./img/Canvas_earth.png";
+
+    //计数器
+    var count = 0;
+    var images = [sun, earth];
+
+    //如果需要多个图片都加载完成之后，再操作， 应该怎么办：
+    images.forEach(function (img) {
+        
+        img.onload = function () {
+            count += 1;
+            if (count == images.length) {
+                console.log("所有的图片都加载完成了");
+
+                function draw() {
+                    //0. 先把原始的坐标系的状态保存起来
+                    context.save();
+
+                    //1. 清空画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    //2. 画太阳(五参模式， 原图显示)
+                    context.drawImage(sun, 0, 0, sun.width, sun.height);
+
+                    //3. 假设地球绕太阳一圈的时间是1分钟，只需要拿到当前的秒数，就可以用秒数/60*360计算出地球相于水平线的角度
+                    //拿到当前的秒数
+                    var now = new Date();
+
+                    //精确到毫秒，就能够形成一个连续的动画效果了
+                    var seconds = now.getSeconds();
+                    var millSeconds = now.getMilliseconds();
+                    seconds += millSeconds / 1000;
+
+                    //算出此时此刻的地球的角度（弧度）
+                    var radian = seconds / 60 * 2 * Math.PI;
+
+                    //4. 平移坐标系，将坐标的原点移到太阳的中心
+                    context.translate(sun.width/2, sun.height/2);
+
+                    //5. 旋转坐标系
+                    context.rotate(radian);
+
+                    //6. 画地球
+                    context.drawImage(earth, 120-earth.width/2, -earth.height/2, earth.width, earth.height);
+
+                    //7. 还原坐标系
+                    context.restore();
+
+                    window.requestAnimationFrame(draw);
+                }
+
+                draw();
+            }
+        }
+    })
+
+
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <style>
+    .pc-img {
+        display: block;
+        background-position: center center;
+        height: 410px;
+    }
+    .mobile-img img{
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 轮播图 》 JS插件 》 Carousel  -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- 指示器 轮播图的小圆点 -->
+        <ol class="carousel-indicators">
+            <!-- data-target="#carousel-example-generic" 表示当前小圆点要控制的轮播图的容器的选择器 -->
+            <!-- data-slide-to="0"  小圆点控制的图片 图片索引从0开始 -->
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        </ol>
+        <!-- 轮播图的所有轮播项 -->
+        <div class="carousel-inner" role="listbox">
+            <!-- item是每一项轮播图 -->
+            <!-- active当前正在显示的轮播图 有且只能有一个 -->
+           <!--  响应式轮播图是item里面同时要放pc-img和mobile-img两个图片 根据屏幕档次切换对应的图片
+           当在大屏幕中小显示大图 sm md lg
+           超小屏幕xs显示小图小图 -->
+           <!-- 会造成的问题 在移动端会同时加载PC端的大图和移动端的小图
+           在PC端 也会加载大图和小图  造成资源浪费 -->
+           <!-- 因为大图pc-img和小图mobile-img都放到item里面 里面的资源都会请求
+           在大屏只插入pc-img 
+           在小屏幕的时候值插入mobile-img -->
+            <div class="item active">
+                <!-- pc端的轮播图  固定高度且居中的显示-->
+                <a href="#" class="pc-img hidden-xs" style="background-image:url(img/slide_01_2000x410.jpg)"></a>
+                <!--  移动端轮播图  宽度缩放高度也缩放 图片自适应 -->
+                <a href="#" class="mobile-img hidden-sm hidden-md hidden-lg">
+                    <!-- 因为要自适应所以使用图片标签  插入小图路径-->
+                    <img src="img/slide_01_640x340.jpg" alt="">
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" class="pc-img hidden-xs" style="background-image:url(img/slide_02_2000x410.jpg)"></a>
+                <a href="#" class="mobile-img hidden-sm hidden-md hidden-lg">
+                    <!-- 因为要自适应所以使用图片标签  插入小图路径-->
+                    <img src="img/slide_01_640x340.jpg" alt="">
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" class="pc-img hidden-xs" style="background-image:url(img/slide_03_2000x410.jpg)"></a>
+                <a href="#" class="mobile-img hidden-sm hidden-md hidden-lg">
+                    <!-- 因为要自适应所以使用图片标签  插入小图路径-->
+                    <img src="img/slide_01_640x340.jpg" alt="">
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" class="pc-img hidden-xs" style="background-image:url(img/slide_04_2000x410.jpg)"></a>
+                <a href="#" class="mobile-img hidden-sm hidden-md hidden-lg">
+                    <!-- 因为要自适应所以使用图片标签  插入小图路径-->
+                    <img src="img/slide_01_640x340.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- 控制器 左右的控制按钮 -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

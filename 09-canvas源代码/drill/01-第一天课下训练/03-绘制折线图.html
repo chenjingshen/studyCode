@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 计算坐标轴的宽高
+    var ch=canvas.height;
+    var cw=canvas.width;
+
+    // 设置起点
+    context.moveTo(30, 30);
+    context.lineTo(30, ch-30);
+    context.lineTo(cw-30,ch-30);
+    context.stroke();
+    // 模拟数据
+    var dataArr=[4500,5200,4800,5600,4400]
+    // 计算所有坐标的坐标值
+    var pointsArr=[];
+    for (var i = 0; i < dataArr.length; i++) {
+        var x=30+(cw-60)/5*i;
+        // 计算么一个数据的高度
+        var wy=dataArr[i]/10000*(ch-60);
+        // 计算每一个数据的坐标
+        var y=ch-30-wy;
+        // 生成坐标
+        var point={x:x,y:y};
+        pointsArr.push(point);
+    }
+    
+    // 开始划线  划线之前创建一张新的玻璃纸
+    context.beginPath();
+    // 把画笔移动到第一个点
+    context.moveTo(pointsArr[0].x, pointsArr[0].y);
+    // 使用for循环将所有线划到玻璃板上
+    for(var i=1;i<pointsArr.length;i++){
+        context.lineTo(pointsArr[i].x, pointsArr[i].y);
+    }
+    // 印到画布上
+    context.strokeStyle='green';
+    context.stroke();
+    context.fillStyle='red';
+    
+    context.fill();
+</script>
+</body>
+</html>

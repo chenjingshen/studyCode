@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.fillRect(300, 200, 100, 100);
+    //把当前的坐标系保存起
+    context.save();
+
+    context.scale(0.5, 0.5);
+    context.fillRect(300, 200, 100, 100);
+
+    //此时此刻的坐标系就正常了
+    context.restore();
+    context.fillRect(0, 0, 100, 100);
+
+
+
+
+
+</script>

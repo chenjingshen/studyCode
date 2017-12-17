@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 20000px;
+        background-color: #0f0;
+    }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+    	/*1. 什么是事件对象
+				触发事件的事件源对象
+    	*/
+    var div = document.querySelector('div');
+    div.addEventListener('click',function (e) {
+    	// MouseEvent 鼠标事件对象
+    	console.log(e);
+    });
+    window.addEventListener('keydown',function (e) {
+    	// KeyboardEvent  键盘事件对象
+    	console.log(e);
+    });
+    window.addEventListener('scroll', function (e) {
+    	// event滚轮的事件对象
+    	console.log(e);
+    });
+    div.addEventListener('touchstart', function(e){
+    	// TouchEvent 触摸事件对象 移动端的触摸
+    	// 注意移动端的事件必须用模拟器来触发
+    	console.log(e);
+    })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.数据类型  string number boolean
+
+    //2.undefined 未定义
+    //只有一个值就是undefined。
+    //var num;
+    //console.log(num); //如果一个变量有声明没有赋值，那么这个变量的值就是undefined。
+
+    //注意：如果使用了一个没有声明的变量，那么就会报错。
+    //console.log(age); //age is not defined
+
+    //console.log(typeof undefined); //undefined
+
+
+    //3. null  空
+    //a.变量在任何时候都不会是null值，除非手动设置。
+    //var num1 = null;
+    //b.如果有一个函数，如果他返回一个对象返回失败了，那么返回的也是null。  getElementById("id名");
+
+    //console.log(typeof  null); //object
+    //console.log(Object.prototype.toString.call(null)); //[object Null]
+
+
+    //4.
+    //console.log(null === undefined); //false
+    //console.log(null == undefined); //true
+
+
+
+    //5.  NaN  (not a number) 不是一个数字
+    //5.1 NaN是一个number类型里面的一个特殊的的数值-是计算错误得到的一个结果。
+    //  var num1 = "abc";
+    //  var num2 = 10;
+    //  var res = num1 - num2;
+    //  console.log(res); //NaN
+    //  console.log(typeof res); //number
+    //  console.log(isNaN(res)); //true
+
+    //5.2 NaN 永远不等于其他的值，包括他自己本身
+    // console.log(NaN === 123); //false
+    // console.log(NaN === NaN); //false
+
+
+    //6. isNaN();   判断某一个值是否是NaN'
+    //a.如果你是一个数字，就不是一个NaN,,那么isNaN就是一个false。
+    //  var num = 123;
+    //  console.log(isNaN(num)); //false
+    //b.如果你不是一个数字，就是一个NaN,那么isNaN就是一个true。
+    //  var num = "abc";
+    //  console.log(isNaN(num)); //true
+
+    //c.isNaN在判断的时候，也是会有一个隐式类型转换。
+    var num1 = "123";
+    console.log(isNaN(num1)); //false
+
+
+    var num2 = "123abc";
+    console.log(isNaN(num2)); //true
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

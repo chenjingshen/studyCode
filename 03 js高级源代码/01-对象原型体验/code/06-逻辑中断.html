@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.逻辑中断 - 逻辑短路
+  //如果参与逻辑运算的表达式，第一个式子就可以决定整个逻辑表达式的结果，那么第二个式子就不会运算，这就是逻辑短路。
+  // var num1 = 10;
+  // var num2 = 20;
+  // var res =  num1 < 0  && num2++ >0 ;
+  // console.log(num2); //20
+  // console.log(res); false
+
+
+  // var num1 = 10;
+  // var num2 = 20;
+  // var res = num1 > 0 || ++num2 > 0;
+  // console.log(num2); //20
+  // console.log(res); //true
+
+
+
+  //2.逻辑表达式都是短路运算的，有些时候逻辑表达式的结果不是true或者false,有可能是其他的值。
+  //2.1 如果参与逻辑与运算的第一个式子能够转换成布尔类型false的话， 那么整个逻辑表达式的结果就是第一个式子的值，
+  //var num1 = 10;
+  //var res = null && num1++ > 0;
+  //console.log(num1); //10
+  //console.log(res); //null
+
+
+  //如果参与逻辑与运算的第一个式子不能转换成布尔类型false的话，那么整个逻辑与表达式的结果就是第二个式子的值，不管第二个式子是什么。
+  //var num1 = 10;
+  //var res = 100 && 1000;
+  //console.log(res);
+
+
+  //2.2 如果参或逻辑或运算的第一个式子能够转换成布尔类型true的话， 那么整个逻辑或表达式的结果就是第一个式子的值，
+  //var num1 = 10;
+  //var res = num1 || num1++ < 0;
+  //console.log(res);
+  //console.log(num1);
+
+  //如果参与逻辑或运算的第一个式子不能转换成布尔类型true的话，那么整个逻辑或表达式的结果就是第二个式子的值，不管第二个式子是什么。
+  var num1 = 10;
+  var res = undefined || num1 > 0;
+  console.log(res); //true
+
+
+
+  //3.
+  //e = e || window.event;
+
+  //var v = document.getElementById("one").value;
+
+ // if(document.getElementById("one")){
+ //   var v = document.getElementById("one").value;
+ // }
+
+  var v = document.getElementById("one") && document.getElementById("one").value;
+
+
+
+
+
+</script>
+</body>
+</html>

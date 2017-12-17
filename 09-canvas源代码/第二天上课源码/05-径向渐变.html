@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //内圆
+    var c0 = {x: 270, y: 170, r: 0};
+    //外圆
+    var c1 = {x: 300, y: 200, r: 130}
+
+    var gradient = context.createRadialGradient(c0.x, c0.y, c0.r, c1.x, c1.y, c1.r);
+    gradient.addColorStop(0, "black");
+    gradient.addColorStop(0.5, "orange");
+    gradient.addColorStop(1, "skyblue");
+
+    context.fillStyle = gradient;
+
+    context.arc(c1.x, c1.y, c1.r, 0, 2*Math.PI);
+    context.fill();
+
+</script>
+
+<!--
+    1. 也是需要创建一个渐变的对象， 设的是两个圆的圆心和半径，大圆套小圆， 小圆不能跑到大圆的外面
+    2. 给渐变对象设颜色
+    3. 把渐变对象设为填充色
+    4. 画圆并填充
+    5. 内圆是由最里面的颜色来全部填充的
+-->

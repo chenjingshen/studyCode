@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        逻辑运算符得到的结果不一定是true或false
+
+        逻辑运算符的结果跟短路有关
+
+            如果有短路：那么逻辑表达式的整体结果为左边表达式的结果
+            如果没有短路：那么逻辑表达式的结果就是右边表达式的结果
+    -->
+
+    <script>
+
+//        alert(1&&2+20);
+
+
+        //        var n1 = 10,n2 = 25;
+        //
+        //        var res = n1 && n2;
+        //
+        //        console.log(res,n1,n2);//20 10, 25
+
+
+//        var n1 = 10, n2 = 20;
+//
+//        var res = n1 && n2 + 10;
+//
+//        console.log(res, n1, n2);//30,10,20
+
+
+//        var n1 = 0,n2 = 20;
+//        var res = n1 && n2 + 10;
+//
+//        console.log(res,n1,n2);//0,0,20
+
+
+
+//        var n1 = 10,n2 = 20;
+//
+//        var res = n1 || n2;
+//
+//        console.log(res);//10
+
+
+        //因为这里没有发生短路，所以表达式结果为右边表达式的结果
+//        var n1 = 32,n2 = 20;
+//
+//        var res = n1 + 20 && n2 + 30;
+//
+//        console.log(res,n1,n2);//50,32,20
+
+
+//        var n1 = 32,n2 = 20;
+//
+//        var res = n1 + 20 || n2 + 30;
+//
+//        console.log(res,n1,n2);//52,32,20
+
+        var n1 = 32,n2 = 20;
+
+        var res = n1 > 10 || n2 + 30;
+
+        console.log(res, n1, n2);//true,32,20
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

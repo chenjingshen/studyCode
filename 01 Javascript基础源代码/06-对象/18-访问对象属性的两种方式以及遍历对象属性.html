@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        访问属性的两种方式：
+                1.使用点语法
+                        对象名.属性名
+
+                2.使用字符串做key
+                    用中括号来访问
+                          对象名["属性名"];
+
+        遍历出对象的所有属性
+
+            应该用forin来遍历
+
+            语法：
+                    for(var key in 对象名){
+
+                    }
+
+
+           一般把属性名也可以叫做是key
+           属性值叫做是value
+
+    -->
+
+    <script>
+
+
+        var s1 = {
+
+            name: 'andy',
+            age: 16,
+            height:170,
+            sayHi: function () {
+                console.log('...');
+            }
+        }
+
+
+        for(var key in s1){
+
+            console.log(s1[key]);//因为相当于写的是 s1["name"]  s1["age"]  s1["sayHi"]
+        }
+
+//
+//        console.log(s1.name);
+//        console.log(s1["name"]);
+
+        //以后需要用户输入什么属性，你就访问什么属性
+//        var prop = prompt('请输入属性');
+//        console.log(s1[prop]);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

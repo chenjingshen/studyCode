@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var datasArr = [{role: "程序员", count: 400, color: "skyblue"},
+        {role: "设计美眉", count: 200, color: "hotpink"},
+        {role: "测试人员", count: 300, color: "red"},
+        {role: "产品经理", count: 150, color: "yellowgreen"},
+        {role: "php后台", count: 350, color: "orange"},
+        {role: "程序员鼓励师", count: 280, color: "yellow"}]
+
+    //1. 算出人员的总数
+    var sum = 0;
+    datasArr.forEach(function (object) {
+        sum += object.count;
+    })
+
+    //2. for循环来画扇形
+    //起始弧度
+    var starRadian = 0;
+    for (var i = 0; i < datasArr.length; i++) {
+
+        //每一块饼使用一张新的玻璃纸
+        context.beginPath();
+        //算出每一块饼的弧度的大小
+        var radian = datasArr[i].count / sum * 2*Math.PI;
+        //开始画弧
+        context.arc(300, 200, 150, starRadian, starRadian + radian);
+        //画一个扇形
+        context.lineTo(300, 200);
+        context.closePath();
+        //设置颜色并填充
+        context.fillStyle = datasArr[i].color;
+        context.fill();
+
+        //起始弧度递增
+        starRadian += radian;
+    }
+</script>

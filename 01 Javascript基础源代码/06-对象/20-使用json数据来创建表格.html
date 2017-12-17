@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        table{
+            width: 600px;
+            border: 1px solid black;
+            border-collapse: collapse;
+
+            text-align: center;
+        }
+        
+        table th,table td{
+
+            /*bd+ tab*/
+            border: 1px solid #000;
+        }
+    </style>
+
+    <script>
+
+        var head = ["学号", "姓名", "年龄"];
+
+
+        var jsonData = [
+            {"stuNo":1,"name":"利群1","age":38},
+            {"stuNo":2,"name":"利群2","age":48},
+            {"stuNo":3,"name":"利群3","age":58},
+
+        ];
+
+
+        document.write('<table>');
+        document.write('<thead>');
+
+        for (var i = 0; i < head.length; i++) {
+
+            document.write('<th>');
+
+            document.write(head[i]);
+
+            document.write('</th>');
+        }
+
+        document.write('</thead>');
+
+
+        document.write('<tbody>');
+
+        for(var i = 0; i < jsonData.length;i++){
+
+            document.write("<tr>");
+
+            //jsonData[i];//取到某一条json数据，json数据里又有多个key，每个key对应一列
+
+            for(var key in jsonData[i]){
+
+                document.write('<td>');
+                document.write(jsonData[i][key]);
+                document.write('</td>');
+            }
+
+            document.write("</tr>");
+        }
+
+
+        document.write('</tbody>');
+
+
+
+        document.write('</table>');
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

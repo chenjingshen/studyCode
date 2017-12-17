@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.对数组进行排序
+    //[9,10,5,78,99,34]     [5,9,10,34,78,99];
+
+
+    //2.冒泡排序
+    var arr = [9,10,5,78,99,34];
+    for(var i = 0 ; i < arr.length-1; i++){ //外层循环控制比较的轮数
+      for(var j = 0 ; j < arr.length-1-i; j++){
+      	//比较的2个数的下标 j    j+1
+        if(arr[j] > arr[j+1]){
+          var temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
+      }
+    }
+    console.log(arr);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

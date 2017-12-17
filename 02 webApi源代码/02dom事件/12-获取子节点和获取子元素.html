@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        如果以后为了找到子元素（不包括文本和注释），那么直接用children
+        children在IE8以及以前的版本，还包括注释
+    -->
+</head>
+<body>
+<ul id="ul">
+    我是文字
+    <!-- 我是注释 -->
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+</body>
+</html>
+
+<script>
+    var ul = document.getElementById("ul");
+
+    //它会把注释、空文本、非空文本、标签都当作节点
+//    console.log(ul.childNodes);
+
+    //在IE8以后的版本只会找到标签元素。不包括文本、空文本、注释
+    //在IE8以前的版本会找到标签元素和注释，但是不包括非空文本和空文本
+    console.log(ul.children);
+    console.log(ul.children[0].nodeName);
+
+
+
+</script>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <style>
+    .thumbnail {
+      width: auto;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="">明星数据展示</h2>
+      </div>
+      <div class="panel-body">
+        <div class="jumbotron">
+          <h1>宋慧乔</h1>
+
+          <a href="#" class="thumbnail">
+            <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2602109396,2877482886&fm=58" alt="...">
+          </a>
+          <p>美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒</p>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <input class='btn btn-info btn-lg' type="button" value='彭林'>
+        <input class='btn btn-info btn-lg' type="button" value='林利群'>
+        <input class='btn btn-info btn-lg' type="button" value='风骚林'>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="lib/js/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/js/bootstrap.min.js"></script>
+
+<!-- 绑定点击事件 -->
+<script>
+  $(function(){
+    $('input').click(function(){
+
+      // 点击之后 立即切换名字
+      $('h1').html($(this).val());
+      // 创建对象
+      var xhr = new XMLHttpRequest();
+
+      // 设置请求行
+      // 格式是 url?key=value
+      xhr.open('get','./backPerson.php?name='+$(this).val());
+
+      // 设置请求头 get请求 可以不写
+
+      // 回调函数
+      xhr.onload = function(){
+        // 目前是路径
+        console.log(xhr.responseText);
+        // $('img').attr('src',xhr.responseText);
+        // 服务器返回了 多个数据之后 默认会拼接成一个 完整的字符串 我们在浏览器端进行切割
+        // split 会把 传入的值 切掉
+        var result = xhr.responseText.split('|O(∩_∩)O|');
+        // console.log(result);
+
+        // 数据切割好了 之后 分别设置给不同的dom元素
+        $('img').attr('src',result[0]);
+        $('p').html(result[1]);
+      }
+
+      // 请求主体 发送 如果这里不发送数据 写null即可
+      xhr.send(null);
+    })
+  })
+</script>
+

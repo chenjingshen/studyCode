@@ -1,0 +1,212 @@
+@import 'base.less';
+// 头部logo部分
+#header {
+    width: 320px;
+    height: 50px;
+    display: block;
+    background-color: @header-color;
+    .row {
+        img.logo {
+            float: left;
+            width: 185px;
+            height: 25px;
+            margin: 10px 0;
+        }
+        img.app {
+            float: right;
+            width: 34px;
+            height: 34px;
+            margin: 5px 0;
+        }
+    }
+}
+
+// 搜索部分
+#seach {
+    width: 320px;
+    height: 51px;
+    position: relative;
+    padding: 10px;
+    input {
+        width: 270px;
+        height: 30px;
+        font-size: 16px;
+        padding-left: 15px;
+        background-color: #f1f1f1;
+        border-radius: 15px;
+    }
+    button {
+        position: absolute;
+        width: 60px;
+        height: 30px;
+        background-color: @header-color;
+        border-radius: 15px;
+        left: 250px;
+        color: #fff;
+        font-size: 16px;
+        border: 0;
+        outline: 0;
+    }
+}
+
+// 模块部分
+#module {
+    .row {
+        >div.col-xs-3{
+            padding-top: 10px;
+            a {
+                display: block;
+                text-align: center;
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+                p {
+                    font-size: 12px;
+                    color: #666;
+                    margin-top: 5px;
+                }
+            }
+            &:nth-of-type(9),
+            &:nth-of-type(10),
+            &:nth-of-type(11),
+            &:nth-of-type(12){
+                display: none;
+            }
+        }
+    }
+}
+
+// 商品部分头部
+#goods {
+    width: 320px;
+    height: 40px;
+    background-color: @main-color;
+    padding: 0 10px;
+    border-top: 4px solid #f7f7f7;
+    span {
+        font-size: 18px;
+        line-height: 36px;
+        color: #fff;
+        font-weight: 900;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+        float: right;
+        margin: 8px 0;
+    }
+}
+
+// 商品部分
+#more-goods {
+    .media {
+        position: relative;
+        padding: 14px 8px;
+        width: 100%;
+        a {
+            display: block;
+            >img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        h4 {
+            font-size: 16px;
+            span {
+                color: #ff6c00;
+            }
+        }
+        .media-bottom {
+            color: #a1a1a1;
+            float: left;
+            font-size: 12px;
+            margin-top: 30px;
+            i {
+                position: absolute;
+                bottom: 28px;
+                right: 10px;
+            }
+        }
+    }
+    .gengduoyouhui {
+        background-color: #f2f2f2;
+        width: 320px;
+        height: 52px;
+        padding: 10px;
+        a {
+            background-color: #fcfcfc;
+            display: block;
+            text-align: center;
+            width: 300px;
+            line-height: 30px;
+            color: #5a5a5a;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    }
+}
+
+// 底部
+#dibu {
+    padding: 10px 0;
+    background-color: #f2f2f2;
+    .dibu {
+        background-color: @main-color;
+        width: 320px;
+        height: 36px;
+        line-height: 36px;
+        span {
+            display: block;
+            font-size: 18px;
+            float: left;
+            margin-left: 15px;
+            color: #fff;
+            font-weight: 900;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+            float: right;
+            margin-top: 8px;
+            margin-right: 10px;
+        }
+    }
+    .login-father {
+        padding: 10px 0;
+        .login {
+            width: 320px;
+            height: 36px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            span {
+                padding: 7px 31px;
+                float: left;
+                border-right: 1px solid #ccc;
+                &:last-of-type {
+                    border-right: none;
+                    img {
+                        width: 15px;
+                        height: 15px;
+                        margin-top: -5px;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        text-align: center;
+        p {
+            margin-bottom: 0;
+            a {
+                color: #666;
+                font-size: 12px;
+            }
+            &:first-of-type {
+                a:first-child {
+                    color: red;
+                }
+            }
+        }
+    }
+}

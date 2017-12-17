@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        #box {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box" style="width:200px;background-color:red; border: 5px solid blue;padding: 5px;"></div>
+
+
+<input type="button" value="获取" id="btn"/>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+    document.getElementById("btn").onclick = function () {
+
+        /*
+         获取style下的宽和高，获得的只是内容宽高（不包括边框和内边距）
+         只能获取行内样式，获取不到css的
+         可以设置宽和高
+         获取的值是字符串
+         */
+//         console.log(box.style.width);
+//         console.log(box.style.height);
+//        box.style.width = "500px";
+//        box.style.height = "500px";
+
+        /*
+         offsetWdith和offsetHeight获取的是盒子的整体宽和高（内边距和边框）
+         并且它能获取到css提供的样式
+         总而言之，它获取的就是这个盒子真实占用的宽和高
+         它是只读，只能读取，不能设置
+         获得的直接就是数字（不带px）
+         */
+        console.log(box.offsetWidth);
+        console.log(box.offsetHeight);
+        box.offsetHeight = "500px";
+        box.offsetWidth = "500px";
+    };
+</script>

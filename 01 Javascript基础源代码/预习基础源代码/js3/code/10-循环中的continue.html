@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.continue
+    //循环中如果遇见了continue,那么就会结束当前本次循环，continue后面的代码不会执行 ； 但是这整个循环还没有结束，整个循环还有等着循环条件不满足或者遇到break才会结束。
+    //  var i = 0;
+    //  while(i < 5){
+    //    i++;
+    //    if(i == 3){
+    //      continue;
+    //    }
+    //    console.log("哈哈"+i);
+    //  }
+
+
+    //2.使用场景
+    //a.计算1-100之间除了能被7整除之外所有整数的和。
+
+    var sum = 0;
+    for(var i = 1 ; i <= 100; i++){
+       if(i % 7 == 0){
+         continue;
+       }
+       sum += i;
+    }
+
+    console.log(sum);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

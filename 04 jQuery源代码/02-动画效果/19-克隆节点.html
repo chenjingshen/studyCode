@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //原生的js中克隆节点： cloneNode(参数)    参数是true表示深克隆   参数是false的话表示浅克隆
+
+
+      //给页面的p注册一个点击事件
+      $("#one").click(function () {
+        alert("我是p，我被单击了..");
+      });
+
+      //jQuery中的克隆  clone();
+      //不管clone()方法，有没有带参数，都是可以把当前标签以及当前标签的内容都克隆到。
+      //默认不写是false,是不会克隆到当前这个标签的事件的。
+      //参数如果写一个true，会把事件也克隆到。
+      $("#clone").click(function () {
+        var $cloneP = $("p").clone(true);
+        $("div").append($cloneP);
+
+
+      });
+
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="克隆" id="clone"/>
+<div></div>
+<p id="one">我是一个p
+  <span>我是一个span</span>
+</p>
+</body>
+</html>

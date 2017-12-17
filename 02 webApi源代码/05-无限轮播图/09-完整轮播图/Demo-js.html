@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+            <!-- 动态创建的小方块，添加在这里，样式已经给写好了-->
+        </ol>
+    </div>
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+<script src="../animate.js"></script>
+
+<script>
+    //获取大盒子
+    var box= document.getElementById("box");
+    //获取ul外面的盒子
+    var screen=box.children[0];
+    //获取ul
+    var ul= screen.children[0];
+    //获取ol
+    var ol= screen.children[1];
+    //获取箭头外面的div
+    var arr= document.getElementById("arr");
+    //获取上一页
+    var prev= document.getElementById("left");
+    //获取下一页
+    var text= document.getElementById("right");
+
+    //循环遍历ul，并给ol添加li标签，ul中有几个就给ol加几个元素
+    for (var i = 0; i < ul.children.length; i++) {
+        var li = document.createElement("li");
+        li.index=i;
+        li.innerHTML=i+1;
+        ol.appendChild(li);
+        ol.children[i].onclick= function () {
+            for (var i = 0; i < ol.children.length; i++) {
+                ol.children[i].removeAttribute("class");
+            }
+            this.className="current";
+            var index=this.index;
+            animate(ul,-index*screen.offsetWidth);
+        }
+    }
+    //给ol的第0个元素添加current属性
+    ol.children[0].className="current";
+    //给最外面的大盒子添加鼠标移入和移出事件
+    box.onmouseover= function () {
+        arr.style.display="block";
+        clearInterval(timerID);
+    }
+    box.onmouseout= function () {
+        arr.style.display="none";
+        timerID=setInterval(function () {
+            fn();
+        },1000);
+    }
+
+//    一开始就给ul最后加一张图片，图片就是第0张图片
+        ul.appendChild(ul.children[0].cloneNode(true));
+    //给左右箭头添加点击事件
+    var pageCount=0;
+    text.onclick= function () {
+        fn();
+    }
+    function fn() {
+        if(pageCount==ul.children.length-1){
+            pageCount=0;
+            ul.style.left="0px";
+        }
+        pageCount++;
+        var offset=-pageCount*screen.offsetWidth;
+        animate(ul,offset);
+        for (var i = 0; i < ol.children.length; i++) {
+            ol.children[i].removeAttribute("class");
+        }
+        if (pageCount == ul.children.length - 1) {
+
+            ol.children[0].className = "current";
+
+        } else {
+            ol.children[pageCount].className = "current";
+        }
+    }
+    prev.onclick= function () {
+        if(pageCount==0){
+            pageCount=ul.children.length-1;
+            ul.style.left=-pageCount*screen.offsetWidth+"px";
+        }
+        pageCount--;
+        var offset=-pageCount*screen.offsetWidth;
+        animate(ul,offset);
+        for (var i = 0; i < ol.children.length; i++) {
+            ol.children[i].removeAttribute("class");
+        }
+        if (pageCount == ul.children.length - 1) {
+
+            ol.children[0].className = "current";
+
+        } else {
+            ol.children[pageCount].className = "current";
+        }
+    }
+    var timerID=setInterval(function () {
+        fn();
+    },1000);
+
+    //找到大盒子
+//    var bigBox = document.getElementById("box");
+//    //找到保存图片的div
+//    var screen = bigBox.children[0];
+//    //找到保存上一页和下一页的盒子
+//    var arr = document.getElementById("arr");
+//    //找到上一页按钮
+//    var prev = document.getElementById("left");
+//    //找到下一页按钮
+//    var next = document.getElementById("right");
+//
+//    //找到ul
+//    var ul = screen.children[0];
+//    //找到ol
+//    var ol = screen.children[1];
+//
+//    //循环创建ol下的li标签（ul下有几个，就创建几个）
+//    for (var i = 0; i < ul.children.length; i++) {
+//
+//        var li = document.createElement('li');
+//
+//        //保存li的索引
+//        li.setAttribute("index", i);
+//
+//        li.innerHTML = i + 1;
+//
+//        ol.appendChild(li);
+//
+//        //给每一个li标签加点击事件
+//        li.onclick = function () {
+//
+//            for (var i = 0; i < ol.children.length; i++) {
+//
+//                ol.children[i].removeAttribute("class");
+//            }
+//
+//            this.className = "current";
+//
+//            pageCount = this.getAttribute("index");
+//
+//
+//            var offset = -pageCount * screen.offsetWidth;
+//
+//            animate(ul, offset);
+//        }
+//    }
+//
+//    //让第0个页码被选中
+//    ol.children[0].className = "current";
+//
+//    //大盒子被移入就让arr显示
+//    bigBox.onmouseover = function () {
+//
+//        arr.style.display = "block";
+//
+//        clearInterval(timerID);
+//    }
+//
+//    //大盒子移出的时候隐藏
+//    bigBox.onmouseout = function () {
+//
+//        arr.style.display = "none";
+//
+//        timerID = setInterval(function () {
+//
+//            nextPage();
+//
+//        }, 1000);
+//    }
+//
+//
+//    //一开始就给ul最后加一张图片，图片就是第0张图片
+//    ul.appendChild(ul.children[0].cloneNode(true));
+//
+//
+//    var pageCount = 0;
+//
+//    //下一页点击事件
+//    next.onclick = function () {
+//
+//        nextPage();
+//    }
+//
+//    function nextPage() {
+//
+//        if (pageCount == ul.children.length - 1) {
+//
+//            pageCount = 0;
+//            ul.style.left = "0px";
+//        }
+//
+//        pageCount++;
+//
+//        //根据滚出去的页面数算出应该偏移的值
+//        var offset = -pageCount * screen.offsetWidth;
+//
+//
+//        animate(ul, offset);
+//
+//        for (var i = 0; i < ol.children.length; i++) {
+//
+//            ol.children[i].removeAttribute("class");
+//        }
+//
+//
+//        //如果滚出去的页面数等于长度-1了，那么就代表现在显示的是第六张（自己加的用来骗用户的那张，那一张显示就是第0张图片，所以我们应该让索引也变为0高亮）
+//        if (pageCount == ul.children.length - 1) {
+//
+//            ol.children[0].className = "current";
+//
+//        } else {
+//            //只要不是骗人那张，就直接是几个索引，就设置几高亮
+//
+//            //根据滚出去的张数作为页码的索引，让它高亮
+//            ol.children[pageCount].className = "current";
+//        }
+//    }
+//
+//
+//    //上一张的点击事件
+//    prev.onclick = function () {
+//
+//        if (pageCount == 0) {
+//
+//            //如果是第0张，就偷偷的滚到最后一张
+//            //除了要把滚出去的张数还要把left的值也变一下
+//            pageCount = ul.children.length - 1;
+//            ul.style.left = -pageCount * screen.offsetWidth + "px";
+//        }
+//
+//
+//        pageCount--;
+//
+//        //根据滚出去的页面数算出应该偏移的值
+//        var offset = -pageCount * screen.offsetWidth;
+//
+//
+//        animate(ul, offset);
+//
+//        for (var i = 0; i < ol.children.length; i++) {
+//
+//            ol.children[i].removeAttribute("class");
+//        }
+//
+//        //根据滚出去的张数作为页码的索引，让它高亮
+//        ol.children[pageCount].className = "current";
+//    }
+//
+//
+//    //自动滚
+//    var timerID = setInterval(function () {
+//
+//        //因为自动滚，其实就相当于每隔一段事件点击一下下一张
+//        //所以我们可以把下一张的代码全部封装成函数，然后调用这个函数就行了
+//        nextPage();
+//
+//
+//    }, 1000)
+
+</script>
+</body>
+</html>

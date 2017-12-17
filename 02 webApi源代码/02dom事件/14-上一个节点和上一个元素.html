@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul id="ul">
+    <li>隔壁老王1</li>
+    <li id="two">隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+    var two = document.getElementById("two");
+    //找到上一个兄弟节点，空文本
+    //包括空文本，非空文本，注释
+//    console.log(two.previousSibling.nodeName);
+
+    //找到上一个兄弟元素，不包括文本、注释
+    //IE8以及之前的版本不支持
+//    console.log(two.previousElementSibling);
+
+    console.log(getPreviousElement(two));
+
+
+    function getPreviousElement(ele){
+
+        if(ele.previousElementSibling){
+
+            return ele.previousElementSibling;
+        }else{
+
+            //证明是IE8以前
+            var node =  ele.previousSibling;
+
+            while(node.nodeType != 1){
+
+                node = node.previousSibling;
+            }
+
+            return node;
+        }
+    }
+</script>

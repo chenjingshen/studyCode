@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    .one {
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      border: 20px solid red;
+      margin: 30px ;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //给按钮注册单击事件
+      $("#btn").on("click", function () {
+        //console.log($("#one").css("width")); //"获取的是字符串，带有px的"
+
+        //获取宽，不带border、padding、margin
+        //console.log($("#one").width()); //获取的是number类型， 就是本事的宽高，
+        //设置宽
+        //$("#one").width(300);
+
+
+        //获取宽 ，带padding
+        //console.log($("#one").innerWidth());
+
+        //获取宽 ，带padding  和 border
+        //console.log($("#one").outerWidth());
+
+        //获取宽 ，带padding  和 border 和margin
+        //console.log($("#one").outerWidth(true));
+
+
+
+
+
+        //注意：获取页面的宽高
+        console.log($(window).width() +":" +$(window).height());
+
+      });
+
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="宽高" id="btn"/> <br/><br/>
+<div class="one" id="one"></div>
+</body>
+</html>

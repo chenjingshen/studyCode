@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background-color: hotpink;
+            transition: background-color 0.5s 1s;
+        }
+
+        .box:hover {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+
+<!-- 
+    transition:
+    1. 可以写在选择器里面， 也可以写在hover里
+    2. 如果写在选择器里面， 还原的时候， 动画依然存在的， 写在hover中， 还原是没有动画的
+ -->

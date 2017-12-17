@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .hd {
+            height: 45px;
+        }
+
+        .hd span {
+            display: inline-block; /*将行内元素转换成行内块元素，宽高才起作用*/
+            width: 96px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hd span.current {
+            /*交集选择器，标签指定式选择器*/
+            background-color: purple; /*紫色*/
+        }
+
+        .bd li {
+            height: 255px;
+            background-color: purple;
+            display: none; /*设置隐藏*/
+        }
+
+        .bd li.current {
+            display: block; /*显示*/
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            /*
+             //      获取span标签
+             var spans = document.getElementsByTagName("span");
+             //      获取li标签
+             var lis = document.getElementsByTagName("li");
+             //    遍历每一个span标签
+             for (var i = 0; i < spans.length; i++) {
+             //    设置一个新属性用来保存span标签的索引
+             spans[i].suoyin=i;
+             //    给每个span标签设置一个移入（onmouseover）事件
+             spans[i].onmouseover = function () {
+             //    遍历每一个span标签和li标签，并删除（removeattribute）他们的class属性
+             for (var j = 0; j < spans.length; j++) {
+             spans[j].removeAttribute("class");
+             lis[j].removeAttribute("class");
+             }
+             //    给事件源设置（setattribute）class属性，属性值为current
+             this.className="current";
+             lis[this.suoyin].className="current";
+             }
+             }
+             */
+
+            var spans = document.getElementsByTagName("span");
+            var lis = document.getElementsByTagName("li");
+            for (var i = 0; i < spans.length; i++) {
+                spans[i].suoyin = i;
+                spans[i].onmouseover = function () {
+                    for (var i = 0; i < spans.length; i++) {
+                        spans[i].removeAttribute("class");
+                        lis[i].removeAttribute("class");
+                    }
+                    this.className = "current";
+                    lis[this.suoyin].className = "current";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="hd">
+        <span class="current">体育</span>
+        <span>娱乐</span>
+        <span>新闻</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <ul id="list">
+            <li class="current">我是体育模块</li>
+            <li>我的娱乐模块</li>
+            <li>我是新闻模块</li>
+            <li>我是综合模块</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
+<!--<script>-->
+<!--//1.获取元素-->
+<!--var box = document.getElementById("box");-->
+<!--var spans = box.getElementsByTagName("span"); //0 1 2 3-->
+<!--var lis = box.getElementsByTagName("li"); // 0 1 2 3-->
+
+<!--//2.for循环遍历出每一个span标签-->
+<!--for(var i = 0 ; i < spans.length; i++){-->
+<!--//2.1 给每一个span标签设置一个index属性-->
+<!--spans[i].setAttribute("index",i);-->
+
+<!--//2.1给每一个span标签注册一个鼠标移入事件-->
+<!--spans[i].onmouseover = function () {-->
+<!--//a.排他，让所有的span的颜色先还原-把所有的span标签的类属性给去掉。-->
+<!--for(var j = 0 ; j < spans.length; j++){ //0 1 2 3-->
+<!--spans[j].removeAttribute("class");-->
+
+<!--lis[j].removeAttribute("class");-->
+<!--}-->
+
+<!--//b.让鼠标移入的当前span的背景色设置成紫色-就是把自己的类设置成current-->
+<!--this.setAttribute("class","current");-->
+
+
+<!--//li标签显示  也要排他，先让所有的li标签给隐藏，让所有的li标签的类去掉-->
+<!--//for(var k = 0 ; k < lis.length; k++){ //0 1 2 3-->
+<!--//	lis[k].removeAttribute("class");-->
+<!--//}-->
+
+<!--//c.显示对应的li标签-->
+<!--lis[this.getAttribute("index")].setAttribute("class","current");-->
+<!--}-->
+<!--}-->
+<!--</script>-->

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 行要放到容器里面是为了解决.row的margin撑大盒子出滚动条 -->
+        <div class="row">
+            <div class="col-xs-6">
+                <!-- 栅格系统的列嵌套 -->
+                <!-- 这个行已经在容器 和 列里面 不会撑大滚动条 -->
+                <!-- 当列嵌套的时候只需要外面有一个容器就可以  不一定容器要是行的父元素-->
+                <!-- <div class="container"> -->
+                    <div class="row"></div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <!-- 列要放到行里面 -->
+        <div class="row">
+        	<!-- ul li有默认的padding -->
+        	<!-- 	<ul>
+        		<li class="col-xs-6"></li>
+        	</ul>
+        	<div>
+        		<div class="col-xs-6"></div>
+        	</div> -->
+        	<!-- 行的直接子元素都是列 都是div写 -->
+        </div>
+        <!-- 行也不是代表只有一行 .row里面的可以多行的 -->
+    </div>
+
+    <div id="zhifu">
+    	<div class="container">
+            <!-- 一行不是所有屏幕都是一行 --> 
+            <!-- 当遇到响应式栅格切换的时候 行在不同屏幕 行数是不一样的不要写多个.row -->
+    		<div class="row">
+    			<div class="col-md-4 col-sm-6">1</div>
+    			<div class="col-md-4 col-sm-6">2</div>
+                <div class="col-md-4 col-sm-6">3</div>
+    			<div class="col-md-4 col-sm-6">3</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4 col-sm-6">4</div>
+    			<div class="col-md-4 col-sm-6">5</div>
+                <div class="col-md-4 col-sm-6">6</div>
+    			<div class="col-md-4 col-sm-6">7</div>
+    		</div>
+    	</div>
+    </div>
+</body>
+
+</html>

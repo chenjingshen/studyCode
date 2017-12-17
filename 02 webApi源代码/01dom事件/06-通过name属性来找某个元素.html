@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        window.onload = function () {
+
+            //https://developer.mozilla.org/zh-CN/
+
+
+            //它找到的是4个，其他元素包含name，并且name的值等于register都能找到
+            //如果是在IE8以及IE8以前的版本，这里只会找到表单元素
+            //慎用
+            var list = document.getElementsByName('register');
+            console.log(list);
+        }
+    </script>
+</head>
+<body>
+
+<!-- name是表单元素的属性  -->
+<input type="text" name="register"/>
+<input type="password" name="register"/>
+<input type="button" value="点我" name="register"/>
+
+<div name="register">我是div</div>
+
+</body>
+</html>

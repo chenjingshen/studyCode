@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    //1.$是什么？
+    //a.他是jQuery中的顶级对象, 和 jQuery是同一个东西。
+    console.log($ === jQuery); //true
+
+    //多库共存。
+    $(function () {
+
+    });
+
+
+    //b.$其实是一个函数   $();   根据传入的参数不同，实现的功能也不一样
+    //b.1  匿名函数    入口函数。
+    //b.2  dom对象     把dom对象转换成jquery对象。
+    //b.3  字符串      常用的  选择器
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+<div id="one">我是一个div</div>
+</body>
+</html>

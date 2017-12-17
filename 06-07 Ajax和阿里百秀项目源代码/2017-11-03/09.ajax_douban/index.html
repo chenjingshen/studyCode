@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='调用豆瓣电影接口'>
+</body>
+</html>
+<script src='./jquery-1.12.4.min.js'></script>
+<script>
+    // 
+    $(function(){
+        $('input').click(function(){
+            $.ajax({
+                url:'https://api.douban.com/v2/movie/search',
+                // type:'get',
+                // 今天记住这种写法
+                dataType:'jsonp',
+                data:{
+                    q:'王晶'
+                },
+                success:function(backData){
+                    console.log(backData);
+                }
+            })
+        })
+
+    })
+    /*
+        JSONP
+            跟AJAX没有半毛钱关系
+            jQuery只是为了调用方便 所以封装到了一起
+            jQuery如果设置了dataType 为JSONP 那么调用时 会动态的创建一个 script标签 设置一个 src属性
+            当请求回来之后 会自动的删除 这个 script
+         为什么参数的key是callback?
+            因为 使用的十分频繁 大伙就约定 key 都是 callback 调用第三方的JSONP接口是 都是callback
+            但是如果是自己公司的项目 是可以跟后端配合 把key 改为其他的
+        工作中碰到了JSONP接口
+            只需要在jQuery的 $.ajax({dataType:'jsonp'})其他的跟调用普通的ajax接口是一样的
+    */ 
+
+</script>

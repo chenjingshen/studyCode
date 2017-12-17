@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    .one {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+  <script>
+    //1.弹出框 ，小括号中就是弹出的内容
+    //alert("我是一个弹出框");
+
+    //2.控制台输出 小括号里面就是 控制台输出的东西
+    //console.log("我是控制台输出的内容");
+
+
+    //3.弹出输入框，可以接受用户输入的信息。
+    //3.1 prompt("请输入你的名字");
+    //3.2 prompt("请输入你的名字","张三");
+
+    //4.在页面上输出内容
+    //如果小括号中的内容包含了标签，那么他是会把标签给解析出来的。
+    //慎用： 有些情况下，他会覆盖到页面上所有的内容。
+    //document.write("<h1>哈哈哈</h1>");
+
+    //5.弹出一个确认框
+    //confirm("你真的爱我吗？");
+
+  </script>
+</head>
+<body>
+<div class="one"></div>
+<input type="button" value="按钮" onclick="document.write('你看看我做了什么！')"/>
+</body>
+</html>

@@ -1,0 +1,1 @@
+console.log('l am from b.js');

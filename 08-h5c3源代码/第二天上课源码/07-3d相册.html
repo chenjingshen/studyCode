@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: black;
+
+            /* 实现近大远小 */
+            perspective: 600px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 100px auto;
+            width: 240px;
+            height: 320px;
+            background-color: white;
+
+            transition: all 1s;
+
+            /* 开启3d效果 */
+            transform-style: preserve-3d;
+
+            /* 绕着底部旋转， 改变其旋转轴 */
+            transform-origin: bottom;
+        }
+
+        ul:hover {
+            transform: rotateX(45deg);
+        }
+
+
+        li {
+            position: absolute;
+            padding: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid gold;
+            box-shadow: 0px 0px 10px gold;
+
+            /* li要翻页，是个3d效果 */
+            transform-style: preserve-3d;
+
+            /* 改变旋转轴的位置 */
+            transform-origin: left;
+        }
+
+        li:nth-child(1) {
+            background: url("./img/girl1.jpg") left top / 100% 100%;
+        } 
+
+        li:nth-child(2) {
+            background: url("./img/girl2.jpg") left top / 100% 100%;
+        } 
+
+        li:nth-child(3) {
+            background: url("./img/girl3.jpg") left top / 100% 100%;
+        } 
+
+        li:nth-child(4) {
+            background: url("./img/girl1.jpg") left top / 100% 100%;
+        } 
+
+        li:nth-child(5) {
+            background: url("./img/girl4.jpg") left top / 100% 100%;
+        } 
+
+
+        ul:hover li:nth-child(5) {
+            transition: all 1s 1s;
+            transform: rotateY(-170deg);
+        }
+
+        ul:hover li:nth-child(4) {
+            transition: all 1s 1s;
+            transform: rotateY(-169.5deg);
+        }
+
+        ul:hover li:nth-child(3) {
+            transition: all 1s 3s;
+            transform: rotateY(-130deg);
+        }
+
+        ul:hover li:nth-child(2) {
+            transition: all 1s 4s;
+            transform: rotateY(-110deg);
+        }
+
+    </style>
+
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

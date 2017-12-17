@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+    <!--
+        事件：其实就是用户做了某种操作，然后网页提供某种响应
+
+        首先还要区分：用户是对哪个元素进行交互
+        还要知道     做的是哪种交互
+        最后要 提供一个响应后的处理代码（怎么来处理用户这次的交互）
+
+
+        事件源：谁给你用户交互（只有当跟它交互时才有效果）
+        事件类型：用户做的什么操作（什么交互，区分是点击还是鼠标移入等）
+        事件响应：用什么样的结果来处理这次的用户交互
+    -->
+
+    <script>
+        window.onload = function () {
+
+            //找到div
+            var divDom = document.getElementById('box');
+
+            //div你如果被点击了，就调用test函数
+            //onclick :在点击的时候,调用这个匿名函数
+            divDom.onclick = function () {
+                alert('我被点了');
+            };
+
+
+        }
+    </script>
+</head>
+<body>
+
+
+<div id='box'></div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 创建一个径向的渐变
+    var c0 = {x: 300, y: 200, r: 130}
+    var c1 = {x: 300, y: 200, r: 200}
+    var gra = context.createRadialGradient(c0.x, c0.y, c0.r, c1.x, c1.y, c1.r);
+    gra.addColorStop(0, "purple");
+    gra.addColorStop(1/7, "cyan");
+    gra.addColorStop(2/7, "skyblue");
+    gra.addColorStop(3/7, "green");
+    gra.addColorStop(4/7, "yellow");
+    gra.addColorStop(5/7, "orange");
+    gra.addColorStop(6/7, "red");
+    gra.addColorStop(1, "rgba(255, 0, 0, 0.5)");
+
+    context.fillStyle = gra;
+
+    //2. 画圆并填充
+    context.arc(c1.x, c1.y, c1.r, 0, 2*Math.PI);
+    context.arc(c0.x, c0.y, c0.r, 0, 2*Math.PI, true);
+
+    context.fill();
+
+    //3. 画一个方形，把面半部分的圆盖住
+    context.fillStyle = "white";
+    context.fillRect(0, 200, 600, 200);
+
+</script>

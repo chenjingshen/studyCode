@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!--
+ ctrl+d  复制光标当前所在的那一行内容
+ ctrl+y  删除光标所在的那一行内容
+
+ ctrl+alt+l  自动格式化代码文件
+
+
+ CSS的代码有三种写法：
+        1.行内样式（不推荐用）
+        2.外联样式
+        3.嵌入样式
+
+
+  JS的代码跟CSS的写法一样一样也是有三种
+        1.行内（不推荐用）
+        2.外联
+                用script标签加src属性指定js的路径
+                注意：外联一个js文件的时候，script里面写JS代码不会被执行了
+
+        3.嵌入：要求写一对script标签，然后把JS代码写在这个标签里就可以了
+                script标签的位置没有要求，但是建议写在head或者写在页面最下面
+
+
+    JS里每句代码结束要加一个分号，代表这句话完了，不加分号可能会无法正常执行
+
+    alert():弹出一个提示框）
+
+-->
+
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="index.css"/>
+
+    <style>
+        .box{
+
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+    <script>
+        alert("hello，eat no?");
+        alert("我在后面");
+    </script>
+
+    <!-- 此处无效，原因：因为外联相当于只是占用一个位置，当浏览器解析时会把外联文件里的所有内容替换到这个位置来，所以这里写的代码就没有了-->
+    <script src="first.js">
+        alert("我显示不出来，哦！");
+    </script>
+</head>
+
+
+<body>
+
+<div class="box" style="background-color: red"></div>
+
+<input type="text"/>
+<input type="text"/>
+<input type="text"/>
+
+<input type="button" value="点我啊" onclick="alert('点一次收费200')"/>
+
+</body>
+
+
+</html>

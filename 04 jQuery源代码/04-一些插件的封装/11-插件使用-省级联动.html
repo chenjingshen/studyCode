@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <!--有三个下拉框-->
+    <select ></select>
+    <select ></select>
+    <select ></select>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script src="plugin/distpicker.data.js"></script>
+<script src="plugin/distpicker.js"></script>
+
+<script>
+  $(function () {
+     //html文件中，必须的结构是包含三个下拉框select
+
+     $("div").distpicker();
+
+  });
+</script>
+</body>
+</html>

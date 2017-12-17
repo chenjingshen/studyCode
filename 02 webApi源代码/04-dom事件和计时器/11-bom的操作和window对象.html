@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        BOM:主要是操作浏览器 B：browser
+
+        DOM:主要是操作文档的（标签元素）
+
+
+        BOM下有一个很重要的对象：window对象
+
+        window：window对象就代表你当前浏览器打开的页面
+        包含这个页面里的所有信息：dom,history,location等等
+
+
+        window是js里的顶级对象:
+                你声明的全局变量和函数，其实就相当于是给window这个对象加了属性和方法
+
+         所以其实我们之前学的alert还有document.xxxx都是window的属性或方法
+
+         全部写的形式应该加一个window。但是不加也可以，默认就是找的window的属性和方法
+
+
+         总而言之所有东西都是window的，只不过我们可以省略window不写
+
+
+         因为window可以操作dom也可以操作bom
+
+
+         window有一个name属性，作为window的名字（窗口的名字）
+
+        这个属性永远取到的都是字符串
+    -->
+
+    <script>
+
+//        alert("xxx");//相当于写window.alert
+//
+//        window.alert("大家好");
+//
+//
+//        window.document.write("我写入了");
+//
+//        window.prompt("输入框");
+//
+//        window.confirm("请确定");
+//
+//        window.console.log("哈哈");
+
+        /*
+        var num = 10;
+
+        console.log(window.num);
+
+        function test(){
+
+            console.log("我是test");
+        }
+
+        window.test();
+        */
+
+
+//        window.name = 10;
+//
+//        console.log(typeof  window.name);
+
+
+        var name = 10;//相当于写的就是  window.name = 10;
+
+        console.log(typeof name);// typeof window.name
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

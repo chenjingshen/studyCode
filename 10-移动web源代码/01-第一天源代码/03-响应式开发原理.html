@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .row div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        /*一行放多个div要浮动*/
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 超小屏幕（手机）    768px以下
+	小屏设备（ipad）    768px-992px
+	中等屏幕（旧式电脑）   992px-1200px
+	宽屏设备（现代电脑）   1200px以上 -->
+    <!-- 宽屏设备 一行放4个.col   .col宽度25%
+	中屏设备 一行放3个.col        .col宽度33.33%
+	小屏设备 一行放2个.col        .col宽度50%
+	超小屏幕 一行放1个.col        .col宽度100%-->
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+    </div>
+    <script>
+    /*使用JS实现响应式开发  但是代码量大  JS是用来实现页面 交互和功能(逻辑代码（登录注册表单验证 加入购物车 计算价格。。。）)  样式问题尽量不要用JS来做*/
+    var cols = document.querySelectorAll('.col');
+    Responsive();
+    // 函数体不要带()
+    window.addEventListener('resize', Responsive);
+
+    function Responsive() {
+        // 用JS获取屏幕宽度判断是哪个屏幕 设置.col的宽度样式
+        var windowWidth = document.body.offsetWidth;
+        if (windowWidth > 1200) {
+            // 宽屏设备 一行放4个.col   .col宽度25%
+            for (var i = 0; i < cols.length; i++) {
+                cols[i].style.width = '25%';
+            }
+        } else if (windowWidth > 992 && windowWidth < 1200) {
+            // 中屏设备 一行放3个.col        .col宽度33.33%
+            for (var i = 0; i < cols.length; i++) {
+                cols[i].style.width = '33.33%';
+            }
+        } else if (windowWidth > 768 && windowWidth < 992) {
+            // 小屏设备 一行放2个.col        .col宽度50%
+            for (var i = 0; i < cols.length; i++) {
+                cols[i].style.width = '50%';
+            }
+        } else if (windowWidth < 768) {
+            // 超小屏幕 一行放1个.col        .col宽度100%
+            for (var i = 0; i < cols.length; i++) {
+                cols[i].style.width = '100%';
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

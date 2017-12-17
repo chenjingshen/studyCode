@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<select name="" id="left" multiple>
+    <option value="">西瓜</option>
+    <option value="">鸭梨</option>
+    <option value="">苹果</option>
+    <option value="">水蜜桃</option>
+    <option value="">哈密瓜</option>
+    <option value="">山竹</option>
+</select>
+<button id="toLeftAll">&lt;&lt; </button>
+<button id="toRightAll">&gt;&gt; </button>
+<button id="toLeft">&lt; </button>
+<button id="toRight">&gt; </button>
+
+<select name="" id="right" multiple>
+
+</select>
+
+</body>
+</html>
+<script>
+    var left=document.getElementById("left");
+    var right=document.getElementById("right");
+    document.getElementById("toRightAll").onclick=function(){
+        while(left.children.length!=0){
+            right.appendChild(left.children[0]);
+        }
+    }
+    document.getElementById("toLeftAll").onclick=function(){
+        while(right.children.length!=0){
+            left.appendChild(right.children[0]);
+        }
+    }
+    document.getElementById("toRight").onclick=function(){
+       for(var i=0;i<left.children.length;i++){
+           if(left.children[i].selected){
+               right.appendChild(left.children[i]);
+               i--;
+           }
+       }
+    }
+    document.getElementById("toLeft").onclick=function(){
+        for(var i=0;i<right.children.length;i++){
+            if(right.children[i].selected){
+                left.appendChild(right.children[i]);
+                i--;
+            }
+        }
+    }
+
+</script>
+
+<script src="js/common.js"></script>
+
+<script>
+
+//    //找到左边的下拉框
+//    var left = id("left");
+//
+//    //找到右边的下拉框
+//    var right = id("right");
+//
+//    //全部移动到右边按钮添加点击事件
+//    id("toRightAll").onclick = function () {
+//
+//
+////        console.log("添加前左边第0个元素：" + left.children[0].innerHTML);
+////
+////        right.appendChild(left.children[0]);
+////
+////        console.log("添加后左边第0个元素：" + left.children[0].innerHTML);
+//
+//        //因为每移动一个元素到右边后，下一个就变成了第0个，所以我们只要一直移动第0个元素就够了
+//        //我们知道，当左边的子元素长度为0代表移动完了，所以我们根本不要管次数，而是来一个条件：只要你的子元素长度不等于0，就代表还有子元素，那我就来到循环继续移动你的第0个元素
+//
+//        while (left.children.length != 0) {
+//
+//            //把左边第0个加到右边
+//            right.appendChild(left.children[0]);
+//        }
+//
+//    }
+//
+//    //给右边全部添加打左边按钮加点击事件
+//    id("toLeftAll").onclick = function () {
+//
+//        while (right.children.length != 0) {
+//
+//            left.appendChild(right.children[0]);
+//        }
+//    }
+//
+//    //把左边选中的移动到右边
+//    id("toRight").onclick = function () {
+//
+//        /*
+//         思路：循环遍历左边的下拉的所有子元素，判断每个元素有没有被选中（selected为true），如果有被选中，那我就把这个元素添加到右边
+//         */
+//
+//        for (var i = 0; i < left.children.length; i++) {
+//
+//            if (left.children[i].selected) {
+//
+//                //注意：如果有选中的，那么它的下一个元素会变成当前的索引
+//                //为了不会跳过下一个元素，我们就应该先让i--.再让i++,那么索引就相当于没有动
+//                right.appendChild(left.children[i]);
+//                i--;
+//            }
+//        }
+//    }
+//
+//    id("toLeft").onclick = function () {
+//
+//        for (var i = 0; i < right.children.length; i++) {
+//
+//            if (right.children[i].selected) {
+//
+//                //注意：如果有选中的，那么它的下一个元素会变成当前的索引
+//                //为了不会跳过下一个元素，我们就应该先让i--.再让i++,那么索引就相当于没有动
+//                left.appendChild(right.children[i]);
+//                i--;
+//            }
+//        }
+//    }
+
+
+</script>

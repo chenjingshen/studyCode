@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas height="400" width="600"></canvas>
+<script>
+    var canvas = document.querySelector('canvas');
+    var ctx = canvas.getContext('2d');
+
+    /*绘制图片*/
+    var image = new Image();
+    image.onload = function () {
+        /*图片的宽高 决定人物大小*/
+        var imageWidth = image.width;
+        var imageHeight = image.height;
+        /*确定人物大小*/
+        var perWidth = imageWidth/4;
+        var perHeight = imageHeight/4;
+        /*起始绘制位置*/
+        var width = ctx.canvas.width;
+        var height = ctx.canvas.height;
+        /*帧动画*/
+        /*索引*/
+        var index = 0;
+        ctx.drawImage(image,0,0,perWidth,perHeight,width/2-perWidth/2,height/2-perHeight/2,perWidth,perHeight);
+        setInterval(function () {
+            index ++;
+            if(index >3){
+                index = 0;
+            }
+            /*清除上一次的绘制*/
+            ctx.clearRect(width/2-perWidth/2,height/2-perHeight/2,perWidth,perHeight);
+            /*绘制图片*/
+            ctx.drawImage(image,index*perWidth,0 ,perWidth,perHeight,width/2-perWidth/2,height/2-perHeight/2,perWidth,perHeight);
+        },100);
+    }
+    image.src = '01.png';
+
+
+
+</script>
+</body>
+</html>

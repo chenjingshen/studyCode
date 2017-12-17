@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        所谓的一个数的N次方
+
+        3的3次方  27   3 * 3 * 3 = 27
+
+        JS中没有乘方的符号
+    -->
+
+    <script>
+        //
+        <!--算乘方 -->
+        //        var n1 = 10;
+        //
+        //        console.log(Math.pow(n1,2));//100
+        //        console.log(Math.pow(n1,3));//1000
+        //        console.log(Math.pow(n1,4));//10000
+
+        /*
+        //        天花板函数:向上取整，得到的结果是整数
+        //        说人话：正数的时候就是只保留整数部分，并且如果小数部分不为0，那么就给整数部分+1
+        //                 负数的时候直接就是取整数部分
+        //        它得到的结果一定是大于或等于原来的值
+        var n1 = -10.00001;
+        console.log(Math.ceil(n1));//-10
+
+
+        //        地板函数：向下取整，得到结果是整数
+        //        说人话：针对于正数的情况直接留整数部分
+        //                如果是负数，则还需要对整数部分再-1
+        //        得到的结果必须比原来的值小或者相等于
+        console.log(Math.floor(n1));//-11
+        */
+
+
+//        四舍五入:只看小数点后的第一位
+//        var n2 = 10.445;
+//        console.log( Math.round(n2) );//10
+//
+//        var n3 = 10.545;
+//        console.log( Math.round(n3) );//11
+//
+//
+//        var n4 = 10.456;
+//        console.log( Math.round(n4) );//10
+
+
+//        得到最大值,可以传2个到多个，至少要2个
+//        var n1=13,n2=432,n3=4365;
+//
+//        console.log( Math.max(n1,n2,n3,2000,30020) );
+//
+////        得到最小值
+//        console.log(Math.min(n1,n2,n3));//13
+
+//        得到圆周率
+//        console.log(Math.PI);
+
+
+//        随机数
+        var num = Math.random() * 100; //生成0-1之间的随机数
+
+        console.log(num);
+
+//        我要生成0-100的数呢？用向上或者向下都一样，因为你最大生成的随机数是1,1*100 = 100   0.9934 * 100
+//       99.34  100
+        console.log( Math.ceil(num) );
+
+//        生成50-150之间的数呢？
+        var num2 = Math.random() * 100 + 50;
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

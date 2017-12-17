@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.预解析-变量的提升
+  //执行任意作用域里面的代码的时候，会先把这个作用域中变量的声明提前到当前这个作用域的最顶端，赋值语句保留在原地。
+  //会把这个作用域中函数的声明提前到最顶端，调用语句保留在原地。
+
+  //console.log(num);
+  //var num = 10;
+
+
+  // test();
+  // function test(){
+  //   console.log("哈哈");
+  // }
+
+
+
+
+ // test();
+ // function test(){
+ //   var num;
+ //   function test2(){
+ //     console.log("哈哈");
+ //   }
+ //   //---------
+ //   console.log(num);
+ //   num = 10;
+
+ //   test2();
+ // }
+
+
+
+
+  //函数表达式的方式声明
+  // test(); //报错的
+  // var test = function () {
+  //   console.log("呵呵");
+  // }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

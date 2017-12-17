@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        只要是new关键字调用构造函数，都会创建一个新的对象
+    -->
+
+    <script>
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHi = function () {
+                console.log('hello,eat no?');
+            }
+        }
+
+        var p1 = new Person('鱼香',16);
+        var p2 = new Person('rose',14);
+
+        p2 = p1;
+
+        p2.name = 'jack';
+
+        console.log(p1.name);//jack
+        console.log(p2.name);//jack
+
+        console.log(p1.age);//16
+        console.log(p2.age);//16
+
+
+        /*
+        var p1 = new Person('鱼香',16);
+        var p2 = new Person('rose',14);
+
+        p2.name = 'jack';
+
+        console.log(p1.name);//鱼香
+        console.log(p2.name);//jack
+        */
+
+        //对象作为函数参数
+        /*
+        function test(a){
+
+            a.name = "刘德华";
+        }
+
+        var p1 = new Person("andy",16);
+
+        test(p1);
+
+        console.log(p1.name);//刘德华
+        */
+
+
+        //对象之间的赋值
+        /*
+//        var p1 = new Person("andy",16);
+//
+//        var p2 = p1;
+//
+//        p2.name = "rose";
+//
+//        console.log(p1.name);//rose
+//        console.log(p2.name);//rose
+*/
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

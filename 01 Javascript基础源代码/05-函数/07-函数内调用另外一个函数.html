@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        函数内可以调用另外一个函数
+    -->
+
+    <script>
+
+        function test1(){
+
+            console.log('我是test1：哈哈');
+        }
+
+        function test2(){
+
+            console.log('我是test2：呵呵');
+
+            test1();
+        }
+
+
+        test2();
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

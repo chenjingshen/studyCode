@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 1.完全面向过程的-------------------------------
+    // 编程初期 必经的过程
+    /*
+    // 次数
+        var count = 0;
+        count++;// 累加
+        count--;// 递减
+    */
+
+    // 2.封装到函数中---------------------------------
+    // 发现了重复代码冗余之后 会经历的一个 优化过程
+    /*
+        var count = 0;
+        function add(){
+            count++;
+        }
+        function sub(){
+            count--;
+        }
+    */
+
+    // 3.封装到对象中-----------------------------------------
+    // 有效解决 全局变量污染的问题
+    /*
+        var countObj = {
+            count:0,
+            add:function(){
+                this.count++;
+            },
+            sub:function(){
+                this.count--;
+            }
+        }
+        countObj.count = null;
+    */
+
+    // 4.对某一些属性 进行保护 闭包
+    // 对变量提供保护 对外 提供有限的 访问权限
+    /*
+        var countControl = (function () {
+            var count = 0;
+            return {
+                add: function () {
+                    count++;
+                },
+                sub: function () {
+                count--;
+                },
+                getCount: function () {
+                    console.log(count)
+                }
+            }
+        })()
+
+        countControl.add();
+        countControl.add();
+        countControl.add();
+        countControl.add();
+        countControl.getCount();
+    */
+
+    // 5.当我们的功能封装的足够多之后 独立为一个.js文件 会使用沙箱模式进行封装 目的是为了创建一个隔离的环境
+    // 沙箱模式为什么一般会传入一个 window
+    // 原因1 如果windoww 是直接使用全局的 那么 压缩代码时 无法压缩
+    // 原因2 保证沙箱的独立性
+    (function(window){
+        // console.log(window);
+        // window.sayHello = function(){
+        //     console.log('你好吗');
+        // }
+        // 定义变量
+        var countControl;
+
+        // 为变量赋值
+        countControl = (function () {
+            var count = 0;
+            return {
+                add: function () {
+                    count++;
+                },
+                sub: function () {
+                count--;
+                },
+                getCount: function () {
+                    console.log(count)
+                }
+            }
+        })()
+
+
+        // 暴露可以访问的方式
+        window.countControl = window.CC = countControl;
+    })(window)
+    // window.sayHello();
+    CC.add();
+    CC.add();
+    CC.add();
+    CC.getCount();
+</script>

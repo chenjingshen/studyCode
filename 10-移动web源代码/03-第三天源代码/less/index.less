@@ -1,0 +1,369 @@
+/* less代码约定
+1. 最外层用id选择器限定容器 优先级高方便覆盖样式
+2. 当选择子元素标签的时候用直接子代选择器  避免误杀孙子曾孙子等元素 
+3. 尽量不要给父容器限定高度*/
+
+
+/* 定义灰色变量 */
+
+@gray: #666;
+
+/* 定义一个主题色变量 */
+
+@main-color: #e92322;
+
+/* 头部区域 */
+
+#header {
+    /* 顶部通栏 */
+    .topbar {
+        border-bottom: 1px solid #ccc;
+        .container {
+            .row {
+                > div {
+                    height: 40px;
+                    line-height: 40px;
+                    border-left: 1px solid #ccc;
+                    &:first-child {
+                        border-left: 0;
+                        >a {
+                            >img {
+                                display: none;
+                                position: absolute;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                z-index: 999;
+                            }
+                            &:hover {
+                                >img {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    >a {
+                        color: @gray;
+                        &.btn-danger {
+                            color: #fff;
+                            background-color: @main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* 导航条 */
+    .navbar-default {
+        background-color: #fff;
+        margin-bottom: 0;
+        z-index: 998;
+        /*  导航条吸顶加了固定定位宽度100%就没有要自己加 */
+        width: 100%;
+        /* 如果不加top不能贴到顶上 */
+        top: 0;
+        .navbar-header {
+            .navbar-toggle {
+                margin-top: 23px;
+            }
+            .navbar-brand {
+                height: 80px;
+                line-height: 50px;
+                >i {
+                    font-size: 30px;
+                    &:first-child {
+                        color: @main-color;
+                    }
+                    &:last-child {
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .navbar-collapse {
+            .navbar-nav {
+                >li {
+                    >a {
+                        height: 80px;
+                        /* a标签有默认15px上下padding 减掉30px */
+                        line-height: 50px;
+                        &:hover {
+                            border-bottom: 2px solid @main-color;
+                        }
+                    }
+                    &.active {
+                        >a {
+                            background-color: #fff;
+                            border-bottom: 2px solid @main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 轮播图区域 */
+
+#slide {
+    .pc-img {
+        display: block;
+        background-position: center center;
+        height: 410px;
+    }
+    .mobile-img img {
+        width: 100%;
+    }
+}
+
+
+/* 支付交易保障 */
+
+#payment {
+    padding: 40px 0;
+    .container {
+        .row {
+            >div {
+                margin-top: 10px;
+                .media {
+                    >a {
+                        color: @gray;
+                        &:hover {
+                            color: @main-color;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 立即预约 */
+
+#booking {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    /* 单行文本居中 */
+    /* line-height: 60px; */
+}
+
+
+/* 产品区域 */
+
+#products {
+    background-color: #ccc;
+    padding: 40px 0;
+    .container {
+        #wrapper {
+            overflow: hidden;
+            position: relative;
+            height: 53px;
+            /* 标签页标题 */
+            .nav-tabs {
+                width: 600px;
+                >li {
+                    >a {
+                        border: 0;
+                        font-size: 16px;
+                        color: #666;
+                        &:hover {
+                            background-color: #ccc;
+                        }
+                    }
+                    &.active {
+                        >a {
+                            background-color: #ccc;
+                            border-bottom: 3px solid @main-color;
+                        }
+                    }
+                }
+            }
+        }
+        /* 标签页内容 */
+        .tab-content {
+            .tab-pane {
+                /* 如果使用栅格系统的列嵌套 必须带> 直接子元素 */
+                >.row {
+                    >div {
+                        .product {
+                            background-color: #fff;
+                            position: relative;
+                            margin-top: 20px;
+                            &.active {
+                                background-color: @main-color;
+                                color: #fff;
+                                &::before {
+                                    /* 编码 */
+                                    content: "\e915";
+                                    /* 字体 */
+                                    font-family: 'itcast';
+                                    font-size: 30px;
+                                    position: absolute;
+                                    left: 0;
+                                    top: -6px;
+                                }
+                            }
+                            .product-left {
+                                height: 160px;
+                                margin-right: 120px;
+                                padding: 10px;
+                                >.row {
+                                    >div {
+                                        margin-bottom: 10px;
+                                        &:nth-child(2n) {
+                                            text-align: right;
+                                        }
+                                        >p {
+                                            margin-bottom: 0;
+                                        }
+                                    }
+                                }
+                            }
+                            .product-right {
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                width: 120px;
+                                height: 160px;
+                                border-left: 1px dashed #ccc;
+                                /* 行高只能单行文本居中 */
+                                padding: 40px 0;
+                                >p {
+                                    >strong {
+                                        font-size: 30px;
+                                    }
+                                }
+                                &::before,
+                                &::after {
+                                    content: '';
+                                    width: 16px;
+                                    height: 16px;
+                                    position: absolute;
+                                    border-radius: 50%;
+                                    left: -8px;
+                                    background-color: #ccc;
+                                }
+                                &::before {
+                                    top: -8px;
+                                }
+                                &::after {
+                                    bottom: -8px;
+                                }
+                                /* 工具提示的样式 */
+                                .tooltips {
+                                    position: absolute;
+                                    width: 100%;
+                                    top: 20px;
+                                    text-align: center;
+                                    >a {
+                                        &:first-of-type {
+                                            border: 1px solid @main-color;
+                                            color: @main-color;
+                                        }
+                                        /* last-child必须是最后一个而且是当前类名 */
+                                        /* nth-of-type(2n) 当前类型的第几个 */
+                                        /* 选中最后一个当前类型的元素 排除别的类型的元素 */
+                                        &:last-of-type {
+                                            border: 1px solid #0f0;
+                                            color: #0f0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 全部新闻区域 */
+
+#news {
+    padding: 40px 0;
+    .row {
+        >div {
+            >h4 {
+                border-bottom: 1px dashed #ccc;
+                line-height: 40px;
+                text-align: center;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    right: -10px;
+                    bottom: -5px;
+                }
+            }
+            .nav-tabs {
+                border-bottom: 0;
+                >li {
+                    >a {
+                        border-radius: 50%;
+                        margin-bottom: 20px;
+                        color: #ccc;
+                        border: 0;
+                        &:hover {
+                            background-color: @main-color;
+                        }
+                        >i {
+                            font-size: 30px;
+                        }
+                    }
+                    &.active {
+                        >a {
+                            background-color: @main-color;
+                        }
+                    }
+                }
+            }
+            .tab-content {
+                .tab-pane {
+                    >ul {
+                        >li {
+                            list-style: none;
+                            line-height: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 合作伙伴 */
+
+#partner {
+    .container {
+        >h3 {
+            text-align: center;
+        }
+        >ul {
+            >li {
+                width: (100%/9);
+                float: left;
+                list-style: none;
+                >a {
+                    color: #666;
+                    text-decoration: none;
+                    &:hover {
+                        color: @main-color;
+                    }
+                    >i {
+                        font-size: 60px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+  function Person(name){
+    this.name = name;
+    this.sayHi = function () {
+      console.log("哈哈哈");
+    }
+  }
+
+  var p1 = new Person("张三");
+  p1.sayHi(); //有实例化对象，点出来的成员，就是实例成员。
+
+
+  Person.sayHi = function () {
+    console.log("呵呵呵呵");
+  }
+  Person.sayHi(); //由构造函数点出来的成员，就是静态成员。
+
+  //静态成员
+  Math.ceil();
+  Math.random();
+
+
+  //静态成员
+  Person.prototype
+  //实例成员
+  p1.__proto__
+
+
+</script>
+</body>
+</html>

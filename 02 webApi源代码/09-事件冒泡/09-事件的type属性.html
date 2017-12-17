@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        事件的type属性：就是获取当前事件是什么事件（事件的类型），得到的是一个字符串
+
+            如果是点击事件，得到是click字符串，如果是鼠标移入，得到的是mouseover字符串
+    -->
+
+    <style>
+        /*<!-- body默认没有高度，它的高度都是靠子元素撑开的-->*/
+        body{
+
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    
+    document.body.onmouseover = function (e) {
+        e = e || window.event;
+
+        console.log(e.type);
+    }
+
+
+
+    document.body.onmouseout = function (e) {
+        e = e || window.event;
+
+        console.log(e.type);
+    }
+</script>

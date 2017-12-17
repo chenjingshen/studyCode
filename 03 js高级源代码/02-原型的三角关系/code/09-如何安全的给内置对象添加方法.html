@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.不建议去给内置对象的构造函数对应的原型 扩展成员。
+
+  //程序员a
+  // Array.prototype.sayHi = function () {
+  //   console.log("哈哈哈，大家好");
+  // }
+  // var arr1 = [10,20,30];
+  // arr1.sayHi();
+//
+//
+  // //程序员B
+  // Array.prototype.sayHi = function () {
+  //   console.log("哈哈哈哈，我是来捣乱的。");
+  // }
+//
+  // //程序员A调用一下
+  // arr1.sayHi();
+
+  //----------------------------------------------------
+  //2.如何安全地给构造函数的原型添加方法
+  function MyArray(){
+  }
+  //修改这个MyArray构造函数的原型为一个空数组。
+  MyArray.prototype = [];
+  //给这个原型扩展我们自己的方法
+  MyArray.prototype.sayHi = function (){
+  	console.log("哈哈，大家好");
+  }
+
+  var myarr1 = new MyArray();
+  console.log(myarr1);
+  myarr1.push(10);
+  myarr1.push(20);
+  myarr1.push(30);
+  myarr1.push(40);
+  myarr1.sayHi();
+
+
+
+  //程序员B
+  Array.prototype.sayHi = function () {
+    console.log("捣乱的。");
+  }
+
+  //程序员A又来调用自己扩展的方法
+  myarr1.sayHi();
+
+
+
+</script>
+</body>
+</html>

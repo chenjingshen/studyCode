@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <img src="" alt="">
+</body>
+</html>
+
+<script>
+    document.ondragover = function(event) {
+        event.preventDefault();
+    }
+
+    document.ondrop = function(event) {
+        event.preventDefault();
+        // console.log(event);
+
+        //1. 拿到文件
+        var file = event.dataTransfer.files[0];
+        console.log(file);
+
+        //2. 创建文件读取的对象
+        var reader = new FileReader();
+
+        //3. 加载文件
+        // 把图片读取成一个base64加密后的字符串， 在css中的图片路径可以直接使用这个字符串
+        reader.readAsDataURL(file);
+
+        //4. 加载成功之后使用文件
+        reader.onload = function() {
+            console.log(reader.result);
+            document.querySelector("img").src = reader.result;
+        }
+    }
+</script>
+
+<!--
+    总结： 
+    1. 浏览器的默认的操作方式， 就是当拖入文件之后，直接尝试打开
+    2. 所以， 我们需要阻止浏览器的默认事件 event.preventDefault()
+    3. 可以通过event.dataTransfer.files[0] 拿到文件
+    4. 读取文件， 遵循固定的几步1. 拿到文件， 2. 创建reader， 3.加载文件， 4. 使用文件
+
+
+    readAsDataULR： 本质上是把图片转成一个二进制数据之后用base64加密后形成一个字符串， data:image/jpeg;
+ -->
+

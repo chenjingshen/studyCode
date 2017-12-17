@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="往右走400，下走500" id="btn1"/>
+<input type="button" value="边走边大" id="btn2"/>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+<script src="js/animate.js"></script>
+<script>
+
+    //获取到盒子了
+    var box = document.getElementById("box");
+
+    document.getElementById("btn1").onclick = function () {
+
+        animateSlow(box, jsonData);
+    };
+
+
+    document.getElementById("btn2").onclick = function () {
+
+        animateSlow(box, {
+
+            "left": "400px",
+            "top": 500,
+            "width": 300,
+            "height": 300
+
+        });
+    };
+
+
+    var jsonData = {
+        "left": 200,
+        "top": 500,
+    }
+
+</script>

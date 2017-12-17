@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      left: 0px;
+    }
+    #one {
+      top:50px;
+    }
+    #two {
+      top:200px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $("#start").click(function () {
+        //自定义动画 animate()
+        //第一个参数:对象   参与动画的样式
+        //$("div").animate({"left":800,"width":200,"opacity":"0.5"});
+        //如果想用动画修改背景色，直接实现不了,要用插件
+        //$("div").animate({"background-color":"green"});
+        //第二个参数： 就是动画的时间 毫秒数
+        //$("div").animate({"left":800},1000);
+        //第三个参数: 字符串 "linear"  "swing"  不写默认就是匀速的
+        //$("div").eq(0).animate({"left":800},2000,"linear");
+        //$("div").eq(1).animate({"left":800},2000,"swing");
+        //第四个参数
+//         $("div").eq(0).animate({"left":800},2000,"linear", function () {
+//           //alert("动画完了");
+//           $("div").eq(1).animate({"left":800},2000,"swing");
+//         });
+//
+        $("div").eq(0).animate({"left":400},2000,"linear", function () {
+          $("div").eq(1).animate({"left":400},2000,"swing",function () {
+            $("div").eq(0).animate({"left":800},2000,"linear", function () {
+              $("div").eq(1).animate({"left":800},2000,"swing")
+            })
+          });
+        });
+
+      });
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="动画开始"  id="start"/>
+<div id="one"></div>
+<div id="two"></div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: hotpink;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px;
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            border-radius: 20px;
+            border: 1px solid #000;
+        }
+
+        ul li {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        /* 骰子的第一个面 */
+        .ul1 {
+            /* 打开弹性布局 */
+            display: flex;
+
+            /* 水平方向的布局  */
+            justify-content: space-around;
+
+            /* 垂直方向布局 */
+            align-items: center;
+        }
+
+        /* 骰子的第二个面 */
+        .ul2 {
+            box-sizing: border-box;
+            padding: 10px;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* 骰子的第三个面 */
+        .ul3 {
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ul3 li:nth-child(2) {
+            align-self: center;
+        }
+
+        .ul3 li:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        /* 骰子的第四个面 */
+        .ul4 {
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            /* 让骰子换行显示 */
+            flex-wrap: wrap;
+
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .ul4 li {
+            margin: 0px 20px;
+        }
+
+        /* 骰子的第五个面 */
+        .ul5 {
+            padding: 10px 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .ul5 li{
+            margin: 0px 20px;
+        }
+
+        .ul5 li:nth-child(3) {
+            margin: 0px 50px;
+        }
+
+        /* 骰子的第六个面 */
+        .ul6 {
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .ul6 li {
+            margin: 0px 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- (h3{第$个面}+(ul.ul$>li*6))*6 -->
+    <h3>第1个面</h3>
+    <ul class="ul1">
+        <li></li>
+    </ul>
+    <h3>第2个面</h3>
+    <ul class="ul2">
+        <li></li>
+        <li></li>
+    </ul>
+    <h3>第3个面</h3>
+    <ul class="ul3">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h3>第4个面</h3>
+    <ul class="ul4">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h3>第5个面</h3>
+    <ul class="ul5">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h3>第6个面</h3>
+    <ul class="ul6">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

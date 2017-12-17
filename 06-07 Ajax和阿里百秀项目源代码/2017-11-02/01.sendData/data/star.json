@@ -1,0 +1,18 @@
+{
+    "name":"薛之谦",
+    "skill":"卖火锅",
+    "friends":[
+        {
+            "name":"大张伟",
+            "skill":"段子手"
+        },
+        {
+            "name":"ELLA",
+            "skill":"纯爷们"
+        },
+        {
+            "name":"TFBoys",
+            "skill":"卖萌"
+        }
+    ]
+}

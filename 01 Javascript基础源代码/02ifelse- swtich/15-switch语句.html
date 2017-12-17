@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        switch也属于分支结构，有选择的执行某段代码或者不执行某段代码
+
+        写一个报名系统，让用户输入序号
+          1：前端开发
+          2. Java开发
+          3. PHP开发
+          4. C++开发
+          5. UI设计
+
+          如果不是以上数字，就提示输入错误
+
+
+       语法：
+            switch(变量){
+
+                case 值1:
+                      代码段1;
+                 break;
+                case 值2:
+                      代码段2;
+                 break;
+
+                 ....
+                 default:
+                    代码段n;
+                 break;
+            }
+       语义：
+            先得到变量保存的值，然后看这个值跟哪个case里的值是全等的，哪个case的值全等，就直接跳转到那个case里面执行它的代码段，如果没有任何case跟变量值全等，就会执行default里面的代码
+
+
+       注意事项：
+            1.default这个语句也可以不写
+            2.default位置可以写在任意地方，不影响功能，但是建议写在最后
+
+
+        switch中的穿透：
+                跟break这个关键字有关
+
+                break：代表跳出（结束）switch语句
+
+                如果不写break，会穿到下一个case块，这就叫穿透
+
+                穿透是从上往下来穿透
+    -->
+    <script>
+
+        //得到的是字符串
+        var subject = prompt('请输入您要报名的学科：1--前端  2--Java 3--PHP 4--C++  5--UI');
+
+        switch (subject){
+
+            case "1":
+                alert('欢迎您报考前途无量的前端学科');
+                break;
+            case "2":
+                alert('java');
+                break;
+
+            case "3":
+                alert('php');
+
+            case "4":
+                alert('c++');
+
+            case "5":
+                alert('UI');
+
+            default :
+                alert('输入错误');
+                break;
+        }
+
+        /*
+        if( subject == 1){
+
+            alert('欢迎您报考前途无量的前端学科');
+
+        }else if( subject == 2){
+
+            alert('欢迎选择Java');
+
+        }else if( subject == 3){
+
+            alert('PHP找不到女朋友');
+        }else if( subject == 4){
+
+            alert('C++');
+        }else if(subject == 5){
+            alert('UI');
+
+        }else{
+
+            alert('输入错误，你脑子有猫病');
+        }
+        */
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

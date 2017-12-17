@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.分组提取
+
+  //提取email中的每一部分
+//      var str = "123123@xx.com";
+//      var reg = /(\w+)@(\w+)\.(\w+)(\.\w+)?/;
+//
+//      var array = str.match(reg);
+//
+//      //获取分组的数据  ()是分组
+//      console.log(RegExp.$1);
+//      console.log(RegExp.$2);
+//      console.log(RegExp.$3);
+
+
+
+  //分组练习
+  var str = "5=a, 6=b, 7=c";
+  str = str.replace(/(\d)=(\w)/g, "$2====$1");
+
+  console.log(str); //"a====5, b====6, c====7"
+
+</script>
+</body>
+</html>

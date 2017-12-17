@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //点击按钮，创建一个div
+      $("#btn").click(function () {
+        $("<div>我是新建的div</div>").appendTo($("body"));
+      });
+
+
+      //1.简单事件注册
+      //优点 是可以注册多个同样的时间的
+      //缺点 不能一次注册多个事件。 不支持动态注册
+      // $("div").click(function () {
+      //   alert("111");
+      // });
+      // $("div").click(function () {
+      //   alert("222");
+      // });
+      // $("div").mouseenter(function () {
+      //   console.log("我进入了");
+      // });;
+
+
+      //2.bind()事件注册
+      //优点：可以一次注册多个事件
+      //缺点：不能支持动态注册事件
+      // $("div").bind("click mouseenter", function () {
+      //   console.log("111");
+      // });
+
+      // $("div").bind({
+      //   "click": function () {
+      //     console.log("我是点击事件...");
+      //   },
+      //   "mouseenter": function () {
+      //     console.log("我是鼠标进入事件...");
+      //   }
+      // });
+
+
+
+
+      //3.delegate注册事件
+      //可以支持动态注册。
+      // $("body").delegate("div","click", function () {
+      //   console.log("我是代理的方式注册的事件...");
+      // })
+
+
+
+      //4.常用的用 .on注册
+      //a.给自己注册 - 不支持动态注册
+
+      // $("div").on("click", function () {
+      //   console.log("我被单击了,.");
+      // });
+
+
+      // $("div").on({
+      //   "click":function () {
+      //      console.log("我被单击了,.");
+      //    },
+      //   "mouseenter": function () {
+      //      console.log("我是鼠标进入事件...");
+      //   }
+      // });
+
+
+
+      //b.给代理注册事件 - 传3个参数 支持动态注册
+      $("body").on("click","div", function () {
+        console.log("我是单击事件....");
+      });
+
+
+
+
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/> <br/><br/>
+<div class="one"></div>
+</body>
+</html>

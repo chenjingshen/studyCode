@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>红旅动漫</title>
+    <!-- 引入swiper文件 -->
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <!-- 引入less文件 -->
+    <link rel="stylesheet/less" href="./less/index.less">
+    <!-- 引入less解析文件 -->
+    <script src="./lib/less/less.js"></script>
+
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 引入swiper文件 -->
+    <script src="./lib/swiper/js/swiper.js"></script>
+    <!-- 引入js文件 -->
+    <script src="./js/index.js"></script>
+    <!-- 引入template.js文件 -->
+    <script src="./js/template-web.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 整体的大盒子 -->
+    <div id="layout">
+        <!-- 顶部搜索栏 -->
+        <header id="top-banner" class="bb">
+            <div class="switcher-left">
+                <img src="./images/zh-1.png" alt="">
+            </div>
+            <p>红旅动漫</p>
+            <div class="search-right">
+                <img src="./images/search.png" alt="">
+            </div>
+            <!-- 下拉框部分 -->
+            <div id="list">
+                <ul>
+                    <li>
+                        <!-- 跳转到动漫页面 -->
+                        <a href="./anime.html" class="list-left">连载动漫</a>
+                        <a href="./anime.html" class="list-right"><img src="./images/tiaozhuan.png" alt=""></a>
+                    </li>
+                    <li>
+                        <!-- 跳转到专题列表页面 -->
+                        <a href="./subject.html" class="list-left">专题列表</a>
+                        <a href="./subject.html" class="list-right"><img src="./images/tiaozhuan.png" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+
+        <!-- 轮播图部分 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/l8.jpg" alt="">
+                    </a>
+                    <div class="state">
+                        <a href="#">图片说明a</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="./images/l8.jpg" alt="">
+                    </a>
+                    <div class="state">
+                        <a href="#">图片说明b</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev">
+                <</div>
+                    <div class="swiper-button-next">></div>
+
+                    <!-- 如果需要滚动条 -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+            </div>
+
+            <!-- 内容区域 -->
+            <div id="content">
+                <div class="content-title clearfix">
+                    <ul>
+                        <li class="active">
+                            <a href="#" index='1'>新增连载</a>
+                        </li>
+                        <li class="w-before">
+                            <a href="#" index='2'>新增完结</a>
+                        </li>
+                        <li class="w-before">
+                            <a href="#" index='3'>推荐连载</a>
+                        </li>
+                        <li class="w-before">
+                            <a href="#" index='4'>推荐完结</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content-body clearfix">
+                    <div class="body-left">
+                        <div class="left-img">
+                            <a href="#">
+                                <img src="./images/seckill_1.jpg" alt="">
+                            </a>
+                            <i>每个图片的文字说明</i>
+                        </div>
+                        <p class="content-text">灵动百分百</p>
+                    </div>
+                    <div class="body-left">
+                        <div class="left-img">
+                            <a href="#">
+                                <img src="./images/seckill_1.jpg" alt="">
+                            </a>
+                            <i>每个图片的文字说明</i>
+                        </div>
+                        <p class="content-text">灵动百分百</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 轮播图模块 -->
+<script id='lunbo-template' type="text/html">
+    {{each}}
+    <div class="swiper-slide">
+        <a href="{{$value.url}}">
+            <img src="{{$value.img}}" alt="">
+        </a>
+        <div class="state">
+            <a href="#">{{$value.title}}</a>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<!-- tab标签页模块 -->
+<script id='tab-template' type="text/html">
+    {{each}}
+    <div class="body-left">
+        <div class="left-img">
+            <a href="{{$value.url}}">
+                <img src="{{$value.img}}" alt="">
+            </a>
+            <i>{{$value.update}}</i>
+        </div>
+        <p class="content-text">{{$value.name}}</p>
+    </div>
+    {{/each}}
+</script>

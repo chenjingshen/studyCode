@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--
+    ondblclick：双击事件
+-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url("images/bg.gif");
+            font: 12px "simsun";
+        }
+
+        .content {
+            width: 960px;
+            height: 627px;
+            margin: 0 auto;
+            background: url("images/content_bg.jpg");
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .clearfix:before, .clearfix:after {
+            content: '';
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .tip {
+            width: 227px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+
+        .tip-h {
+            padding-top: 50px;
+            background: url("images/tip1_h.gif") no-repeat;
+            cursor: default;
+        }
+
+        .text {
+            float: left;
+            padding-left: 10px;
+        }
+
+        .close {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .tip-m {
+            min-height: 40px;
+            padding: 0 10px;
+            padding-top: 10px;
+            background: url("images/tip1_c.gif");
+        }
+
+        .tip-f {
+            height: 53px;
+            background: url("images/tip1_f.gif");
+            padding-top: 20px;
+        }
+
+        .icon {
+            float: left;
+            padding-left: 10px;
+        }
+
+        .name {
+            float: right;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--背景纸-->
+<div class="content" id="content">
+
+    <!-- 整体便利贴 -->
+    <div class="tip" id="tip">
+
+        <!-- 便利贴头部 -->
+        <div class="tip-h clearfix" title="双击关闭纸条">
+            <div class="text">第[49568]条 2017-05-12 22:51:52</div>
+            <div class="close" title="关闭纸条">x</div>
+        </div>
+
+        <!-- 中间内容 -->
+        <div class="tip-m">努力学习，高薪就业</div>
+
+        <!-- 便利贴结尾部分，有名字和棒棒糖 -->
+        <div class="tip-f clearfix">
+            <div class="icon">
+                <img src="images/bpic_1.gif" alt=""/>
+            </div>
+            <div class="name">林哥</div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    /*
+     思路：
+     1、先对这一张便利贴深克隆(循环几次就克隆了几个)
+     2、把克隆出来的便利贴添加到content
+     3、生成两个随机数，一个是用来随机top，一个用来随机left，那样就有随机位置了
+     */
+    var tip = document.getElementById('tip');
+
+    //找到content
+    var content = document.getElementById("content");
+
+    for (var i = 0; i < 10; i++) {
+
+        //克隆出来新的便利贴
+        var newTip = tip.cloneNode(true);
+
+        //因为包括原来的id，而id不能一样，所以改
+        newTip.id = "tip" + i;
+
+        //添加到content
+        content.appendChild(newTip);
+
+        //生成0-1包括0，不包括1的数字
+        //如果乘以300再向上取整就变成了0-300，再加100就变成了100-400
+        var topRandom = Math.ceil(Math.random() * 300) + 100;
+
+        //0-700 + 200    200-900
+        var leftRandom = Math.ceil(Math.random() * 700) + 200;
+
+        newTip.style.top = topRandom + "px";
+        newTip.style.left = leftRandom + "px";
+    }
+
+
+    tip.style.display = "none";
+
+
+    //找到所有的tipH
+    var tipH = document.getElementsByClassName("tip-h");
+
+    //双击：
+    for (var i = 0; i < tipH.length; i++) {
+
+        tipH[i].ondblclick = function () {
+
+//            console.log(this);
+            //因为双击头部，要删除自己的父元素（自己的父元素是一个整体的标签）
+
+            //所以我们要找到父元素的父元素，再删除自己的父元素
+
+            //头部的父元素就是便利贴， 便利贴父元素就是墙纸，你要删除的是墙纸里边的整张便利贴
+            //所以先找到墙纸，再调用removeChild删除便利贴
+            this.parentNode.parentNode.removeChild(this.parentNode);
+        }
+    }
+
+    //找到所有的X
+    var closeList = document.getElementsByClassName("close");
+
+    for (var i = 0; i < closeList.length; i++) {
+
+        closeList[i].onclick = function () {
+
+            //this.parrentNode找到的是便利签的头部
+            //this.parentNode.parentNode整张便利贴
+            // this.parentNode.parentNode.parentNode找到的是墙纸
+            //就调用墙纸的删除便利贴方法
+            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+        }
+    }
+
+
+    //找到所有整张便利贴
+    var tipList = document.getElementsByClassName("tip");
+
+    var index = 0;
+
+    for(var i = 0; i < tipList.length; i++){
+
+        tipList[i].onclick = function () {
+
+            index++;
+            //this就是被点击的整张便利贴
+            //要让谁在最顶层显示，那么就是zIndex值越大就越顶层
+            //每点击一次，就让zIndex加一，就能保证刚刚被点的这个在最上面
+            this.style.zIndex = index;
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+.section1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section1 .texts img{
+    margin: 0px 10px;
+    opacity: 0;
+}
+
+/* 如果我的setion1这个父盒子，同时具有animate这个类， 那么下面的这段css才会执行 */
+.section1.animate .texts img {
+    transition: all 0.5s;
+    margin: 0px;
+    opacity: 1;
+}
+
+/* ping2 */
+.section2>div{
+    display: flex;
+    min-width: 1200px;
+    justify-content: space-around;
+    align-items: center;
+}
+.section2 .left{
+    width: 500px;
+    height: 500px;
+    /* background-color: gray; */
+}
+.section2 .left img:nth-child(3){
+    transform: translate(200px,200px) rotate(180deg);
+}
+.section2.animate .left img{
+    transform:none;
+    transition: all 1s;
+}
+
+/* ping3 */
+.section3>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.section3 .right{
+    width: 453px;
+    height: 449px;
+    background: url("../images/circle.png") no-repeat left top/100% 100%;
+    position: relative;
+}
+.section3 .right img{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 203px;
+    height: 204px;
+    transform: translate(-500px,300px);
+}
+.section3.animate .right img{
+    transition: all 1s;
+    transform: none;
+}
+
+/* ping4 */
+.section4>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.section4 .left{
+    width: 529px;
+    height: 438px;
+    /* background-color: gray; */
+    margin-top: 100px;
+    position: relative;
+}
+.section4 .search{
+    position: relative;
+    width: 529px;
+    height: 66px;
+    left: 0;
+    top: 0;
+    transform: translate(-700px,0px);
+    background: url("../images/search.png") no-repeat left top;
+}
+.section4.animate .search{
+    transform: none;
+    transition: all 1s;
+}
+.section4 .search .key{
+    position: absolute;
+    /* width: 99px; */
+    width: 0;
+    height: 22px;
+    left: 20px;
+    top: 22px;
+    background: url("../images/key.png") no-repeat left top;
+}
+.section4.animate .search .key{
+    width: 99px;
+    transition: all 1.5s steps(5) 1s;
+}
+.section4 .left .result{
+    position: absolute;
+    width: 529px;
+    /* height: 372px; */
+    height: 0;
+    left: 0;
+    top: 66px;
+    background: url("../images/result.png") no-repeat;
+}
+.section4.animate .left .result{
+    height: 372px;
+    transition: all 1s 2.5s;
+}
+
+/* ping5 */
+.section5>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.section5 .top{
+    width: 1077px;
+    height: 134px;
+    flex-basis: 134px;
+    background: url("../images/info_5.png");
+    margin: 20px 0px;
+}
+
+.section5 .bottom{
+    flex: 1;
+    width: 1004px;
+    height: 473px;
+    margin: 20px 0px;
+    border: 1px solid #fff;
+    background: url("../images/toolbar.png") no-repeat left top,url("../images/extra.png") no-repeat right bottom;
+}

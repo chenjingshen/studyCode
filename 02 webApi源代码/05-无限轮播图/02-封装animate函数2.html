@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!--
+    思路：
+        为了解决移动其他盒子也能用animate函数
+
+        我们还需要传入一个参数，这个参数就是接收要移动的盒子
+
+        那么以后要移动谁，只要把谁当作参数传给这个函数就能移动了
+
+
+        连续点击的bug（先点红色再点蓝色的bug）：要把id保存起来，就保存在传进来的元素的属性里就行了
+
+-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+
+            position: absolute;
+        }
+
+        #box2 {
+
+            top: 150px;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动红色盒子到400" id="move1"/>
+<input type="button" value="移动原谅盒子到400" id="move2"/>
+
+
+<div id="box1"></div>
+
+<div id="box2"></div>
+
+</body>
+</html>
+
+<script>
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+
+    document.getElementById("move1").onclick = function () {
+
+        animate(box1, 400);
+    };
+
+
+    document.getElementById("move2").onclick = function () {
+
+        animate(box2, 400);
+    };
+
+    function animate(obj, target) {
+
+        //在创建新的计时器之前，先停掉上一个计时器
+        clearInterval(obj.timerID);
+
+        obj.timerID = setInterval(function () {
+
+            var step = 9;
+
+            //offsetLeft,就能获取到元素当前的left的值
+            //偏移值：要走多少的值
+            var offset = obj.offsetLeft + step;
+
+            //如果没到目标位置，就把偏移值赋给盒子
+            if (offset <= target) {
+
+                obj.style.left = offset + "px";
+
+            } else {
+
+                //如果超过目标位置，就让盒子到目标并停止计时器
+                obj.style.left = target + "px";
+
+                //停止计时器
+                clearInterval(obj.timerID);
+            }
+
+        }, 50)
+    }
+</script>

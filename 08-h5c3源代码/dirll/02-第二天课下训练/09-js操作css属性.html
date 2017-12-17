@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .white{
+            background-color: #fff;
+        }
+        .black{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body class="black">
+    <input type="button" id="open" value="开灯">
+    <input type="button" id="close" value="关灯">
+    <input type="button" id="toggle" value="切换">
+    <input type="button" id="iscontain" value="是否开灯">
+</body>
+</html>
+<script>
+    var bodys=document.body;
+    document.querySelector("#open").onclick=function(){
+        bodys.classList.add("white");
+        bodys.classList.remove("black");
+    }
+    document.querySelector("#close").onclick=function(){
+        bodys.classList.add("black");
+        bodys.classList.remove("white");
+    }
+    document.querySelector("#toggle").onclick=function(){
+        bodys.classList.toggle("black");
+    }
+    document.querySelector("#iscontain").onclick=function(){
+        alert((bodys.classList.contains("white")));
+    }
+</script>

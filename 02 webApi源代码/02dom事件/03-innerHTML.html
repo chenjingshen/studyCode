@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+        innerHTML没有兼容性问题
+
+        innerHTML:可以获取到双标签之间的内容，如果双标间之间还有标签，标签也能获取到
+
+                  可以设置双标签之间的内容，如果设置了，原来的内容就被覆盖了，并且如果给的内容是标签，那么也会当作标签来解析
+
+
+         innerText和textContent如果设置的内容有标签，也只会当作文本
+
+
+         扩展思考：如果我要删除双标签之间的所有内容怎么办？
+
+                就赋值为空字符串
+                       innerHTML = ""
+                       innerText = "";//这个有兼容性问题
+    -->
+
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    我是div
+    <h1>我是标题</h1>
+</div>
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+    var box = id('box');
+    console.log(box.innerHTML);
+
+//    box.innerHTML = "我是修改的值";
+
+    //innerHTML赋值的内容如果有标签，会当作标签来解析
+    box.innerHTML = "<h1>我是标题</h1>";
+
+    //下面这两个，如果是标签，也不会当标签，只会当文本原样显示
+//    box.innerText = "<h1>我是重新赋值新加的标题</h1>";
+//    box.textContent = "<h1>我是重新赋值的标题</h1>";
+
+
+</script>

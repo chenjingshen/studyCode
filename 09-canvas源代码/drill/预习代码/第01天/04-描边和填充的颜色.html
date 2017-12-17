@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    /*
+    * 1. 路径就是玻璃纸上面的线条
+    * 2. 路径是有方向的
+    * 3. 路径有些可以组成一个闭合的形状，这样的形状就可以做填充的操作了
+    * */
+
+    //画一个三角形
+    context.moveTo(100, 100);
+    context.lineTo(400, 100);
+    context.lineTo(400, 300);
+    context.lineTo(100, 100);
+
+    //描边
+    //默认情况下， 填充色和描边都是黑色的
+    //设置描边色
+    context.strokeStyle = "red"; //颜色的写法和css写法是一样的
+    context.stroke();
+
+    //填充
+    //设置填充色
+    context.fillStyle = "yellowgreen";
+    context.fill();
+
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        var nums = [10, 23, 532, 23, 54, 10];
+        //        重复内容去掉：变成10,23,532,54
+
+        //准备一个新数组
+        //无条件把老数组中第0个元素扔进去
+        //从下标为1的元素开始的，就需要遍历新数组中的元素，如果新数组中每个元素都不相等，就可以把这个元素丢进来，有相等的都不丢
+
+        //准备一个新数组，默认就加老数组中的第0个元素
+        var arrNew = [nums[0]];
+
+        for (var i = 1; i < nums.length; i++) {
+
+            //nums[i]  是当前准备添加到新数组中的某个数
+            //这个是用来判断是否能添加的标记，默认给一个true，代表默认能加
+            var canAdd = true;
+
+            for (var j = 0; j < arrNew.length; j++) {
+
+                //得到新数组中的每个
+                if (arrNew[j] == nums[i]) {
+                    //不要扔进来
+                    canAdd = false;
+                    break;//因为只要能进来就代表新数组里面已经有重复的没必要往下执行
+                }
+            }
+
+            //应该有选择的执行
+            if (canAdd==true) { //如果是true才添加
+                arrNew[arrNew.length] = nums[i];
+            }
+        }
+        console.log(arrNew);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

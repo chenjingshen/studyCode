@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.on  off解绑事件
+
+      // $("div").on("mouseenter click", function () {
+      //   console.log("哈哈哈");
+      // });
+
+
+      $("div").on({
+        "mouseenter": function () {
+           console.log("哈哈哈，移出");
+        },
+        "click": function () {
+           console.log("呵呵呵，单击");
+        }
+      });
+
+
+      //移除事件
+      $("#yc").on("click", function () {
+        //单击按钮，给div移除事件
+
+        //a.把div中所有的事件都移除掉了
+        //$("div").off();
+
+        //b.指定事件移出
+        $("div").off("click");
+
+
+      });
+
+
+    });
+
+  </script>
+</head>
+<body>
+<input type="button" value="移除事件" id="yc"/>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+        getAttribute(属性名)：
+                    可以用来获取所有的dom属性（包括自定义属性）
+
+        setAttribute(属性名,属性值)：设置属性
+                    可以用来设置所有的dom属性（包括自定义属性）
+
+        removeAttribute(属性名)
+                    可以用来删除某一个dom属性（包括自定义属性）
+    -->
+</head>
+<body>
+
+<!--
+html标签内可以写w3c已经规范好的属性，也可以自己随便写一个属性，那种自己随便写的属性就叫自定义属性
+
+证明dom元素中的自定义属性，不能用直接点语法以及中括号的方式来取，取到的会是undefined
+
+ -->
+<div id="box" class="myBox" fat="200kg"></div>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+
+//    console.log(box["id"]);
+//    console.log(box.className);
+
+//    console.log(box["fat"]);//undefined
+    console.log(box.getAttribute("id"));
+    console.log(box.getAttribute("class"));
+    console.log(box.getAttribute("fat"));
+
+    //2个参数
+    //参数1：给哪个属性赋值（属性名）
+    //参数2：赋什么值（属性值）
+    box.setAttribute("class","uBox");
+    box.setAttribute("fat","500kg");
+
+</script>

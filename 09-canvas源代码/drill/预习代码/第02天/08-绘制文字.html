@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //绘制文字
+    //text就是要绘制的文字， x， y就是从什么地方开始绘制
+    //context.strokeText("text", x, y)
+
+    context.font = "60px 微软雅黑";
+//    context.strokeText("hello, world", 100, 100);
+    context.fillText("hello, world", 100, 100);
+
+</script>

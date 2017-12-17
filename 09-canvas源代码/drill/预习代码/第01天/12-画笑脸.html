@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //先把脸画出来
+    context.arc(300, 200, 100, 0, 2*Math.PI);
+    context.fillStyle = "#fccb41";
+    context.fill();
+    context.stroke();
+
+    //创建一张新的玻璃纸
+    context.beginPath();
+    context.arc(300, 200, 70, 40/180*Math.PI, 140/180*Math.PI);
+    context.stroke();
+
+    //画眼睛
+    context.beginPath();
+    context.arc(260, 160, 15, 0, 2*Math.PI);
+    context.fillStyle = "red";
+    context.fill();
+    context.stroke();
+
+    //右边的眼睛
+    context.beginPath();
+    context.arc(340, 160, 15, 0, 2*Math.PI);
+    context.fillStyle = "red";
+    context.fill();
+    context.stroke();
+
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //当页面所有资源加载完毕调用
+        window.onload = function () {
+
+
+        }
+
+
+        //当发生关闭，但在关闭之前调用方法
+        //比onunload要先执行
+        window.onbeforeunload = function () {
+
+            console.log("xxxx");
+        }
+
+        //当当前页面关闭时调用
+        window.onunload = function () {
+            console.log("...");
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

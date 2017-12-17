@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>360</title>
+    <!-- 1. 导入css文件 -->
+    <link rel="stylesheet" href="./css/jquery.fullpage.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- 2. 导入js文件 -->
+    <script src="./lib/jquery-1.8.3.min.js"></script>
+    <script src="./lib/jquery.fullpage.min.js"></script>
+
+    <!-- 4. 使用fullPage插件 -->
+    <script>
+        $(function() {
+            // 当我们调用fullpage的时候， fullpage帮我们添中了很多样式， 并且改变以我自己的html的元素的层级
+            $("#mypage").fullpage({
+                sectionsColor: ["#00bfff", "#9acd32", "#ffa500", "#008000", "#87ceeb"],
+                navigation: true,
+                //index就是指当前第几屏， 它是从1开始的
+                //当afterLoad调用时候，就是某一屏加载完成的时候，此时给该屏添加动画
+                afterLoad: function(anchorLink, index) {
+                    $(".section").removeClass("animate");
+                    $(".section").eq(index-1).addClass("animate");
+                    //alert(index);
+                    //可以在这个方法里面给当前屏添加动画
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 3. 实现页面的主体结构 -->
+    <div id="mypage">
+        <!-- 第一屏 -->
+        <div class="section section1">
+            <img src="./images/logo.png" alt="" class="logo">
+
+            <div class="texts">
+                <img src="./images/text_1.png" alt="">
+                <img src="./images/text_2.png" alt="">
+                <img src="./images/text_3.png" alt="">
+                <img src="./images/text_4.png" alt="">
+                <img src="./images/text_5.png" alt="">
+                <img src="./images/text_6.png" alt="">
+                <img src="./images/text_7.png" alt="">
+                <img src="./images/text_8.png" alt="">
+            </div>
+
+            <img src="./images/info_1.png" class="info" alt="">
+        </div>
+        <div class="section section2 active">
+            <div class="left">
+                <img src="./images/shield_1.png" alt="">
+                <img src="./images/shield_2.png" alt="">
+                <img src="./images/shield_3.png" alt="">
+                <img src="./images/shield_4.png" alt="">
+                <img src="./images/shield_5.png" alt="">
+                <img src="./images/shield_6.png" alt="">
+                <img src="./images/shield_7.png" alt="">
+                <img src="./images/shield_8.png" alt="">
+                <img src="./images/shield_9.png" alt="">
+            </div>
+            <img src="./images/info_2.png" alt="" class="right">
+        </div>
+        <div class="section section3">
+            <img src="./images/info_3.png" alt="" class="left">
+            <div class="right">
+                <img src="./images/rocket.png" alt="" class="rocket">
+            </div>
+        </div>
+        <div class="section section4">
+            <div class="left">
+                <div class="search">
+                    <div class="key"></div>
+                </div>
+                <div class="result"></div>
+            </div>
+            <img src="./images/info_4.png" alt="" class="right">
+        </div>
+        <div class="section section5">
+            <img src="./images/info_5.png" alt="" class="top">
+            <div class="bottom"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 
+    1. 360的整体的布局，依赖的是一个fullpage的jquery插件。 
+    2. fullpage要怎么使用呢？
+        1. 要导入fullpage的css文件
+        2. 要导入jquery和fullpage的js文件
+        3. 要按要求写出其主体结构
+            .box>.section*5
+        4. 要在jquery的入口函数中，来调用fullapge插件的方法。 
+            $(".box").fullpage({
+                sectionsColor: ["color1", "color2"....], 
+                navigation: true
+            });
+ -->
+
+ <!-- 
+     1. 第一屏
+        a. fullPage在调用之后，给我们的section内部又添加了一层div；将我们添加的子元素放到了这个div中。 所以，如果我想要实现弹性布局，应该对这个div来设置
+        b. 弹性布局的纵向排列： flex-direction: cloumn
+        c. 一旦实现了纵向排列， 垂直方向就变成了主轴方向， 水平方向就变成了副轴方向
+        d. justify-content设置的就是垂直方向的布局了
+        e. align-items设置的水平方向的布局
+  -->

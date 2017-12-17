@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //如何创建正则表达式
+    //a.使用构造函数创建
+//    var reg=new RegExp(/\d/);  //检测里面有没有数字
+//    console.log(reg.test("我里面没有数字"));  //false
+//    console.log(reg.test("2我里2面有数字2"));  //true
+
+    //b.使用字面量
+//    var reg=/男|女/;   //只要包含男就返回true
+//    console.log(reg.test("男"));  //true
+//    console.log(reg.test("你算什么男人"));  //true
+
+
+    //预定义类
+    // \d	匹配数字
+    // \D	匹配任意非数字的字符
+    // \w	匹配字母或数字或下划线
+    // \W	匹配任意不是字母，数字，下划线
+    // \s	匹配任意的空白符
+    // \S	匹配任意不是空白符的字符
+    // .	匹配除换行符和回车符以外的任意单个字符
+    // ^	表示匹配行首的文本(以谁开始)
+    // $	表示匹配行尾的文本(以谁结束)
+
+    //.	[^\n\r]	除了换行和回车之外的任意字符
+
+    //\d	[0-9]	数字字符
+    //\D	[^0-9]	非数字字符
+
+    //\s	[\f\r\n\t\v]	不可见字符
+    //\S	[^\f\r\n\t\v]	可见字符
+
+    //\w	[a-zA-Z0-9_]	单词字符(所有的字母数字和_)
+    //\W	[^a-zA-Z0-9_]	非单词字符
+
+
+
+    //五大内部类例题训练
+//    =====. 除了换行和回车之外的任意字符==========================  \r return   \n newline
+//     console.log(/./.test("a")); //true
+//     console.log(/./.test("\r")); //f
+//     console.log(/./.test("\n")); //f
+//     console.log(/./.test("\r\n")); //f
+//     console.log(/./.test("" +
+//             "")); //f
+//     console.log(/./.test("\r1")); //t
+//     console.log(/./.test("\n!")); //t
+//     console.log(/./.test("\r\n@23r4356573442")); //t
+//     console.log(/./.test("l" +
+//            "")); //t
+
+
+
+    //=====\d  数字字符====================================================
+//     console.log(/\d/.test("12345")); //t
+//     console.log(/\d/.test("abcde")); //f
+//     console.log(/\d/.test("abcde789"));//t
+//     console.log(/\d/.test("abcde7"));//t
+//     console.log(/\d/.test("1234@#$!@#$"));//t
+//     console.log(/\d/.test("@#$!@#$"));//f
+//     console.log(/\d/.test("@#$!@#$0"));//t
+
+    //=====\D  非数字字符===================================================
+//     console.log(/\D/.test("12345")); //f
+//     console.log(/\D/.test("abcde")); //t
+//     console.log(/\D/.test("abcde789"));//t
+//     console.log(/\D/.test("abcde7"));//t
+//     console.log(/\D/.test("1234@#$!@#$"));//t
+//     console.log(/\D/.test("@#$!@#$"));//t
+//     console.log(/\D/.test("@#$!@#$0"));//t
+
+
+    //=========\s 不可见字符=================================================
+//     console.log(/\s/.test(" "));  //t
+//     console.log(/\s/.test("\r")); //t
+//     console.log(/\s/.test("\n")); //t
+//     console.log(/\s/.test("\r\n")); //t
+//     console.log(/\s/.test("12345")); //f
+//     console.log(/\s/.test("12345afbafsf")); //f
+//     console.log(/\s/.test("12345afbafsf\t"));//t
+
+
+
+    //=========\S 可见字符=================================================
+//     console.log(/\S/.test(" "));  //f
+//     console.log(/\S/.test("\r")); //f
+//     console.log(/\S/.test("\n")); //f
+//     console.log(/\S/.test("\r\n")); //f
+//     console.log(/\S/.test("12345")); //t
+//     console.log(/\S/.test("12345afbafsf")); //t
+//     console.log(/\S/.test("12345afbafsf\t"));//t
+
+
+    //=========\w 单词字符 (所有的字母数字_) =================================================
+//     console.log(/\w/.test("a")); //t
+//     console.log(/\w/.test("1")); //t
+//     console.log(/\w/.test("_")); //t
+//     console.log(/\w/.test("_A")); //t
+//     console.log(/\w/.test("!!!!!!!!!")); //f
+//     console.log(/\w/.test("!!!!!_!!!!")); //t
+//     console.log(/\w/.test("#￥￥@￥%#@！")); //f
+
+    //=========\W 非单词字符 (单词字符：所有的字母数字_) =================================================
+//    console.log(/\W/.test("abcdefg!")); //t
+//    console.log(/\W/.test("123456@")); //t
+//    console.log(/\W/.test("_—")); //t
+//    console.log(/\W/.test("_A"));//f
+//    console.log(/\W/.test("!!!!!!!!!")); //t
+//    console.log(/\W/.test("!!!!!_!!!!")); //t
+//    console.log(/\W/.test("#￥￥@￥%#@！")); //t
+
+
+
+
+    //1.自定义类  看检测的字符串里面有没有出现一次或者一次以上  正则里面的内容
+//    console.log(/d/.test("12345")); //f
+//    console.log(/d/.test("12345d")); //t
+//    console.log(/d/.test("12345ddddd")); //t
+
+
+    //检测的字符串里面，至少出现一次hei，结果才是为true
+//     console.log(/hei/.test("h")); //f
+//     console.log(/hei/.test("e")); //f
+//     console.log(/hei/.test("i")); //f
+//     console.log(/hei/.test("hei")); //t
+//     console.log(/hei/.test("heima")); //t
+//     console.log(/hei/.test("heihei")); //t
+//     console.log(/hei/.test("heimaheima")); //t
+//     console.log(/hei/.test("非洲小群真尼玛hei"));//t
+//     console.log(/hei/.test("haaaeccci"));//f
+//     console.log(/haebi/.test("haebi")); //t
+
+
+
+//    console.log(/haha/.test("ha")); //f
+//    console.log(/haha/.test("haha")); //t
+//    console.log(/haha/.test("hahahahahahha")); //t
+//    console.log(/haha/.test("!!!!!!haha$%#%%$")); //t
+//    console.log(/haha/.test("!!!!!!ha0ha$%#%%$")); //f
+
+
+
+    //1. 或  |
+    // console.log(/男|女/.test("男")); //t
+    // console.log(/男|女/.test("女")); //t
+    // console.log(/男|女/.test("不男不女"));//t
+    // console.log(/男|女/.test("abcdefg")); //f
+    // console.log(/男|女/.test("人妖")); //f
+    // console.log(/男|女/.test("1234556")); //f
+    // console.log(/男|女/.test("男男女女")); //t
+
+
+//    要么出现一次或者一次以上hei，要么出现一次或者一次以上ma
+//     console.log(/hei|ma/.test("hei"));  //t
+//     console.log(/hei|ma/.test("heihei")); //t
+//     console.log(/hei|ma/.test("ma")); //t
+//     console.log(/hei|ma/.test("mama")); //t
+//     console.log(/hei|ma/.test("heima")); //t
+//     console.log(/hei|ma/.test("heimaheima")); //t
+//     console.log(/hei|ma/.test("haebicmda")); //f
+//     console.log(/hei|ma/.test("heim!!!!a")); //t
+//     console.log(/hei|ma/.test("he@@@ima")); //t
+
+
+
+    //2. 优先级  ()  heia  hema
+//    console.log(/he(i|m)a/.test("heia"));  //t
+//    console.log(/he(i|m)a/.test("heiaheia")); //t
+//    console.log(/he(i|m)a/.test("hema")); //t
+//    console.log(/he(i|m)a/.test("hemahema")); //t
+//    console.log(/he(i|m)a/.test("h!e!i!a")); //f
+//    console.log(/he(i|m)a/.test("h!ema")); //f
+//    console.log(/he(i|m)a/.test("hei")); //f
+//    console.log(/he(i|m)a/.test("ma")); //f
+//    console.log(/he(i|m)a/.test("heima")); //f
+
+
+
+    //1. []  整体代表的是一个字符
+
+//     console.log(/[abc]/.test("a"));  //t
+//     console.log(/[abc]/.test("b"));  //t
+//     console.log(/[abc]/.test("c"));  //t
+//
+//
+//    console.log(/[abc]/.test("abc")); //t
+//    console.log(/[abc]/.test("1234567a")); //t
+//    console.log(/[abc]/.test("1234567b")); //t
+//    console.log(/[abc]/.test("1234567c")); //t
+//    console.log(/[abc]/.test("1234567"));  //f
+//    console.log(/[abc]/.test("1234567abc")); //t
+//    console.log(/[abc]/.test("!!@#$$$cde")); //t
+//    console.log(/[abc]/.test("!!@#$$$ijk")); //f
+//
+
+//    console.log(/[abc]/.test("abc"));//t
+//    console.log(/[abc]/.test("a"));//t
+//    console.log(/[abc]/.test("i"));//f
+
+
+
+
+    //1.负向类   注意： 负向类一定是中括号中的小尖尖  [^]
+//    console.log(/[^abc]/.test('a')); //f
+//    console.log(/[^abc]/.test('d')); //t
+//    console.log(/[^abc]/.test('abcabc')); //f
+//    console.log(/[^abc]/.test('abcabcd')); //t
+//    console.log(/[^abc]/.test('ad')); //t
+
+
+
+
+    //1.范围类
+//     console.log(/[a-z]/.test("a")); //t
+//     console.log(/[a-z]/.test("A")); //f
+//     console.log(/[a-z]/.test("ABCDEFG")); //f
+//     console.log(/[a-z]/.test("ABCDEFGi")); //t
+//
+//
+//     console.log(/[0-9]/.test("0")); //t
+//     console.log(/[0-9]/.test("1")); //t
+//     console.log(/[0-9]/.test("abcdefg")); //f
+//     console.log(/[0-9]/.test("abcdefg8")); //t
+
+
+
+//    console.log(/[a-z]/.test('1111')); //f
+//    console.log(/[a-z]/.test('1111a'));//t
+//    console.log(/[A-Z]/.test('aa')); //f
+//    console.log(/[A-Z]/.test('aaA')); //t
+
+
+</script>
+</body>
+</html>

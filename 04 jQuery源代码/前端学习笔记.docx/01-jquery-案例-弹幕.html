@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container .video {
+            width: 1000px;
+            height: 600px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container .content {
+            background: #333;
+            height: 30px;
+            padding: 10px;
+        }
+
+        .container .content input {
+            float: right;
+            border: none;
+            outline: none;
+            padding: 0 15px;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="video">
+        <video width="1000" height="600" src="images/video/1.mp4" controls></video>
+    </div>
+    <div class="content">
+        <input type="button" value="发射">
+        <input type="text">
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        /*1.发射的时候  获取输入内容 检验是否为空*/
+        /*2.创建一个元素*/
+        /*2.1 内容   输入内容*/
+        /*2.2 颜色   获取一个随机的颜色*/
+        /*2.3 top   获取一个随机的top   0-视频高度 */
+        /*2.4 定位 right 0 宽度 字体大小 ...*/
+
+        var $video = $('.video');
+
+        var getRandomColor = function () {
+            /*0-255*/
+            var r = Math.floor(256 * Math.random());
+            var g = Math.floor(256 * Math.random());
+            var b = Math.floor(256 * Math.random());
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        var getRandomTop = function () {
+            /*height() jquery方法  0-视频高度 */
+            var videoHeight = $video.height();
+            return videoHeight * Math.random();
+        }
+
+        /*点击发送*/
+        $('[type="button"]').click(function () {
+            /*val() jquery方法 获取文本输入框的值*/
+            //var text = $('[type="text"]').val().trim();
+            /* jquery 工具函数  */
+            var text = $.trim($('[type="text"]').val());
+
+            /*没有输入内容就停止执行*/
+            if (!text) return false;
+            /*弹幕*/
+            $('<span></span>').text(text).css({
+                'position':'absolute',
+                'width':200,
+                'height':30,
+                'font-size':'20px',
+                'font-weight':'bold',
+                'right':-200,
+                'color':getRandomColor(),
+                'top':getRandomTop()
+            }).animate({'right':1000},10000,'linear',function () {
+                /*动画结束之后需要删除  自杀*/
+                $(this).remove();
+            }).appendTo($video);
+            /*清空输入框*/
+            $('[type="text"]').val('');
+        });
+        /*回车发送*/
+        $('[type="text"]').keyup(function (event) {
+            //console.log(event.keyCode);
+            if(event.keyCode == 13){
+                /*触发点击事件  执行发射操作*/
+                $('[type="button"]').click();
+            }
+        });
+    })
+</script>
+</body>
+</html>

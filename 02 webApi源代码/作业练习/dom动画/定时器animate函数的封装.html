@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+            position: absolute;
+        }
+        #box2 {
+            top: 150px;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">移动到400</button>
+<button id="btn2">移动到600</button>
+<div id="box1"></div>
+<div id="box2"></div>
+<script>
+
+
+    document.getElementById("btn1").onclick= function () {
+        animate(box1,400);
+    };
+    document.getElementById("btn2").onclick= function () {
+        animate(box2,600);
+    };
+    var box1=document.getElementById("box1");
+    var box2=document.getElementById("box2");
+
+    function animate(obj,target){
+        clearInterval(obj.timerID);
+        obj.timerID=setInterval(function () {
+            var step=9;
+            var offset=obj.offsetLeft+step;
+            if(offset<=target){
+                obj.style.left=offset+"px";
+            }else{
+                obj.style.left=target+"px";
+                clearInterval(obj.timerID);
+            }
+        },50);
+    }
+
+</script>
+</body>
+</html>

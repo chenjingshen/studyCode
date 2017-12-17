@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: #0f0;
+    }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+    var div = document.querySelector('div');
+    div.addEventListener('touchstart', function(e) {
+        // TouchEvent 触摸事件对象 移动端的触摸
+        // 注意移动端的事件必须用模拟器来触发
+        console.log(e);
+        // 改变的手指对象 从无到有（屏幕上没有手指当你触摸上去 记录有的那一瞬间手指）  从有到无 (屏幕上有手指 松开的时候 记录那个无的那一瞬间的手指)
+        // console.log(e.changedTouches);
+        // 元素上的手指对象
+        // console.log(e.targetTouches);
+        // 屏幕上的手指对象
+        // console.log(e.touches);
+
+        // touches和targetTouches是一样 通常在touchstart 和touchmove中获取手指对象
+        // console.log(e.targetTouches);
+        // console.log(e.touches);
+
+        
+    })
+    div.addEventListener('touchend', function(e) {
+        // 通常在touchend事件里面用来获取松开手指的时候的手指对象
+        // console.log(e.changedTouches);
+
+    });
+    </script>
+</body>
+
+</html>

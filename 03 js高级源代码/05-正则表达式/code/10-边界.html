@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.边界
+  //a. ^ 会匹配行或者字符串的起始位置
+  //console.log(/\d/.test("aaabb123ccc")); // true
+
+  // console.log(/^\d/.test("aaabb123ccc")); //false
+  // console.log(/^\d/.test("1aaabb123ccc")); //true
+  // console.log(/^\d/.test("1aaabbccc")); //true
+  // console.log(/^6a/.test("6666677776abbbb")); //false
+  // console.log(/^6a/.test("6a7777777")); //true
+
+
+  // console.log("=====================================");
+  // console.log(/^6/.test("6")); //true
+  // console.log(/^6/.test("76")); //false
+
+
+//    console.log(/^6.a/.test("666abat ")); //false
+   // console.log(/^6.a/.test("66abat ")); //true
+   // console.log(/^6.a/.test("6*abat ")); //true
+   // console.log(/^6.a/.test("6\nabat ")); //false
+   // console.log(/^6+a/.test("6666a77776abbbb")); //true
+   // console.log(/^6+a/.test("6a77776abbbb")); //true
+
+
+
+  //b.$ 会匹配行或字符串的结尾位置
+   console.log(/ac/.test("ac777")); //true
+   console.log(/ac$/.test("ac777")); //false
+   console.log(/ac$/.test("777ac")); //true
+
+</script>
+</body>
+</html>

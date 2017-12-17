@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      height: 100px;
+      border: 1px solid red;
+      margin-bottom: 50px;
+      display: none;
+    }
+  </style>
+
+  <script>
+    //1.window.onload事件
+    window.onload = function () {
+      //2.获取元素
+      var divs = document.getElementsByTagName("div");
+      var showBtn = document.getElementById("show");
+      var setTextBtn = document.getElementById("setText");
+
+      //3.给显示按钮注册单击事件
+      showBtn.onclick = function () {
+        for(var i = 0 ; i < divs.length; i++){
+        	divs[i].style.display = "block";
+        }
+      }
+      //4.给setTextBtn注册一个单击事件
+      setTextBtn.onclick = function () {
+        for(var i = 0 ; i < divs.length; i++){
+        	divs[i].innerHTML  = "我是设置的内容";
+        }
+      }
+    }
+
+
+
+    // window.onload = function () {
+    //   console.log("呵呵");
+    // }
+
+
+    //原生js有缺点
+    //a.不能设置多个window.onload事件，如果设置了，后面的会把前面的给覆盖掉。
+    //b.原生js一直在做for循环，代码冗余。
+    //c.浏览器兼容不太好
+    //d.原生js的API太复杂、太难记
+    //e.容错性比较差，只要有一句发生了错误，后面的代码是不会执行的。
+
+  </script>
+
+</head>
+<body>
+<input type="button" value="显示" id="show"/>
+<input type="button" value="设置内容" id="setText"/>
+
+<div></div>
+<div></div>
+<div></div>
+<script>
+
+</script>
+</body>
+</html>

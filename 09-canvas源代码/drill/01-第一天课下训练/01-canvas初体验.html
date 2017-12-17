@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas  width=600 height=400></canvas>
+</body>
+</html>
+
+<script>
+    // 获取canvas标签
+    var canvas=document.querySelector('canvas');
+    //创建画布
+    var context=canvas.getContext('2d');
+    // 笔的起点
+    context.moveTo(100, 100);
+    // 笔的终点
+    context.lineTo(300, 200);
+    // 将在玻璃板上画好的图形渲染到画布上
+    context.stroke();
+    
+</script>

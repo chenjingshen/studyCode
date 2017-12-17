@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            width: 700px;
+            height: 500px;
+            list-style: none;
+            padding: 0;
+            background-color: yellowgreen;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: space-around;
+
+            /* 在侧轴方向（垂直方向的布局） */
+            align-content: space-between;
+
+            background: url("./bg.png") no-repeat left top / 100% 100%;
+
+            align-items: flex-end;
+        }
+
+        li {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+        }
+
+        li:nth-child(1) {
+            height: 150px;
+        }
+
+        li:nth-child(5) {
+            height: 220px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //组合类
+
+
+  // console.log(/[a-m1-5]/.test("b"))//true
+  // console.log(/[a-m1-5\n]/.test("2"))//true
+  // console.log(/[a-m1-5]/.test("65666"))//true
+  // console.log(/[a-m1-5]/.test("6666"))//false
+  // console.log(/[a-m1-5\n]/.test("ttttyyyyzzz66666"))//false
+
+  //  console.log("================");
+  //  console.log(/[^0-5][^a-g]/.test("6z")); //true
+  //  console.log(/[^0-5][^a-g]/.test("6z7y")); //true
+  //  console.log(/[^0-5][^a-g]/.test("4")); // false
+  //  console.log(/[^0-5][^a-g]/.test("4b")); //false
+  //  console.log(/[^0-5][^a-g]/.test("4yaaabbbccc")); //false
+  //  console.log(/[^0-5][^a-g]/.test("4yaaabbbc7cc")); //true  c7  c是0-5之外的  7是a-g之外的
+  //  console.log(/[^0-5][^a-g]/.test("4yaaabbbc7cc9x")); //true
+
+
+  // console.log("================");
+   //console.log(/[^0-5]|[^a-g]/.test("4b")); //true
+   //console.log(/[^0-5]|[^a-g]/.test("2"));  //true
+
+
+  // console.log("================");
+   console.log(/[^0-7]|[^5-9]/.test("8")); //true
+   console.log(/[^0-7]|[^5-9]/.test("5")); //false
+   console.log(/[^0-7]|[^5-9]/.test("567")); //false
+   console.log(/[^0-7]|[^5-9]/.test("5678")); //true
+
+
+</script>
+</body>
+</html>

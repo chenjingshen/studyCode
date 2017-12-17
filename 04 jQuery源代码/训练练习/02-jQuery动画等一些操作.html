@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //class操作
+        //addClass  添加类
+        //removeClass  删除类
+        //hasClass  判断类
+        //toggleClass   切换类
+
+        //三组基本动画：这里的参数都可以不传，不传默认是normal，即400毫秒。
+        //也可以传字符串（“”）  fast表示200毫秒  normal表示400毫秒  slow表示600毫秒
+        //动画类
+        //show(1000)  显示动画
+        //hide(1000)  隐藏动画
+        //toggle(1000)  切换
+
+
+        //stop()
+        //slideDown(1000)  滑入
+        //slideUp(1000)  滑出
+        //slideToggle(1000)  切换
+
+
+        //fadeIn(1000)  淡入
+        //fadeout(1000)  淡出
+        //fadeToggle(1000)  切换
+
+
+
+        //自定义动画 animate()
+
+        //第一个参数:对象   参与动画的样式
+        //$("div").animate({"left":800,"width":200,"opacity":"0.5"});
+        //如果想用动画修改背景色，直接实现不了,要用插件
+        //$("div").animate({"background-color":"green"});
+
+        //第二个参数： 就是动画的时间 毫秒数
+        //$("div").animate({"left":800},1000);
+
+        //第三个参数: 字符串 "linear"  "swing"  不写默认就是匀速的 *
+        //$("div").eq(0).animate({"left":800},2000,"linear");
+        //$("div").eq(1).animate({"left":800},2000,"swing");
+
+        //第四个参数:传一个回调函数，在当前动画执行完毕后执行
+        //            $("div").eq(0).animate({"left":800},2000,"linear", function () {
+        //                //alert("动画完了");
+        //                $("div").eq(1).animate({"left":800},2000,"swing");
+        //            });
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

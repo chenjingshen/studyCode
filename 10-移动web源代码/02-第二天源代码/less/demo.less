@@ -1,0 +1,174 @@
+/* less语法 */
+
+
+/* 1. 定义变量 */
+
+
+/* 会变的样式 就可以定义成变量 例如网站的主题色等等 */
+
+
+/* 定义变量的语法  变量名可以有- */
+
+
+/* @变量名:变量值; */
+
+@main-color: #F40;
+body {
+    /* 使用变量 */
+    color: @main-color;
+}
+
+
+/* 2. 混合(Mixin) （相当于JS的自定义函数） */
+
+
+/* 可以把一些重复使用代码封装到函数里面 并且可以传参 */
+
+
+/* function fun(name){
+
+}
+
+fun('张三') */
+
+
+/* 定义了一个自定义的函数 封装了border-top 和border-bottom */
+
+
+/* .bordertb{
+	border-top: 1px solid @main-color;
+	border-bottom: 1px solid @main-color;
+}
+h1{
+	
+	.bordertb();
+}
+h2{
+	//如果不带参数括号可以省略
+	.bordertb;	
+} */
+
+
+/* @size是当前自定义函数的参数 可以根据传入的参数来调整边框的大小 :1px默认值  多个参数之间用;分号隔开*/
+/* .bordertb(@size:1px;@second) { */
+.bordertb(@size:1px) {
+    border-top: @size solid @main-color;
+    border-bottom: @size solid @main-color;
+}
+.bordertb{
+	border-right: 1px solid #fff;
+}
+
+h1 {
+    .bordertb();
+}
+
+h2 {
+    .bordertb(2px);
+}
+
+h3 {
+    .bordertb(1px);
+}
+
+
+/* 3. 嵌套 */
+
+
+/* css嵌套 */
+
+
+/* .container{
+	width: 1170px;
+	margin: 0px auto;
+	padding:0  15px;
+}
+.container .row{
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.container .row div{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;	
+}
+.container .row div a{
+	text-decoration: none;
+	color:#666;
+} */
+
+.topbar {
+    .container {
+        width: 1170px;
+        margin: 0px auto;
+        padding: 0 15px;
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+            div {
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                a {
+                    text-decoration: none;
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+
+/* &关键字 写在谁里面就表示谁 相当于JS里面的 this一样 */
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #666;
+    /* 表示当前的a */
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+li.active >a {
+    border-bottom: 2px solid #f40;
+}
+li{
+	/* &表示当前的li */
+	&.active{
+		>a{
+
+		}
+	}
+}
+
+
+.clearfix{
+	/* &表示当前的clearfix类名 */
+	&::before{
+
+	}
+	&::after{
+
+	}
+}
+
+
+/* & 通常用在 伪类 伪元素 交集选择器  写在谁里面就表示当前元素*/
+/* 4. 导入 把别的less文件导入到当前文件 */
+/* @import 'less的文件名.less'; */
+@import 'base.less';
+/* 导入别的less文件 */
+
+/* 5. 运算符 + - * /运算符 */
+
+.btn{
+	width:(10px + 5);
+}
+
+/* 6.注释  */
+/* CSS注释  斜杠星的注释  css的注释编译后会保留 */
+//less注释  是双斜杠//  less注释编译后会删除

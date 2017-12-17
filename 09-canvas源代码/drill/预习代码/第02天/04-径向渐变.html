@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 创建渐变对象
+    //内圆
+    var c1 = {x: 260, y: 160, r: 0};
+    //外圆
+    var c2 = {x: 300, y: 200, r: 120};
+
+    var gradient = context.createRadialGradient(c1.x, c1.y, c1.r, c2.x, c2.y, c2.r);
+    gradient.addColorStop(0, "red");
+    gradient.addColorStop(0.3, "yellow");
+    gradient.addColorStop(0.6, "green");
+    gradient.addColorStop(1, "orange");
+
+    //2. 把渐变对象设为填充色
+    context.fillStyle = gradient;
+
+    //3. 画圆并填充
+    //内圆的部分是用0的位置填充的; 内圆的边到外圆的边所发生的渐变叫， 径向渐变
+    context.arc(c2.x, c2.y, c2.r, 0, 2*Math.PI);
+    context.fill();
+
+</script>

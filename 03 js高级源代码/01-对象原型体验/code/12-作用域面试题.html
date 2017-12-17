@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.------------------------------
+//  function foo() {
+//    var num = 123;
+//    console.log(num); //123
+//  }
+//  foo();
+//  console.log(num); //报错
+
+
+
+
+//  // 2
+//  var scope = "global";
+//  function foo() {
+//    console.log(scope); //undefined
+//    var scope = "local";
+//    console.log(scope); // "local"
+//  }
+//  foo();
+
+
+
+
+
+  // 3
+//  var a;  //相当于给window添加了一个属性a
+//  if("a" in window){
+//    a = 10;
+//  }
+//  alert(a); // ?
+
+  //-----------------------
+//  if("a" in window){
+//    var a = 10;
+//  }
+//  alert(a); // ?
+
+
+
+
+
+
+  //4.
+//  var a;
+//  if(a in window){   //undefiend in window
+//    a = 10;
+//  }
+//  alert(a); // ?
+//  //---------
+//  if(a in window){   //undefiend in window
+//    var a = 10;
+//  }
+//  alert(a); // ?
+
+
+
+
+
+
+
+
+  // 5
+//  if(! "a" in window){
+//    var a = 10;
+//  }
+//  alert(a); // undefined
+
+
+
+
+
+  //6.
+//  var a;
+//  if(name in window){
+//    a = 10;
+//  }
+//  alert(a);
+  //------------
+//  if(name in window){
+//    var a = 10;
+//  }
+//  alert(a); //undefiend   name在window中有，值是"", ""在window中没有
+
+
+
+  //7
+//  if("name" in window){
+//    var a = 10;
+//  }
+//  alert(a);
+
+
+
+//  if(a in window){
+//    var a = 10;
+//  }
+//  alert(a); //10, a去window中找，得到undefined，undefined在window中是存在的。
+
+
+  // 8
+
+//  var foo = 1;
+//  function bar() {
+//    var foo;
+//
+//    if(!foo) {
+//      foo = 10;
+//    }
+//    alert(foo); //10
+//  }
+//  bar();
+
+  //---------------------------------------
+//  var foo = 1;
+//  function bar() {
+//    if(!foo) {
+//      var foo = 10;
+//    }
+//    alert(foo); //10
+//  }
+//  bar();
+
+
+
+
+//  //9.------------------------------------
+//  var num = 123;
+//  function f1() {
+//    console.log(num);
+//  }
+//
+//  function f2() {
+//    var num = 456;
+//    f1();
+//  }
+//
+//  f2();
+
+
+
+  //6.---------------------------------------
+  var num = 123;
+  function f1(num) { // 参数理解为：函数内部的一个变量
+    console.log(num); // 456
+  }
+
+
+  function f2() {
+    var num = 456;
+    f1(num);
+  }
+
+  f2();
+
+</script>
+</body>
+</html>

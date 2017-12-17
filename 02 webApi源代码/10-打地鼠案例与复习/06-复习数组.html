@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //保存一堆数据的数据类型
+        /*
+         声明语法：
+         var 数组名 = [值1，值2，值n];
+
+         var 数组名 = []; //空数组
+
+         var 数组名 = new Array();//空数组
+
+         var 数组名 = new Array(10,20,30,40);//生成10,20,30,40的4个元素的数组
+
+         var 数组名 = new Array(10); //代表生成长度为10的数组，只不过每个元素为undefined
+
+         通过下标来取值和赋值
+         nums[0]
+         nums[1]
+
+         nums[0] = 1000;
+
+         下标从0开始，到length -1
+
+         数组长度：数组名.length
+
+         join()； 每个元素拼接成字符串，按你传入的符号来拼接，如果传入空字符串，就元素全部放在一起作为字符串
+         */
+
+        //数组的遍历
+
+
+        var nums = [5, 4, 3, 2, 1];
+
+        //冒泡排序
+        for (var i = 0; i < nums.length - 1; i++) {
+
+            for (var j = 0; j < nums.length - 1 - i; j++) {
+
+                if (nums[j] > nums[j + 1]) {
+
+                    var temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+
+        console.log(nums);
+
+        //        for (var i = 0; i < nums.length; i++) {
+        //
+        //            console.log(nums[i]);
+        //        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>jQueryAjax补充</h2>
+</body>
+</html>
+<script  src="./js/jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+        $('h2').click(function(){
+            $.ajax({
+                url:'../00.sendData/backJSON.php',
+                // type
+                // data
+                // 如果请求失败，或者数据类型不对等错误问题 是不会触发这个回调函数的    
+                success:function(backData){
+                    console.log(backData);
+                },
+                // 请求失败触发
+                error:function(){
+                    console.log('error');
+                },
+                // 请求完成触发 无论成功失败
+                complete:function(){
+                    console.log('complete')
+                },
+                // jQuery中可以指定返回的数据类型
+                // 在后台没有设置类型时
+                dataType:'json'
+            })
+        })
+    })
+
+</script>

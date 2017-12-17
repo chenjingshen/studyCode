@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //添加节点的方法。
+
+      $("#tj").click(function () {
+        //创建一个li标签
+        var $li = $("<li>我是新创建的li标签</li>");
+
+        //1.append(); //添加到最后一个子元素
+        //$("#ul1").append($li);
+
+        //2.prepend(); //添加到第一个子元素
+        //$("#ul1").prepend($li);
+
+        //3.after(); //是在自己的后面插入
+        //$("#ul1").after($li);
+
+        //4.before(); //是在自己的前面插入
+        //$("#ul1").before($li);
+
+
+
+        //在ul的第二个子li标签的后面插入新创建的li标签。
+        //$("#ul1>li").eq(1).after($li);
+
+
+        //5.appendTo();
+        $li.appendTo($("#ul1"));
+
+
+//        append()在子元素的最后添加子元素
+//        prepend()在子元素的前面添加子元素
+//        after()在自己的后面添加兄弟元素
+//        before()在自己的前面添加兄弟元素
+
+
+      });
+
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="添加" id="tj"/>
+<ul id="ul1">
+  <li>我是第1个li标签</li>
+  <li>我是第2个li标签</li>
+  <li>我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+</ul>
+</body>
+</html>

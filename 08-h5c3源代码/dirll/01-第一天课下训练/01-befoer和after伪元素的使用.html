@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        header {
+            width: 1200px;
+            height: 100px;
+            background-color: red;
+            margin: 0 auto;
+        }
+
+        main {
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        main::before {
+            content: "";
+            display: "block";
+            width: 300px;
+            height: 100%;
+            background-color: skyblue;
+            float: left;
+        }
+
+        main::after {
+            content: "";
+            display: "block";
+            width: 900px;
+            height: 100%;
+            background-color: hotpink;
+            float: right;
+        }
+
+        footer {
+            width: 1200px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header>
+    </header>
+    <!-- 主体部分 -->
+    <main>
+        <!-- 侧边栏 -->
+        <!-- <aside></aside> -->
+        <!-- 文章部分 -->
+        <!-- <arcitle></arcitle> -->
+    </main>
+    <!-- 底部 -->
+    <footer></footer>
+
+</body>
+
+</html>

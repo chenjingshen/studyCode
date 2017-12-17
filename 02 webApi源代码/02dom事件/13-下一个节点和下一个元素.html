@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul id="ul">
+    <li>隔壁老王1</li>
+    <li id="two">隔壁老王2</li>
+    fdsfsfd
+    fdsfsd
+    <!-- dasds-->
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+
+    var two = document.getElementById("two");
+
+    console.log(getNextElementSibling(two));
+
+    //会找到下一个兄弟节点，包括空文本、文本、注释、元素
+    //    console.log(two.nextSibling.nodeName);
+
+    //拿到的永远都是下一个兄弟元素，但是IE8以及IE8以前不支持这个属性，所以会得到undefined
+    //    console.log(two.nextElementSibling);
+
+//    如果是IE8以后的版本，直接用nextElementSibling如果是IE8以及以前的版本就用nextSibling
+
+    function getNextElementSibling(ele) {
+
+        //能力检测
+        if (ele.nextElementSibling) {
+
+            return ele.nextElementSibling;
+        } else {
+            //证明是IE8以前版本
+
+            //只要type不是1，我就一直找下一个
+            var node = ele.nextSibling;
+            while(node.nodeType != 1){
+
+               node = node.nextSibling;
+            }
+
+            return node;
+        }
+    }
+
+</script>

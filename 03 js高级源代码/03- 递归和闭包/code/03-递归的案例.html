@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.求1-n之间的整数和
+  //1 + 2 + 3 + 4 + 5
+  //1 + 2 + 3 + 4       + 5
+  //1 + 2 + 3           + 4
+  //1 + 2               + 3
+  //1                   + 2
+  // function getSum(n){
+  //   if(n == 1){
+  //     return 1;
+  //   }else {
+  //     return  n + getSum(n - 1);
+  //   }
+  // }
+  // console.log(getSum(100));
+
+
+  //2.求1-n之间的累积。
+  //1 * 2 * 3 * 4 * 5
+  //1 * 2 * 3 * 4    * 5
+  //1 * 2 * 3        * 4
+  //1 * 2            * 3
+  //1                * 2
+  // function getJi(n){
+  //   if(n == 1){
+  //     return 1;
+  //   }else {
+  //     return n * getJi(n-1);
+  //   }
+  // }
+  // console.log(getJi(5));
+
+
+  //3.求斐波那契数列 中第n位数是多少？
+  //1 1 2 3 5 8 13 21 34  55
+  //n   (n-1) +  (n-2)
+  function getFB(n){
+    if(n == 1 || n == 2){
+      return 1;
+    }else {
+      return  getFB(n-1) + getFB(n-2);
+    }
+  }
+  console.log(getFB(50));
+
+
+
+
+
+</script>
+</body>
+</html>

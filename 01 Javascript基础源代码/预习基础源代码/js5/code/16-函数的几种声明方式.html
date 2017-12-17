@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.函数的声明方式。
+
+    //1.1 函数的声明语句  的方式来声明函数。
+    // function test(){
+    //   console.log("哈哈");
+    // }
+
+
+    //1.2 函数表达式   的方式来声明函数
+    //语法： var 函数名 = 匿名函数；
+    //语法： var  函数名 = function ([形参]) {
+    //         函数体
+    //      }
+
+    //调用：  函数名([实参]);
+
+    //  var test = function () {
+    //    console.log("哈哈");
+    //  }
+    //  test();
+
+
+    //2.这两种声明方式有什么不同。
+    //2.1 函数声明语句声明出来的函数，调用语句可以写在声明之前。
+    //  test1();
+    //  function test1(){
+    //    console.log("呵呵呵..");
+    //  }
+
+
+    //2.2 函数表达式 的方式声明的函数，调用语句不能写在函数声明之前。
+    //test2();  //会报错。
+    var test2 = function () {
+      console.log("嘿嘿嘿...");
+    }
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

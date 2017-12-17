@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        function Person(color) {
+
+            this.maose = color;
+
+            this.kanjia = function () {
+
+                console.log("汪汪叫");
+            }
+        }
+
+        Person.prototype.eat = function () {
+
+            console.log("很贪吃");
+        }
+
+        var dog = new Person("black");
+
+        dog.name = "阿黄";
+
+        dog.age = 1;
+
+        dog.kanjia();
+
+        dog.eat();
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>

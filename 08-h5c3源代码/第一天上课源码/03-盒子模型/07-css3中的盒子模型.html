@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: yellowgreen;
+        }
+
+        .box1 {
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .box3 {
+            border: 10px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">hello, world</div>
+    <div class="box2">hello, world</div>
+    <div class="box3">hello, world</div>
+    <div class="box4"></div>
+</body>
+</html>
+
+<!-- 
+    css3中的盒子模型：
+    指定box-sizing: boder-box;
+    向内挤压内容的空间，而保持整个盒子的宽度不变
+    wdith = 内容的宽度 + padding + border
+ -->

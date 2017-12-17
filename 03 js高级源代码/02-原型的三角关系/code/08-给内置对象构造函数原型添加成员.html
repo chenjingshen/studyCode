@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+  function Person(){
+
+  }
+  Person.prototype.type = "人类";
+  Person.prototype.sayHi = function () {
+    console.log("哈哈");
+  }
+
+  var p1 = new Person();
+  var p2 = new Person();
+
+
+  //---------------------
+  var arr1 = new Array(11,2,30,19,21);
+  var arr2 = [100,20,30,41,19];
+
+  console.log(arr1.__proto__ === arr2.__proto__  ); //true
+  console.log(arr1.__proto__ === Array.prototype); //true
+
+
+  //不管是那个数组对象，他的原型都是Array.prototype
+  //原型Array.prototype里面的成员都可以被数组对象访问到。
+  //我们想让每一个数组对象都可以放到某个成员？可以往数组原型中添加成员。
+
+  // Array.prototype.aaa = "aaa";
+  // console.log(Array.prototype);
+  // console.log(arr1.aaa);
+  // console.log(arr2.aaa);
+
+
+  Array.prototype.Mysort = function () {
+    for(var i = 0 ; i < this.length-1; i++){
+      for(var j  = 0 ; j < this.length-1-i; j++){
+        if(this[j] > this[j+1]){
+          var temp = this[j];
+          this[j] = this[j+1];
+          this[j+1] = temp;
+        }
+      }
+    }
+  }
+
+  arr1.Mysort();
+  console.log(arr1);
+
+  arr2.Mysort();
+  console.log(arr2);
+
+
+
+
+
+
+
+  //冒泡排序
+  // var arr = [10,20,11,9,80,100];
+  // for(var i = 0 ; i < arr.length-1; i++){
+  // 	for(var j  = 0 ; j < arr.length-1-i; j++){
+  // 		if(arr[j] > arr[j+1]){
+  //         var temp = arr[j];
+  //         arr[j] = arr[j+1];
+  //         arr[j+1] = temp;
+  //       }
+  // 	}
+  // }
+
+
+
+</script>
+</body>
+</html>

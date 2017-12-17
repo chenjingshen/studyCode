@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            background-color: hotpink;
+            perspective: 300px;
+            
+        }
+
+        li {
+            margin: 30px;
+            padding: 0;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            transition: all 1s;
+            transform-style: preserve-3d;
+        }
+
+        li:nth-child(1):hover {
+            transform: rotateX(45deg);
+        }
+
+        li:nth-child(2):hover {
+            transform: rotateY(45deg);
+        }
+
+        li:nth-child(3):hover {
+            transform: translateZ(50px);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>绕x轴旋转</li>
+        <li>绕y轴旋转</li>
+        <li>沿着z轴移动</li>
+        <li>test</li>
+        <li>test</li>
+    </ul>
+</body>
+</html>
+
+<!-- 
+    总结
+    1. 在3d世界， 有一个z轴， 元素就可以沿着z轴移动
+    2. 元素可以绕着x轴或者y轴旋转
+    3. 默认情况下浏览器只会按照2d的效果来渲染3d的变换， 如果我们希望以3d的效果来渲染， 那么需要
+        1. 需要对发生3d效果的元素， 开启3d， transform-style: perserve-3d
+        2. 如果需要有近大远小的效果， 就需要给其父元素添加一个perspective: 500px;
+            * perspective值是越大，近大远小的效果越不明显， 越小越明显
+            * perspective的值设置， 没有一个api提供具体的规则。 1000以下，会有比较明显的效果， 1000以上， 效果就不是很明显， 可以使用游览器的调试工具调试
+ -->

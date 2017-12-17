@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.moveTo(100, 100);
+    context.lineTo(300, 200);
+
+    context.strokeStyle = "rgba(255, 0, 0, 0.5)";
+    context.stroke();
+
+    //创建一张新玻璃纸
+    context.beginPath();
+
+    context.moveTo(100, 150);
+    context.lineTo(400, 250);
+    context.stroke();
+
+</script>
+
+<!--
+    1. 在画布上绘图的原理， 相当于是把图形先画在玻璃纸上， 当执行， stroke， 或者是fill时， 会将玻璃纸上的图形印刷到画布上
+    2. 每一次执行stroke， 或者是fill时，都会重复印刷
+    3. 为了解决这个问题，每画一个形状，就重新创建一张玻璃纸即可。 begingPath
+    4. 注意： beeginPath是创建玻璃纸， closePath是闭合玻璃纸上的形式， 它们两个不是一对
+-->

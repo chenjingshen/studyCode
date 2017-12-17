@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  /*
+  1.==相等运算符
+    只要判断数值，他会有隐式类型转换
+
+  2.===全等运算符
+    判断类型和数值
+
+
+  //3.如果一个复杂的数据类型和一个基本的数据类型参与运算，会先调用这个复杂的数据类型的valueof方法，得到结果参与运算，如果得到的结果不能参与运算，就调用这个数据的toString方法参与运算。
+
+  * */
+
+
+  //console.log([] == ![]); //true
+  //[] == ![]
+  //[] == false
+  //[].valueof() == false
+  //[] == false
+  //[].toString() == false
+  //"" == false
+  //false == false  //true
+
+
+
+
+ //var obj1 = {
+ //};
+ //console.log(obj1 + 1); //"[object Object]1"
+ //var obj2 = {
+ //  valueOf: function () {
+ //    return 123;
+ //  }
+ //}
+ //console.log(obj2 + 1); //124
+
+
+
+
+  //console.log({} == !{}); //false
+  //{} == !{}
+  //{} == false
+  //{}.valueOf() == false
+  //{} == false
+  //{}.toString() == false
+  //"[object Object]" == false
+  //true == false
+  //false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //console.log({}.valueOf()); //{}
+  //console.log({}.toString()); //"[object Object]"
+
+
+
+
+  //console.log(typeof ([].toString()));
+  //console.log([].valueOf()); //[]
+  //console.log(![]);
+
+  //console.log("");
+
+
+
+
+
+
+  //var num1 = 123;
+  //var num2 = "123";
+  //console.log(num1 == num2);
+
+
+
+
+
+  //var num1 = 123;
+  //var num2 = 123;
+  //console.log(num1 == num2); //true
+
+
+
+
+
+//  var arr1 = [1,2,3];
+//  var arr2 = [1,2,3];
+//  console.log(arr1 === arr2); //false
+//
+//
+//  console.log(null === null);
+//  console.log(undefined === undefined);
+
+
+
+
+
+ //var obj1 = {
+ //  name:"骚林",
+ //  age:40
+ //};
+
+
+ //var obj2 = obj1;
+ //console.log(obj1 === obj2); // true
+
+
+ //var arr1 = [1,2,3];
+ //var arr2 = arr1;
+ //console.log(arr1 === arr2);
+
+
+
+  //var str1 = "abc";
+  //var str2 = "abc"
+  //console.log(str1 === str2);
+//
+//
+  //console.log(1 == "1"); // true
+  //console.log(1 === "1"); // false
+  //console.log(1 == true); //true
+  //console.log(1 === true); //false
+  //console.log(null == undefined); //true
+  //console.log(null === undefined); //false
+  //console.log(NaN === 123); //NaN永远不等于其他的值，包括他自身
+  //console.log(NaN == 123);
+  //console.log(NaN == NaN);
+
+
+
+
+</script>
+</body>
+</html>

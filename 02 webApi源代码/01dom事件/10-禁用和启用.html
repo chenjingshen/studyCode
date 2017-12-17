@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--disabled只要写这个属性就有效果,不需要给值
+    类似的属性有：checked,seleted
+-->
+<input type="text"/>
+<input type="button" value="点我啊"/>
+
+<hr/>
+
+<button id="jy">禁用</button>
+<button id="qy">启用</button>
+
+</body>
+</html>
+
+<script>
+
+    //找到禁用按钮
+    var jyBtn = document.getElementById('jy');
+    //找到启用按钮
+    var qyBtn = document.getElementById('qy');
+
+    //要拿到上面两个input
+    var inputList = document.getElementsByTagName("input");
+
+    //给禁用按钮添加了点击事件
+    jyBtn.onclick = function () {
+
+
+        //给这两个input加disabled
+
+        for (var i = 0; i < inputList.length; i++) {
+            //给true就是代表加上去
+            inputList[i].disabled = true;
+        }
+    }
+
+    qyBtn.onclick = function () {
+
+        for (var i = 0; i < inputList.length; i++) {
+
+            //给true就是代表加上去
+            inputList[i].disabled = false;
+        }
+    }
+</script>

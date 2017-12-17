@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        冒泡排序：
+               其实就是将数组的元素按照从小到大（从大到小）进行重新排列
+
+        排序思想：两两比较，大的放在后面，小的放在前面
+
+     假如有个数组元素：5,4,3,2,1
+
+     第0轮比较：
+            第0次：4 5 3 2 1
+            第1次：4 3 5 2 1
+            第2次：4 3 2 5 1
+            第3次：4 3 2 1 5
+
+      此时数组：4 3 2 1 5
+     第1轮比较：
+            第0次 3 4 2 1 5
+            第1次 3 2 4 1 5
+            第2次 3 2 1 4 5
+
+      此时数组：3 2 1 4 5
+
+      第2轮比较：
+            第0次：2 3 1 4 5
+            第1次：2 1 3 4 5
+
+       此时数组：2 1 3 4 5
+
+      第3轮比较：
+            第0次：1 2 3 4 5
+
+
+       一共4轮比较
+            轮数 = 数组长度 - 1
+
+
+        第0轮有4次比较   数组长度- 1 -0 =4
+
+        第1轮有3次比较   数组长度 -1 -1 = 3
+
+        第2轮有2次比较   数组长度 -1 -2 = 2
+
+        第3轮有1次比较   数组长度 -1 -3 = 1
+
+
+       每轮比较的次数 =  数组长度 - 1 - 轮索引
+
+    -->
+
+    <script>
+
+        var nums = [5, 4, 3, 2, 1];
+
+
+        //第0轮
+        for (var j = 0; j < nums.length - 1; j++) {
+
+            for (var i = 0; i < nums.length - 1 - j; i++) {
+
+                if (nums[i] > nums[i + 1]) {
+
+                    var temp = nums[i];
+
+                    nums[i] = nums[i + 1];
+
+                    nums[i + 1] = temp;
+                }
+            }
+        }
+
+        console.log(nums);
+
+        /*
+        //第1轮
+        for (var i = 0; i < 3; i++) {
+
+            if (nums[i] > nums[i + 1]) {
+
+                var temp = nums[i];
+                nums[i] = nums[i + 1];
+                nums[i + 1] = temp;
+            }
+        }
+
+
+        //第2轮
+        for (var i = 0; i < 2; i++) {
+
+            if (nums[i] > nums[i + 1]) {
+
+                var temp = nums[i];
+                nums[i] = nums[i + 1];
+                nums[i + 1] = temp;
+            }
+        }
+
+
+        //第3轮
+        for (var i = 0; i < 1; i++) {
+
+            if (nums[i] > nums[i + 1]) {
+
+                var temp = nums[i];
+                nums[i] = nums[i + 1];
+                nums[i + 1] = temp;
+            }
+        }
+
+        console.log(nums);
+        */
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

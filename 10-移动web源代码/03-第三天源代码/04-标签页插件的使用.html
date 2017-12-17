@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+	<!-- 标签页 》 JS插件 》 标签页 -->
+    <div>
+        <!-- 标签页的标题 -->
+        <ul class="nav nav-tabs" role="tablist">
+				<!-- href里面的#是锚点链接 页面不会跳转在当前页切换
+				标签页的href不仅仅是锚点 用来指定要切换的内容的选择器-->
+				<!-- data-toggle 控制切换的功能是否开启 -->
+				<!-- data-targer="#home" 指定要控制内容的选择器 -->
+            <li role="presentation" class="active"><a href="#home" data-target="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        </ul>
+        <!-- 标签页的内容 -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active home" id="home">1</div>
+            <div role="tabpanel" class="tab-pane" id="profile">2</div>
+            <div role="tabpanel" class="tab-pane" id="messages">3</div>
+            <div role="tabpanel" class="tab-pane" id="settings">4</div>
+        </div>
+    </div>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

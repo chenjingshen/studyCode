@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        /*
+         if(表达式){
+
+         }
+         //表达式为真执行大括号里的
+
+
+         if(表达式){
+         代码1
+         }else{
+         代码2
+         }
+
+         表达式为真执行代码1，表达式为假，执行代码2
+
+
+         if(表达式1){
+         代码1
+         }else if(表达式2){
+         代码2
+         }else{
+
+         }
+
+         //先根据表达式1,结果，如果为真，执行代码1，后面都不执行，如果为假，则继续判断表达式2，如果上面都不为真就执行else里的
+
+         //根据分数奖励
+
+         if(scroe >=90){
+
+         }else if(scroe >= 80)
+
+
+         switch(表达式){
+
+         case 值1:
+         break;
+         case 值2:
+         break;
+
+         default:
+         break;
+         }
+
+         break作用：防止穿透，遇到break立即跳出switch语句
+
+         三元表达式
+         表达式1 ? 表达式2 : 表达式3
+
+         看表达式1的结果是否为真，为真，执行表达式2，否则执行表达式3
+
+
+         while(表达式){
+
+         循环体
+         }
+
+         语义：
+         1.判断表达式结果是否为真，为真跳转到2，为假跳转到3
+         2.执行循环体，执行完毕，跳转回1
+         3.结束循环
+
+
+         while循环一般用来做一些不知道次数的循环
+
+
+         do{
+
+         }while(表达式);
+
+         跟while循环最大的不用是：先执行循环体，再来判断表达式
+
+         也就是说，这个循环至少会执行1次
+
+
+         //一般循环都是确定次数的循环，所以for循环用的多一点
+         for(var i=0; i < 数;i++){
+
+         }
+
+
+         计算出1-100中所有不能被5整除的数的和
+
+
+         *
+         * *
+         * * *
+         * * * *
+         * * * * *
+
+         5行：外层循环5次
+
+         内层呢？
+         第0行 循环1次
+         第1行 循环2次
+         第2行 循环3次
+         滴3行 循环4次
+         第4行 循环5次
+
+
+         ******
+         ******
+         ******
+
+         */
+
+
+        //高级版，做成表格形式
+//        for (var i = 1; i <= 9; i++) { //循环9次
+//
+//            //右边的乘数 = 行索引
+//            //左边的乘数 = 列索引
+//            for (var j = 1; j <= i; j++) {
+//
+//                document.write(j + " * " + i + " = " + i * j + " &nbsp;&nbsp;");
+//            }
+//            document.write("<br/>");
+//        }
+
+        //        for (var i = 0; i < 5; i++) {
+        //
+        //            for (var j = 0; j < i + 1; j++) {
+        //
+        //                document.write("*");
+        //            }
+        //
+        //            document.write("<br/>");
+        //        }
+
+        //        for(var i = 0;i < 3; i++){  //外层循环的控制的是行数
+        //
+        //            for (var j = 0; j < 5; j++) {//内层循环控制的是列数
+        //
+        //                document.write("*");
+        //            }
+        //
+        //            document.write("<br/>")
+        //
+        //        }
+
+
+        //
+        //        document.write("*<br/>");
+        //        document.write("**<br/>");
+        //        document.write("***<br/>");
+        //        document.write("****<br/>");
+        //        document.write("*****<br/>");
+
+
+        //        for (var i = 0; i < 100; i++) {
+        //
+        //            console.log(i);
+        //        }
+
+
+        //        var i = 0;
+        //
+        //        var sum = 0;
+        //        while (i < 100) {
+        //
+        //            i++;
+        //
+        //            sum += i;
+        //        }
+        //
+        //        console.log(sum);
+
+
+        //        var i = 0;
+        //
+        //        while (i < 5) {
+        //
+        //            console.log("我爱北京天安门");
+        //            i++;
+        //        }
+
+        //        while(true){
+        //
+        //            var str = prompt("请输入密码");
+        //
+        //            if(str == "8888"){
+        //
+        //                break;
+        //            }
+        //        }
+
+        //
+        //        var i = 1;
+        //
+        //        var sum = 0;
+        //        while(i < 101){
+        //
+        //            sum += i;
+        //
+        //            i++;
+        //        }
+        //
+        //        console.log(sum);
+
+        //        var num1 = 10;
+        //        var res = num1 > 5 ? num1++ : 100;
+        //
+        //        console.log(num1, res);//11 10
+    </script>
+
+</head>
+<body>
+
+
+</body>
+</html>

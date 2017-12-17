@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 画出矩形的路径, 最灵活的方式
+    //下面这一句就相当于做了moveto， lineto， cloasepath
+//    context.rect(100, 100, 100, 100);
+//
+//    context.strokeStyle = "red";
+//    context.stroke();
+//    context.fill();
+
+    //2. 画一个描边好的矩形, 在玻璃纸上画路径， 印刷， 把玻璃扔掉
+//    context.strokeRect(100, 100, 100, 100);
+
+    //3. 画一个矩形，只填充，不能描边
+    context.fillRect(100, 100, 100, 100);
+
+    context.strokeStyle = "red";
+    context.stroke();
+
+</script>

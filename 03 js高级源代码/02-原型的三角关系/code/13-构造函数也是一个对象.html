@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.函数一个对象，构造函数本身也是一个函数， 构造函数也是一个对象。
+
+  function Person(name){
+    this.name = name;
+  }
+
+  // //给Person()构造函数当成是一个对象，往这个对象中添加一个sb的属性
+  // Person.sb = "sb";
+  // console.log(Person.sb);
+  // //把Person()构造函数当成是一个对象，往这个对象中添加一个dsb的方法
+  // Person.dsb = function () {
+  //   console.log("哈哈，你是一个dsb...");
+  // }
+  // Person.dsb();
+
+
+  //var p1 = new Person("张三");
+
+
+
+  //2.构造函数是一个对象，那么这个对象是由那个构造函数创建出来的额？ Function()构造函数创建出来的。
+  //console.log(Person.__proto__ === Function.prototype); //true
+
+
+
+
+  //3.Object() 构造函数  也是一个对象。 也是Function()构造函数创建出来的。
+  //console.log(Object.__proto__ === Function.prototype); //true
+
+
+  console.log(Person.__proto__.__proto__ === Object.prototype); //true
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    
+    //图片绘制的九参模式， 就是把原图（img）中的某一块（imagex，imagey，imagew，imageh）截取出来， 显示在画布的某个区域(canvasx, canvasy, canvasw, canvash)
+    
+    var image = new Image();
+    image.src = "./img/gls.jpg";
+    image.onload = function () {
+        /*
+            参数的解释：
+            image： 就是大图片本身
+            中间的四个参数， 代表从图片的150， 0的位置，截取 150 * 200的一块区域
+            后面的四个参数， 将刚才截取的小图， 显示画布上 100， 100， 150， 200的这个区域
+         */
+        context.drawImage(image, 150, 0, 150, 200,  100, 100, 150, 200);
+    }
+
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $("input").eq(0).on("click", function () {
+        //console.log($(this).attr("checked")); //undefiend 拿不到
+        //$(this).siblings("input").attr("checked",$(this).attr("checked")); //没有效果的
+
+
+        //注意：对于这种 设置true或者false的属性（disabled checked selected）,不能用attr设置或者获取。
+        //用prop来设置
+        //console.log($(this).prop("checked"));
+        $(this).siblings("input").prop("checked",$(this).prop("checked"));
+
+      });
+
+
+      //单击按钮，让所有的input标签禁用
+      $("#btn1").on("click", function () {
+        $("input").prop("disabled",true);
+      });
+
+      $("#btn2").on("click", function () {
+        $("input").prop("disabled",false);
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+
+<button id="btn1">禁用</button><br/><br/>
+<button id="btn2">启用</button><br/><br/>
+
+<input type="checkbox"  /> <br/><br/>
+<input type="checkbox" />
+<input type="checkbox" />
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+
+  //console.log(/[abc]/.test('a')); //简单类  true
+
+  //1.负向类   注意： 负向类一定是中括号中的小尖尖  [^]
+  console.log(/[^abc]/.test('a')); //false
+  console.log(/[^abc]/.test('d')); //true
+  console.log(/[^abc]/.test('abcabc')); //false
+  console.log(/[^abc]/.test('abcabcd')); //true
+  console.log(/[^abc]/.test('ad')); //true
+
+
+
+
+
+</script>
+</body>
+</html>

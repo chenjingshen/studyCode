@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .from, .to {
+            width: 200px;
+            height: 200px;
+            margin: 30px;
+            background-color: yellowgreen;
+        }
+
+        .move {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>从这个盒子</h3>
+    <div class="from">
+        <div class="move" draggable="true"></div>
+    </div>
+
+    <h3>到这个盒子</h3>
+    <div class="to"></div>
+</body>
+</html>
+
+<script>
+    var from = document.querySelector(".from");
+    var move = document.querySelector(".move");
+    var to = document.querySelector(".to");
+
+    //当小盒子拖动经过大盒子的事件
+    to.ondragover = function(event) {
+        // 阻止默认事件
+        event.preventDefault();
+    }
+
+    //当拖动小盒子松手的事件
+    to.ondrop = function() {
+        to.appendChild(move);
+    }
+
+    //当小盒子拖动经过大盒子的事件
+    from.ondragover = function(event) {
+        // 阻止默认事件
+        event.preventDefault();
+    }
+
+    //当拖动小盒子松手的事件
+    from.ondrop = function() {
+        from.appendChild(move);
+    }
+</script>
+
+<!-- 
+    总结
+    1. 如果要实现拖拽的效果 ，必须满足两个条件
+        1. 小盒子必须可以拖拽
+        2. 大盒子必须要允许被拖入
+    2. 小盒子怎么才能做到可以被拖拽呢？  draggable="true"
+    3. 大盒子怎么才能允许拖入呢？ 
+        1. 要监听 ondragover的方法
+        2. 在该方法的内部阻止默认事件
+    4. 将小盒子设为大盒子的子元素
+
+    面试题： 
+    请问您做过拖拽的效果的实现吗？ 
+    有两种方式， 第一种方式，给我们小盒子添中事件， 当鼠标按下的时候（mousedown）， 拿到这个小盒子， 移动鼠标， 监听鼠标移动事件（mousemove）， 当松手的进候（mouseup）， 将小盒子扔到大盒子。 其实， html5给我们提供新api可以做这个事， 我们只需要指定小盒子的draggable=true， 然后让父盒子实现两个事件， 就可以了， 首先实现ondragover, 阻止默认事件， 让父盒子可以接收子盒子， 然后，实现一个ondrop， 将小盒子添加到父盒子就行。 但是因为兼容性不好，所以这种方式，很少用。 
+ -->

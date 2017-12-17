@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        history对象：最大用处：返回上一页，和前进一页
+    -->
+</head>
+<body>
+
+<a href="15-history的演示跳转网页.html">点我跳转</a>
+
+<input type="button" value="前进" id="forward"/>
+</body>
+</html>
+
+<script>
+
+    document.getElementById("forward").onclick = function () {
+
+        history.forward();
+    }
+
+</script>

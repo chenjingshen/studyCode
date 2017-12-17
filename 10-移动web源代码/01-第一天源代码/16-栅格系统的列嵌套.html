@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <style>
+    .container {
+        height: 100px;
+        background-color: #f40;
+    }
+    
+    .row {
+        height: 100px;
+        background-color: pink;
+    }
+    
+    .row div {
+        border: 1px solid #000;
+        height: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <!-- 栅格支持嵌套相对于父元素设置宽度 -->
+                    <div class="col-xs-6">1</div>
+                    <div class="col-xs-6">2</div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                3
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

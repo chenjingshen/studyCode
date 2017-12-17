@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.translate(300, 200);
+
+    for (var i = 0; i<30; i++) {
+        context.beginPath();
+        context.moveTo(20, 0);
+        context.lineTo(170, 0);
+        context.stroke();
+
+        //坐标系永远是以0， 0为轴来旋转的
+        context.rotate(12/180*Math.PI);
+    }
+
+</script>
+
+
+<!--
+    canvas里面的变形
+    1. 缩放， 就是坐标系变小或者变大了。 scale(x, y), 用得不多
+    2. 平移， 把坐标系想象成一把尺子， 在水平方向和垂直方向移动 translate(300, 200)
+    3. 旋转， 坐标点就绕着尺子的原点发生旋转。 rotate(30/180*Math.PI)
+-->

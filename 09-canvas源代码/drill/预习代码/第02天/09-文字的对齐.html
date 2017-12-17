@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.moveTo(300, 0);
+    context.lineTo(300, 400);
+    context.stroke();
+
+    context.font = "40px 微软雅黑";
+
+    context.fillText("default", 300, 50);
+
+    context.textAlign = "left";
+    context.fillText("left", 300, 120);
+
+    context.textAlign = "center";
+    context.fillText("center", 300, 190);
+
+    context.textAlign = "right";
+    context.fillText("right", 300, 260);
+
+
+</script>

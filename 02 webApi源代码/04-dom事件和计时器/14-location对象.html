@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        //全称应该是window.location
+
+        //域名：其实就是我们所说的网址，互联网上访问其实本质上都是ip地址来访问
+        //但是如果要记ip地址，不方便记忆,所以有了域名这个东西，主要是方便用户访问到某个网络资源
+        //其实通过域名本质上也是转换成ip地址，它是通过DNS服务器转换的
+        //DNS服务器就是负责把域名转换成ip地址
+
+        //端口；服务器上可以放好多资源，通过端口的不同来访问到不同的资源
+        //服务器可以理解为一栋楼，楼里面有好多房间，房间里放的东西不一样，端口相当于是房号，去对应的房号就能访问到不同的内容，网站默认的访问都是80端口
+
+        //https://安全的网页访问协议
+
+        //http:// 不安全的网页访问协议   file:// 访问本地文件
+
+
+        //没用
+
+        console.log(location.hash);//因为获取到的是地址中#后面的那一部分（包括#）
+        console.log(location.host);//域名加端口
+        console.log(location.hostname);//域名
+        console.log(location.port);//端口
+        console.log(location.href);//地址栏里的全网址
+        console.log(location.pathname);//域名后的路径
+        console.log(location.protocol);//协议头
+        console.log(location.search);//网址后面有?，这里访问的就是?的内容
+
+
+    </script>
+</head>
+<body>
+
+<button id="assign">assign</button>
+<button id="reload">刷新</button>
+<button id="replace">replace</button>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("assign").onclick = function () {
+
+        //在当前网页打开网页
+        location.assign("http://www.itheima.com");
+    };
+
+    document.getElementById("reload").onclick = function () {
+
+        //刷新
+        //默认刷新时直接从缓存读取，给true代表不用缓存，直接服务去重新加载新的
+        location.reload(true);
+    };
+
+
+    document.getElementById("replace").onclick = function () {
+
+        //在当前网页打开网页
+        location.replace("http://www.itheima.com");
+    };
+</script>

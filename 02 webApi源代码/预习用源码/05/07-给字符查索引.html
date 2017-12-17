@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var str = "abcdea";
+
+    //给字符查索引(索引值为0,说明字符串以查询的参数为开头)
+    console.log(str.indexOf("c"));
+    console.log(str.lastIndexOf("c"));
+
+    console.log(str.indexOf("a"));
+    console.log(str.lastIndexOf("a"));
+
+
+    //了解；数据传递的时候经常需要通过编码后在传递，接收后还需要反编译回来。
+    var url = "http://www.itcast.cn?username='aaa'&password='123'";
+    console.log(encodeURIComponent(url));
+    console.log(decodeURIComponent(encodeURIComponent(url)));
+
+
+</script>
+</body>
+</html>

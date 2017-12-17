@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      height: 100px;
+      border: 1px solid red;
+      margin-bottom: 50px;
+      display: none;
+    }
+  </style>
+
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    //1.入口函数
+    $(document).ready(function () {
+      $("#show").click(function () {
+        $("div").css("display","block");       //隐式迭代
+      });
+
+      $("#setText").click(function () {
+        $("div").text("我是设置的内容");
+      });
+    });
+
+
+
+
+
+    // $(document).ready(function () {
+    //   alert("又是一个入口函数");
+    // });
+
+
+    //jQuery的优势。
+    //a.可以有多个入口函数
+    //b.jQuery隐式迭代，偷偷的帮你的遍历。
+    //c.不需要你去考虑兼容问题，因为人家已经帮你处理好了兼容
+    //d.jQuery的一些方法比较简单、好记忆
+    //e.容错率比较高，就算前面有代码出了问题，有不影响后面代码的执行。
+
+
+
+
+
+  </script>
+</head>
+<body>
+<input type="button" value="显示" id="show"/>
+<input type="button" value="设置内容" id="setText"/>
+
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

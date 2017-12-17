@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+        某个对象的方法里的this，就是指的这个对象
+
+        谁调用这个方法，那么这个方法里的this就是谁
+    -->
+    <script>
+
+        var s1 = new Object();
+        s1.name = "张威";
+        s1.age = 65;
+        s1.gender = '男';
+
+        s1.sayHi = function () {
+
+            //this.name 相当于 写的就是 s1.name
+            console.log('你好，我叫' + this.name + '，今年' + this.age + '岁');
+        }
+
+
+//        s1.sayHi();
+
+        s1.name = "周威";
+        s1.age = 16;
+
+//        s1.sayHi();
+
+
+        //一大段牛逼
+
+        var s2 = new Object();
+        s2.name = "张小宁";
+        s2.age = 14;
+
+        s2.sayHi = function(){
+
+            console.log(s2);
+            console.log(this);
+            console.log('你好，我叫' + this.name + '，今年' + this.age + '岁');
+        }
+
+        s2.sayHi();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        body{
+
+            width: 2000px;
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<script src="common.js"></script>
+<script>
+
+    document.documentElement.onclick = function (e) {
+
+        var e = e || window.event;
+
+        //如果要兼容就是：取到水平衮出的距离（scrollLeft） + （可是区域的）clientX的距离
+//        console.log(e.pageX);
+
+        console.log(getPageScroll().scrollLeft + e.clientX);
+    }
+</script>

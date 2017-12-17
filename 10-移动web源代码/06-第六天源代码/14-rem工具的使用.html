@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }*/
+    /*按照正常量的像素来写*/
+    /*ul li {
+        width: 128px;
+        height: 128px;
+        float: left;
+        list-style: none;
+        font-size: 24px;
+        text-align: center;
+        line-height: 128px;
+    }*/
+    /*基础字体值就是在640px下的font-size的值*/
+    
+    @media only screen and (max-width: 640px),
+    only screen and (max-device-width:640px) {
+        html,
+        body {
+            font-size: 100px;
+        }
+    }
+    
+    @media only screen and (max-width: 600px),
+    only screen and (max-device-width:600px) {
+        html,
+        body {
+            font-size: 93.75px;
+        }
+    }
+    
+    @media only screen and (max-width: 540px),
+    only screen and (max-device-width:540px) {
+        html,
+        body {
+            font-size: 84.375px;
+        }
+    }
+    
+    @media only screen and (max-width: 480px),
+    only screen and (max-device-width:480px) {
+        html,
+        body {
+            font-size: 75px;
+        }
+    }
+    
+    @media only screen and (max-width: 414px),
+    only screen and (max-device-width:414px) {
+        html,
+        body {
+            font-size: 64.6875px;
+        }
+    }
+    
+    @media only screen and (max-width: 400px),
+    only screen and (max-device-width:400px) {
+        html,
+        body {
+            font-size: 62.5px;
+        }
+    }
+    
+    @media only screen and (max-width: 375px),
+    only screen and (max-device-width:375px) {
+        html,
+        body {
+            font-size: 58.59375px;
+        }
+    }
+    
+    @media only screen and (max-width: 360px),
+    only screen and (max-device-width:360px) {
+        html,
+        body {
+            font-size: 56.25px;
+        }
+    }
+    
+    @media only screen and (max-width: 320px),
+    only screen and (max-device-width:320px) {
+        html,
+        body {
+            font-size: 50px;
+        }
+    }
+    
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    /*按照正常量的像素来写*/
+    
+    ul li {
+        width: 1.28rem;
+        height: 1.28rem;
+        float: left;
+        list-style: none;
+        font-size: 0.24rem;
+        text-align: center;
+        line-height: 1.28rem;
+    }
+
+    /*rem和百分比的差别*/
+    /* rem可以实现宽度高度和字体内容全部自适应
+    百分比只能实现宽度自适应 */
+
+    /*rem适配的原理就是改变根元素的(不同屏幕根元素的字体大小不一样 可以用媒体查询和JS来改变)字体大小 来实现网页整体缩放*/
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+            <li>
+                <a href="#"></a>
+                <p>分类</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

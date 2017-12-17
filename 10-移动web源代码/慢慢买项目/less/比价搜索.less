@@ -1,0 +1,140 @@
+@import 'base.less';
+a {
+    text-decoration: none;
+}
+
+// 头部logo部分
+#header {
+    width: 320px;
+    height: 50px;
+    background-color: @header-color;
+    .row {
+        img.logo {
+            float: left;
+            width: 185px;
+            height: 25px;
+            margin: 10px 0;
+        }
+        img.app {
+            float: right;
+            width: 34px;
+            height: 34px;
+            margin: 5px 0;
+        }
+    }
+}
+
+// 搜索部分
+#seach {
+    width: 320px;
+    height: 51px;
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+    input {
+        width: 270px;
+        height: 30px;
+        font-size: 16px;
+        padding-left: 15px;
+        background-color: #f1f1f1;
+        border-radius: 15px;
+    }
+    button {
+        position: absolute;
+        width: 60px;
+        height: 30px;
+        background-color: @header-color;
+        border-radius: 15px;
+        left: 250px;
+        color: #fff;
+        font-size: 16px;
+        border: 0;
+        outline: 0;
+    }
+}
+
+// 中间内容
+.mui-content {
+    .mui-card {
+        margin: 20px 10px;
+        .mui-table-view {
+            .mui-table-view-cell {
+                .mui-navigate-right {
+                    background-color: #ebebeb;
+                    font-size: 16px;
+                    font-weight: 900;
+                    text-decoration: none;
+                }
+                .mui-collapse-content {
+                    border-bottom: 2px solid #666;
+                    // margin: 0;
+                    padding: 0;
+                    .row {
+                        background-color: #f9f9f9;
+                        .col-xs-4{
+                            text-align: center;
+                            padding-left: 0;
+                            padding-right: 0;
+                            font-size: 14px;
+                            line-height: 40px;
+                            border-right: 1px solid #ccc;
+                            border-bottom: 1px solid #ccc;
+                            &:nth-of-type(3n){
+                                right: -1px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 底部
+#dibu {
+    padding: 10px 0;
+    margin-top: -10px;
+    background-color: #f2f2f2;
+    .login-father {
+        padding-bottom: 10px 0;
+        .login {
+            width: 320px;
+            height: 36px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            span {
+                padding: 7px 30px;
+                float: left;
+                border-right: 1px solid #ccc;
+                &:last-of-type {
+                    border-right: none;
+                    padding: 7px 20px;
+                    img {
+                        width: 15px;
+                        height: 15px;
+                        margin-top: -5px;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        text-align: center;
+        p {
+            margin-bottom: 0;
+            a {
+                color: #666;
+                font-size: 12px;
+            }
+            &:first-of-type {
+                a:first-child {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+#imgd {
+    margin-left: 1px;
+}

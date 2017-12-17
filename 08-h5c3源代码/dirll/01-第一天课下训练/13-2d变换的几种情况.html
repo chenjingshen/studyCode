@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            margin: 20px 100px;
+            transition: all 1s;
+            padding: 0;
+        }
+        li:nth-child(1):hover{
+            transform-origin: left top;
+            transform: rotate(45deg);
+        }
+        li:nth-child(2):hover{
+            transform-origin: center;
+            transform: scale(0.5);
+        }
+        li:nth-child(3):hover{
+            transform-origin: left;
+            transform: translateX(100px);
+        }
+        li:nth-child(4):hover{
+            transform-origin: left;
+            transform: translateY(100px);
+        }
+        li:nth-child(5):hover{
+            transform-origin: right;
+            transform: translate(100px,-100px) rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>旋转</li>
+        <li>缩小</li>
+        <li>水平平移</li>
+        <li>垂直平移</li>
+        <li>先水平平移，再垂直平移</li>
+    </ul>
+</body>
+</html>

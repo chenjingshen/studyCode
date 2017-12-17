@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 490px;
+            height: 170px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .inner {
+            width: 490px;
+            height: 170px;
+            position: relative;
+            overflow: hidden;
+        }
+        ul {
+            width: 500%;
+            list-style: none;
+            position: absolute;
+            left: 0;
+        }
+        li {
+            float: left;
+        }
+        .square {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            margin: 3px;
+            border: 1px solid #ccc;
+            line-height: 16px;
+            cursor: pointer;
+        }
+        .current {
+            background-color: darkorange;
+            color: #fff;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            //需求：鼠标放到小方块上面，上面的图片(ul向左移动指定的个数个图片的宽)
+            //思路：绑定事件，点亮指定的盒子，移动ul。
+            //步骤：
+            //1.获取事件源和相关元素
+            //2.绑定事件和书写事件驱动程序(for循环绑定)
+            //3.点亮盒子
+            //4.移动ul(向左移动，给定目标为-值，放到第n个小方块上向左移动n-1个图片的宽)
+
+
+
+            //1.获取事件源和相关元素
+            var inner = document.getElementById("inner");
+            var imgWidth = inner.offsetWidth;
+            var ul =  inner.children[0];
+            var spanArr =  inner.children[1].children;
+            //2.绑定事件和书写事件驱动程序(for循环绑定)
+            for(var i=0;i<spanArr.length;i++){
+                //属性绑定（自定义属性参数盒子的索引值）
+                //用span的innerHTML属性也可以，但是为了代码的健壮性，我们选择使用自己的属性
+                spanArr[i].index = i; //绑定的是索引值，所以移动盒子的时候不用-1
+                spanArr[i].onmouseover = function () {
+                    //3.点亮盒子
+                    //排他思想
+                    for(var j=0;j<spanArr.length;j++){
+                        spanArr[j].className = "";
+                    }
+                    this.className = "current";
+                    //4.移动ul(向左移动，给定目标为-值，放到第n个小方块上向左移动n-1个图片的宽)
+                    //利用框架移动盒子。（两个参数：1.元素。  2.目标位置）
+                    animate(ul,-this.index*imgWidth);
+                }
+            }
+
+            function animate(ele,target){
+                clearInterval(ele.timer);
+                var speed = target>ele.offsetLeft?10:-10;
+                ele.timer = setInterval(function () {
+                    var val = target - ele.offsetLeft;
+                    ele.style.left = ele.offsetLeft + speed + "px";
+                    if(Math.abs(val)<Math.abs(speed)){
+                        ele.style.left = target + "px";
+                        clearInterval(ele.timer);
+                    }
+                },10)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="inner" id="inner">
+            <ul>
+                <li><img src="images/01.jpg" alt=""/></li>
+                <li><img src="images/02.jpg" alt=""/></li>
+                <li><img src="images/03.jpg" alt=""/></li>
+                <li><img src="images/04.jpg" alt=""/></li>
+                <li><img src="images/05.jpg" alt=""/></li>
+            </ul>
+            <div class="square">
+                <span class="current">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

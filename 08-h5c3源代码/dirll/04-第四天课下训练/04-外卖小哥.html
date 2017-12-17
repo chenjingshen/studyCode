@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            background: radial-gradient(200px at top right,red,orange,skyblue);
+            overflow: hidden;
+            position: relative;
+        }
+        img{
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            animation: work 0.5s 6 ,run 1s ease-in-out 3s forwards;
+        }
+        @keyframes work{
+            50%{
+                transform: translateY(20px);
+            }
+        }
+        @keyframes run {
+            100%{
+                transform: translateX(-1000px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="./rider.png" alt="">
+</body>
+</html>

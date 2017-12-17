@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        function Cat(name, age, pinZhong) {
+
+            this.name = name;
+            this.age = age;
+            this.pinZhong = pinZhong;
+
+            this.catchMouse = function () {
+                console.log('抓老鼠');
+            }
+        }
+
+        var c1 = new Cat('xx', 1, '英短');
+
+
+        //还可以养一条宠物，猫也是一个对象
+//        var t1 = {
+//
+//            name: "利群",
+//            age: 38,
+//            salary: 1,
+//
+//            cat: c1,
+//
+//            teaching: function () {
+//
+//                console.log('一边上课一边撩妹');
+//            },
+//        }
+
+
+//        var t1 = {
+//
+//            name: "利群",
+//            age: 38,
+//            salary: 1,
+//
+//            cat: new Cat('招财',1,'英短'),
+//
+//            teaching: function () {
+//
+//                console.log('一边上课一边撩妹');
+//            },
+//        }
+
+
+        var t1 = {
+
+            name: "利群",
+            age: 38,
+            salary: 1,
+
+            cat:{
+                name : '招财',
+                age : 1,
+                pinZhong:'英短',
+                catchMouse: function () {
+                    console.log('抓老鼠');
+                },
+            },
+
+            teaching: function () {
+
+                console.log('一边上课一边撩妹');
+            },
+        }
+
+
+
+        console.log(t1.name);
+        console.log(t1.salary);
+        //不想得到一个对象，就想得到这只猫的名字和品种
+        console.log(t1.cat);
+
+        console.log(t1.cat.name);
+        console.log(t1.cat.pinZhong);
+
+        t1.cat.catchMouse();
+
+        t1.teaching();
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

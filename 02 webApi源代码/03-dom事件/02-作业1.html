@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .hd {
+            height: 45px;
+        }
+
+        .hd span {
+            display: inline-block; /*将行内元素转换成行内块元素，宽高才起作用*/
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hd span.current {
+            /*交集选择器，标签指定式选择器*/
+            background-color: purple; /*紫色*/
+        }
+
+        .bd li {
+            height: 255px;
+            background-color: purple;
+            display: none; /*设置隐藏*/
+        }
+
+        .bd li.current {
+            display: block; /*显示*/
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="hd">
+        <span class="current">体育</span>
+        <span>娱乐</span>
+        <span>新闻</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <ul id="list">
+            <li class="current">我是体育模块</li>
+            <li>我的娱乐模块</li>
+            <li id="li3">我是新闻模块</li>
+            <li>我是综合模块</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+    //找到所有span
+    var spanList = document.getElementsByTagName('span');
+
+    //找到所有li标签
+    var liList = document.getElementsByTagName("li");
+
+    //循环遍历所有span
+    for (var i = 0; i < spanList.length; i++) {
+
+        //也加一个自定义属性来保存索引（两种都可以，一种点语法，一种setAttibute）
+        spanList[i].index = i;
+//        console.log( spanList[i].index);
+
+        //给每个span加鼠标移入事件
+        //如果是想让函数赋值给某个属性，千万不要加小括号，因为加了小括号就代表先调用这个函数，然后把这个函数的返回值赋值给属性
+        spanList[i].onmouseover = spanMouseOver;
+    }
+
+
+    function spanMouseOver() {
+
+
+        //循环遍历每一个span，把每个span的current去掉
+        for (var i = 0; i < spanList.length; i++) {
+
+            spanList[i].removeAttribute("class");
+        }
+
+//            console.log(this);
+        //谁触发事件，this就是谁
+        this.setAttribute("class", "current");
+
+        //先让索引li标签都隐藏
+        for(var i = 0; i < liList.length; i++){
+
+            //删掉每个li标签的class就隐藏了
+            liList[i].removeAttribute("class");
+        }
+
+        liList[this.index].setAttribute("class","current");
+    }
+</script>

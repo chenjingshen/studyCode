@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+     var canvas = document.createElement("canvas");
+     var bodyHeight = document.body.offsetHeight;
+     var bodyWidth = document.body.offsetWidth;
+     canvas.setAttribute("width", bodyWidth);
+     canvas.setAttribute("height", bodyHeight);
+     document.body.appendChild(canvas);
+     
+     var context = canvas.getContext("2d");
+     var x = bodyWidth/40;
+     var y = 30;
+     var index = 0;
+
+     //画一个圆
+     function draw () {
+         context.clearRect(0, 0, canvas.width, canvas.height);
+         context.clearRect(0, 0, canvas.width, canvas.height);
+         context.beginPath();
+         context.arc(x, y, 20, 0, 2*Math.PI);
+         var r = Math.round(Math.random() * 255);
+         var g = Math.round(Math.random() * 255);
+         var b = Math.round(Math.random() * 255);
+         console.log("rgb("+r+", "+g+", "+b+")");
+         context.fillStyle="rgb("+r+", "+g+", "+b+")";
+         context.fill();
+         index += 1; 
+         y = index % 2 == 0 ? 30 : bodyHeight - 30;
+         x = (bodyWidth / 20) * (index % 19) + bodyWidth/20;
+     }
+
+     setInterval(draw, 800);
+
+     canvas.onclick = function() {
+         this.webkitRequestFullScreen();
+     }
+</script>

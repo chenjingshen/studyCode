@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url("images/bg.gif");
+            font: 12px "simsun";
+        }
+
+        .content {
+            width: 960px;
+            height: 627px;
+            margin: 0 auto;
+            background: url("images/content_bg.jpg");
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .clearfix:before, .clearfix:after {
+            content: '';
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .tip {
+            width: 227px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+
+        .tip-h {
+            padding-top: 50px;
+            background: url("images/tip1_h.gif") no-repeat;
+            cursor: default;
+        }
+
+        .text {
+            float: left;
+            padding-left: 10px;
+        }
+
+        .close {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .tip-m {
+            min-height: 40px;
+            padding: 0 10px;
+            padding-top: 10px;
+            background: url("images/tip1_c.gif");
+        }
+
+        .tip-f {
+            height: 53px;
+            background: url("images/tip1_f.gif");
+            padding-top: 20px;
+        }
+
+        .icon {
+            float: left;
+            padding-left: 10px;
+        }
+
+        .name {
+            float: right;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--背景纸-->
+<div class="content" id="content">
+
+    <!-- 整体便利贴 -->
+    <div class="tip" id="tip">
+
+        <!-- 便利贴头部 -->
+        <div class="tip-h clearfix" title="双击关闭纸条">
+            <div class="text">第[49568]条 2017-05-12 22:51:52</div>
+            <div class="close" title="关闭纸条">x</div>
+        </div>
+
+        <!-- 中间内容 -->
+        <div class="tip-m">努力学习，高薪就业</div>
+
+        <!-- 便利贴结尾部分，有名字和棒棒糖 -->
+        <div class="tip-f clearfix">
+            <div class="icon">
+                <img src="images/bpic_1.gif" alt=""/>
+            </div>
+            <div class="name">林哥</div>
+        </div>
+    </div>
+
+</div>
+<script>
+    //获取背景元素
+    var content=document.getElementById("content");
+    //获取整体便利贴元素
+    var tip=document.getElementById("tip");
+    //循环遍历出来的便利贴，这里的20表示要克隆多少个元素
+    for(var i=0;i<20;i++){
+        //深克隆一张标签，因为写在循环语句里面，所以循环多少次就表示克隆了多少个tip元素
+        var newTip=tip.cloneNode(true);
+        //给每一个克隆出来的newtip换上一个新的id名
+        newTip.id="tip"+i;
+        //给content添加新生成的tip元素
+        content.appendChild(newTip);
+        var tops=Math.ceil(Math.random()*400);
+        var lefts=Math.ceil(Math.random()*700)+200;
+        //给每一个克隆出来的tip元素设置随机宽高
+        newTip.style.top=tops+"px";
+        newTip.style.left=lefts+"px";
+    }
+    //删除原始便利贴
+    tip.style.display="none";
+
+
+    //..........祝福强高级形态需要添加以下代码..........
+
+    //获取class类名
+    var classTip=document.getElementsByClassName("tip");
+    var index=0;
+    for(var j=0;j<classTip.length;j++){
+        classTip[j].onclick=function(){
+            index++;
+            //点击谁就将谁的index属性提高
+            this.style.zIndex=index;
+        }
+    }
+    //双击关闭整张标签墙
+    var tiph=document.getElementsByClassName("tip-h");
+    for(var i=0;i<tiph.length;i++){
+        tiph[i].ondblclick=function(){
+            //删除content的子元素，也就是this的父元素
+            content.removeChild(this.parentNode);
+        }
+    }
+    //点击x关闭标签墙
+    var tipx=document.getElementsByClassName("close");
+    for(var i=0;i<tipx.length;i++){
+        tipx[i].onclick=function(){
+            //删除content的子元素，也就是this的父元素
+            content.removeChild(this.parentNode.parentNode);
+        }
+    }
+
+
+
+</script>
+
+<script>
+    /*
+     思路：
+     1、先对这一张便利贴深克隆(循环几次就克隆了几个)
+     2、把克隆出来的便利贴添加到content
+     3、生成两个随机数，一个是用来随机top，一个用来随机left，那样就有随机位置了
+     */
+//    var tip = document.getElementById('tip');
+//
+//    //找到content
+//    var content = document.getElementById("content");
+//
+//    for (var i = 0; i < 10; i++) {
+//
+//        //克隆出来新的便利贴
+//        var newTip = tip.cloneNode(true);
+//
+//        //因为包括原来的id，而id不能一样，所以改
+//        newTip.id = "tip" + i;
+//
+//        //添加到content
+//        content.appendChild(newTip);
+//
+//        //生成0-1包括0，不包括1的数字
+//        //如果乘以300再向上取整就变成了0-300，再加100就变成了100-400
+//        var topRandom = Math.ceil(Math.random() * 300) + 100;
+//
+//        //0-700 + 200    200-900
+//        var leftRandom = Math.ceil(Math.random() * 700) + 200;
+//
+//        newTip.style.top = topRandom + "px";
+//        newTip.style.left = leftRandom + "px";
+//    }
+//
+//
+//    tip.style.display = "none";
+
+
+</script>
+</body>
+</html>

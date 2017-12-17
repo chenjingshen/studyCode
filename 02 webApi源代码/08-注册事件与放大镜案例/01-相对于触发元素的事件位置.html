@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+</body>
+</html>
+
+<script src="common.js"></script>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    box.onclick = function (event) {
+
+        var event = event || window.event;
+
+        //目前而言，哪个浏览器都能用，但是这是IE弄出来的属性
+        //所以最好号是不要直接用，要做一个兼容
+        //直接用的话，在一些情况是对的（点击时是对的），做鼠标移动时可能会有小bug
+//        console.log(event.offsetX);
+//        console.log(event.offsetY);
+
+        //如果要做兼容性，我们根据画图得到结论
+        //用clinentX - 元素的offsetLeft就得到相对于元素左上角被电的坐标
+
+        var x = getPagePosition(event).pageX - box.offsetLeft;
+        var y = getPagePosition(event).pageY - box.offsetTop;
+
+        console.log(x, y);
+        console.log(event.offsetX, event.offsetY);
+    }
+
+</script>

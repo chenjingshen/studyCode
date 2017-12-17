@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .header {
+            margin: 0 auto;
+            width: 1200px;
+            height: 100px;
+            background-color: yellowgreen;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1200px;
+            overflow: hidden;
+        }
+
+        .aside {
+            width: 300px;
+            height: 600px;
+            background-color: hotpink;
+            float: left;
+        }
+
+        .section {
+            width: 900px;
+            height: 600px;
+            background-color: skyblue;
+            float: right;
+        }
+
+        .footer {
+            margin: 0 auto;
+            width: 1200px;
+            height: 100px;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <!-- .header+(.main>(.aside+.section))+.footer -->
+    <div class="header"></div>
+    <div class="main">
+        <div class="aside"></div>
+        <div class="section"></div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

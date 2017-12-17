@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        作用域：两大作用域
+
+        作用域：变量或者函数的作用的范围区域
+
+        全局作用域：
+               script标签的开始到结束的函数外的所有部分
+
+        局部作用域：
+                每声明一个函数，函数的大括号内就是一个局部作用域
+
+
+        全局变量：
+              顾名思义，在所有地方都可以访问的变量
+
+              声明在全局作用域里的变量就是全局变量，换句话说：声明在函数外的是全局变量
+
+
+        局部变量：
+             只有在局部可以访问的变量
+             声明在局部作用域里的变量就叫局部变量，声明在函数内的是局部变量
+
+
+          不规则声明变量：不写var
+            例：
+                   n1 = 10;
+
+
+          不规则声明变量，哪怕写在局部作用域里，也是全局变量
+          但是要注意：这个函数没调用就没有
+
+          var num1 = 100,num2 = 200;
+                这样写，第二个不算不规则变量
+
+          只要前面有var,然后再用,连接，都不算
+
+
+          var num1 = num2 = 20;
+
+          那么第二个num2就算不规则声明变量，num1不算
+
+    -->
+
+    <script>
+
+        /*
+         var globeNum = 100;
+
+         function test1() {
+
+         globeNum = 300;
+         console.log(globeNum);
+         }
+
+         function test2(){
+
+         globeNum = 500;
+         console.log(globeNum);
+         }
+
+         test1();//300   globeNum = 300;
+
+         test2();//500   globeNum = 500;
+
+         test1();//300
+
+         console.log(globeNum);//300
+
+         */
+
+
+        /*
+         //全局变量
+         var globeNum = 100;
+
+         function test1(){
+
+         //局部变量
+         var num = 10;
+
+         //            console.log(globeNum);
+
+         console.log(num);
+         }
+
+
+
+         test1();//10
+
+         console.log(num);
+
+
+         //        console.log(globeNum);//100
+         */
+
+
+        //不规则声明变量
+
+        //        n1 = 10;
+        //        console.log(n1);
+
+//        var n1 = 100, n2 = 300;
+
+
+        function test1() {
+
+//            num = 300;
+//            var num1,num2 = 400;
+
+            var num1 = num2 = 20;//相当于拆分成 var num1 = 20;  num2 = 20;
+        }
+
+        test1();
+
+        console.log(num2);
+        console.log(num1);//num is not defined
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

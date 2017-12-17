@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+        程序都是从上往下执行的（不够严谨）
+
+        因为它会先做一个预解析：
+                就是把它所有作用域里面的变量声明和函数声明，提前到它所在的作用域链的最顶端
+
+         作用只有一个：其实就是告诉你，函数的声明可以写在任意位置，在它之前也可以调用（同一作用域）
+
+         只会提升真正写代码声明过的变量，不规则的不会提升
+    -->
+
+    <script>
+
+        //        console.log(num);
+        //        var num = 10;
+
+        //---------相当于解析成了下面的样子------------------
+        /*
+         var num;
+         //--------0级作用域链最顶端----------
+
+
+         console.log(num);//undefined
+
+         //相当于写了
+         num = 10;
+         */
+
+//        test();
+//
+//        function test() {
+//
+//            alert('test');
+//        }
+
+        //---------相当于解析成了下面的样子------------------
+        /*
+        function test() {
+
+            alert('test');
+        }
+
+        test();
+       */
+
+
+//        var num = 10;
+//
+//        console.log(num);//10
+//
+//        f1();//undefined
+//
+//        function f1(){
+//
+//            console.log(num);
+//            var num = 200;
+//
+//        }
+
+        //------------预解析的代码-------------------
+        /*
+        var num;
+        function f1(){
+
+            //任何作用域里都有预解析
+            var num;
+            //-----------f1作用域链的最顶端---------
+            console.log(num);
+            num = 200;
+
+        }
+        num = 10;
+        console.log(num);//10
+
+        f1();//undefined
+        */
+
+
+
+//        f1();
+//        function f1(){
+//
+//            console.log(a);
+//            console.log(b);
+//            console.log(c);
+//            var a = b = c =10;
+//        }
+
+        //----------预解析的代码--------------------
+        /*
+        function f1(){
+
+            var a;
+
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            a = b = c =10;
+        }
+        f1();
+        */
+
+
+
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+
+        function f1(){
+
+            console.log(a);//undefined
+            var a = b = c =10;
+        }
+
+        //------------预解析代码---------------
+
+        function f1(){
+
+            var a;
+            console.log(a);//undefined
+//            console.log(b);//报错
+//            console.log(c);//报错
+            a = b = c =10;
+        }
+
+        f1();
+        console.log(c);//10
+        console.log(b);//10
+        console.log(a);//报错
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

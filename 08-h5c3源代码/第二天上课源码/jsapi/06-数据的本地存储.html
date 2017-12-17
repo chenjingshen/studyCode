@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .white {
+            background-color: white;
+        }
+
+        .red {
+            background-color: hotpink;
+        }
+
+        .green {
+            background-color: yellowgreen;
+        }
+
+        .blue {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="red" value="红色">
+    <input type="button" id="green" value="绿色">
+    <input type="button" id="blue" value="蓝色">
+
+    <input type="button" id="reset" value="重置">
+</body>
+</html>
+
+<script>
+    // 将用户存储的信息，取出来使用
+    var color = window.localStorage.getItem("color");
+    document.body.className = color;
+
+    document.querySelector("#red").onclick = function() {
+        document.body.className = "red";
+        // 将用户的选择存储在用户的电脑上
+        window.localStorage.setItem("color", "red");
+    }
+
+    document.querySelector("#green").onclick = function() {
+        document.body.className = "green";
+        window.localStorage.setItem("color", "green");
+    }
+
+    document.querySelector("#blue").onclick = function() {
+        document.body.className = "blue";
+        window.localStorage.setItem("color", "blue");
+    }
+
+    document.querySelector("#reset").onclick = function() {
+        document.body.className = "white";
+        window.localStorage.removeItem("color");
+    }
+</script>
+
+<!-- 
+    总结
+    1. 数据的本地存储， 就是使用js把用户的信息，存储到用户的电脑上（localStorage:游览器在硬盘上划出来的一块空间， 又叫cookie）
+
+    2. 数据本地存储有以下几个api 
+        * 存 setItem("key", "value")
+        * 取 getItem("key")
+        * 删 removeItem("key")
+        
+    3. localStorage 数据存的时间，比较长。 浏览器关闭之后，信息仍然存在。 
+ -->

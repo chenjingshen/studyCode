@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet/less" href="./less/index.less"/>
+    <link rel="stylesheet" href="./lib/dist/css/swiper.min.css"/>
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src='./lib/js/template-web.js'></script>
+    <script src="./lib/less/less.js"></script>
+    <script src="./lib/dist/js/swiper.min.js"></script>
+    <script src="./js/index.js"></script>
+
+</head>
+<body>
+<div class="containers">
+    <div class="serialise-contaniner br">
+        <div><a href="./comics.html" class="bb"><span>连载漫画</span><i class="glyphicon glyphicon-menu-right"></i></a></div>
+        <div><a href="./special.html" class="bb"><span>专题列表</span><i class="glyphicon glyphicon-menu-right"></i></a></div>
+    </div>
+    <div class="main-containers">
+
+        <header id="header" class="bb">
+            <a href="javascript:void(0)" class="glyphicon glyphicon-menu-hamburger"></a>
+
+            <p>红旅动漫</p>
+            <a href="javascript:void(0)" class="glyphicon glyphicon-search"></a>
+        </header>
+
+        <section id="slide">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <!--<div class="swiper-button-next"></div>-->
+                <!--<div class="swiper-button-prev"></div>-->
+            </div>
+        </section>
+        <section id="tab">
+            <ul class="clearfix">
+                <li><a indexs="1" href="javascript:void(0)" class="active">新增连载</a></li>
+                <li><a indexs="2" href="javascript:void(0)">新增完结</a></li>
+                <li><a indexs="3" href="javascript:void(0)">推荐连载</a></li>
+                <li><a indexs="4" href="javascript:void(0)">推荐完结</a></li>
+            </ul>
+        </section>
+        <section id="con" class="clearfix">
+            <div>
+                <a href="#"><img src="" alt=""/></a>
+
+                <p class="update"></p>
+
+                <p class="name"></p>
+            </div>
+            <div>
+                <img src="" alt=""/>
+
+                <p class="update"></p>
+
+                <p class="name"></p>
+            </div>
+        </section>
+        <div class="mask"></div>
+    </div>
+</div>
+</body>
+</html>
+<!--轮播图-->
+<script id="phon-slide" type="text/html">
+    {{each}}
+    <a href="{{$value.url}}" class="swiper-slide">
+        <!--llala-->
+        <span>{{$value.title}}</span>
+        <img src="{{$value.img}}" alt=""/>
+    </a>
+
+    {{/each}}
+</script>
+
+<!--tab栏-->
+<script id="phon-con" type="text/html">
+    {{each}}
+    <div>
+        <a href="{{$value.url}}">
+            <img src="{{$value.img}}" alt=""/>
+
+            <p class="name">{{$value.name}}</p>
+        </a>
+
+        <p class="update">{{$value.update}}</p>
+
+    </div>
+
+    {{/each}}
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        /*transform: translate(200px,200px);*/
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+    </div>
+    <script>
+    var div = document.querySelector('div');
+    
+    // 需求： 当手指在div上滑动的时候记录手指滑动的距离把滑动的距离设置到div的位移上
+   // 滑动开始的X  滑动开始的Y 滑动中的X 滑动中的Y  滑动的距离X  滑动的距离Y
+    var startX = startY = moveX  = moveY = distanceX = distanceY = 0;
+    var currentX = currentY = 0;
+    div.addEventListener('touchstart', function (e) {
+    	// 获取开始的X的位置
+    	startX = e.touches[0].clientX;
+    	// 获取开始的Y的位置
+    	startY = e.touches[0].clientY;
+    });
+    div.addEventListener('touchmove', function (e) {
+    	// console.log(e.touches[0].clientX);
+    	// 获取滑动中的X的位置
+    	moveX = e.touches[0].clientX;
+    	// 获取滑动中的Y的位置
+    	moveY = e.touches[0].clientY;
+    	// 计算水平方向滑动距离X
+    	distanceX = moveX - startX;
+    	// 计算垂直方向滑动的距离Y
+    	distanceY = moveY - startY;
+    	// 给div设置位移 滑动的X和Y的距离 下一次滑动的时候加上之前的滑动距离	X 和 Y
+    	div.style.transform = 'translate('+(currentX+distanceX)+'px,'+(currentY+distanceY)+'px)';
+    });
+    div.addEventListener('touchend', function () {
+    	// 记录之前滑动的距离X
+    	currentX += distanceX;
+    	// 记录之前滑动的距离Y
+    	currentY += distanceY;
+    });
+    </script>
+</body>
+
+</html>

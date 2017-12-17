@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 准备摸拟的数据
+    var dataArr = [6000, 8000, 4900, 5600, 7800, 9000];
+
+    //2. 画出坐标系
+    context.moveTo(30, 30);
+    context.lineTo(30, canvas.height-30);
+    context.lineTo(canvas.width-30, canvas.height - 30);
+    context.stroke();
+
+    /*
+    //某个点的x
+    var x = 30 + i * 80;
+    //某个点在内部的坐标系中高度
+    var height = (canvas.height - 60) * 6000 / 10000;
+    // 在整个画布中的y的位置
+    var y = canvas.height - 30 - height
+     */
+
+    var pointsArr = [];
+    //3. 先把所有位置的点的坐标先计算出来
+    for (var i = 0; i<dataArr.length; i++) {
+        var x = 30 + i * 80;
+        var height = (canvas.height - 60) * dataArr[i]/10000;
+        var y = canvas.height - 30 - height;
+        //创建一个点
+        var point = {x: x, y: y};
+        //放入数组
+        pointsArr.push(point);
+    }
+
+    //4. 画线
+    //先把画笔移动到第一个点的位置
+    //创建一张新的玻璃纸
+    context.beginPath();
+    context.moveTo(pointsArr[0].x, pointsArr[0].y);
+    //循环画线
+    for (var i = 1; i < pointsArr.length; i++) {
+        context.lineTo(pointsArr[i].x, pointsArr[i].y);
+    }
+
+    context.stroke();
+</script>

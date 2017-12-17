@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<input type="button" value="清除画布" id="clear">
+</body>
+</html>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 1.画出取色板  取色板每一个色块的颜色是由r，g, b合成的。b的值永远是0，r的值随着i的变大而变大，g的值随着j的值变大而变大
+    for(var i=0;i<10;i++){
+        for(var j=0;j<10;j++){
+            var r= parseInt(25.5*i);
+            var g= parseInt(25.5*j);
+            var color="rgb("+r+","+g+",0)";
+            context.fillStyle=color;
+            context.fillRect(i*20,j*20,20,20);
+        }
+    }
+    var isColor=false;
+    // 2.点击取色
+    canvas.onclick=function(e){
+        var x=e.offsetX;
+        var y=e.offsetY;
+        // 判断点击的点是否在取色板里面
+        if(x>0&&x<200&&y>0&&y<200){
+            // 根据坐标就可以算出是第几个色块
+            var i= parseInt(x/20);
+            var j= parseInt(y/20);
+            var r= parseInt(25.5*i);
+            var g= parseInt(25.5*j);
+            var color="rgb("+r+","+g+",0)";
+            context.fillStyle=color;
+
+            // 将取到的颜色放在一边填充出来
+            context.fillRect(85,300,40,40);
+            // 来到这里表示已经取好了颜色
+            isColor=true;
+            // 将取到的颜色给描边的颜色
+            context.strokeStyle=color;
+        }
+    }
+
+    //3. 画图  
+    /* 
+        必须满足以下几个条件
+        1.必须已经取好颜色
+        2.必须按下鼠标才能开始画图
+        3.必须在画图区域的内部
+     */
+    // 判断鼠标是否已经按下去了
+    var isDown=false;
+
+    //  鼠标按下的事件
+    canvas.onmousedown=function(e){
+        var x=e.offsetX;
+        var y=e.offsetY;
+        if(x>210&&x<590&&y>10&&y<390){
+            // 满足条件才把isDOWN改为true
+            isDown=true;
+            // 将鼠标按下的那个点设为起点
+            context.moveTo(x, y);
+        }
+    }
+
+    // 鼠标按下之后的移动事件
+    canvas.onmousemove=function(e){
+        // 如果鼠标没有按下或者没有取色就不会往下执行
+        if(!isColor||!isDown) return;
+        // 获取鼠标移动时的x，y值
+        var x= e.offsetX;
+        var y=e.offsetY;
+        // 在画图区域内部移动
+        if(x>210&&x<590&&y>10&&y<390){
+            context.lineTo(x, y);
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(x, y);
+        }else{
+            context.moveTo(x, y);
+        }
+    }
+
+    // 当鼠标松开时，isDown设为false
+    canvas.onmouseup=function(e){
+        isDown=false;
+    }
+
+    // 点击清除按钮清除画布
+    document.querySelector('#clear').onclick=function(){
+        context.clearRect(210, 10, 380, 380);
+    }
+</script>

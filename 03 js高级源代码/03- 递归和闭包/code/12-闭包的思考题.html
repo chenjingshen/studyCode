@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+//  var obj = {};
+//  function getFB(n){
+//    if(obj[n]){
+//      return obj[n];
+//    }else {
+//      if(n == 1 || n == 2){
+//        obj[n] = 1;
+//      }else {
+//        obj[n]  = getFB(n-1) + getFB(n-2);
+//      }
+//      return obj[n];
+//    }
+//  }
+//  console.log(getFB(8));
+
+
+  //============================================================
+//  function createFeiBo(){
+//    var obj = {};
+//    function getFB(n){
+//      if(obj[n]){
+//        return obj[n];
+//      }else {
+//        if(n == 1 || n == 2){
+//          obj[n] = 1;
+//        }else {
+//          obj[n]  = getFB(n-1) + getFB(n-2);
+//        }
+//        return obj[n];
+//      }
+//    }
+//    return getFB;
+//  }
+//
+//  //var f1 = createFeiBo();
+//  //console.log(f1(80));
+//
+//  console.log(createFeiBo()(100));
+
+
+  //============================================================
+  //a.
+//  var name = "The Window";
+//  var object = {
+//    name: "My Object",
+//    getNameFunc: function () {
+//      return function () {
+//        return this.name;
+//      };
+//    }
+//  };
+//  console.log(object.getNameFunc()())
+
+
+
+  //b.
+  var name = "The Window";
+  var object = {
+    name: "My Object",
+    getNameFunc: function () {
+      var that = this;
+      return function () {
+        return that.name;
+      };
+    }
+  };
+  console.log(object.getNameFunc()());
+
+
+
+
+
+
+</script>
+</body>
+</html>

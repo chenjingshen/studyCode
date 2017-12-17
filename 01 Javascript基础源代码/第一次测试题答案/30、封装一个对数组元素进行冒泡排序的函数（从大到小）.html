@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // 30、封装一个对数组元素进行冒泡排序的函数（从大到小）
+        function maxtoMin(arr){
+            for(var i=0;i<arr.length-1;i++){
+                for(var j=0;j<arr.length-1-i;j++){
+                    if(arr[j]<arr[j+1]){
+                        var min=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=min;
+                    }
+                }
+            }console.log(arr);
+        }
+        maxtoMin([1,2,3,4,5,6]);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

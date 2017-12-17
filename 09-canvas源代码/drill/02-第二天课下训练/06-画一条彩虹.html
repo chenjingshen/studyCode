@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 两个大小圆的数据
+    var c1={x1:300,y1:200,r1:130};
+    var c2={x2:300,y2:200,r2:200};
+    // 创建一个径向渐变的对象
+    var gra=context.createRadialGradient(c1.x1, c1.y1, c1.r1, c2.x2, c2.y2, c2.r2);
+    gra.addColorStop(0, 'purple');
+    gra.addColorStop(1/7, 'blue');
+    gra.addColorStop(2/7, 'yellowgreen');
+    gra.addColorStop(3/7, 'green');
+    gra.addColorStop(4/7, 'yellow');
+    gra.addColorStop(5/7, 'orange');
+    gra.addColorStop(6/7, 'red');
+    gra.addColorStop(1, 'gold');
+
+    // 画出大小圆
+    context.arc(c1.x1, c1.y1, c1.r1, Math.PI, 0);
+    context.arc(c2.x2, c2.y2, c2.r2, 0,Math.PI, true);
+    
+    context.fillStyle=gra;
+    context.fill();
+    
+</script>
+</body>
+</html>

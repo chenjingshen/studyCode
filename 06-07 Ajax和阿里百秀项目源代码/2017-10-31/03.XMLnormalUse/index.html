@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='获取XML数据'>
+</body>
+</html>
+<!-- 点击按钮 不刷新页面 去服务器获取数据 -->
+<script>
+    // 点击发送请求
+    document.querySelector('input').onclick = function(){
+        //1.创建对象
+        var xhr = new XMLHttpRequest();
+        //2.设置请求行(get请求数据写在url后面)
+        xhr.open('get','./backXML.php?xxx=12345');
+        //3.设置请求头(get请求可以省略,post不发送数据也可以省略)
+        //3.5注册回调函数
+        xhr.onload = function(){
+            console.log(xhr.responseText);
+            // 服务器需要设置 返回的内容是XML
+            console.log(xhr.responseXML);
+            console.log(xhr.responseXML.querySelector('age').innerHTML);
+            console.log(xhr.responseXML.querySelector('name').innerHTML); 
+            console.log(xhr.responseXML.querySelector('info').innerHTML); 
+            console.log(xhr.responseXML.querySelector('skill').innerHTML); 
+        }
+        //4.请求主体发送(get请求为空，或者写null，post请求数据写在这里，如果没有数据，直接为空或者写null)
+        xhr.send(null);
+    }
+
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.call()   apply();
+
+  function test(){
+    console.log(this);
+  }
+
+
+
+  //test.call(123);  //Number
+  //test.call("abc");  //String
+  //test.call(true); //Boolean
+  //test.call(); //window
+  //test.call(null); //window
+  //test.call(undefined); //window
+
+
+
+
+  //如果让一个函数里面的this指向window有几种方式？
+  test.call();
+  test.call(null);
+  test.call(undefined);
+  test.call(window);
+
+
+
+//===============================================
+ //  var obj2 = {
+ //    name:"睡神"
+ //  };
+ //  var obj = {
+ //    name:"车神",
+ //    sayHi: function () {
+ //      console.log(this);
+ //    }
+ //  };
+ //  obj.sayHi.call(); //如果call()   apply()第一个参数没写，那么指向window
+
+
+</script>
+</body>
+</html>

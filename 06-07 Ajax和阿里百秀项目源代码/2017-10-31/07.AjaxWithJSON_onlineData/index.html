@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>获取JSON格式的数据__SMZDM数据</h2>
+    <input type="button" value='获取JSON格式的数据'>
+    <ul>
+
+    </ul>
+</body>
+</html>
+<script>
+    // 绑定点击事件
+    document.querySelector('input').onclick = function(){
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('get','./backJSON.php');
+
+        // 设置请求头 get可以省略
+
+        // 回调函数
+        xhr.onload = function(){
+            // JSON的载体是字符串 所以 直接使用responseText即可
+            // console.log(xhr.responseText);
+            console.log(JSON.parse(xhr.responseText));
+            // 数据在 最外层对象的 data属性里面
+            var dataList = JSON.parse(xhr.responseText).data;
+            for(var i =0;i<dataList.length;i++){
+                // 创建li
+                var li = document.createElement('li');
+
+                // 设置内容
+                // li.innerHTML = '<img src="'+dataList[i].article_img_url+'" alt="">'+dataList[i].article_title;
+                li.innerHTML = '<a href="'+dataList[i].article_url+'"><img src="'+dataList[i].article_img_url+'" alt="">'+dataList[i].article_title+'</a>';
+
+                // 添加到ul中
+                document.querySelector('ul').appendChild(li);
+            }
+        }
+        // 设置请求主体 发送
+        xhr.send(null);
+    }
+
+</script>
+
+

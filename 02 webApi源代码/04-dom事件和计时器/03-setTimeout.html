@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- setTimeout 延迟执行：只执行一次 -->
+</head>
+<body>
+
+<button id="open">开启</button>
+<button id="stop">停止</button>
+
+</body>
+</html>
+
+<script>
+
+    var timeID;
+    document.getElementById("open").onclick = function () {
+
+        //用法跟setInterval是一样一样的
+//        setTimeout("console.log('我只执行一次哦~')",1000);
+        timeID = setTimeout(function () {
+
+            console.log("我只执行一次");
+        },1000);
+    };
+
+    document.getElementById("stop").onclick = function () {
+
+        clearTimeout(timeID);
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        Array.isArray
+
+        xxx instanceof Array(建议记这个，其他的写在小本子上)
+
+        Object.prototype.toString.call(数组名)
+    -->
+
+    <script>
+
+        var arr = [10,20,30];
+
+        //Array.isArray(arr);//返回bool类型，如果为true代表是数组，如果为false不是数组
+//        console.log(Array.isArray(arr)); //true
+//        console.log(Array.isArray(10));//false
+
+//        console.log(arr instanceof Array);//true
+//        console.log(10 instanceof Array);//false
+
+        console.log( Object.prototype.toString.call(arr)  );//得到是字符串 [object Array]
+
+//        if( Object.prototype.toString.call(arr) == '[object Array]' ){
+//
+//
+//        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 200px;
+      height: 300px;
+      background-color: red;
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+    $(function () {
+      //淡入
+      $("#fadeIn").click(function () {
+        $("div").fadeIn(1000);
+        //$("div").fadeIn("你的光头"); //相当于normal
+      });
+
+      //淡出
+      $("#fadeOut").click(function () {
+        $("div").fadeOut(1000);
+      });
+
+      //切换
+      $("#fadeToggle").click(function () {
+        $("div").fadeToggle(1000);
+      });
+
+
+      //让他淡入到那个程度 fadeTo
+      $("#fadeTo").click(function () {
+        $("div").fadeTo("opacity",0.4);
+      });
+
+    });
+
+  </script>
+</head>
+<body>
+<input type="button" value="淡入" id="fadeIn"/>
+<input type="button" value="淡出" id="fadeOut"/>
+<input type="button" value="切换" id="fadeToggle"/>
+<input type="button" value="到那里" id="fadeTo"/>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #grandFather {
+
+            width: 500px;
+            height: 500px;
+            background-color: hotpink;
+
+            position: relative;
+            margin: 50px auto;
+
+            border: 5px solid black;
+        }
+
+        #father {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+
+            left: 100px;
+
+        }
+
+        #box {
+
+            border: 30px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+            position: absolute;
+            bottom: 0;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<!--<div id="grandFather">-->
+    <!--<div id="father">-->
+        <div id="box"></div>
+    <!--</div>-->
+<!--</div>-->
+</body>
+</html>
+
+<script src="common.js"></script>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    box.onclick = function (event) {
+
+        var event = event || window.event;
+
+
+        //offsetLeft:相对于定位的父元素的内边框距离
+        //我只要用页面坐标 - 参照的定位父元素的offset坐标 - 自己的offset坐标就可以了
+        //抛砖引用的思想：
+        var x = getPagePosition(event).pageX - box.offsetParent.offsetLeft - box.offsetLeft - box.clientLeft - box.offsetParent.clientLeft;
+
+        var y = getPagePosition(event).pageY - box.offsetParent.offsetTop - box.offsetTop - box.clientTop - box.offsetParent.clientTop;
+
+        console.log(x, y);
+        console.log(event.offsetX, event.offsetY);
+    }
+
+</script>

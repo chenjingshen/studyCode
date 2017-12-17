@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .my{
+            background-color: hotpink;
+        }
+        .robot{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>聊天机器人</h2>
+    <input class='search' type="text">
+    <input class='send' type="button" value='聊起来'>
+    <ul>
+
+    </ul>
+</body>
+
+</html>
+<script>
+    // 点击事件
+    document.querySelector('.send').onclick = function () {
+
+        // 每次点击 创建一个 自己的li标签
+        // 创建
+        var myLi = document.createElement('li');
+
+        // 设置
+        myLi.innerHTML = document.querySelector('.search').value;
+        // 添加类名
+        myLi.className = 'my';
+
+        // 添加
+        document.querySelector('ul').appendChild(myLi);
+
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        xhr.open('post', 'http://www.tuling123.com/openapi/api');
+
+        // 设置请求头 如果用post发送数据 必须设置一个 头
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        // 注册回调函数
+        xhr.onload = function () {
+            // console.log(xhr.responseText);
+            // console.log(JSON.parse(xhr.responseText).text);
+            // 每次点击 创建一个 自己的li标签
+            // 创建
+            var robotLi = document.createElement('li');
+
+            // 设置
+            robotLi.innerHTML = JSON.parse(xhr.responseText).text;
+             // 添加类名
+             robotLi.className = 'robot';
+
+            // 添加
+            document.querySelector('ul').appendChild(robotLi);
+        }
+
+        // 设置请求主体 发送
+        // post的数据 全部写在 send方法中
+        // 格式是 key=value&key2=value2&key3=value3
+        xhr.send('key=14be9367a5614de9bf0e53dd922bb61a&info=' + document.querySelector('.search').value);
+    }
+</script>

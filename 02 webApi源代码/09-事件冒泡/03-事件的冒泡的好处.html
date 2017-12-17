@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+
+    //    var liList = document.getElementsByTagName("li");
+    //
+    //    for (var i = 0; i < liList.length; i++) {
+    //
+    //        liList[i].onmouseover = function () {
+    //
+    //            this.style.backgroundColor = "red";
+    //        }
+    //    }
+
+    //找到ul
+    var ul = document.getElementsByTagName("ul")[0];
+
+    ul.onmouseover = function (e) {
+
+        //e.target触发事件的源头元素
+        e.target.style.backgroundColor = "red";
+    }
+</script>

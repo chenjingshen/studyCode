@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        input {
+            display: block;
+            margin: 0 auto;
+        }
+
+        #box {
+            width: 150px;
+            height: 1000px;
+            margin: 50px auto;
+            background-color: hotpink;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            margin: 0;
+            width: 1000%;
+            height: 150px;
+            list-style: none;
+            padding: 0;
+            position: absolute;
+        }
+
+        li {
+            width: 150px;
+            height: 150px;
+            float: left;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<input type="button" value="左移动" id="move1"/>
+<input type="button" value="右移动" id="move2"/>
+
+<div id="box">
+    <ul id="ul1">
+        <li style="background-color: green"></li>
+        <li style="background-color: orange"></li>
+        <li style="background-color: deepskyblue"></li>
+        <li style="background-color: purple"></li>
+        <li style="background-color: yellowgreen"></li>
+    </ul>
+
+</div>
+</body>
+</html>
+<script src="../animate.js"></script>
+
+<script>
+
+    var box= document.getElementById("box");
+    var ul1= document.getElementById("ul1");
+    var index=0;
+    document.getElementById("move1").onclick= function () {
+        index++;
+        animate(ul1,-box.offsetWidth*index);
+    }
+    document.getElementById("move2").onclick= function () {
+        index++;
+        animate(ul1,box.offsetWidth*index);
+    }
+
+</script>

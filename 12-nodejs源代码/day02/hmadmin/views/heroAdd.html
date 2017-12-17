@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hero - Admin</title>
+  <!-- 导入jquery -->
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <!-- bootstrap布局 -->
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <style>
+    .hero-list img {
+      width: 50px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="page-header container">
+      <h1><a href="/">王者荣耀</a> <small>英雄管理器</small></h1>
+    </div>
+  </header>
+  <div class="container hero-list">
+    <form id="form" >
+      <div class="form-group">
+        <label for="exampleInputEmail1">英雄名称</label>
+        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="请输入英雄名称">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">英雄性别</label>
+        <div class="radio">
+          <label>
+            <input type="radio" name="gender" id="optionsRadios1" value="男" checked>男
+          </label>
+          <label>
+            <input type="radio" name="gender" id="optionsRadios1" value="女" checked>女
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">英雄图片</label>
+        <!-- `files`类型的`<input>`标签需要指定`name`属性，否则服务器获取不到 -->
+        <input type="file" id="exampleInputFile" name="icon">
+        <p class="help-block">请上传英雄图片.</p>
+      </div>
+      <button type="submit" class="btn btn-success">点击保存</button>
+    </form>
+  </div>
+</body>
+
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        arguments可以用来间接实现函数的重载
+
+        函数的重载：函数名相同，但是函数的参数个数不同
+
+        JS中没有重载,如果写了同名的函数，后面声明的函数会覆盖前面 的声明的函数
+
+    -->
+
+    <script>
+
+        //        function getMax(n1, n2, n3) {
+        //
+        //
+        //            console.log('找三个数最大数');
+        //
+        //        }
+        //
+        //        function getMax(n1, n2) {
+        //
+        //            console.log('找两个数最大数');
+        //            return n1 > n2 ? n1 : n2;
+        //        }
+
+
+        function getMax() {
+
+            if (arguments.length == 2) {
+
+                console.log('找两个数的最大值');
+
+            } else if (arguments.length == 3) {
+
+                console.log('找三个数的最大值');
+            }
+        }
+
+
+        getMax(10, 20,30);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

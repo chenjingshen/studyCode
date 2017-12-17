@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .cup{
+            width: 200px;
+            height: 300px;
+            background-color: #000;
+            margin: 100px 300px;
+            position: relative;
+        }
+        .cup::before{
+            content: "我是椭圆";
+            display: block;
+            width: 100%;
+            height: 60px;
+            background:linear-gradient(to top,#a00, #f00);
+            position: absolute;
+            top: -30px;
+            border-radius: 100px/30px;
+
+        }
+        .cup::after{
+            content: "我是椭圆";
+            color: white;
+            display: block;
+            width: 100%;
+            height: 60px;
+            background-color: #000;
+            position: absolute;
+            bottom: -30px;
+            border-radius: 100px/30px;
+            border-bottom: 2px solid red;
+        }
+        .handle{
+            width:100px;
+            height: 180px;
+            /* background-color: #000; */
+            position: absolute;
+            left: -100px;
+            top: 50px;
+            border-radius: 40px 0px 0px 100px / 80px 0px 0px 100px;
+            border: 30px #000 solid;
+            box-sizing: border-box;
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="cup">
+        <div class="handle"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //画圆
+    //在编程语言里，涉及到角度的地方，都使用弧度（Math.PI）, 整个圆周的弧度是 2*Math.PI
+    //角度和弧度的转换。 比如说我想画一个61度到87度的弧线？
+    //角度一圈是360度， 弧度一圈是2*Maht.PI, 61/360 = x/2*Math.PI = > x = 2 * Math.PI * (61 / 360)
+    //角度转弧度的公式：
+    //var radias = angle / 360 * 2 * Math.PI; = > angle / 180 * Math.PI;
+    context.arc(300, 200, 150, 0/180*Math.PI, 90/180*Math.PI);
+    context.lineTo(300, 200);
+    context.closePath();
+
+    context.stroke();
+    context.fill();
+</script>
+
+<!--
+    总结：
+    1. arc方法是可以用来画弧和圆的，即然是圆，就需要圆心和半径，如果画弧，就需要起始弧度和结束弧度
+    arc(x, y, r, start, end, anticlockwise)// x, y就代表圆心的位置， r就代表半径， start就代表起始弧度， end就代表结束弧度，anticlockwise: 是否逆时针，默认是false， 如改成true， 就会沿着逆时针画线
+    3. 一段弧是可以闭合的，如果直接闭合， 是一个弓形， 如果需要画扇形，需要先lineTo到圆心， 再closePath
+    4. 弧度和角度的对应的关系： 一圈是360度，对应是2*Math.PI. 得到一个公式 弧度 = 角度 / 180 * Math.PI
+-->

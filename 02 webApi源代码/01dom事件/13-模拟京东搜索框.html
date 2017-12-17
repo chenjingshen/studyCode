@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="common.js"></script>
+
+
+    <!--
+        获得焦点：哪个元素被激活（可以等待用户输入）这就叫获得焦点
+                通俗讲：就是光标在你里面，你就是获得焦点，光标不在你里面就是失去焦点
+
+
+        onfocus
+        onblur
+    -->
+
+
+    <script>
+
+        window.onload = function () {
+
+            //找到文本框
+            var userDom = id("user");
+
+            //获得焦点时触发的事件
+            userDom.onfocus = function () {
+
+                if (this.value == "请输入账号") {
+                    this.value = "";
+                }
+            }
+
+            //失去焦点时触发的事件
+            userDom.onblur = function () {
+//                console.log('失去焦点了');
+
+                //如果文本框里面的内容为空，才恢复这段文字
+                if (this.value == "") {
+                    this.value = "请输入账号";
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<!--行内写法-->
+<!--<input type="button" onclick="alert('123');" value="点我啊"/>-->
+
+
+<input type="text" value="请输入账号" id="user"/>
+
+
+</body>
+</html>

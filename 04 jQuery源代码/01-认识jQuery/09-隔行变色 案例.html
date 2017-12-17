@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      var lis = $("li"); //这里得到的是一个jQuery对象。
+
+      for(var i = 0 ; i < lis.length; i++){
+      	var li1 = lis[i]; //这里已经把jQuery对象。转成了dom对象。
+        if(i % 2 == 0){
+          li1.style.backgroundColor = "skyblue";
+        }else {
+          li1.style.backgroundColor = "pink";
+        }
+      }
+
+
+    });
+
+  </script>
+</head>
+<body>
+<ul>
+  <li>我是第1个li标签</li>
+  <li>我是第2个li标签</li>
+  <li>我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+  <li>我是第6个li标签</li>
+  <li>我是第7个li标签</li>
+  <li>我是第8个li标签</li>
+  <li>我是第9个li标签</li>
+  <li>我是第10个li标签</li>
+</ul>
+</body>
+</html>

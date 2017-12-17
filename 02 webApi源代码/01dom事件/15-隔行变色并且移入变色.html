@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+<ul>
+    <li>我在利群隔壁1</li>
+    <li>我在利群隔壁2</li>
+    <li>我在利群隔壁3</li>
+    <li>我在利群隔壁4</li>
+    <li>我在利群隔壁5</li>
+    <li>我在利群隔壁6</li>
+    <li>我在利群隔壁7</li>
+    <li>我在利群隔壁8</li>
+    <li>我在利群隔壁9</li>
+    <li>我在利群隔壁10</li>
+</ul>
+</body>
+</html>
+
+<script>
+
+    var liList = document.getElementsByTagName('li');
+
+    for (var i = 0; i < liList.length; i++) {
+
+        if (i % 2 == 0) {
+            liList[i].style.backgroundColor = "hotpink";
+        } else {
+
+            liList[i].style.backgroundColor = "yellowgreen";
+        }
+
+        var oldColor;
+
+        //给每一个li标签加鼠标移入事件
+        liList[i].onmouseover = function () {
+
+            oldColor = this.style.backgroundColor
+//            console.log(this);
+            //让当前被移入的变红色
+            this.style.backgroundColor = "red";
+        }
+
+        liList[i].onmouseout = function () {
+
+//            console.log(this);
+            //恢复成原来的原色
+            this.style.backgroundColor = oldColor;
+        }
+
+    }
+
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--数据格式：就是一种传递数据的规范，json是其中
+        json只是用来传递数据的，不是用来表示生活中某个具体实例
+     -->
+
+    <script>
+
+        //json格式它跟对象的写法很像
+        //取值：虽然可以用点语法，但一般用中括号来取
+
+        //唯一的区别：key那里写的是字符串，而对象那直接写属性名
+
+
+        //这就是一个json对象
+        var jsonData = {
+
+            "name": "andy",
+            "age": 16,
+            "height":170,
+        }
+
+//        var name = jsonData['name'];
+//
+//        console.log(name);
+
+        for(var key in jsonData){
+
+            console.log(jsonData[key]);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

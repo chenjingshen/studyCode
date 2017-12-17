@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+//  5. 循环的应用之五:求累加和、平均值
+//  eg: 计算1-10之间的每1个整数的累加和
+    //声明一个"箩筐"变量,用来记录累加和。
+    // var sum = 0;
+    // for(var i = 1 ; i <= 10; i++){
+    // 	sum += i;
+    // }
+    // console.log(sum);
+
+
+//   课堂练习:
+//   a. 求1-100之间的所有的可以被3整除的数的累加和.
+    //求累加和，要把这求累加和的所有的数先罗列出来，然后把这里数累加到箩筐中去。
+    // var sum = 0;
+    // for(var i = 1 ; i <= 100; i++){
+    // 	if(i % 3 == 0){
+    //        sum += i;
+    //     }
+    // }
+    // console.log(sum);
+
+
+//   b. 请用户输入学生的人数.然后依次输入每1位同学的成绩. 输入完毕之后,将总成绩和平均成绩打印出来.
+
+    var numOfStudents = +prompt("请输入学生的人数");
+    var score; //声明一个变量，用来记录同学的成绩。
+    var sum = 0; //声明一个变量，用来记录总成绩
+    for(var i = 0 ; i < numOfStudents; i++){
+    	score = +prompt("请输入第"+(i+1)+"个同学的成绩");
+        sum += score;
+    }
+    console.log("总成绩是"+sum+",他们的平均成绩是"+(sum / numOfStudents));
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

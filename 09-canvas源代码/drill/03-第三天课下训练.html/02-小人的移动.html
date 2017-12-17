@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width='600' height='400' id='canvas'></canvas>
+</body>
+
+</html>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 1.加载图片
+    var img = new Image();
+    img.src = './img/DMMban.png';
+
+    img.onload = function () {
+        // 小人的宽和高
+        var w = img.width / 4;
+        var h = img.height / 4;
+
+        // 把小人水平和垂直方向的位置设为中心点
+        var x = 300;
+        var y = 200;
+
+        // 需要使用第几行的第几张图片，声明时先设为0
+        var xindex = 0; //第几张
+        var yindex = 0; //第几行
+        //步数
+        var steps = 0;
+
+        // 用九参模式画出图片并放到坐标中心
+        context.drawImage(img, 0, 0, w, h, 300, 200, w, h);
+        //左上右下： 37， 38， 39， 40
+        // 监听键盘按下事件
+        window.onkeydown = function (event) {
+            console.log(event.keyCode);
+            switch (event.keyCode) {
+                case 37:
+                    // 如果到达边界小人就不动
+                    if (x < 0) return;
+                    yindex = 1;
+                    xindex = steps % 4;
+                    steps += 1;
+                    x -= 10;
+                    // 画小人 先清除画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, w * xindex, yindex * h, w, h, x, y, w, h);
+
+                    break;
+                    case 38:
+                    // 如果到达边界小人就不动
+                    if (y < 0) return;
+                    yindex = 3;
+                    xindex = steps % 4;
+                    steps += 1;
+                    y -= 10;
+                    // 画小人 先清除画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, w * xindex, yindex * h, w, h, x, y, w, h);
+
+                    break;
+                    case 39:
+                    // 如果到达边界小人就不动
+                    if (x > canvas.width-w ) return;
+                    yindex = 2;
+                    xindex = steps % 4;
+                    steps += 1;
+                    x += 10;
+                    // 画小人 先清除画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, w * xindex, yindex * h, w, h, x, y, w, h);
+
+                    break;
+                    case 40:
+                    // 如果到达边界小人就不动
+                    if (y>canvas.height-h ) return;
+                    yindex = 0;
+                    xindex = steps % 4;
+                    steps += 1;
+                    y += 10;
+                    // 画小人 先清除画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, w * xindex, yindex * h, w, h, x, y, w, h);
+
+                    break;
+            }
+        }
+    }
+</script>

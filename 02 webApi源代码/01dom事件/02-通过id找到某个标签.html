@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- JS可以操作BOM和DOM
+         操作DOM就相当于操作html的标签
+         你要操作标签，要不要先找到它，当然要先找到它
+
+
+         找到元素的方法：
+             需要传入一个html标签的id才能找
+             document.getElementById("box");
+
+             注意：传入的id大小写敏感，如果获取不到，那么返回的是null
+
+
+         HTML标签内有什么元素，dom对象里面就有什么元素，通过点语法获取(中括号也可以获取)
+
+         JS获取到的dom对象，里面的style只能获取到行内的样式，并且赋值也是赋值的行内
+
+
+
+         如果script要写在html标签的上面，那么就需要加window.onload = function(){
+
+
+         }
+
+         把获取元素的代码写在那个匿名函数里才行，因为这个匿名函数要等页面所有元素加载完毕才会调用
+
+
+        通过dom对象获取style的属性，只能获取到行内的，获取不到css的（style标签里的获取不到）
+
+        设置也是设置的行内
+
+
+    -->
+
+    <style>
+        #box{
+               width: 600px;
+               height: 600px;
+               background-color: purple;
+           }
+    </style>
+
+    <script>
+
+
+        //当页面所有元素加载完毕才会调用它所绑定的匿名函数
+        window.onload = function () {
+
+            var divDom = document.getElementById("box");
+
+            console.log(divDom.style.width);
+
+        }
+    </script>
+
+</head>
+<body>
+
+
+<div id='box'  class="test one" >我是div</div>
+
+<p>我是p标签</p>
+
+</body>
+</html>
+
+
+<script>
+
+    //任何标签元素都在documet下，所以要找，就先通过document来找
+
+    //对象类型的，像这种通过js获取到的html标签，我们叫dom对象
+
+    //大小写敏感，如果获取不到，返回的是null
+//    var divDom = document.getElementById("BOX");
+//
+//    console.log(divDom);
+
+    //相当于对象类型的属性的用法
+    //拿到它的id
+//    console.log(divDom.id);
+    //拿到它的类名
+//    console.log(divDom.className);
+
+    //修改
+//    divDom.className = "divTest";
+
+//    console.log(divDom["className"]);
+    //可以拿到双标签之间的文字
+//    console.log(divDom.innerText);
+//    divDom.innerText = "我修改了哦~";
+
+    //style也是一个对象，它里面的属性就是css里面的属性
+    //但是只有你给过值的，才有值
+//    console.log(divDom.style.width);
+//    console.log(divDom.style.height);
+//    //获取背景颜色
+//    console.log(divDom.style.backgroundColor);
+
+    //所有css属性(style的属性)给值都是给字符串
+//    divDom.style.width = "300px";
+//    divDom.style.height = "300px";
+//    divDom.style.backgroundColor = "red";
+
+
+
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #box {
+            width: 200px;
+            height: 200px;
+            /*还是以原样显示，但是带有滚动条*/
+            overflow: auto;
+            /*border: 5px solid blue;*/
+            /*padding: 5px;*/
+            background-color: red;
+        }
+
+        img {
+            vertical-align: top;
+            width: 400px;
+            height: 400px;
+        }
+
+    </style>
+    <!--
+        offset家族：offsetWidth offsetHeight offsetLeft offsetTop,offsetParent
+
+        offsetWidth：边框、内边距、内容
+        offsetHeight:同上
+
+        offsetLeft：从自身外边框到参照父元素的内边框的左边距离
+        offsetTop：从自身外边框到参照父元素的内边框的上边距离
+
+        scroll家族：
+            scrollWidth：获得盒子内容的宽度（包括内边距），只读的
+            scrollHeight：获得盒子内容的高度（包括内边距），只读的
+
+        //设置下面这两个属性就可以通过代码让内容滚动起来
+            scrollLeft：获得往左边超出的部分，可以设置值
+            scrollTop:获得往上边超出的部分，可以设置
+    -->
+</head>
+<body>
+<button id="btn">移动</button>
+
+<div id="box">
+    <img src="timg.jpg" alt=""/>
+</div>
+</body>
+</html>
+
+<script>
+    var box = document.getElementById("box");
+    var img = document.getElementsByTagName("img")[0];
+
+    document.getElementById("btn").onclick = function () {
+
+        box.scrollLeft += 10;
+        box.scrollTop += 10;
+    };
+
+    //回忆offsetWidth取到的一直都是真实的宽高（包括内边距，边框）
+    //    console.log(box.offsetWidth + ":" + box.offsetHeight);
+    //    console.log(imggg.offsetWidth + ":" + imggg.offsetHeight);
+
+    //scrollWidth和scrollHeight获得的是自身内容的宽度和高度(包括padding，不包括border)
+    //scrollWidth和scrollHeight不能改，是只读的
+    //scrollLeft和scrollTop可以改。改了后的效果相当于是移动了盒子的内容了
+//    console.log(box.scrollWidth + ":" + box.scrollHeight);
+//    console.log(box.scrollLeft + ":" + box.scrollTop);
+//
+//    box.scrollLeft = 200;
+//    box.scrollTop = 200;
+
+
+    //正在滚动事件 onscroll
+//    box.onscroll = function () {
+//
+//        console.log(box.scrollLeft + ":" + box.scrollTop);
+//    }
+
+
+</script>

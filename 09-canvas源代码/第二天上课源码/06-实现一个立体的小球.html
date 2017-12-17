@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var c1 = {x: 251, y:160, r:0};
+    var c2 = {x: 300, y:200, r: 130}
+
+    var gradient = context.createRadialGradient(c1.x, c1.y, c1.r, c2.x, c2.y, c2.r);
+    gradient.addColorStop(0, "lightgray");
+    gradient.addColorStop(1, "gray");
+
+    context.fillStyle = gradient;
+
+    //画圆并填充
+    context.arc(c2.x, c2.y, c2.r, 0, 2*Math.PI);
+    context.fill();
+
+</script>

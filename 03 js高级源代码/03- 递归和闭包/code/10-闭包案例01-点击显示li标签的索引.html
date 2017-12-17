@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<ul id="ul1">
+  <li>我是第1个li标签</li>
+  <li>我是第2个li标签</li>
+  <li>我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+</ul>
+<script>
+
+  var ul1 = document.getElementById("ul1");
+  var lis = ul1.children;
+
+  //以前的做法
+//  for(var i = 0 ; i < lis.length; i++){
+//    //先给每一个li标签添加一个属性，这个属性保存对应的i
+//    lis[i].setAttribute("index",i);
+//
+//    //循环注册事件
+//  	lis[i].onclick = function () {
+//      console.log(this.getAttribute("index"));
+//    };
+//  }
+
+
+
+  //用闭包
+  for(var i = 0 ; i < lis.length; i++){
+
+    //
+     function outer(){
+       console.log("哈哈");
+       var j = i;
+
+       function inner(){
+         console.log(j);
+       }
+
+       return inner;
+     }
+
+    lis[i].onclick = outer();
+  }
+
+
+
+</script>
+</body>
+</html>

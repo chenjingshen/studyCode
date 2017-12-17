@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //3参模式： 将img从x, y的地方开始绘制， 图片有多大，就绘制多大，超出canvas的部分就不显示了
+    //context.drawImage(img, x, y)
+
+    var image = new Image();
+    image.src = "./img/gls.jpg";
+
+    //必须要等到图片加载出来，才能进行绘制的操作
+    image.onload = function () {
+        context.drawImage(image, 100, 200);
+    }
+
+
+</script>

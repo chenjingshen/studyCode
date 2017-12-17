@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.数组的去重-去掉数组中重复的项
+    //[10,8,10,7,8,6,78]    [10,8,7,6,78];
+
+    //第二种做法
+    var arr = [10,8,10,7,8,6,78];
+    var arrNew = [arr[0]]; //声明一个新数组，一开始他里面放arr的第一个元素
+    //利用循环遍历出arr的每一个元素
+    for(var i = 1 ; i < arr.length; i++){
+      //去判断当前这个arr[i]在arrNew中有没有？如果没有就要把这个arr[i]存进这个arrNew中。
+      //遍历arrNew，看这个arr[i]和这个arrNew里面的每一个元素是否相等。
+      //如果arrNew里面的每一个元素都和arr[i]做了比较，没有一个和他是相等的，就说明这个arr[i]不存在这个arrNew中
+
+      //假设当前这个arr[i]可以存进这个arrNew中去。
+      var flag = true;
+
+      for(var j = 0 ; j < arrNew.length; j++){
+        if(arrNew[j] == arr[i]){ //如果arrNew中有一个元素等于这个arr[i],就说明这个arr[i]已经存在于这个arrNew中了。
+          flag = false; //如果在arrNew中找到了一个元素和你这个arr[i]相等，说明假设失败。
+          break;
+        }
+      }
+     //如果到了这里，上面那个for循环做完了，如果此时这里flag的值还是true，说明假设成功，就应该把arr[i]放进arrNew中。
+      if(flag == true){
+        arrNew[arrNew.length] = arr[i];
+      }
+    }
+    console.log(arrNew);
+
+
+
+
+
+
+
+    //第一种做法
+    //    var arr = [10,8,10,7,8,6,78];
+    //    var arrNew = [arr[0]]; //声明一个新数组，一开始他里面放arr的第一个元素
+    //    //利用循环遍历出arr的每一个元素
+    //    for(var i = 1 ; i < arr.length; i++){
+    //      //去判断当前这个arr[i]在arrNew中有没有？如果没有就要把这个arr[i]存进这个arrNew中。
+    //      //遍历arrNew，看这个arr[i]和这个arrNew里面的每一个元素是否相等。
+    //      //如果arrNew里面的每一个元素都和arr[i]做了比较，没有一个和他是相等的，就说明这个arr[i]不存在这个arrNew中
+    //      for(var j = 0 ; j < arrNew.length; j++){
+    //        if(arrNew[j] == arr[i]){ //如果arrNew中有一个元素等于这个arr[i],就说明这个arr[i]已经存在于这个arrNew中了。
+    //          break;
+    //        }
+    //      }
+    //      //如果到了这里，说明上面那个for循环做完了，如果不是break结束的。说明此时这个arr[i]不存在于这个arrNew中。就应该把这个arr[i]加进这个arrNew中。
+    //      if(j == arrNew.length){
+    //        arrNew[arrNew.length] = arr[i];
+    //      }
+    //    }
+    //    console.log(arrNew);
+
+
+
+
+
+
+
+    //注意：以下代码有问题
+    // var arr = [10,8,10,7,8,6,78];
+    // var arrNew = [arr[0]]; //声明一个新数组，一开始他里面放arr的第一个元素
+    // //利用循环遍历出arr的每一个元素
+    // for(var i = 1 ; i < arr.length; i++){
+    //   //去判断当前这个arr[i]在arrNew中有没有？如果没有就要把这个arr[i]存进这个arrNew中。
+    //   //遍历arrNew，看这个arr[i]和这个arrNew里面的每一个元素是否相等。
+    //   for(var j = 0 ; j < arrNew.length; j++){
+    //     //这里有问题： 问题是有一个不等，就认为这个值不存在arrNew中，从而加进arrNew。
+    //     //真正应该，arrNew中所有的元素判断过后，没有一个跟这个arr[i]相等，才说名这个arr[i]不存在于这个arrNew中
+    //   	if(arrNew[j] != arr[i]){
+    //       arrNew[arrNew.length] = arr[i];
+    //     }
+    //   }
+    // }
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

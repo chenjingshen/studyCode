@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='ajax'>
+</body>
+</html>
+<script>
+    document.querySelector('input').onclick = function(){
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('get','./backData.php');
+        // 这个事件会触发多次 
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            // console.log(xhr.responseText);
+        }
+        xhr.send(null);
+    }
+    $.ajax({
+        processData
+    })
+
+</script>

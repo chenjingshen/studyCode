@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.求任意两个数的和。
+
+    //a.把功能先实现（需求实例化）。
+//    var res = 10 + 20;
+//    console.log(res);
+
+    //b.把上面的代码用函数包裹
+//    function getSum(){
+//      var res = 10 + 20;
+//      console.log(res);
+//    }
+
+    //c.把上面的函数赋值一份，修改自定义的值
+    // function getSum(){
+    //   var res = 100 + 200;
+    //   console.log(res);
+    // }
+
+    //d.找到上面2个函数的不同地方，设置成参数就可以了。
+    //此时这里的num1是形参。
+    function getSum(num1,num2){
+      var res = num1 + num2;
+      console.log(res);
+    }
+
+
+    //此时这里的num1,是实参。
+    var num1 = 100;
+    getSum(10,num1);
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li id="one">隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+    <li>隔壁老王6</li>
+    <li>隔壁老王7</li>
+    <li>隔壁老王8</li>
+    <li>隔壁老王9</li>
+    <li>隔壁老王10</li>
+</ul>
+
+<div>我是div</div>
+
+</body>
+</html>
+
+<script>
+
+
+
+    var liList = document.getElementsByTagName('li');
+    //this作用：谁触发，里面的this就是谁
+
+
+    for (var i = 0; i < liList.length; i++) {
+
+        liList[i].onmouseover = test;
+
+
+        //一定要注意：这仅仅只是一个赋值语句
+        //只不过赋值的数据是函数，赋值时函数不会执行
+        //只有当触发事件才会执行，所以在函数里面如果用到i的，i的值已经变成了数组的长度了，那么访问数据就会越界
+        liList[i].onmouseover = function () {
+
+            this.style.backgroundColor = "red";
+        }
+    }
+
+
+    function test() {
+
+//        liList[i];//liList[10];
+
+//            alert("被点了");
+        //谁被移入，谁的背景颜色变为红色
+        //liList[i].style.backgroundColor = "red";
+
+        this.style.backgroundColor = "red";
+    }
+
+</script>

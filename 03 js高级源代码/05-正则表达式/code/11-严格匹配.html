@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.严格匹配
+  //   /^   / 以什么开头
+  //   /   $/ 以什么结尾
+
+  //严格匹配   /^    $/   符合要求的只能出现一次
+
+
+  //console.log(/abc/.test("abc")); //true
+  //console.log(/abc/.test("abcabcabc")); //true
+
+
+  //console.log(/^abc$/.test("abcabcabc")); //false
+  //console.log(/^abc$/.test("abc")); //true
+
+
+  console.log(/\d/.test("1"));//true
+  console.log(/\d/.test("12345"));//true
+  console.log(/\d/.test("abc12345def"));//true
+  console.log(/\d/.test("abc1"));//true
+
+
+  console.log(/^\d$/.test("1"));//true
+  console.log(/^\d$/.test("12345"));//false
+  console.log(/^\d$/.test("abc12345def"));//false
+  console.log(/^\d$/.test("abc1"));//false
+  console.log(/^\d$/.test("9"));//true
+  console.log(/^abc\d$/.test("abc7"));//true
+  console.log(/^abc\d$/.test("abc7abc9"));//false
+  console.log(/abc\d/.test("abc7abc9"));//true
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box {
+        background-image: url(images/sprites.png);
+        padding: 50px;
+        border: 50px solid rgba(0, 0, 0, 0.1);
+        width: 400px;
+        height: 400px;
+        box-sizing: border-box;
+        /*改变背景图的起点 从盒模型的哪个位置开始有背景图*/
+        /* 	border-box border区域开始
+		padding-box padding区域开始 默认是padding-box
+		content-box 内容区域开始 */
+		/*现在需要在内容区域开始有背景*/
+        background-origin: content-box;	
+        /*背景裁切*/
+        /* border-box  裁切边框以外的背景
+        padding-box 裁切padding以外的背景
+        content-box 裁切内容以外的背景 */
+
+        background-clip:content-box;
+        background-repeat: no-repeat;
+        /*-webkit-background-size: 200px 200px;*/
+        /*background-size: 200px 200px;*/
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

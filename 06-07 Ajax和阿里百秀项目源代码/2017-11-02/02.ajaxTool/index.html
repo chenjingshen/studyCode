@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="./ajaxTool.js"></script>
+<script>
+    // 传入一个对象
+    /*
+        {
+        url:'xxx.php'
+        type:'get'
+        data:'name=jack'
+        success:function(data){
+            console.log(data);
+            }
+        }
+    */
+    ajax({
+        data:'name=大头儿子小头爸爸&linju=王叔叔',
+        type:'post',
+        success:function(data){
+            console.log(data);
+        },
+        url:'../01.sendData/postData.php'
+    })
+</script>

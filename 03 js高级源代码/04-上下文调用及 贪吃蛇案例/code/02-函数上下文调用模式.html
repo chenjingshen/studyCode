@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.函数的调用模式： 函数调用  方法调用  构造函数调用
+  //这三种方式调用，函数里面的this是不能改变的。
+
+  //左值
+  //右值
+  //赋值运算符 左边的就是左值，，右边的就是右值。
+  // var obj = {
+  //   name : "某威"
+  // };
+  // function test(){
+  //   this = obj;  //报错了，赋值运算符左边的东西，不能被赋值。
+  //   console.log(this);
+  // }
+  // test();
+
+
+  //2.我就是要修改这个函数里面的this，怎么办？
+  //函数  上下文调用模式。 可以修改函数里面的this。
+  //使用函数的 call()  或者 apply()
+
+
+  //3.call()
+  //语法： 函数名.call(this需要指向的对象,参数1,参数2......);
+
+  // var obj = {
+  //   name:"某怡宁"
+  // };
+  // function test(a,b){
+  //   console.log(this.name +":"+(a+b));
+  // }
+  // //test(10,20);
+  //
+  // test.call(obj,10,20);
+
+
+  //4.apply();
+  //语法：函数名.apply(this需要指向的对象,数组或者伪数组);
+
+  var name = "某威";
+  var obj = {
+    name:"某怡宁"
+  };
+  function test(a,b,c){
+    console.log(this.name +":"+(a+b+c));
+  }
+  //test(10,20,30);
+  //test.call(obj,10,20,30);
+  test.apply(obj,[11,20,30]) ; //会把数组中的元素依次的赋值给形参。
+
+
+
+  //5.call()  还有 apply()  都是存在于Function.prototyp里面的。
+  //意味着js中所有的函数对象，都有这两个方法。
+
+
+
+</script>
+</body>
+</html>

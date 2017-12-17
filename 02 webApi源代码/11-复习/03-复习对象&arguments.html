@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        /*
+         arguments其实是一个伪数组：有长度，有下标，但是没有数组中提供的那些方法
+
+         //调用函数时传了多少个实参，那么在函数内arguments就有多少个元素，元素保存的就是实参的值
+
+         //只能在函数内使用，函数外无法使用
+
+         //哪怕函数没有定义形参，也可以传实参，那么实参的值在arguments里面保存
+
+
+         对象也是一种数据类型,可以保存数据，也可以保存一个方法
+
+         对象可以通过点语法来取属性的值
+
+         也可以通过字符串来取对象里的属性值
+
+         对象["属性名"];
+
+         对象怎么遍历？用forin来遍历
+
+
+         this:当前方法谁调用，this就是谁
+
+         在事件里：当前处理事件的对象是谁，那么this就是谁
+
+
+         json对象：主要是用来传递数据的
+
+         跟普通最大的不同是，属性（key）加双引号
+
+         其他的跟对象是一样一样的，例如说遍历，也是跟对象一样的遍历
+
+         var jsonData = {"name":"andy"};
+
+
+         new关键字做的事：
+         1.创建一个新的对象
+         2.让函数内的this指向这个刚刚创建的对象
+         3.返回这个对象
+         */
+
+
+        //自定义构造函数
+        function Person(name, age) {
+
+            this.name = name;
+            this.age = age;
+
+        }
+
+        var p1 = new Person("zs", 16);
+
+        var p2 = new Person("ww", 19);
+
+        console.log(p1);
+        console.log(p2);
+
+
+        //系统也准备了很多构造函数
+        var now = new Date()
+
+        //获取年
+        var year = now.getFullYear();
+        //获取月
+        var month = now.getMonth() + 1; //月份从0开始
+
+        month = month > 10 ? month : "0" + month;
+
+        //获取日
+        var day = now.getDate(); //获取日
+
+        day = day > 10 ?  day : "0" + day;
+
+        //把当前时间获取到，并且做成  XXXX年0X月0X日的形式打印
+
+        console.log(year + "年" + month + "月" + day + "日");
+
+        //now.getDay(); //获取这个星期的第几天，从0开始，0代表星期天，1代表星期1
+
+
+        //        var obj = new Object();
+        //        obj.name = "andy";
+        //        obj.age = 16;
+
+        //        var obj2 = new Object({name: "rose", age: 16});
+        //        console.log(obj2.name);
+
+        //        var obj3 = {};//空对象
+
+        /*
+         var obj4 = {name: 'rose', age: 16};
+
+
+         obj4.height = 180;
+         obj4.sayHi = function () {
+
+         alert("哈哈哈");
+         }
+
+         obj4["tizhong"] = "400kg";
+
+         console.log(obj4["age"]);
+
+         obj4.sayHi();
+
+         for (var key in obj4) {
+
+         //key取到的是所有的属性名
+         console.log(obj4[key]);
+         }
+
+
+         //        console.log(obj4.name, obj4.age,obj4.height);
+
+         //        function test1() {
+         //
+         //            console.log(arguments);
+         //        }
+         //
+         //        test1("a",10);
+         */
+
+        /*
+         var obj = {};
+         obj.name = "哈哈";
+
+         obj.sayHi = function () {
+
+
+         return function () {
+
+         console.log(this.name);
+         }
+         }
+
+         //window是顶级对象,声明的所有全局变量，相当于都是window的属性
+
+
+         //        var f = obj.sayHi();
+
+         //        f();//哈哈 空
+
+         //        window.f();
+
+         obj.sayHi()();//空
+
+         /*
+         obj.sayHi();//哈哈
+
+         var obj2 = obj;
+
+         obj2.sayHi();//哈哈
+
+         //
+         //        (obj.sayHi())();//哈哈  哈哈
+         */
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

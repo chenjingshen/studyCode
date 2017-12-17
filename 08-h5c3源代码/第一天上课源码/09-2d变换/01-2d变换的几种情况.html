@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style:  none;
+        }
+
+        ul li {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            margin: 20px;
+            transition: all 1s;
+        }
+
+        ul li:nth-child(1):hover {
+            /* 元素旋转的参照点（轴）， 默认是在中心位置 */
+            transform-origin: left top;
+            transform: rotate(45deg);
+        }
+
+        ul li:nth-child(2):hover {
+            transform-origin: left top;
+            transform: scale(0.5);
+        }
+
+        ul li:nth-child(3):hover {
+            /* 水平向右平移100像素 */
+            transform: translate(100px, 0px);
+        }
+
+        ul li:nth-child(4):hover {
+            transform: translateY(-100px);
+        }
+
+        ul li:nth-child(5):hover {
+            transform: translate(100px, 100px);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>旋转</li>
+        <li>缩小</li>
+        <li>水平平移</li>
+        <li>垂直平移</li>
+        <li>先水平平移，再垂直平移</li>
+    </ul>
+</body>
+</html>

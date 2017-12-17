@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.switch-case  一般的用它来做值匹配的。
+    //匹配 就是全等。
+    /*
+    语法：
+       switch(表达式){
+         case 值1:
+           表达式的值和 值1匹配上了，需要执行的代码;
+           break;
+         case 值2:
+           表达式的值和 值2匹配上了，需要执行的代码;
+         break;
+         case 值3:
+           表达式的值和 值3匹配上了，需要执行的代码;
+         break;
+         default:
+           如果表达式的值和以上的case后面的值都没有匹配上，那么就执行这里的代码。
+           break;
+       }
+    * */
+
+    //2.例子： switch-case小练习题
+    //  女神聊天翻译器：
+	//    呵呵                 你说的内容我不感兴趣
+    //    嗯                   你说的内容还可以，继续吧
+    //    哦                   无所谓
+    //    我要去洗澡了          结束聊天
+
+    //  var res = prompt("请问你的女神刚才说了什么？");
+    //  switch (res){
+    //    case "呵呵":
+    //      alert("你女神的意思是：你说的内容我不感兴趣");
+    //      break;
+    //    case "嗯":
+    //      alert("你说的内容还可以，继续吧");
+    //      break;
+    //    case "哦":
+    //      alert("无所谓");
+    //      break;
+    //    case "我要去洗澡了":
+    //      alert("结束聊天");
+    //      break;
+    //    default :
+    //      alert("你的女神太女神。我也不知道她的意思是什么？");
+    //      break;
+    //  }
+
+
+    //3. 例子  100  10      97  9     84  8    76 7
+    // 请输入你的成绩 ，
+    // 如果大于90分，你的土豪爸爸就奖励你一辆法拉利，
+    // 如果大于80-90分 宝马
+    // 70-80 大黄蜂
+    // 60-70 拖拉机
+    // 未及格 你的土豪爸爸和你断绝父子关系
+
+   //  var score = +prompt("请输入你的成绩");
+   //  switch (Math.floor(score / 10)){
+   //    case 10:
+   //    case 9:
+   //      alert("法拉利");
+   //      break;
+   //    case 8:
+   //      alert("宝马");
+   //      break;
+   //    case 7:
+   //      alert("大黄蜂");
+   //      break;
+   //    case 6:
+   //      alert("拖拉机");
+   //      break;
+   //    case 5:
+   //    case 4:
+   //    case 3:
+   //    case 2:
+   //    case 1:
+   //    case 0:
+   //      alert("断绝父子关系");
+   //      break;
+   //    default :
+   //      alert("你这是什么分数，想糊弄老子吗?");
+   //      break;
+   //  }
+
+
+    //4.注意：
+    //a.小括号里面可以写 变量、表达式。 case项后面的代码 只要是符合js语法都行。
+    //b.在执行switch-case结构的时候遇到了break，就会结束这个switch-case.
+    //  break是可以省略的，如果省略了break，就会往下一个case项穿透，直到遇到break或者这个switch-case结束为止。
+    //c.default是可以省略的，不会有语法错误。  如果switch后面的表达式有可能出现的值都在case项里面被罗列出来了，那么就永远不可能执行default,此时就可以省略default。
+
+
+
+    //5.switch-case其实也是可以做范围匹配的。 但是不推荐。
+    //  var score = +prompt("请输入你的成绩");
+    //  switch (true){
+    //    case  score >= 90 :
+    //      alert("法拉利");
+    //      break;
+    //    case  score >= 80 && score < 90 :
+    //      alert("宝马");
+    //      break;
+    //  }
+
+
+    //6.如何去选择switch-case 还是  if -else if -else结构呢？
+    //如果要做一个值匹配，选择switch-case；比如 星期几
+    //如果要做范围选择，就选择 if -else if -else结构
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

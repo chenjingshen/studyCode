@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+    写一个强制表白的程序：
+           打开一个网页会弹出一个输入框，问你爱我吗？
+                只有当她输入yes的时候，才停止，只要输入的不是yes就一直问
+
+
+    循环语句：
+            do-while
+            跟while最大的不同，就是会先执行一次再来判断条件
+
+
+     语法：
+            do{
+               循环体
+
+            }while(表达式);
+
+      语义：1.先执行循环体，然后跳转到2
+           2.判断表达式结果是否为true，为true，又跳回1来执行，为false跳转到3
+           3.跳出循环，循环结束
+
+       如果有些循环至少执行1次，可以用do-while
+       如果可能1次都不需要执行，可以用while
+    -->
+
+    <script>
+
+        //先问一次，你爱我吗？
+        /*
+         var answer = prompt("我很爱你，你爱我吗？")
+
+
+         while( answer != 'yes' ){
+
+         answer = prompt("我很爱你，你爱我吗？")
+         }
+
+         alert('程序结束了');
+         */
+
+        //        do{
+        //
+        //            var answer = prompt('你爱我吗？');
+        //
+        //        }while(answer != 'yes');
+
+        var num = 10;
+        //        while(num < 5){
+        //
+        //            alert('循环执行了');
+        //        }
+        //        do{
+        //            alert('循环执行了');
+        //
+        //        }while(num < 5 );
+        //
+        //        alert('程序结束了');
+
+
+        var i = 1;
+
+        do {
+            console.log(i);
+            i++;
+        } while (i <= 100);
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

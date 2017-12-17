@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        写一个程序，打印出学生考试成绩对应的等级
+        90分以上，打印A
+        80分以上，打印B
+        70分以上，打印C
+        60分以上，打印D
+        60分以下，打印E
+
+
+       如果涉及到范围的判断：最后用if-elseif的形式
+
+       如果没有涉及到范围，而是具体的某个值，那么用switch
+
+
+       合理运用穿透：多个值要执行的代码相同的时候，就可以合理的应用穿透
+    -->
+
+    <script>
+        var score = 99;
+        /*
+         90/10 = 9,   91/10 = 9.1   99/10 = 9.9
+         80/10 = 8,  81/ 10 =8.1   89 / 10 = 8.9
+
+         怎么筛选返回？用分数/10，再取整数部分（向下取整），整数部分为9，就代表90分以上，为8就代表80分以上
+         */
+
+        score = Math.floor(score / 10);
+
+        switch (score) {
+            case 10:
+            case 9:
+                alert('A')
+                break;
+
+            case 8:
+                alert('B');
+                break;
+            case 7:
+                alert('C');
+                break;
+            case 6:
+                alert('D');
+                break;
+            default:
+                alert('E');
+                break;
+        }
+
+        /*
+         if(score >= 90){
+
+         alert('A');
+         }else if (score >= 80){
+
+         alert('B');
+
+         }else if(score >= 70){
+
+         alert('C');
+         }else if(score >= 60){
+
+         alert('D')
+
+         }else{
+
+         alert('E');
+         }
+         */
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

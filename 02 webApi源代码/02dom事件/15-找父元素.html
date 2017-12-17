@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        parentNode:找父元素（直接就能找到父元素，没有兼容性问题）
+    -->
+</head>
+<body>
+
+<ul id="ul">
+    <li>隔壁老王1</li>
+    <li id="two">隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+    var two = document.getElementById("two");
+    console.log(two.parentNode);
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='调用豆瓣电影接口'>
+</body>
+</html>
+<script src='./jquery-1.12.4.min.js'></script>
+<script>
+    // 
+    $(function(){
+        $('input').click(function(){
+            $.ajax({
+                url:'https://api.douban.com/v2/movie/search',
+                // type:'get',
+                // 今天记住这种写法
+                dataType:'jsonp',
+                data:{
+                    q:'王晶'
+                },
+                success:function(backData){
+                    console.log(backData);
+                }
+            })
+        })
+
+    })
+
+</script>

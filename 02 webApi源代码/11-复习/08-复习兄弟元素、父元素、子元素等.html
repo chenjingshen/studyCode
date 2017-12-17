@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <!--
+        除了parentNode以外，其他使用都很可能会遇到空文本、非空文字、注释
+
+        parentNode获取到的一定是父元素，元素有且只有一个父元素
+    -->
+</head>
+<body>
+
+<ul id="ul1">
+    <!-- 我是注释-->
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li id="li3">隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li id="li5">隔壁老王5</li></ul>
+
+
+
+</body>
+</html>
+
+<script>
+    
+    var ul1 = document.getElementById("ul1");
+
+    var li3 = document.getElementById("li3");
+    
+    var li5 = document.getElementById("li5");
+
+
+    //直接获取到了自己的父元素
+    console.log(li3.parentNode);
+
+
+    //包含文本，空文本，注释
+    console.log(ul1.childNodes);
+
+    //它可以直接获取所有的子元素（不包括文本，空文本，但是IE8和以前包括注释） 也有兼容性问题（也算）
+    console.log(ul1.children); //直接用就行了，没必要兼容，很少会在ul里面写注释
+
+    //找到节点：包括文本，空文本，注释
+    console.log(li3.previousSibling);
+    //只找到上一个元素（不包括文本，空文本和注释，IE8不支持，兼容性跟下一个一样一样的）
+    console.log(li3.previousElementSibling);
+
+
+    //获取下一个兄弟节点，节点包括文本注释
+//    console.log(li3.nextSibling);
+//    console.log(li3.nextElementSibling);//获取下一个元素（只有元素，没有文本和注释）
+
+    console.log(getNextElement(li5));
+
+
+    function getNextElement(obj){
+
+        if(obj.nextElementSibling){
+
+            return obj.nextElementSibling;
+
+        }else{
+            //ie8以前
+
+            var node = obj.nextSibling;
+
+            //如果obj自己本身就是最后一个子元素了，那么它已经没有兄弟元素了
+            //所以判断如果为null或者undefined就直接return了。可能存在空文本，这个判断还不够完全
+            if(node == null || node == undefined){
+
+                return;
+            }
+
+            //type为1就是标签
+            while(node.nodeType != 1){
+
+                node = node.nextSibling;
+
+                //如果取到的是null和undeined证明子元素全部取完了都没找到，所以直接return
+                if(node == null || node == undefined){
+
+                    return;
+                }
+            }
+
+            return node;
+        }
+    }
+
+</script>

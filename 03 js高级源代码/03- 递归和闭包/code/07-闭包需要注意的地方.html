@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.
+
+//  function outer(){
+//    var ran = Math.floor(Math.random() * 100);
+//
+//    function inner(){
+//      return ran;
+//    }
+//
+//    return inner;
+//  }
+//
+//  // var f1 =  outer();  //f1其实就是这个inner函数本身。
+//  // console.log(f1());
+//  // console.log(f1());
+//  // console.log(f1());
+//
+//
+//  var f1 = outer();
+//  console.log(f1());
+//  var f2 = outer();
+//  console.log(f2());
+//  console.log(f1 === f2); //false
+
+
+
+
+  //===========================================================
+  //投票机
+  function outer(){
+    var num = 10;
+
+    function add(){
+      num++
+      return num;
+    }
+
+    return add;
+  }
+
+
+  // var f1 =  outer();
+  // console.log(f1()); //11
+  // console.log(f1()); //12
+  // console.log(f1()); //13
+
+
+   var f1 = outer();
+   console.log(f1()); //11
+   console.log(f1()); //12
+
+   var f2 = outer();
+   console.log(f2()); //11
+   console.log(f2()); //12
+
+   var f3 = outer();
+   console.log(f3()); //11
+   console.log(f3()); //12
+
+
+  //console.log(outer()()); //11
+  //console.log(outer()()); //11
+  //console.log(outer()()); //11
+
+
+</script>
+</body>
+</html>

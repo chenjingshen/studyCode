@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 需要提交数据 准备form标签
+        表单元素 让用户输入数据
+        提交按钮 让用户 提交数据
+        form
+            action 设置提交的地址
+            ../ 跳一级
+            ./ 平级
+            method get
+        input标签
+            要提交哪个input标签的数据
+            必须要设置 name属性
+    -->
+    <form action="./getData.php" method="get">
+        <input name='starName' type="text" placeholder="请输入你喜欢的明星">
+        <input type="submit">
+    </form>
+</body>
+</html>

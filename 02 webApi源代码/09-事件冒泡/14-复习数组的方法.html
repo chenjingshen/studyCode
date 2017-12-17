@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    var nums = [10, 20, 30, 40, 50];
+
+    //给数组末尾添加一个元素
+    /*
+     nums.push(100);
+
+     console.log(nums);
+
+     //删除末尾的元素,有一个返回值，返回值是被删除的元素
+     var res = nums.pop();
+
+     console.log("数组删除后为：" + nums);
+     console.log("res为：" + res);
+     */
+
+    //删除第0个元素,返回值为被删除的元素
+//    var res = nums.shift();
+//    console.log(nums);
+//    console.log(res);
+
+    //在第0个位置插入一个元素
+//    nums.unshift(1000);
+//    console.log(nums);
+
+    //先删除最后一个元素，最后一个元素的50没了，当作返回值，传给unshift
+    //相当于把最后一个元素50，移动到了第0个元素
+//    nums.unshift( nums.pop()  );
+//
+//    console.log(nums);
+
+
+    //代表把第0个移动到最后去了
+    nums.push( nums.shift() );
+    console.log(nums);
+</script>

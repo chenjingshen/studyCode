@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.其他的类型转换成number类型。
+    //1.1 可以在需要转换的内容前面加上正号。  +
+    // var  str = "123";
+    // var res = +str;
+    // console.log(res); //123
+    // console.log(typeof res); //number
+
+    //1.2 可以让需要转换的内容做算术运算
+    // var  str = "123";
+    // var res = str * 1;
+    // console.log(res); //123
+    // console.log(typeof res); //number
+    //注意： 一定要和连接符做一个区分。
+
+
+
+    //2.其他的类型转换成string类型 。  使用连接符
+    //  var num = 123;
+    //  var str = num + "";
+    //  console.log(str); //"123"
+    //  console.log(typeof  str);//string
+
+
+    //3.其他的类型转换成boolean类型 。 使用取反运算符
+    // var num = undefined;
+    // var res = !!num;
+    // console.log(res);
+    // console.log(typeof res);
+    //注意：那些能转成布尔类型的false：0 -0 false  undefiend null  NaN  ""
+
+
+
+    //1.题目：请输入今年的年龄，求5年后多大？
+    //a.prompt接收到的数据是string类型的。
+    //  var age = +prompt("请输入你今年的年龄");
+    //  var age5 = age + 5;
+    //  alert("我今年"+age+"岁了，5年后我"+age5+"岁了");
+
+
+
+
+    var a = 1 ; var b ; alert(typeof(b)); //undefiend
+    var a = "1" ; var b = +a; alert(typeof(b)); //number
+    var a = 1 ; var b = 1 + "1"; alert(typeof(b)); //string
+    var a = "a"; alert(typeof(+a)); //number
+    var a = "a"; alert(typeof(!a)); //false
+    var a = "a"; alert(typeof(a+"")); //string
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

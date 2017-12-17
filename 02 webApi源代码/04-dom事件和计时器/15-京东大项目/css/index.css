@@ -1,0 +1,426 @@
+@charset "UTF-8";
+
+/*页面main部分左侧开始*/
+.main-left {
+  height: 450px;
+  width: 190px;
+  background: #6e6568;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.main-left li {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 8px;
+}
+.main-left li:hover {
+  background-color: #999395;
+}
+.main-left li a:hover {
+  color: red;
+}
+.main-left li,
+.main-left li a {
+  color: #fff;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+}
+/*页面main部分左侧结束*/
+
+/*页面main部分中间部分开始*/
+.main-center {
+  height: 480px;
+  width: 790px;
+  /*background: pink;*/
+  margin-left: 10px;
+}
+.main-center-top {
+  height: 340px;
+  /*background-color: green;*/
+  position: relative;
+}
+.main-center-top .points {
+  /*width: 182px;*/
+  height: 20px;
+  background-color: rgba(255,255,255,.3);
+  padding-left: 8px;
+  padding-right: 8px;
+
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -91px;
+  border-radius: 10px;
+}
+.main-center-top .points i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  margin-top: 4px;
+  margin-left: 10px;
+  float: left;
+  border-radius: 6px;
+}
+.main-center-top .points i.noMarginL10{
+  margin-left: 0px;
+}
+.main-center-top .points i.current {
+  background-color: #ff0000;
+}
+.main-center-top .arrow span {
+  display: inline-block;
+  width: 30px;
+  height: 60px;
+  background: rgba(0,0,0,.1);
+  line-height: 60px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+}
+.main-center-top .arrow-left {
+  left: 0px;
+}
+.main-center-top .arrow-right {
+  right: 0px;
+}
+.main-center-top .arrow span:hover {
+  background: rgba(0,0,0,.6);
+}
+.main-center-top .arrow{
+  display: none;
+}
+.main-center-top:hover  .arrow{
+  display: block;
+}
+
+
+.main-center-bottom {
+  margin-top: 10px;
+  height: 130px;
+  /*background-color: orange;*/
+}
+.main-center-bottom a {
+  display: inline-block;
+  width: 390px;
+  height: 130px;
+  float: left;
+}
+.main-center-bottom .space2 {
+  margin-left: 10px;
+}
+
+/*页面main部分中间部分结束*/
+
+
+/*页面main部分右侧部分开始*/
+.main-right {
+  height: 480px;
+  width: 190px;
+  background: #fff;
+}
+.main-right-user {
+  height: 100px;
+  border-bottom: 1px solid #E6E6E6;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+.main-right-user .user-info {
+  height: 50px;
+  /*background-color: pink;*/
+}
+.main-right-user .user-info .user-info-imga {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  border: 2px solid #C9A65B;
+  border-radius: 25px;
+  padding-top: 3px;
+  padding-left: 3px;
+}
+.main-right-user .user-info a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.main-right-user .user-info div {
+  margin-left: 8px;
+}
+.main-right-user .user-info .welcomep {
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+.main-right-user .user-profit {
+  padding-top: 10px;
+}
+.main-right-user .user-profit a {
+  display: inline-block;
+  width: 70px;
+  height: 20px;
+  border: 2px solid #e01222;
+  float: left;
+  color: #E01222;
+  text-align: center;
+  line-height: 20px;
+}
+.main-right-user .user-profit a:hover {
+  background-color: #E01222;
+  color:  #fff;
+}
+.main-right-user .user-profit  a.user-profit-one {
+  margin-right: 10px;
+}
+
+
+.main-right-news {
+  height: 149px;
+  border-bottom: 1px solid #E6E6E6;
+  padding: 5px 15px  0px 13px;
+}
+.main-right-news .news-header {
+  height: 21px;
+  line-height: 21px;
+  /*background-color: green;*/
+  border-bottom: 1px solid #E6E6E6;
+  position: relative;
+}
+.main-right-news .news-header .newsLine {
+  display: inline-block;
+  width: 1px;
+  height: 17px;
+  background-color: #DFE0E1;
+  margin: 2px 15px 0px 13px;
+}
+.main-right-news .news-header .newsRedLine  {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background-color: #DB192B;
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+}
+
+
+.main-right-news .news-content ul {
+  margin-top: 13px;
+}
+.main-right-news .news-content ul li {
+  height: 24px;
+  line-height: 24px;
+}
+
+.main-right-live {
+  overflow: hidden;
+}
+.main-right-live ul {
+  width: 192px;
+}
+.main-right-live ul li {
+  width: 47px;
+  height: 69px;
+  float: left;
+  border: 1px solid #E7E7E7;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  position: relative;
+}
+.main-right-live .jian-flag {
+  width:14px ;
+  height: 17px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.main-right-live .jian-flag em {
+  display: inline-block;
+  width: 14px;
+  height: 13px;
+  color:#fff;
+  background-color: #E01121;
+  line-height: 13px;
+  text-align: center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.main-right-live .jian-flag b {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 2px 7px;
+  border-color: #E01121 #E01121 #fff #E01121;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+.main-right-live ul li  i {
+  display: inline-block;
+  width: 15px;
+  height: 21px;
+  /*background-color: red;*/
+  background: url(../images/sprite_fs@1x.png) no-repeat -5px -89px;
+  position: absolute;
+  top: 15px;
+  left: 16px;
+}
+.main-right-live ul li  span {
+  position: absolute;
+  bottom:12px;
+  left: 11px;
+}
+/*页面main部分右侧部分结束*/
+
+/*页面秒杀seckill部分开始*/
+.seckill {
+  margin-top: 10px;
+}
+.seckill .seckill-header {
+  height: 55px;
+  background: url("../images/seckill_hd.png");
+  position: relative;
+}
+.seckill .seckill-header i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url("../images/sprite_index@1x.png") no-repeat -197px -55px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+.seckill .seckill-header b {
+  display: inline-block;
+  width: 35px;
+  height: 40px;
+  background: url("../images/sprite_index@1x.png") no-repeat 0 -40px;
+  position: absolute;
+  top: 8px;
+  left: 30px;
+}
+
+.seckill .seckill-header h3 {
+  height: 26px;
+  line-height: 26px;
+  font-size: 26px;
+  color: white;
+  position: absolute;
+  top: 15px;
+  left: 73px;
+}
+.seckill .seckill-header a {
+  color: #fff;
+  position: absolute;
+  top: 25px;
+  left: 187px;
+  padding-right: 20px;
+}
+.seckill .seckill-header a s {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background:url("../images/sprite_index@1x.png") no-repeat -154px -40px;
+  /*vertical-align: middle;*/
+  position: absolute;
+  top: 1px;
+  right: 0px;
+}
+.seckill .seckill-header .time {
+  width: 270px;
+  height: 37px;
+  /*background-color: green;*/
+  position: absolute;
+  top: 9px;
+  right: 20px;
+}
+.seckill .seckill-header .time  span.span-time {
+  display: inline-block;
+  width: 35px;
+  height: 37px;
+  background: #440106;
+  font-size: 24px;
+  color: #F90013;
+  line-height: 37px;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 3px;
+}
+.seckill .seckill-header .time  span.span-txt {
+  color: #fff;
+  font-size: 14px;
+}
+.seckill .seckill-header .time  span.span-point {
+  font-size: 20px;
+  font-weight: 900;
+  color:  #440106;
+}
+
+.seckill .seckill-content {
+  height: 223px;
+  /*background-color: green;*/
+  padding-top: 12px;
+  padding-bottom: 15px;
+}
+.seckill .seckill-content .sk-c-left {
+  width: 1000px;
+  height: 223px;
+  /*background-color: pink;*/
+}
+.seckill-content .sk-c-left li {
+  height: 223px;
+  width: 182px;
+  float: left;
+  position: relative;
+  padding-left: 17px;
+
+  border-right: 1px solid #E7E7E7;
+}
+.seckill-content .sk-c-left li a {
+  display: inline-block;
+  height:208px ;
+  width: 165px;
+
+}
+.seckill-content .sk-c-left li a.sk-c-left-links  img {
+  position: absolute;
+  top: 23px;
+  left: 35px;
+}
+
+.seckill-content .sk-c-left li a.sk-c-left-links i {
+  display: inline-block;
+  width: 134px;
+  height: 6px;
+  background: url("../images/sprite_index@1x.png") no-repeat -20px -14px;
+  position: absolute;
+  top:153px ;
+  left: 33px;
+}
+.seckill-content .sk-c-left li a.sk-c-left-links span {
+  position: absolute;
+  top: 160px;
+  left: 15px;
+}
+
+.seckill-content .sk-c-left li .sk-c-left-price {
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+}
+.seckill-content .sk-c-left li .sk-c-left-price b {
+  font-size: 24px;
+}
+
+
+.seckill .seckill-content .sk-c-right {
+  width: 180px;
+  height: 238px;
+  /*background-color: skyblue;*/
+  margin-left: -1px;
+}
+
+/*页面秒杀seckill部分结束*/

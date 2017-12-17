@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.创建对象的时候，使用的函数，里面的this又是什么呢？
+
+
+  //a.工厂模式
+  //里面的this就是window
+  //  function createStudent(name){
+  //    var obj = new Object();
+  //    obj.name = name;
+  //    console.log(this);
+  //    return obj;
+  //  }
+  //  var s1 = createStudent();
+
+
+  //b.寄生模式
+  //里面的this就是new关键字创建出来的对象。
+  function createStudent(name){
+    var obj = new Object();
+    //obj.name = name;
+    obj.sayHi = function () {
+      console.log("呵呵");
+    }
+
+    this.name = name;
+    this.sayHi = function () {
+      console.log("哈哈"+this.name);
+    }
+    console.log(this);
+
+
+//    return obj;
+  }
+  var s1 = new createStudent("张三");
+  s1.sayHi();
+
+
+
+  //c.构造函数
+
+
+
+</script>
+</body>
+</html>

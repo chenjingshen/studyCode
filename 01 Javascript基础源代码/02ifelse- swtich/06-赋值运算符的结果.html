@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        // 赋值运算符：=  ，代表把右边的结果赋值给左边，它也是一个运算符,既然是运算符，那么都会有一个运算结果
+
+//        只不过运算结果就是赋的那个值
+
+
+//        var n1,n2,n3;
+//
+////        n1 = 20;
+//
+////        console.log(n1=200);
+//
+//        n3 = n2 = n1 = 200;
+//
+//        console.log(n1,n2,n3);
+
+        var n1 = 10,n2;
+
+//       因为没有短路，所以逻辑运算式整体结果为右边表达式结果
+//        而右边是一个赋值运算，赋值运算结果就是要赋的值
+        var res = n1 > 5 && (n2 = 300);
+
+        console.log(res,n1,n2);//300,10,300
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

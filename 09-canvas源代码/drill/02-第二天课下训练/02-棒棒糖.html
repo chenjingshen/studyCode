@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    for(var i=0;i<10;i++){
+        context.beginPath();
+        context.arc(300, 200, 15*i,0, Math.PI*2);
+        context.strokeStyle=i%2==0?'red':'white';
+        context.lineWidth=10;
+        context.stroke();
+    }
+</script>
+</body>
+</html>

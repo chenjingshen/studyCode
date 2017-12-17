@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="btn1"/>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    //    要让速度先快后慢
+    //    那么就可以用目标位置 - 当前位置 除以 10，因为当前位置不断增加，所以得到结果就会越来越小
+    // 就代表每步走的距离越来越短，那么就造成了从快到慢的运动效果
+    document.getElementById("btn1").onclick = function () {
+
+        //匀速：运动过程中的运动速度是一样的
+        var timerID = setInterval(function () {
+
+            //向上取整
+            var step = Math.ceil((400 - box.offsetLeft) / 10);
+
+            var offset = box.offsetLeft + step;
+
+            if (offset <= 400) {
+                box.style.left = offset + "px";
+            } else {
+
+                box.style.left = 400 + "px";
+                clearInterval(timerID);
+            }
+
+        }, 50);
+    };
+</script>

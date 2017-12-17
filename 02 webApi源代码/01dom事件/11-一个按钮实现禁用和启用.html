@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<input type="text"/>
+<input type="button" value="点我啊"/>
+
+<hr/>
+
+<button id="jy">禁用</button>
+
+</body>
+</html>
+
+<script>
+
+    var jyBtn = document.getElementById('jy');
+
+    var inputs = document.getElementsByTagName('input');
+
+    //给禁用按钮加点击事件
+    jyBtn.onclick = function () {
+
+        //谁被点，this就是谁
+        //改标签之间的文字用innerText
+//       if(this.innerText == "禁用"){
+//
+//           this.innerText = "启用";
+//
+//       }else{
+//
+//           this.innerText = "禁用";
+//       }
+
+        //三元表达式：整体会有个一个结果，如果前面的条件为真，结果?后面的表达式，如果条件为假，就是:后面的表达式为结果
+        this.innerText = this.innerText == "禁用" ? "启用" : "禁用";
+
+        //循环遍历所有input
+        for (var i = 0; i < inputs.length; i++) {
+
+//            inputs[i].disabled = true;
+
+            //原来是true变成false，原来是false就变成true
+            inputs[i].disabled = !inputs[i].disabled;
+
+            /*
+             if(inputs[i].disabled == true){
+
+             inputs[i].disabled = false;
+
+             }else{
+
+             inputs[i].disabled = true;
+             }
+             */
+        }
+    }
+
+</script>

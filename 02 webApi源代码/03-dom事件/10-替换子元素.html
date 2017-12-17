@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        replaceChild：替换子元素
+        参数1：要替换的新的元素
+        参数2：谁被替换
+
+        如果是已经存在的替换到另外一个父元素，会相当于把它移动过去替换
+    -->
+</head>
+<body>
+
+
+<ul id="ul1">
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li id="li3">隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+<input type="button" value="替换" id="replace"/>
+
+
+<ul id="ul2">
+    <li>隔壁老周1</li>
+    <li>隔壁老周2</li>
+    <li>隔壁老周3</li>
+    <li>隔壁老周4</li>
+    <li id="last">隔壁老周5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+        var ul1 = document.getElementById("ul1");
+        var ul2 = document.getElementById("ul2");
+
+        document.getElementById("replace").onclick = function () {
+
+            //替换新内容
+            /*
+            var newLi = document.createElement("li");
+            newLi.innerHTML = "新内容";
+
+            var li3 = document.getElementById("li3");
+
+            //把li3替换为新元素
+            ul1.replaceChild(newLi,li3);
+            */
+
+            //用已经存在的替换
+            var li3 = document.getElementById("li3");
+            var last = document.getElementById("last");
+
+            ul2.replaceChild(li3,last);
+        }
+</script>

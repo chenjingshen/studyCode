@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.moveTo(100, 100);
+    context.lineTo(500, 100);
+    context.lineTo(100, 300);
+//    context.lineTo(100, 100);
+
+    //就是自动的把我们的路径闭合
+    context.closePath();
+
+    //描边
+    context.stroke();
+
+    //填充
+    context.fill();
+
+</script>
+
+<!--
+    路径：
+    1. 就是指绘制图形时，玻璃纸上的线条或者是形状
+    2. 路径有些可以转成一个闭合区间，有些不可以围成闭合的区间
+    3. 如果路径可以围成一个闭合的形状，那么这个形状就可以做填充的操作
+    4. 路径是有方向的
+-->

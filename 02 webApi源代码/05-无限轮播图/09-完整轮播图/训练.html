@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+            <!-- 动态创建的小方块，添加在这里，样式已经给写好了-->
+        </ol>
+    </div>
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+<script src="../animate.js"></script>
+
+<script>
+    //找到最外面的大盒子
+    var box = document.getElementById("box");
+    //找到ul外面的盒子
+    var screen=box.children[0];
+    //找到存放左右箭头的盒子
+    var arr = document.getElementById("arr");
+    //找到ul
+    var ul = document.getElementsByTagName("ul")[0];
+    //找到ol
+    var ol = document.getElementsByTagName("ol")[0];
+    //找到上一页
+    var prev = document.getElementById("left");
+    //找到下一页
+    var text = document.getElementById("right");
+    //循环遍历ul并给ol添加li标签，ul中有几个就给ol加几个元素
+    for (var i = 0; i < ul.children.length; i++) {
+        var li = document.createElement("li");
+        li.index = i;
+        li.innerHTML = i + 1;
+        ol.appendChild(li);
+        ol.children[i].onclick = function () {
+            for (var i = 0; i < ol.children.length; i++) {
+                ol.children[i].removeAttribute("class");
+            }
+            this.className = "current";
+            var index = this.index;
+            animate(ul, -index * screen.offsetWidth)
+        }
+    }
+    //默认让ol的第0个元素有current属性
+    ol.children[0].className="current";
+    //给最外面的大盒子添加鼠标移入事件
+    box.onmouseover= function () {
+        arr.style.display = "block";
+        clearInterval(timerID);
+    }
+    box.onmouseout = function () {
+        arr.style.display = "none";
+        timerID=setInterval(function () {
+            fn();
+        },1000);
+    };
+    //一开始就给ul加最后一张图片，图片就是克隆的第0张图片
+    ul.appendChild(ul.children[0].cloneNode(true));
+    //给左右箭头添加点击事件
+    var pageCount=0;
+    text.onclick= function () {
+        fn();
+    }
+    function fn(){
+        if(pageCount==ul.children.length-1){
+            pageCount=0;
+            ul.style.left="0px";
+        }
+        pageCount++;
+        var offset=-pageCount*screen.offsetWidth;
+        animate(ul,offset);
+        for (var i = 0; i < ol.children.length; i++) {
+            ol.children[i].removeAttribute("class");
+        }
+        if(pageCount==ul.children.length-1){
+            ol.children[0].className="current";
+        }else{
+            ol.children[pageCount].className="current";
+        }
+    }
+    prev.onclick = function () {
+        if (pageCount == 0) {
+            pageCount=ul.children.length-1;
+            ul.style.left=-pageCount*screen.offsetWidth+"px";
+        }
+        pageCount--;
+        var offset=-pageCount*screen.offsetWidth;
+        animate(ul,offset);
+        for (var i = 0; i < ol.children.length; i++) {
+            ol.children[i].removeAttribute("class");
+        }
+        if(pageCount==ul.children.length-1){
+            ol.children[0].className="current";
+        }else{
+            ol.children[pageCount].className="current";
+        }
+    };
+    var timerID=setInterval(function () {
+        fn();
+    },1000);
+
+
+
+    //    var box= document.getElementById("box");
+    //    var screen= box.children[0];
+    //    var ul=screen.children[0];
+    //    var ol=screen.children[1];
+    //    var arr= document.getElementById("arr");
+    //    var prev= document.getElementById("left");
+    //    var text= document.getElementById("right");
+    //
+    //    for (var i = 0; i < ul.children.length; i++) {
+    //        var li=document.createElement("li");
+    //        li.index=i;
+    //        li.innerHTML=i+1;
+    //        ol.appendChild(li);
+    //        ol.children[i].onclick= function () {
+    //            for (var i = 0; i < ol.children.length; i++) {
+    //                ol.children[i].removeAttribute("class");
+    //            }
+    //            this.className="current";
+    //            var index=this.index;
+    //            animate(ul,-index*screen.offsetWidth);
+    //        }
+    //    }
+    //    ol.children[0].className="current";
+    //    box.onmouseover = function () {
+    //        arr.style.display = "block";
+    //        clearInterval(timerID);
+    //    };
+    //    //默认图片就应该是动的
+    //    var timerID=setInterval(function () {
+    //        fn();
+    //    },1000);
+    //    box.onmouseout = function () {
+    //        arr.style.display = "none";
+    //        timerID=setInterval(function () {
+    //            fn();
+    //        },1000);
+    //    };
+    //    //添加的克隆元素会自动添加在ul的最后
+    //    ul.appendChild(ul.children[0].cloneNode(true));
+    //
+    //    //给下一页添加点击事件
+    //    var pageCount=0;
+    //    text.onclick= function () {
+    //        fn();
+    //    }
+    //    function fn() {
+    //        if(pageCount==ul.children.length-1){
+    //            pageCount=0;
+    //            ul.style.left="0px";
+    //        }
+    //        pageCount++;
+    //        var offset=-pageCount*screen.offsetWidth;
+    //        animate(ul,offset);
+    //        fn1();
+    //    }
+    //    function fn1(){
+    //        //解决ol里面的li样式问题
+    //        for (var i = 0; i < ol.children.length; i++) {
+    //            ol.children[i].removeAttribute("class");
+    //        }
+    //        if(pageCount==ul.children.length-1){
+    //            ol.children[0].className="current";
+    //        }else{
+    //            ol.children[pageCount].className="current";
+    //        }
+    //    }
+    //    prev.onclick= function () {
+    //        if (pageCount == 0) {
+    //            pageCount = ul.children.length-1;
+    //            ul.style.left = -pageCount*screen.offsetWidth+"px";
+    //        }
+    //        pageCount--;
+    //        var offset = -pageCount * screen.offsetWidth;
+    //        animate(ul, offset);
+    //        fn1()
+    //    }
+
+</script>

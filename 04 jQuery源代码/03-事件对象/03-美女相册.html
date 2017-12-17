@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica","Arial",serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+        #imagegallery {
+
+            list-style: none;
+        }
+
+        #imagegallery li {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery li a img {
+            border: 0;
+        }
+    </style>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //1.给a标签设置单击事件
+//            $("#imagegallery>li>a").on("click", function () {
+//                //2.让大图那个img标签，的src属性的值  是当前这个a标签的 href的值
+//                $("#image").attr("src",$(this).attr("href"));
+//                //3.让图片下面的文字，显示a标签的title属性的值
+//                $("#des").text($(this).attr("title"));
+//                //4.阻止a标签的跳转
+//                return false;
+//            });
+
+            $("a").on("click", function () {
+                $("#image").attr("src", $(this).attr("href"));
+                $("#des").text($(this).attr("title"));
+                return false;
+            })
+
+
+
+        });
+    </script>
+</head>
+<body>
+<h2>
+    美女画廊
+</h2>
+
+<ul id="imagegallery">
+    <li><a href="images/meinv/1.jpg" title="美女A">
+        <img src="images/meinv/1-small.jpg" width="100" alt="美女1" />
+    </a></li>
+    <li><a href="images/meinv/2.jpg" title="美女B">
+        <img src="images/meinv/2-small.jpg" width="100" alt="美女2" />
+    </a></li>
+    <li><a href="images/meinv/3.jpg" title="美女C">
+        <img src="images/meinv/3-small.jpg" width="100" alt="美女3" />
+    </a></li>
+    <li><a href="images/meinv/4.jpg" title="美女D">
+        <img src="images/meinv/4-small.jpg" width="100" alt="美女4" />
+    </a></li>
+</ul>
+
+<div style="clear:both"></div>
+
+<img id="image" src="images/meinv/placeholder.png" alt="" width="450px" />
+
+<p id="des">选择一个图片</p>
+
+</body>
+</html>

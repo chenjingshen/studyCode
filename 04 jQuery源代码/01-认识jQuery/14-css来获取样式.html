@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    #one {
+      height: 100px;
+      margin: 10px 20px 30px 40px;
+      padding: 20px;
+      border: 10px solid #000;
+      background-color: pink;
+    }
+
+    li {
+      font-size: 20px;
+    }
+
+    #li01 {
+      font-size: 35px;
+    }
+    #li03 {
+      font-size: 40px;
+    }
+    #li06 {
+      font-size: 60px;
+    }
+
+  </style>
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //只有一个div
+      //console.log($("#one").css("height"));
+      //console.log($("#one").css("width"));
+      //console.log($("#one").css("background-color")); //"rgb(255, 192, 203)"
+      //console.log($("#one").css("margin-top"));
+
+
+
+
+      //有多个li标签，用css()函数来获取样式的话，只会获取第一个元素的样式。
+      console.log($("li").css("font-size"));
+
+
+
+    });
+  </script>
+</head>
+<body>
+<!--<div id="one" style="width: 400px"></div>-->
+
+<ul>
+  <li>我是第2个li标签</li>
+  <li id="li01">我是第1个li标签</li>
+  <li id="li03">我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+  <li id="li06">我是第6个li标签</li>
+</ul>
+</body>
+</html>

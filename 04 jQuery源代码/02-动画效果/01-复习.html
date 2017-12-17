@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    //1.jQuery 介绍
+    //2.入口函数
+    // $(document).ready(function (){
+    //
+    // });
+    // $(function () {
+    //
+    // });
+    //3.$===jQuery  函数$();
+    //4.dom对象和jQuery对象
+    //转换
+    //dom对象转换jQuery对象:    $(dom对象);
+    //jQuery对象 转换 dom对象:  jQuery对象[索引]    jQuery对象.get(索引);
+
+    //5.基本选择器
+    //id选择器  $("#id名");
+    //类选择器  $(".类名");
+    //标签      $("标签名");
+    //交集      $("p.one");
+    //并集     $("div,p");
+
+    //6.层级选择器
+    //子代  $("div>p");
+    //后代  $("div p");
+
+    //7.过滤选择器
+    //偶数  $("li:even");
+    //奇数  $("li:odd");
+    //索引对象  $("li:eq(索引)");
+
+    //8.筛选选择器(方法)
+    //$("li").eq(索引);
+
+
+
+    //9.css操作
+    //获取样式  不仅行内可以获取、内嵌的样式也可以获取
+    //   css("width");
+    //设置样式  设置在行内
+    //   css("width",300);
+    //   单个样式  多个样式(传一个对象)
+
+   $(function () {
+     $("div").css("width",300);
+   });
+  </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

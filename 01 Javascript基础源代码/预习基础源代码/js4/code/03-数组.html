@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.需求： 输入班上学生的人数，依次的输入每个同学的成绩；  所有人输入完毕之后，求他们的总成绩。
+    //  var score; //因为一个变量，只能存一个值，所以不能解决以上的问题。
+    //  var sum = 0;
+    //  for(var i = 0 ; i < 5; i++){
+    //  	score = +prompt("请输入第"+(i+1)+"个同学的成绩");
+    //  }
+    //  console.log(score);
+
+    //2.有没有一个东西，他里面可以存放很多个值？ 有， 数组。
+
+    //3.数组的声明
+    //3.1 可以使用构造函数的方式声明
+    //语法： var 数组名 = new Array();
+    //       var arr = new Array();
+
+
+
+
+    //4.数组的赋值 -数组的元素赋值。
+    //语法： 使用索引下标来赋值。     下标： 是从0开始依次累加1的整数。
+    // 数组名[下标] = 值;  //把右边的值赋值给数组对应的下标的那个元素。
+    var arr = new Array();
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[4] = 50;
+    arr[5] = 60;
+    console.log(arr);
+
+
+    //5.数组的取值
+    //语法： 使用索引下标来取值。
+    // 数组名[下标];
+    //  console.log(arr[0]);
+    //  console.log(arr[5]);
+    //  console.log(arr[8]); //undefined  如果取值的时候，这个对应的下标之前没有赋值，那么取的值就是undefiend.
+    //  console.log(arr[2]); //undefined
+
+
+    //6.数组的改值。对数组的元素重新赋值
+    //语法： 数组名[下标] = 新值;
+    console.log(arr[0]);
+    arr[0] = 100;
+    console.log(arr[0]);
+
+
+
+
+    //数组名词概念
+    //数组的元素：存放在数组里面的东西
+    //数组的长度：数组中存放数据的个数- 数组的元素的个数，可以用length来表示。
+    //稀疏数组：数组有的元素赋值了，有的元素没有赋值。
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

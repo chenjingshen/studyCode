@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background-color: yellowgreen;
+            transition:  all 1s;
+        }
+
+        .box:hover {
+            /* 盒子阴影，比文字阴影多两个参数1. 内阴影， 设inset， 2.阴影的缩放效果 */
+            /* box-shadow: 5px 5px 10px red inset; */
+            /* box-shadow: 5px 5px 10px 20px red inset; */
+            /* box-shadow: -5px -5px 0px 0px red inset; */
+            /* box-shadow: 0px 0px 10px 0px red inset; */
+
+            /* 三条边的内阴影 */
+            /* box-shadow: 5px -5px 0px red inset, -5px 0px 0px red inset; */
+
+            /* 三条边的外阴影， 有bug哦 */
+            box-shadow: 5px -5px 0px red, -5px 0px 0px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+
+<!-- 
+    总结：
+    1. 盒子阴影， 比文字阴影多两个参数
+        1. inset, 设置内阴影
+        2. 阴影的放大，跟在模糊程度的参数的后面
+    2. 技巧： 如果需要实现某个方向的内阴影，先实现其反方向的外阴影，再加一个 inset
+    3. 如果要实现四个边都有阴影
+        1. 设模糊程度
+        2. 将阴影放大
+    4. 三个边有阴影
+        1. 内阴影， 设两组阴影就可以了
+        2. 外阴影， 用盒子a盖住盒子b， 给b设四个边的阴影，将a的大小设得比b要大一些
+ -->

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 100px;
+      position: relative;
+      left: 200px;
+      top: 200px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      /*
+        1.属性操作 attr
+        //获取属性
+        attr("title");
+        //设置属性
+        //设置单属性
+        attr("title","哈哈");
+       //设置多属性
+       attr({
+
+       });
+       //移出属性
+       removeAttr("属性名");
+
+
+       2.布尔值类型的属性  prop
+       disableed  checked  selected
+
+       prop("checked",false);
+
+
+       3.设置获取元素的宽高
+        内容宽高： .width();  .height();
+        内容宽高+padding： innerWidth();
+        内容宽高+padding+border: outerWidth();
+        内容宽高+padding+border+margin:outerWidth(true);
+
+
+       4.offset();
+         距离文档的位置。
+         获取的是一个对象，里面包含了left值和top值。
+         设置offset的时候，如果元素没有设置定位，会自动的帮这个元素设置一个relative的定位。
+
+
+       5. position()
+         距离自己的定位父级的距离。
+
+
+
+       6.scrollTop()    scrollLeft()
+         获取的是滚出去的距离。
+
+         //获取的是页面的滚出去的距离。
+         $(window).scrollTop();
+         $(window).scrollLeft();
+
+
+
+      7.jQuery
+       简单注册事件-bind()-delegate-on
+
+
+      8.on注册事件
+       //2个参数，就是给自己注册
+       $(元素).on('事件名',事件处理程序，给一个匿名函数);
+
+       //3个参数，就是委托注册
+       $(父元素).on('事件名','触发事件的元素',事件处理程序);
+
+
+     9.解绑事件
+       $(元素).off(); //没有参数，解绑所有的事件
+       $(元素).off('click'); //没有参数，解绑对应的事件
+
+
+    10.事件触发
+      .trigger();
+
+
+    11.事件对象
+       可以用事件参数e来获取这个事件对象
+       3个坐标：
+         screenX  screenY
+         clientX  clientY
+         pageX    pageY
+
+       keyCode
+
+
+
+
+
+
+
+
+
+
+
+      * */
+      //$('div').click();
+
+
+ 
+
+
+      //$('div').offset({
+      //  left:300,
+      //  top:300
+      //});
+
+    });
+  </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

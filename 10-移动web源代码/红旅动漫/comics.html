@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet/less" href="./less/comics.less"/>
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src='./lib/js/template-web.js'></script>
+    <script src="./lib/less/less.js"></script>
+    <script src="./js/comics.js"></script>
+</head>
+<body>
+
+<header id="header">
+    <a href="./index.html"><span class="glyphicon glyphicon-menu-left"></span></a>
+
+    <p>连载动漫</p>
+
+</header>
+<section class="con ">
+    <div class="con-container">
+        <div class="con-left"><a href="#"><img src="" alt=""/></a></div>
+        <div class="con-right">
+            <h3>
+
+            </h3>
+
+            <p></p>
+
+            <p></p>
+
+            <p></p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
+<!--内容模板-->
+<script id="phon-comics" type="text/html">
+    {{each}}
+    <div class="con-container clearfix bb">
+        <div class="con-left"><a href="{{$value.url}}"><img src="{{$value.img}}" alt=""/></a></div>
+        <div class="con-right">
+            <p>
+                {{$value.name}}
+            </p>
+
+            <p> {{$value.episode}}</p>
+
+            <p> {{$value.updateTime}}</p>
+
+            <p>下载次数：{{$value.downloadCount}}</p>
+        </div>
+    </div>
+    {{/each}}
+</script>

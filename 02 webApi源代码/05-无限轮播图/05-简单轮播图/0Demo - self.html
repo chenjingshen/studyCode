@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        .box {
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .inner {
+            width: 490px;
+            height: 170px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .inner li {
+            float: left;
+        }
+
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</div>
+
+<script src="../animate.js"></script>
+
+<script>
+
+    //拿到装图片的div
+    //因为这个方法无论如何返回是数组，而且类为inner的元素只有一个，所以呢取数组中第0个就行了
+    var innerBox = document.getElementsByClassName("inner")[0];
+    //因为ul是innerBox的子元素，而且是第0个子元素，所以用下标0取就行了
+    //children获得所有的子元素（是个数组）
+    var ul1 = innerBox.children[0];
+
+    //根据标签取到所有span
+    var spanList = document.getElementsByTagName("span");
+
+    //给所有span加点击事件
+    for (var i = 0; i < spanList.length; i++) {
+
+        //给所有span添加索引
+        spanList[i].setAttribute("index", i);
+
+
+        //一定要注意，点击事件绑定的函数，在外层这个循环的时候不会触发
+        //只有当被点击才触发，被点击时外面早就走完了，跟我函数里面没半毛钱关系
+        //所以函数内我要找到所有span还必须再遍历
+        spanList[i].onclick = function () {
+
+
+            //移出所有span的class
+            for (var i = 0; i < spanList.length; i++) {
+
+                spanList[i].removeAttribute("class");
+            }
+
+            //把被点击的span加一个current
+            this.className = "current";
+
+            //移出去的图片数等于被点击的span的索引
+            var index = this.getAttribute("index");
+            var offset = -index * innerBox.offsetWidth;
+
+            animate(ul1,offset);
+        };
+
+    }
+
+
+</script>
+</body>
+</html>

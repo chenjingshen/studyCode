@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.函数的执行三种方式
+  //要看一个函数中的this是谁，就要看这个函数是怎么调用的，不要看他是怎么声明的。
+
+
+
+  //a.函数就作为普通函数调用
+  //里面的this是window
+  function test1(){
+    console.log("呵呵");
+    console.log(this);
+  }
+  //test1();
+
+
+
+  //b.函数作为方法来调用。
+  //函数里面的this，就看是那个对象点出来调用的，那个对象点出来的函数，函数里面的this就是那个点出来的对象。
+  var obj = {
+    test2: function () {
+      console.log("哈哈");
+      console.log(this);
+    }
+  };
+  //obj.test2();
+
+
+
+  //注意1： 修改obj对象的test2方法为test1.
+  //obj.test2 = test1;
+  //调用obj.test2()方法，实际上执行的是test1的函数体，test1里面的this是obj。
+  //obj.test2(); //obj
+
+
+  //注意2：修改test1这个函数为obj这个对象里面的test2.
+  //test1  = obj.test2;
+  //调用test1(),实际上执行的代码是obj.test2里面的那个匿名函数。
+  //test1();  //window
+
+
+
+
+  //c.函数作为构造函数来调用
+  //如果是配合new关键字，当做构造函数来调用，那么这个函数里面的this就是那个new关键字创建出来的对象。
+  function Person(name){
+    this.name = name;
+    console.log(this);
+  }
+  //new Person("张三");
+
+
+  //注意：如果把构造函数当成一个普通的函数来调用，这个构造函数中的this就是window。
+  Person("随便");
+
+
+
+
+</script>
+</body>
+</html>

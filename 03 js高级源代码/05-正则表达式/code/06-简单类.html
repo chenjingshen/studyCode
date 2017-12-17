@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1. []  整体代表的是一个字符
+
+  // console.log(/[abc]/.test("a"));  //true
+  // console.log(/[abc]/.test("b"));  //true
+  // console.log(/[abc]/.test("c"));  //true
+
+
+  console.log(/[abc]/.test("abc")); //true
+  console.log(/[abc]/.test("1234567a")); //true
+  console.log(/[abc]/.test("1234567b")); //true
+  console.log(/[abc]/.test("1234567c")); //true
+  console.log(/[abc]/.test("1234567"));  //false
+  console.log(/[abc]/.test("1234567abc")); //true
+  console.log(/[abc]/.test("!!@#$$$cde")); //true
+  console.log(/[abc]/.test("!!@#$$$ijk")); //false
+
+
+
+
+  console.log(/[abc]/.test("abc"));//true
+  console.log(/[abc]/.test("a"));//true
+  console.log(/[abc]/.test("i"));// false
+
+</script>
+</body>
+</html>

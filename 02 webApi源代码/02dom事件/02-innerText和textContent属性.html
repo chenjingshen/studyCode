@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <!--
+        innerText特点：拿到双标签之间的所有文本内容
+                innerText这个属性是微软弄出来专门给IE用的，它其实并不是w3c规范里的属性
+                所以就会有兼容问题，现在已经没有了。在火狐（FF）42版本之前是不支持innerText
+                当时微软的IE市场占有最高，windows系统，自带IE浏览器
+
+
+        textContent属性：
+                效果跟innerText是一样一样的，但是它是w3c规范的标准属性
+
+                它也有兼容性问题：IE8以及IE8以前的版本不支持
+
+
+    -->
+
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    我是div
+    <h1>我是标题</h1>
+</div>
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+   var box =  document.getElementById('box');
+
+   console.log(getTextContent(box));
+
+   //   console.log(box.innerText);
+
+   //取双标间之间的文字
+//   console.log(box.textContent);
+
+    //如果我就是想取到文本，那么用哪一个好？都不好。所以我们要做兼容性
+    //让所有浏览器都可以正确拿到双标签之间的文本
+
+    //思路：先尝试用box.textContent，如果能拿到就直接拿到这个结果，如果拿到的结果为undefined就代表是用IE8以及以前的版本访问的网页，如果是undefined就用innerText再来访问
+
+//    var text;
+
+   //判断兼容性就直接用if(xxx)判断就行了
+   //这个叫能力检测
+
+   /*
+     如果box.textContent取到undefined那么，if里面肯定就是false，那么就执行else里的代码了，如果没有取到undefined肯定就是true,true就直接拿来用，这就是能力检测代码的核心思路所在
+    */
+//    if(box.textContent){ //0,'',undefined,null能转换为成false
+//
+//       text = box.textContent;
+//
+//   }else{//证明是IE8以前
+//
+//       text = box.innerText;
+//   }
+
+//   console.log(text);
+
+
+//   console.log(getTextContent(box));
+
+//
+//   //参数ele就代表你传入什么元素，我就帮你取这个元素标签里的内容
+//    function getTextContent(ele){
+//
+//        if(ele.textContent){ //0,'',undefined,null能转换为成false
+//
+//            return ele.textContent;
+//
+//        }else{//证明是IE8以前
+//
+//            return ele.innerText;
+//        }
+//    }
+
+</script>

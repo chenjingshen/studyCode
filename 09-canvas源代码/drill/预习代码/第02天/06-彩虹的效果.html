@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //实现彩虹
+    var c1 = {x: 300, y: 200, r: 80};
+    var c2 = {x: 300, y: 200, r: 150};
+    var gradient = context.createRadialGradient(c1.x, c1.y, c1.r, c2.x, c2.y, c2.r);
+    gradient.addColorStop(1, "red");
+    gradient.addColorStop(6/7, "orange");
+    gradient.addColorStop(5/7, "yellow");
+    gradient.addColorStop(4/7, "green");
+    gradient.addColorStop(3/7, "cyan");
+    gradient.addColorStop(2/7, "skyblue");
+    gradient.addColorStop(1/7, "purple");
+    gradient.addColorStop(0, "white");
+
+    //设为填充色
+    context.fillStyle = gradient;
+
+    //画圆并填充
+    context.arc(c2.x, c2.y, c2.r, 0, 2*Math.PI);
+    context.fill();
+
+    context.fillStyle = "white";
+    context.fillRect(0, 200, 600, 200);
+
+
+
+</script>

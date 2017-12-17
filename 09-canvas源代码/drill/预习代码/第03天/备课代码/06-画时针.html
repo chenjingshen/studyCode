@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    setInterval(function () {
+        //0. 把context的状态保存起来
+        context.save();
+
+        //1. 先把画布清空掉
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //2. 平移坐标系到中间， 旋转坐标系到12点方向
+        context.translate(300, 200);
+        context.rotate(-0.25*Math.PI);
+
+        //3. 画表盘
+        context.beginPath();
+        context.arc(0, 0, 103, 0, 2*Math.PI);
+        context.strokeStyle = "blue";
+        context.lineWidth = 3;
+        context.stroke();
+
+        //4. 画时针刻度
+        context.beginPath();
+        for (var i = 0; i<12; i++) {
+            context.moveTo(95, 0);
+            context.lineTo(100, 0);
+            context.rotate(30/180*Math.PI);
+        }
+
+        context.strokeStyle = "black";
+        context.lineWidth = 5;
+        context.stroke();
+
+        //5. 画分针刻度
+        context.beginPath();
+        for (var i = 0; i<60; i++) {
+            if (i % 5 != 0) {
+                context.moveTo(97, 0);
+                context.lineTo(100, 0);
+            }
+
+            context.rotate(6/180*Math.PI);
+        }
+
+        context.strokeStyle = "black";
+        context.lineWidth = 3;
+        context.stroke();
+
+        //6. 计算时针，分钟，秒针的角度
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+
+        m = m + s/60;
+        h = h + m/60;
+        h = h > 12 ? h-12 : h;
+
+        var hradian = h / 12 * 2 * Math.PI;
+        var mradian = m / 60 * 2 * Math.PI;
+        var sradian = s / 60 * 2 * Math.PI;
+
+        //7. 画时针
+        context.save();
+        context.rotate(hradian);
+        context.beginPath();
+        context.moveTo(-8, 0);
+        context.lineTo(65, 0);
+        context.lineWidth = 5;
+        context.lineCap = "round";
+        context.strokeStyle = "blue";
+        context.stroke();
+        context.restore();
+
+        //8. 画分针
+        context.save();
+        context.rotate(mradian);
+        context.beginPath();
+        context.moveTo(-8, 0);
+        context.lineTo(75, 0);
+        context.strokeStyle = "blue";
+        context.lineWidth = 4;
+        context.lineCap = "round";
+        context.stroke();
+        context.restore();
+
+        //9. 画秒针
+        context.save();
+        context.rotate(sradian);
+        context.beginPath();
+        context.moveTo(-8, 0);
+        context.lineTo(85, 0);
+        context.strokeStyle = "red";
+        context.lineCap = "round";
+        context.lineWidth = 2;
+        context.stroke();
+        context.restore();
+
+        //10. 画表心
+        context.beginPath();
+        context.arc(0, 0, 5, 0, 2*Math.PI);
+        context.fillStyle = "red";
+        context.fill();
+
+        //11. 最后一步， 画完一帧， 把context的状态还原
+        context.restore();
+    }, 1000)
+
+</script>

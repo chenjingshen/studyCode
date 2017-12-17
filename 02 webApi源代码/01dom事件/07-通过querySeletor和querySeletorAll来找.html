@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        <!-- 类选择器，id选择，标签选择，子代选择器，后代选择器 -->
+
+    </style>
+</head>
+<body>
+
+<ul>
+    <li id="one">隔壁老王1</li>
+    <li class='gebi'>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+
+</body>
+</html>
+
+<!--JS里也通过这种选择器找到某个元素-->
+<script>
+    //传入CSS中的选择器来找到元素,需要传的是字符串
+    //支持所有css选择器
+
+//    var res = document.querySelector("#one");
+//    var res = document.querySelector(".gebi");
+    //这个方法永远只会返回一个元素，如果匹配到多个，只会找到第一个
+    //如果找不到返回null
+//    var res = document.querySelector('li');
+
+
+    //找到所有的元素，返回的一定是数组,哪怕只有一个，返回的也是数组
+    //找不到就返回空数组
+//    var res = document.querySelectorAll('#one2');
+//    console.log(res);
+
+</script>

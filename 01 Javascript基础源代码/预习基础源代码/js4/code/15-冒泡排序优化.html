@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.对数组进行排序
+    //[9,10,5,78,99,34]     [5,9,10,34,78,99];
+
+
+    //2.冒泡排序
+    var arr = [5,9,10,78,99,90];
+    var ciShu = 0; //声明一个变量，用来记录比较的轮数。
+
+    for(var i = 0 ; i < arr.length-1; i++){ //外层循环控制比较的轮数
+      //假设在这一轮的时候，已经排好序了。
+      var flag = true;
+
+      for(var j = 0 ; j < arr.length-1-i; j++){
+      	//比较的2个数的下标 j    j+1
+        if(arr[j] > arr[j+1]){
+          var temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+          flag = false; //假设失败
+        }
+      }
+
+      //如果到了这里，flag的值还是true，说明假设成功。
+      if(flag == true){
+        break;
+      }
+
+      ciShu++;
+    }
+
+    console.log(arr);
+    console.log(ciShu);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

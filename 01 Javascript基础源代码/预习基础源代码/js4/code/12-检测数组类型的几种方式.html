@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.typeof能够检测那些类型
+    //typeof能够检测基本数据类型(除了null之前)， 再加上一个function函数。
+    //  console.log(typeof 123); //number
+    //  console.log(typeof "abc"); //string
+    //  console.log(typeof true); //boolean
+    //  console.log(typeof undefined); //undefined
+    //  console.log(typeof null); //object
+    //  console.log(typeof  [10,20]); //object
+    //  console.log(typeof  function () {} ); //function
+    //  console.log(typeof  {} ); //object
+
+
+
+    //2.数组的类型检测。 用typeof不行
+
+    //2.1 可以用 Array.isArray(需要检测的数组名);
+    //如果你检测的真的是一个数组，就返回一个true，如果你检测的不是一个数组，返回false
+    // var arr = [10,20,30];
+    // console.log(Array.isArray(arr)); //得到一个布尔类型的结果。
+
+    //2.2 可以用:    需要检测的数组名 instanceof Array;
+    //如果你检测的真的是一个数组，就返回一个true，如果你检测的不是一个数组，返回false
+    // var arr = [10,20,30];
+    // console.log(arr instanceof Array);
+
+    //2.3 可以用 Object.prototype.tostring.call(需要检测的数据名);
+    var arr = [10,20,30];
+    console.log(Object.prototype.toString.call(arr)); // "[object Array]"
+    console.log(typeof Object.prototype.toString.call(arr)); //string
+
+
+    function test(){
+      console.log("哈哈");
+    }
+    console.log(Object.prototype.toString.call(test)); //"[object Function]"
+
+    var obj = {};
+    console.log(Object.prototype.toString.call(obj)); //"[object Object]"
+
+    console.log(Object.prototype.toString.call(null)); //"[object Null]"
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

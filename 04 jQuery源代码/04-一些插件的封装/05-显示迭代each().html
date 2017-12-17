@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>复制</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: pink;
+            text-align: center;
+            line-height: 200px;
+            margin: 0 20px 20px 0;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+          //隐式迭代，所有的li标签，都是设置一样的效果
+          //$('#ulList li').css("opacity",0.5);
+
+          //以前的做法，给每一个li设置不一样的效果
+          // var $lis = $('#ulList li');
+          // for(var i = 0 ; i < $lis.length; i++){
+          // 	$lis[i].style.opacity = (i+1)/10;
+          // }
+
+          //显示迭代
+          $('#ulList li').each(function (index,element) {
+              //console.log(index);
+              //console.log(element);
+              $(element).css('opacity',(index+1)/10);
+          });
+
+
+
+
+          //补充：
+          //$获取到的确实是一个伪数组。
+          console.log($('#ulList li'));
+
+          //var arr = [10,20,30];
+          //console.log(Object.prototype.toString.call(arr)); //[object Array]
+
+
+          //console.log(Object.prototype.toString.call($('#ulList li')));  //[object Object]
+
+
+      });
+    </script>
+</head>
+
+<body>
+<ul id="ulList">
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+</ul>
+</body>
+
+</html>

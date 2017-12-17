@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>筋斗云动态效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        .nav {
+            width: 800px;
+            height: 42px;
+            margin: 100px auto;
+            /*background-color: red;*/
+            background: #fff url(images/rss.png) no-repeat right center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .nav li {
+            width: 83px;
+            height: 42px;
+            /*background-color: red;*/
+            text-align: center;
+            line-height: 42px;
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            position: relative;
+        }
+
+        .nav span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 83px;
+            height: 42px;
+            background: url(images/cloud.gif) no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="nav">
+    <span id="cloud"></span>
+    <ul id="navBar">
+        <li>北京校区</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+        <li>深圳校区</li>
+        <li>武汉校区</li>
+        <li>关于我们</li>
+        <li>联系我们</li>
+        <li>招贤纳士</li>
+    </ul>
+</div>
+
+</body>
+
+</html>
+
+<script src="../animateSlow.js"></script>
+
+<script>
+    //找到筋斗云
+    var span = document.getElementById("cloud");
+
+    //找到ul标签
+    var ul = document.getElementById("navBar");
+
+    //申明一个变量用来保存移动的距离
+    var apageCount = 0;
+    //循环遍历所有li标签
+    for (var i = 0; i < ul.children.length; i++) {
+        //给每个li标签添加鼠标移入事件
+        ul.children[i].onmouseover = function () {
+
+            animateSlow(span, this.offsetLeft);
+        }
+        //给每个li标签添加鼠标移出事件事件
+        ul.children[i].onmouseout = function () {
+
+            animateSlow(span, apageCount);
+        }
+        //给每个li标签添加点击事件
+        ul.children[i].onclick = function () {
+            //把点击部位的距离赋值给移动变量的距离
+            apageCount = this.offsetLeft;
+        }
+    }
+
+
+    //    //找到筋斗云
+    //    var span= document.getElementById("cloud");
+    //
+    //    //找到ul
+    //    var ul= document.getElementById("navBar");
+    //
+    //    var apageCount=0;
+    //
+    //    //循环遍历每一个li标签并添加移入移出和点击事件
+    //    for (var i = 0; i < ul.children.length; i++) {
+    //
+    //        ul.children[i].onmouseover= function () {
+    //
+    //            animateSlow(span,this.offsetLeft);
+    //        }
+    //        ul.children[i].onmouseout= function () {
+    //
+    //            animateSlow(span,apageCount);
+    //        }
+    //        ul.children[i].onclick= function () {
+    //
+    //            apageCount=this.offsetLeft;
+    //        }
+    //    }
+
+
+</script>

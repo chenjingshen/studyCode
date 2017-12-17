@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /*媒体查询的语法 当屏幕宽度变化会自动执行判断生效（不用resize）*/
+    /* @media screen and (条件){
+			//条件成立执行的代码
+			screen and可以省略不写 如果要加and前后必须有空格
+		} 
+		@media (条件){
+			
+		}
+		if(条件){
+	
+		}*/
+   
+    
+    .row div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        /*一行放多个div要浮动*/
+        float: left;
+    }
+     /*超小屏幕（手机）    768px以下
+	小屏设备（ipad）    768px-992px
+	中等屏幕（旧式电脑）   992px-1200px
+	宽屏设备（现代电脑）   1200px以上 
+   宽屏设备 一行放4个.col   .col宽度25%
+	中屏设备 一行放3个.col        .col宽度33.33%
+	小屏设备 一行放2个.col        .col宽度50%
+	超小屏幕 一行放1个.col        .col宽度100%*/
+    /* 条件3种
+		1. min-width:1200px  屏幕宽度大于等于1200成立
+		2. max-width:1200px  屏幕宽度小于等于1200成立
+		3. width:1200px      屏幕宽度等于1200成立 
+		条件都需要带单位
+		and 相当于JS&&*/
+    /*屏幕宽度大于等于1200成立*/
+    
+    @media(min-width:1200px) {
+        /* 指定选择器的样式 */
+        .row div {
+            width: 25%;
+        }
+    }
+    /*屏幕宽度大于992成立 并且小于等于1200px*/
+    
+    @media(min-width: 992px) and (max-width: 1200px) {
+        .row div {
+            width: 33.33%;
+        }
+    }
+    /*屏幕宽度大于768成立 并且小于等于992px*/
+    
+    @media(min-width: 768px) and (max-width: 992px) {
+        .row div {
+            width: 50%;
+        }
+    }
+    /*小于等于768*/
+    
+    @media(max-width: 768px) {
+        .row div {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 媒体查询CSS3新增的样式 ： 通过查询媒体的作为条件来生效对应的样式  (判断屏幕的宽度 改变网页布局) -->
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+    </div>
+</body>
+
+</html>

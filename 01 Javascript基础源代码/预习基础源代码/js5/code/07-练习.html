@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.求圆的周长和面积      圆的周长 2πr     圆的面积  πr²
+
+    // function getZC(r){
+    //   var zc = 2 * Math.PI * r;
+    //   return zc;
+    // }
+
+    // function getArea(r){
+    //   var area = Math.PI * r * r;
+    //   return area;
+    // }
+
+    // var zc1 = getZC(10);
+    // var area1 = getArea(10);
+    // console.log("半径为10的圆的周长是："+zc1+",他的面积是："+area1);
+
+
+
+    //2.求2个数的最大值。
+    function getMaxOfTwoNumber(num1,num2){
+      // if(num1 > num2){
+      //   return num1;
+      // }else {
+      //   return num2;
+      // }
+
+      return num1 > num2 ? num1 : num2;
+
+    }
+
+    //console.log(getMaxOfTwoNumber(1000, 200));
+
+
+
+    //3.求3个数的最大值。
+    function  getMaxOfThreeNumber(num1,num2,num3){
+      var res1 = num1 > num2 ? num1 : num2;
+      var res2 = res1 > num3 ? res1 : num3;
+      return res2;
+    }
+
+    var res = getMaxOfThreeNumber(1000,200,300);
+    console.log(res);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

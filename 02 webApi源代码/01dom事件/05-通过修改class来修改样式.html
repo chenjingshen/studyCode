@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        .small{
+
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+
+
+        }
+        
+        .myBorder{
+            border: 4px solid yellowgreen;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id='box' class="small test"></div>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById('box');
+
+    //这种方式可以
+//    box.className = "small test myBorder";
+
+//    box.className = box.className + " myBorder";
+
+    //记得加空格
+    box.className += " myBorder";
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        li:first-child {
+            color: red;
+        }
+
+        li:nth-child(3) {
+            background-color: hotpink;
+        }
+
+        /* 必须同时满足两个条件： 1. 必须是li， 2. 必须是最后一个子元素 */
+        li:last-child {
+            background-color: yellowgreen;
+        }
+
+
+        li:nth-child(8) {
+            background-color: yellowgreen;
+        }
+
+        ul:hover {
+
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>我是老1</li>
+        <li>我是老2</li>
+        <li>我是老3</li>
+        <li>我是老4</li>
+        <li>我是老5</li>
+        <li>我是老6</li>
+        <li>我是老7</li>
+        <li>我是老8</li>
+        <div class="test">我是老九</div>
+    </ul>
+</body>
+</html>
+
+<!-- 
+    伪类选择器
+    1. 在html中没有写，但是在css中确可以直接使用
+    2. 有冒号
+ -->

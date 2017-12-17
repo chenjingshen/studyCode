@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-image: url(images/bg.jpg);
+        }
+
+        .wrap li{
+            background-image: url(images/libg.jpg);
+        }
+
+        .wrap > ul > li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //mouseenter鼠标进入事件       mouseover
+            //mouseleave鼠标离开事件       mouseout
+
+//             $(".wrap>ul>li").mouseenter(function () {
+//                 //stop的意思， 老子已经准备好了，你可以开始动画了。
+//                $(this).children("ul").stop().slideDown();
+//             });
+//
+//             $(".wrap>ul>li").mouseleave(function () {
+//                 $(this).children("ul").stop().slideUp();
+//             });
+
+
+            $(".wrap>ul>li").mouseenter(function () {
+                $(this).children("ul").stop().slideDown();
+            })
+            $(".wrap>ul>li").mouseleave(function () {
+                $(this).children("ul").stop().slideUp();
+            })
+            
+
+            //jQuery里面，如果要实现鼠标进入的效果，写mouseenter鼠标进入事件
+            //           如果要实现鼠标离开的效果，写mouseleave鼠标离开事件
+
+
+
+            //====================== 以下代码是假设给a设置鼠标移入移出事件 ，效果有问题，不行
+            // $(".wrap>ul>li>a").mouseover(function () {
+            //     $(this).siblings("ul").show();
+            // });
+            // $(".wrap>ul>li>a").mouseout(function () {
+            //     $(this).siblings("ul").hide();
+            // });
+
+        });
+    </script>
+
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li id="one">
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

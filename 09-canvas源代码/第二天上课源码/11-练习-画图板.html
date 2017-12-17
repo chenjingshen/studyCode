@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+<input type="button" value="清除" id="clear">
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 画出取色板， 取色板的每一个色块的颜色， 是由r， g， b合成的。 b的值永远是0. r的值随着i的变大而变大， g的随着 j的变大而变大
+    for (var i = 0; i<10; i++) {
+        for (var j = 0; j<10; j++) {
+            var r = Math.floor(i * 25.5);
+            var g = Math.floor(j * 25.5);
+            var color = "rgb("+r+", "+g+", 0)";
+
+            context.fillStyle = color;
+            context.fillRect(i * 20, j * 20, 20, 20);
+        }
+    }
+
+    var isColor = false;
+    
+    //2. 点击取色
+    canvas.onclick = function (event) {
+        var x = event.offsetX;
+        var y = event.offsetY;
+
+        //判断是否点击了取色板的区域
+        if (x > 0 && x < 200 && y > 0 && y < 200) {
+            //根据坐标就可以算出是第向个色块
+            var i = Math.floor(x / 20);
+            var j = Math.floor(y / 20);
+
+            console.log("水平第" + i + "个格子， 垂直第" + j + "个格子");
+
+            var r = Math.floor(i * 25.5);
+            var g = Math.floor(j * 25.5);
+
+            var color = "rgb("+r+", "+g+", 0)";
+            context.fillStyle = color;
+
+            context.fillRect(85, 300, 30, 30);
+
+            //已经取好了颜色
+            isColor = true;
+            context.strokeStyle = color;
+        }
+    }
+
+    //3. 画图
+    /*
+        必须满足几个条件：
+        1. 必须已经取好了颜色才能画图
+        2. 必须按下鼠标才能开始画图
+        3. 必须要画图的区域内部
+    */
+    //鼠标按下去的事件
+
+    //判断鼠标是否已经按下去了
+    var isDown = false;
+
+    canvas.onmousedown = function (event) {
+        var x = event.offsetX;
+        var y = event.offsetY;
+
+        if (x > 210 && x < 590 && y > 10 && y < 390) {
+            isDown = true;
+            context.moveTo(x, y);
+        }
+    }
+    
+    canvas.onmousemove = function (event) {
+        //如果没有取到颜色， 或者是没有按下鼠标， 就不会绘制任何图形
+        if (!isDown || !isColor) return;
+
+        //监听鼠标移动事件时， 获取的x， y移并不完全是连续的， 可能是断的虚线
+        var x = event.offsetX;
+        var y = event.offsetY;
+
+        //在画图区域的内部移动
+        if (x > 210 && x < 590 && y > 10 && y < 390) {
+            context.lineTo(x, y);
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(x, y);
+        } else {
+            context.moveTo(x, y);
+        }
+    }
+
+    //当松开鼠标时， isDown设为false
+    canvas.onmouseup = function (event) {
+        isDown = false;
+    }
+    
+    document.querySelector("#clear").onclick = function () {
+        context.clearRect(200, 0, 400, 400);
+    }
+</script>
+
+<!--
+画图板的思路
+//取色
+1. 实取取色板的显示， 两次for循环。 颜色是r， g， b的合成。 b永远是0. 水平方向代表r值， 垂直方向代表g值
+2. 点击取色：拿到x， y的位置， 计算出水平方向和垂直方向是第几个格子， i， j, 就可以根据第一步的颜色的规则，取到当前鼠标点击位置的色块的颜色
+3. 在左下方， 画一个取好色的色块
+
+//画线
+4. isColor， isDown， 必须在右边的画图区域（拿到x和y， 判断所在的区域）
+5. 处理鼠标按下的事件： idDown = true， moveTo(x, y)
+6. 处理鼠标移动事件
+
+7. 处理手松开鼠标的事件
+
+8. 清除画布
+
+-->

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #0f0;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+		/*1. touchstart 触摸开始触发
+		2. touchmove 触摸中会触发 持续触发
+		3. touchend 触摸结束触发
+		4. touchcancel 触摸中断会触发(了解)
+		必须使用addEventListener方式添加*/
+		var div =document.querySelector('div');
+		// 当触摸开始的时候会触发（点击div就会触发） 每次滑动只会触发一次
+		div.addEventListener('touchstart', function () {
+			console.log('touchstart');
+		});
+		// 手指在元素上滑动(触摸)的时候会触发 每次滑动会触发多次
+		div.addEventListener('touchmove', function () {
+			console.log('touchmove');
+		});
+		// 当滑动结束松开手的时候会触发的事件 每次滑动只会触发一次
+		div.addEventListener('touchend', function () {
+			console.log('touchend');
+		});
+		// 滑动取消的时候会触发 滑动被意外中断的时候会触发（比如滑动的时候突然来电话等等）
+		div.addEventListener('touchcancel', function () {
+			
+		});
+	</script>
+</body>
+</html>

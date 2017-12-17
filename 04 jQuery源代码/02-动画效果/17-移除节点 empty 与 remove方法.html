@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //移除节点
+
+      $("#qc").click(function () {
+        //1. html("");  //不推荐使用  内存泄漏
+        //$("#ul1").html("");
+
+        //2.清空节点  清理门户
+        $("#ul1").empty();
+
+        //3.移除节点  自杀
+//        $("#ul1").remove();
+
+        //三种清除节点的方法
+        $("ul").html("");//容易内存泄漏，所以不推荐使用
+        $("ul").empty();//清除ul里面的所有内容  清理门户
+        $("ul").remove();//清除ul及里面的所有内容   自杀
+
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="清除" id="qc"/>
+<ul id="ul1">
+  <li>我是第1个li标签</li>
+  <li>我是第2个li标签</li>
+  <li>我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+</ul>
+</body>
+</html>

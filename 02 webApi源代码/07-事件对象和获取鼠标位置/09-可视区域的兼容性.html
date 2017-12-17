@@ -1,0 +1,52 @@
+<!--<!DOCTYPE html>-->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<script>
+
+    //IE、谷歌、火狐都能用
+    //    console.log(document.body.clientWidth);
+    //
+    //    console.log(document.documentElement.clientWidth);
+
+
+    //用这个东西就可以获得可视区域的宽度
+    var clientWidth = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth
+            || 0;
+
+    var clientHeight = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight
+            || 0;
+
+    console.log(clientWidth, clientHeight);
+
+
+    function getClientSize() {
+
+        return {
+
+            clientWidth: window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth
+            || 0,
+
+            clientHeight: window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight
+            || 0
+        }
+    }
+
+</script>

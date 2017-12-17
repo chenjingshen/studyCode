@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        
+        window.onload=function () {
+            
+            var inp= document.getElementsByTagName("input")[0];
+
+            var div1= document.getElementById("box");
+
+            inp.onclick= function () {
+
+                var ul=document.createElement("ul");
+
+                div1.appendChild(ul);
+
+                for (var i = 0; i < 5; i++) {
+
+                    var li1=document.createElement("li");
+
+                    li1.innerHTML="我是第"+(i+1)+"支球队";
+
+                    var oldColor;
+
+                    li1.onmouseenter=function(){
+
+                        oldColor=this.style.backgroundColor;
+
+                        this.style.backgroundColor="red";
+                    }
+                    li1.onmouseleave=function(){
+
+                        this.style.backgroundColor=oldColor;
+                    }
+
+                    ul.appendChild(li1);
+                }
+            }
+        };
+        
+    </script>
+    
+</head>
+<body>
+
+<input type="button" value="点击创建球队"/>
+
+<div id="box"></div>
+
+</body>
+</html>

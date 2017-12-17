@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.闭包
+  //闭包就是声明在一个函数中的函数
+
+  function test1(){
+    var num = 10;
+    function test2(){
+      return num;
+    }
+    return test2;
+  }
+   var f1 =  test1(); //此时调用test1函数得到的返回值f1，其实就是这个test2函数本身。
+   console.log(f1());
+
+
+
+  //==============================================
+  var test = (function () {
+    var num = 100;
+
+    function inner(){
+      return num;
+    }
+
+    return inner;
+  }());
+
+  //这是一个自执行函数，不需要我们手动调用，就会自己执行，返回一个结果。
+  //把这个返回的结果交给test，所以此时test就是inner()函数。
+  console.log(test());
+
+
+
+
+
+
+
+
+
+  //=============================
+//  function test1(){
+//    var num = 10;
+//    num++;
+//    return num;
+//  }
+//  console.log(test1()); //11
+//  console.log(test1()); //11
+//  console.log(test1()); //11
+//
+//
+//
+//
+//
+//
+//
+//  function outer(){
+//    var num = 10;
+//
+//    function inner(){
+//      num++;
+//      return num;
+//    }
+//
+//    return inner;
+//  }
+//
+//  var f1 =  outer();
+//  console.log(f1());
+//  console.log(f1());
+//  console.log(f1());
+
+</script>
+</body>
+</html>

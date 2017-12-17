@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.js创建对象的方式
+  //1.1 可以使用字面量的方式创建对象
+  //var obj = {
+  //  name:"张三",
+  //  sayHi: function () {
+  //    console.log("哈哈");
+  //  }
+  //};
+  //obj.age = 18;
+
+
+  //1.2 使用new关键字配合内置构造函数来创建对象。
+  //var obj1 = new Object();
+  //obj1.name = "李四";
+
+
+  //1.3 使用工厂模式
+  // function createStudent(name,age){
+  //   var obj = new Object();
+  //   obj.name = name;
+  //   obj.age = age;
+  //   return obj;
+  // }
+  // var obj1 = createStudent("张三",18);
+
+
+
+  //1.4 使用自定义的构造函数。
+  function Student(name,age){
+    this.name = name;
+    this.age = age;
+  }
+
+  var obj2 = new Student("李四",20);
+
+
+
+
+
+</script>
+</body>
+</html>

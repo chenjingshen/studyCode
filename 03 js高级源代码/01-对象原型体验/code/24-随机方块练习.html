@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .map{
+            width: 800px;
+            height: 600px;
+            background-color: #CCCCCC;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="map" id="map"></div>
+<script>
+
+    //1.小方块(贪吃蛇的食物)有坐标x/y，还有宽高，还有背景色，还有显示在地图上的方法。
+
+    //创建食物(小方块)的构造函数
+    function Food(width,height,color) {
+        this.width=width||20;
+        this.height=height||20;
+        this.color=color||"green";
+    }
+    //不管是那个小方块，都要显示在地图上，所以显示在地图上的这个方法，应该写在原型。
+    Food.prototype.render = function (map) {
+        //随机生成小方块的坐标
+        this.x = Math.floor(Math.random() * map.offsetWidth / this.width) * this.width;
+        this.y = Math.floor(Math.random() * map.offsetHeight / this.height) * this.height;
+        //如何把这个食物显示在地图上？ 可以创建一个div，让这个div拥有这个小方块所有的显示信息
+        var div1 = document.createElement("div");
+        div1.style.position = "absolute";
+        div1.style.left = this.x + "px";
+        div1.style.top = this.y + "px";
+        div1.style.width = this.width + "px";
+        div1.style.height = this.height + "px";
+        div1.style.backgroundColor = this.color ;
+        //把这个div添加到这个地图上
+        map.appendChild(div1);
+    }
+
+    var map = document.getElementById("map");
+
+    for(var i = 0 ; i < 10; i++){
+        var f1 = new Food();
+        f1.render(map);
+    }
+    var f2 = new Food(40,40,"red");
+    f2.render(map);
+
+</script>
+</body>
+</html>

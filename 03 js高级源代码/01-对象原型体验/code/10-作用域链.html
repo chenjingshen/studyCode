@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1. js中只有函数才可以分割作用域
+
+  // function test1(){
+  //
+  //   function test2(){
+  //
+  //     function test3(){
+  //
+  //     }
+  //
+  //   }
+  //
+  // }
+
+
+
+
+  //2.作用域链对于变量的访问
+  var num = 100;
+  function test1(){
+    var num = 10;
+    function test2(){
+      var num = 20;
+      num = 200;
+      console.log(num);
+    }
+    test2();
+    console.log(num);
+  }
+
+  test1();
+  console.log(num);
+
+
+
+</script>
+</body>
+</html>

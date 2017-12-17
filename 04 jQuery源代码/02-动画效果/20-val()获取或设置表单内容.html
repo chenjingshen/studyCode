@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $("#get").click(function () {
+        //原生js 获取、设置表单元素的值  value。
+        //console.log(document.getElementById("txt").value);
+        //document.getElementById("txt").value = "呵呵";
+
+
+        //jQuery里面，获取、设置表单元素的值  val();
+        //console.log($("#txt").val());
+        //$("#txt").val("我是jQuery设置的内容");
+      });
+
+
+
+      //给文本框设置一个获得焦点事件
+//      $("#txt").focus(function () {
+//        //只有当文本框的内容为默认值的时候，才可以获得焦点清空
+//        if($(this).val().trim() == "请输入内容"){
+//          $(this).val("");
+//        }
+//      });
+//
+//      //给文本框设置一个失去焦点事件
+//      $("#txt").blur(function () {
+//        //只有当文本框里面的内容为空的时候，才可以还原成默认内容
+//        if($(this).val().trim() == ""){
+//          $(this).val("请输入内容");
+//        }
+//      });
+
+      $("#txt").focus(function () {
+        if($(this).val().trim()=="请输入内容"){
+          $(this).val("");
+        }
+      })
+
+      $("#txt").blur(function () {
+        if($(this).val().trim()==""){
+          $(this).val("请输入内容");
+        }
+      })
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" id="get" value="获取" /> <br/><br/>
+<input type="text" value="请输入内容" id="txt"/>
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: url("images/bg.gif");
+            font: 12px "simsun";
+        }
+        .content {
+            width: 960px;
+            height: 627px;
+            margin: 0 auto;
+            background: url("images/content_bg.jpg");
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+        .clearfix:before,.clearfix:after{
+            content: '';
+            display: table;
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .tip {
+            width: 227px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+        .tip-h {
+            padding-top: 50px;
+            background: url("images/tip1_h.gif") no-repeat;
+            cursor: default;
+        }
+        .text {
+            float: left;
+            padding-left: 10px;
+        }
+        .close {
+            float: right;
+            margin-right: 10px;
+        }
+        .tip-m {
+            min-height: 40px;
+            padding: 0 10px;
+            padding-top: 10px;
+            background: url("images/tip1_c.gif");
+        }
+        .tip-f {
+            height: 53px;
+            background: url("images/tip1_f.gif");
+            padding-top: 20px;
+        }
+        .icon {
+            float: left;
+            padding-left: 10px;
+        }
+        .name {
+            float: right;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content">
+        <div class="tip" id="tip">
+            <div class="tip-h clearfix" title="双击关闭纸条">
+                <div class="text">第[49568]条 2017-05-12 22:51:52</div>
+                <div class="close" title="关闭纸条">x</div>
+            </div>
+            <div class="tip-m">努力学习，高薪就业</div>
+            <div class="tip-f clearfix">
+                <div class="icon">
+                    <img src="images/bpic_1.gif" alt=""/>
+                </div>
+                <div class="name">林哥</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tip = document.getElementById("tip");
+        var content = document.getElementById("content");
+        for (var i = 0; i < 100; i++) {
+            var node = tip.cloneNode(true);
+            node.id = "tip" + i;
+            content.appendChild(node);
+            var t = parseInt(Math.random()*300 + 100);
+//            console.log(top);
+            var left = parseInt(Math.random()*600 + 300);
+            node.style.left = left + "px";
+            node.style.top = t + "px";
+        }
+        //去掉原来的祝愿墙标签
+        tip.style.display="none";
+        //找到所有的tip-h
+        var tipH= document.getElementsByClassName("tip-h");
+        //添加双击事件
+        for(var i=0;i<tipH.length;i++){
+            tipH[i].ondblclick= function () {
+                content.removeChild(this.parentNode);
+            }
+        }
+        //给x添加点击关闭事件
+        //找到所有的x
+        var closeList= document.getElementsByClassName("close");
+        for(var i=0;i<closeList.length;i++){
+            closeList[i].onclick= function () {
+                content.removeChild(this.parentNode.parentNode);
+            }
+        }
+        //找到整张便利贴，并给他添加点击事件，点击后层级变高
+        //找到所有整张便利贴
+        var tiplist= document.getElementsByClassName("tip");
+        var index=0;
+        for(var i=0;i<tiplist.length;i++){
+            tiplist[i].onclick= function () {
+                index++;
+                this.style.zIndex=index;
+            }
+        }
+    </script>
+</body>
+</html>

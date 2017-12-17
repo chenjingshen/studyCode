@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='调用豆瓣接口'>
+</body>
+</html>
+<script  src="./js/jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+        $('input').click(function(){
+            $.ajax({
+                // url:'https://api.douban.com/v2/movie/top250',
+                // url:'./backSomething.php',
+                // data:{
+                //     start:10
+                // },
+                // url:'http://127.0.0.1/2017-11-03/07.JSONP/backSomething.php',
+                url:'http://192.168.40.38/2017-11-03/07.JSONP/backSomething.php',
+                success:function(backData){
+                    console.log(backData);
+                },
+                // dataType:'jsonp'
+            })
+        })
+    })
+    /*
+        同源 
+            http://127.0.0.1/2017-11-03/06.smzdm/
+            http://127.0.0.1/2017-11-03/06.smzdm/_api/smzdm_getSome.php?num=10
+            https://127.0.0.1
+            http://127.0.0.1:90
+            http://192.2.12.123
+            ip地址一样 
+                127.0.0.1
+            协议一样
+                http
+            端口一样
+                默认的端口是80不写就是80 但是 如果不是 80就必须要写
+            如果浏览器打开的页面  往 同源的站点 发送请求浏览器不会有任何的限制
+        不同源
+           任意一个不一样 就是 不同源 
+        跨域
+            浏览器中打开的页面 向一个不同源的站点 发送请求
+            这种请求 我们就称之为 跨域
+            实际开发中会不会碰到跨域的时候？
+                浏览器默认限制了跨域访问 因为跨域访问会有安全隐患
+            目前有很多种跨域方案 但是最为流行的就2中
+                CORS Cross Origin Resource Share
+                JSONP JSON Padding
+    */ 
+</script>

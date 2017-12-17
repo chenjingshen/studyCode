@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <img id="girl" src="../img/girl4.jpg" width="300" alt="" data-age="24" data-sex="female" data-info="从事演艺事业" data-name="某某空">
+</body>
+</html>
+
+<script>
+    var age = document.querySelector("#girl").getAttribute("data-age"); 
+    console.log(age);
+
+    var attributes = document.querySelector("#girl").dataset;
+    console.log(attributes.age);
+</script>
+
+<!-- 
+    总结： 
+    1. 在html5中， html5建议我们在自定义属性时， 统一在前面一个 data-
+    2. 如果我们想要取到自定义的属性， 直接可以通过 dom.dataset, 获取所有自定义的属性的对象
+    3. 通过键值对的形式，获取的对应的某个值
+
+    面试题： 
+    平时开发时，有自定义过属性吗？ 你是怎么做的？
+    有啊。现在我们开发基本都是遵循html5的标准， 自定义属性的时候，我们会在属性前， 统一加上一个data-， 取的时候，直接取到这个dom元素的 dataset， 通过键的形式， 拿到对应的值。 当然，我们之前老版本的代码，是直接定义的。 取值的时候， 使用 getAttribute("");
+ -->

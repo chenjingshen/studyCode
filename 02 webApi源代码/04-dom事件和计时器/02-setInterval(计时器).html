@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        每隔1秒，打印一句话
+
+        解决点击多次会开启多个计时器的bug
+            思路1：点击开启时禁用开启按钮，再然后点停止时打开开启按钮
+
+            思路2：每次创建新的计时器之前，先清除上一个计时器
+    -->
+    <script>
+
+        //参数1：就是要执行的代码（一种是字符串，一种是函数）
+        //参数2：就是隔多久执行（延迟的）,单位是毫秒   1秒 = 1000毫秒
+        //传入的是字符串，在字符串里写你想执行的代码,不常用
+        //        setInterval("console.log('我被执行了')",1000);
+
+
+        //常用的是传入函数
+        //        setInterval(function () {
+        //            console.log("我被执行了");
+        //        },1000);
+        //
+        //        function test(){
+        //
+        //            console.log('我是test函数');
+        //        }
+        //
+        //
+        //        //传函数名时千万不要加小括号
+        //        setInterval(test,1000);
+
+        /*
+         每开启一个计时器，它都会一个自己的编号（它的id）用来区分是哪个计时器的
+
+         编号是系统自动生成的，那么我怎么获取？？
+
+         setInterval还会有一个返回值，返回值就是它的编号
+
+
+         */
+
+        window.onload = function () {
+
+            var timerID;
+            //开启的点击事件
+            document.getElementById("open").onclick = function () {
+
+                //禁用的方法：
+//                this.disabled = true;
+
+                clearInterval(timerID);
+
+                timerID = setInterval(function () {
+
+                    console.log("旋转，跳跃，我不停歇");
+                }, 1000);//0.5秒执行
+
+
+            };
+
+
+            //停止的点击事件
+            document.getElementById("stop").onclick = function () {
+
+//                document.getElementById("open").disabled = false;
+
+                //需要传入计时器的id（编号）
+                clearInterval(timerID);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+<button id="open">开启</button>
+<button id="stop">停止</button>
+
+</body>
+</html>

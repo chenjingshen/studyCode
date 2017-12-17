@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.案例
+  //伪数组-真数组。
+
+  var disArr = {
+    0:"非洲群",
+    1:"泰国小林林",
+    2:"秋名山车神",
+    3:"黑马睡神",
+    4:"隔壁老王",
+    5:"帅帅的林",
+    6:"某威",
+    7:"某怡宁",
+    length:8
+  };
+
+
+  //console.log(disArr[6]);
+  // for(var i = 0 ; i < disArr.length; i++){
+  // 	console.log(disArr[i]);
+  // }
+  //disArr.push("哈哈"); //报错了，伪数组，没有数组的方法。
+
+
+
+  //2.需求： 要把伪数组转换成真数组。
+  //a.
+  // var arr = [];
+  // for(var i = 0 ; i < disArr.length; i++){
+  // 	arr[i] = disArr[i];
+  // }
+  // console.log(arr);
+
+
+  //b.
+   // var arr = [];
+   // //arr.push("某威");
+   // //arr.push("某怡宁");
+   // arr.push.apply(arr,disArr);
+   // console.log(arr);
+
+
+  //c.
+  // var arr = [];
+  // //arr = arr.concat(disArr); //不行
+  // arr = arr.concat.apply(arr,disArr);
+  // console.log(arr);
+
+
+
+  //d.
+  //var arr = disArr.slice(0); //报错了。disArr是一个伪数组，没有slice方法
+  var arr =  Array.prototype.slice.call(disArr,0);
+  console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //复习  数组的slice方法
+//  var arr1 = [10,20,30];
+//  var arr2 = arr1.slice(0);
+//  console.log(arr2);
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value='获取数据'>
+    <div id="div3"></div>
+</body>
+
+</html>
+<!-- 导入js -->
+<!-- <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script> -->
+<script src="./wangEditor.min.js"></script>
+<!-- 执行插件的 js代码 -->
+<script>
+    var E = window.wangEditor
+    var editor2 = new E('#div3')
+    editor2.create()
+
+    // 为按钮绑定点击事件
+    document.querySelector('input').onclick = function(){
+        // 获取内容 没有样式的
+    //    alert(editor2.txt.text());
+       alert(editor2.txt.html());
+    }
+</script>

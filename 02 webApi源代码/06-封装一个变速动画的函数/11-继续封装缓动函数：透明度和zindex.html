@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #box {
+
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 10px;
+            top: 50px;
+        }
+        
+        #box2{
+
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+            position: absolute;
+            top: 300px;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动变大变透明" id="btn1"/>
+
+<div id="box"></div>
+<div id="box2"></div>
+
+</body>
+</html>
+
+<script src="js/common.js"></script>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    document.getElementById("btn1").onclick = function () {
+
+        animateSlow(box, {
+
+            "top":"400px",
+            "left":"500px",
+            "width":"300px",
+            "height":"300px",
+            "opacity": 0.5,
+            "z-index":2
+        },recover)
+    };
+
+    function recover() {
+
+        animateSlow(box, {
+
+            "width": "100px",
+            "height": "100px",
+            "left": "1250px",
+            "top": "50px",
+            "opacity": 1,
+        },recover1)
+
+    }
+    function recover1() {
+
+        animateSlow(box, {
+
+            "width": "100px",
+            "height": "100px",
+            "left": "10px",
+            "top": "50px",
+            "opacity": 1,
+        })
+
+    }
+
+
+    function animateSlow(obj, attrs, callback) {
+
+        //清除原来的计时器
+        clearInterval(obj.timerID);
+
+
+        //匀速：运动过程中的运动速度是一样的
+        obj.timerID = setInterval(function () {
+
+            //默认当你全部都完成了，应该停止计时器了
+            var isFinish = true;
+
+            for (var key in attrs) {
+
+                if (key == "opacity") {
+
+                    //此时目标就是你遍历到的value值
+                    var target = parseFloat(attrs[key]) * 100;
+
+                    //取到当前值(key就是要取的当前属性)
+                    //例如当前遍历到的key为left，这里取到的就是当前left的值
+                    var currentValue = parseFloat(getStyle(obj, key)) * 100;
+
+                    //先快后慢的算法
+                    var res = (target - currentValue ) / 10;
+
+                    var step = res > 0 ? Math.ceil(res) : Math.floor(res);
+
+                    //得到应该变化的值
+                    var offset = (currentValue + step ) / 100;
+
+                    //透明度不需要加px
+                    obj.style[key] = offset;
+
+                    console.log("key=" + key + "---" + "当前已经到了=" + offset);
+
+                    //不能在这里停止，应该所有都到了，我才停止
+                    //当前位置还没有到目标
+                    if (offset != target / 100) {
+
+                        //没到目标就不允许停止计时器
+                        isFinish = false;
+                    }
+
+
+                }else if(key == "z-index"){
+
+                    //因为来到这，key肯定是z-index，所以直接取出z-index对应的目标值赋值给属性就可以了
+                    obj.style.zIndex = attrs[key];
+                }
+                else {
+
+                    //此时目标就是你遍历到的value值
+                    var target = parseInt(attrs[key]);
+
+                    //取到当前值(key就是要取的当前属性)
+                    //例如当前遍历到的key为left，这里取到的就是当前left的值
+                    var currentValue = parseInt(getStyle(obj, key));
+
+                    //先快后慢的算法
+                    var res = (target - currentValue ) / 10;
+
+                    var step = res > 0 ? Math.ceil(res) : Math.floor(res);
+
+                    //得到应该变化的值
+                    var offset = currentValue + step;
+
+                    //例如当前取到的是left，就代表赋值给left
+                    obj.style[key] = offset + "px";
+
+                    console.log("key=" + key + "---" + "当前已经到了=" + offset);
+
+
+                    if (offset != target ) {
+
+                        //没到目标就不允许停止计时器
+                        isFinish = false;
+                    }
+                }
+
+            }
+
+            if (isFinish) {
+
+                clearInterval(obj.timerID);
+
+                //如果是函数，才当作函数来调用
+                if (callback instanceof  Function) {
+                    callback();
+                }
+            }
+
+        }, 50);
+    }
+</script>

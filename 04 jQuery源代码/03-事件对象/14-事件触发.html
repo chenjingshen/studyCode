@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      //给div设置一个鼠标进入事件
+      $("div").on("mouseenter", function () {
+        console.log("我是鼠标进入事件...");
+      });
+
+
+      //给按钮设置一个点击事件，，， 单击事件做什么？触发div的鼠标进入事件
+      $("#cf").on("click", function () {
+        $("div").trigger("mouseenter");
+
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="触发" id="cf"/>
+<div></div>
+</body>
+</html>

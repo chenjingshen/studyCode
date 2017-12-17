@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        函数就是用来封装一段代码的
+                定义的语法： 函数名的规范跟变量命名一样，遵循驼峰命名法
+                        function 函数名(形参列表){
+                             函数体;
+                        }
+
+        函数如果只是声明根本不会被执行
+。
+        除非调用：
+                函数名(实参列表);
+
+
+        全局作用域：函数外的区域都是全局作用域
+
+        局部作用域：函数内的区域都是局部作用域
+
+        全局变量：
+               声明在全局作用域里的变量就是全局变量
+               在任何都能访问
+
+        局部变量：
+               声明在局部作用域里的变量就是局部变量
+               只有在它声明的作用域里才能访问，出了作用域不能访问
+
+
+        作用域链：
+               全局作用域都是0级作用域链，在全局作用域里每写一个函数，函数内都是1级作用域链
+               函数内再声明个函数开辟的就是2级作用域链
+
+        访问数据的规则：就近原则
+                访问的作用域里如果有声明就访问同级作用域的数据，如果没有，就往上一级找，如果上一级没有声明再往上一级的上一级找，如果还是没有声明就再往上找，一直找到0级作用域，还没有就报错
+
+        预解析：
+              会把每个作用域里声明的变量和函数提升到所在作用域的最顶端
+
+
+        函数作为函数的参数：
+
+    -->
+
+
+    <script>
+        /*
+         function test(){
+
+         console.log('我要被执行了');
+         }
+
+         console.log(test());
+
+         function getSum(a,b){
+
+         return a + b;
+         }
+
+         getSum(10,20);
+         */
+
+        //通过匿名函数赋值给变量来定义的
+        /*
+         var f1 = function(a){
+
+
+         var str; //局部变量
+         console.log('匿名函数');
+         }
+
+
+         //        f1("参数");
+
+         //        var f1 = new Function(); 不要求记住，只要知道还有一种方法就行了
+
+         var num;//全局变量
+         */
+
+        /*
+         var num = 100;
+
+         function test() {
+
+         var str = "abc";
+         console.log(str);
+         console.log(num);
+
+         num = 3000;
+         }
+
+
+
+         //        console.log(str);
+         console.log('全局打印' + num);//100
+
+         test();
+         */
+
+        /*
+         var num = 10;
+         function f1(){
+
+         var num = 100;
+         function f2(){
+         var num;
+         console.log(num);//undefined
+         num = 20;
+         }
+
+         f2();
+         }
+
+         f1();
+         */
+
+
+        //函数的参数可以传任意类型的，函数本身也是一种类型，所以它也可以当作参数传过去
+        /*
+         function f1(a) {
+
+         console.log(a);
+
+         if (a instanceof  Function) {
+         a();
+         }
+         }
+
+
+         function f2() {
+
+         console.log('我是f2');
+         }
+
+
+         //f1(f2());//这么写代表的是先执行f2,然后把f2的返回值传递给f1
+         //        f1(f2);
+
+         //              f1(function () {
+         //                    console.log('传过来的匿名函数被执行了');
+         //                } )
+
+         //        f1("abc");
+         */
+
+        /*
+         function f1(a) {
+
+
+         a(30,40);
+         }
+
+         f1(function (a, b) {
+
+         console.log('a+b=' + (a + b));
+         })
+         */
+
+
+        //函数作为返回值
+        /*
+         function f1(){
+
+         return function () {
+
+         console.log('我是函数');
+         };
+         }
+
+         var res = f1();
+
+         res();
+
+         console.log(res);
+         */
+
+        //对象类型：其实也是一种数据类型，是用来存储数据的
+        //        我要保存一个人的信息，最好用对象类型来保存
+        //        因为人有自己的行为和特征
+
+
+        //大括号是对象类型的字面量
+        //我们自己写对象类型会写的少，是因为我们会经常使用JS里面已经提供好的对象
+        //Date,dom元素对象
+        /*
+         var p1 = new Object();
+         p1.name = "刘德华";
+         p1.age = 16;
+
+         p1.sayHi = function () {
+         console.log('hello');
+         }
+
+         p1.run = function () {
+         console.log('奔跑吧，大叔！');
+         }
+
+         console.log(p1);
+
+         p1.sayHi();
+         */
+
+        //        var p1 = new Object( { name:'刘德华',age:16,sayHi: function () {
+        //            console.log('..');
+        //        } });
+        //
+        //        console.log(p1);
+
+        //创建空对象
+        //        var p1 = {};
+
+        //z字面量
+        //        var p1 = {
+        //            name: 'andy',
+        //            age: 16,
+        //            sayHi: function () {
+        //                console.log('你好');
+        //            }
+        //        };
+
+        //自己写一个函数来创建（不怎么使用）
+
+        //自定义构造函数(名字首字母大写，一般用名词)
+        function Person(name, age) {
+
+            this.name = name;
+            this.age = age;
+            this.sayHi = function () {
+                console.log('hello');
+            }
+        }
+
+        /*
+         new关键字做的事：
+         1.创建新的对象（在堆上开辟新的空间）
+         2.把构造函数里的this指向刚刚创建的对象
+         3.返回这个对象
+         */
+
+        //对象类型也是引用传递
+        //        var p1 = new Person('andy',16);
+        //        var p2 = new Person('rose',18)
+        /*
+         function f1(a){
+
+         a.name = "郭富城";
+         }
+         var p1 = new Person('andy',16);
+
+         f1(p1);
+
+         console.log(p1.name);
+         */
+
+        /*
+         var p2 = p1;
+
+         p1.name = "张学友";
+         console.log(p1);
+         console.log(p2);
+         */
+
+        //数据格式：json
+        //它跟对象非常像，只不过对象的key不用加双引号，它需要双引号
+        //一般情况下json数据不包含方法
+
+        var data = {
+
+            "name": "andy",
+            "age": 16
+        }
+
+        var p1 = {name: 'liu', age: 16};
+
+        p1["name"];
+
+        //无论是json数据还是对象，都是用forin来遍历
+//        for (var key in data) {
+//
+//            console.log("key:" + key + "  value=:" + data[key]);
+//        }
+
+
+        //如果用forin只能用中括号访问key，用点语法不行
+        for (var key in p1) {
+
+            console.log("key:" + key + "  value=:" + p1[key]);
+        }
+
+
+        //获取的是当前时间
+//        var date = new Date();
+
+        var date = new Date(1999,1,3,12,30,45);//索引是从0开始
+        console.log(date.toLocaleDateString());
+        console.log(date.toLocaleTimeString());
+
+        //得到年
+        date.getFullYear();
+        //得到月
+        date.getMonth() + 1; //因为从0开始，转换成实际月份就应该+1
+        //得到日
+        date.getDate();
+
+        //得到一个星期中的第几天，星期天为0
+        date.getDay();
+
+
+
+        //JS已经写好的函数
+        alert('哈哈');
+
+
+//        BOM Browser Object Model   浏览器对象模型，操作浏览器级别的的一些函数
+//                操作浏览器的，叫BOM操作：例如跳转到一个新的网页或者关闭某个网页
+
+//        DOM Document Object Model  文档对象模型
+//                操作网页内容的（操作html标签元素的）
+//
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+        .box img {
+            vertical-align: top;
+        }
+
+        #bigBox > img {
+            /*是让里面的图片脱标，为的就是让里面的图片进行一个移动*/
+            position: absolute;
+        }
+    </style>
+
+    <script src="common.js"></script>
+
+    <script>
+        window.onload = function () {
+
+            /*
+             思路：
+             1.鼠标移入小盒子，要显示大盒子和阴影
+             2.鼠标移出小盒子，要隐藏大盒子和阴影
+             3.在鼠标移进小盒子后，给小盒子加一个鼠标移动的事件
+             3.1 在事件里要获取到当前鼠标移动的相对于小盒子的位置
+             算法：用当前pageX-父盒子的offsetLeft - 左边框
+             pageY - 父盒子的 offsetTop - 上边框
+             为了让阴影的中间显示在鼠标位置，还要X多减一个自身宽度的一半
+             y多减一个自身高度的一半
+
+             3.2 不能让阴影出去
+                    x最小只能到0，小于就给0，否则就给原来的x
+                    x最大只能到盒子宽度-阴影宽度。所以也要做一个判断，大于这个结果，就只等于相减的结果，否则，x是多少就是多少
+                    y最小只能到0，小于0就给0，否则就给原来的y
+                    y最大只能到盒子高度-阴影高度。所以也判断，大于这个结果，就只等于相减的结果，否则y是多少就给多少
+
+             3.3 把这个位置设置给阴影的left和top,
+
+            4.鼠标在小盒子移动，大盒子也要移动
+                    但是大盒子里的图片比小盒子的要大，意味着假如小盒子为100，而大盒子宽为200
+                        意味着小盒子里最多到100，如果让大盒子也只是按照小盒子的移动而移动
+                        就会让小盒子移动完了， 大盒子才到一半
+                        所以应该，做一个倍数计算
+                 小盒子移动10px，那么再乘以倍数，就得到大盒子应该移动的距离
+
+               找到大盒子里的图片，再用大图的宽 / 小图的宽，就得到的宽度的倍数
+               用大图的高 / 小图的高，就得到高度的倍数
+
+               左右移动的距离 * 宽的倍数 就得到大图应该水平移动的距离（取负数）
+               上下移动的距离 * 高的倍数  就得到大图应该垂直移动的距离（取负数）
+
+
+             */
+
+            //找到小盒子
+            var small = document.getElementById("smallBox");
+            //找到大盒子
+            var big = document.getElementById("bigBox");
+            //找到阴影
+            var mask = document.getElementById("mask");
+            //找到父盒子
+            var box = document.getElementById("box");
+            //找到大盒子里的图片
+            var bigImg = document.getElementById("bigImg");
+
+            small.onmouseover = function () {
+
+                big.style.display = "block";
+                mask.style.display = "block";
+
+                small.onmousemove = function (event) {
+
+                    var event = event || window.event;
+
+                    var x = getPagePosition(event).pageX - box.offsetLeft - small.clientLeft - mask.offsetWidth / 2;
+                    var y = getPagePosition(event).pageY - box.offsetTop - small.clientTop - mask.offsetHeight / 2;
+
+
+                    //最小只能到0，小于0就直接给一个0
+                    x = x < 0 ? 0 : x;
+                    //因为阴影往右边不能超出，那么就意味着，它x最大只能到盒子的宽度-阴影的宽度
+                    var maxLeft = small.offsetWidth - mask.offsetWidth;
+                    x = x > maxLeft ? maxLeft : x;
+
+                    y = y < 0 ? 0 : y;
+
+                    //因为阴影往下边不能超出，那么就意味着，它y最大只能到盒子的高度-阴影的高度
+                    var maxTop = small.offsetHeight - mask.offsetHeight;
+                    y = y > maxTop ? maxTop : y;
+
+
+                    //获取鼠标移动的坐标（相对于小盒子的）
+                    mask.style.left = x + "px";
+                    mask.style.top = y + "px";
+
+
+                    //鼠标移动时，还需要根据你当前移动的距离，让大盒子里的图片进行移动
+                    //小盒子阴影部分移动10像素，大盒子应该移动阴影的10像素 * 倍数
+                    //client如果设置了宽和高，取到的就是设置的宽高，而不是内容的实际宽高
+                    var widthBei = bigImg.offsetWidth / small.clientWidth;
+                    var heightBei = bigImg.offsetHeight / small.clientHeight;
+
+
+                    var bigLeft = -x * widthBei;
+                    var bigTop = -y * heightBei;
+
+                    bigImg.style.left = bigLeft + "px";
+                    bigImg.style.top = bigTop + "px";
+                }
+            }
+
+            small.onmouseout = function () {
+
+                big.style.display = "none";
+                mask.style.display = "none";
+            }
+
+        }
+    </script>
+
+
+</head>
+<body>
+<div class="box" id="box">
+
+    <div class="small" id="smallBox">
+        <img src="images/001.jpg" width="350" alt=""/>
+
+        <div class="mask" id="mask"></div>
+    </div>
+
+    <div class="big" id="bigBox">
+        <img id="bigImg" src="images/0001.jpg" width="800" alt=""/>
+    </div>
+</div>
+
+</body>
+</html>

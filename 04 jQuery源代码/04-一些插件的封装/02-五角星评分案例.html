@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: red;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        jQuery(function () {
+            //就是把li标签中间的内容，给修改一下。
+            //先定义2颗星
+            var wjx_k = "☆";
+            var wjx_s = "★";
+
+            //需求1: 鼠标进入哪个li，让当前的li和之前的所有li内容设置为实心五角星，后面的设置为空心五角星；
+            //需求2: 鼠标移开当前li，让之前记录位置(默认没有)的li和之前的所有li内容设置为实心五角星，后面的设置为空心五角星；
+            //需求3: 鼠标点击哪个li，这个li就变成别记录的五角星，然后设置一个类名，方便下次获取，其他的去掉类名；
+
+            //prev(); 上一个
+            //prevAll(); 之前所有的
+            //next(); 后一个
+            //nextAll(); 后面所有的
+
+            $('.comment li').on('mouseenter',function (){
+                //不能链式编程了
+                //$(this).text(wjx_s).prevAll().text(wjx_s).nextAll().text(wjx_k);
+
+                //end()的意思，就是调用方法的返回值，返回到上一层那个返回值。
+                $(this).text(wjx_s).prevAll().text(wjx_s).end().nextAll().text(wjx_k);
+
+            	//$(this).text(wjx_s).prevAll().text(wjx_s);
+                //$(this).nextAll().text(wjx_k);
+
+
+
+            }).on('mouseleave', function () {
+                //所有都变成空心
+                $('.comment li').text(wjx_k);
+
+                //如果有的li被添加了这个current，说明这个li被单击了，那也就说明离开的时候，这个li和他之前的li要变实心。
+                if($('.current').length == 1){
+                    $('.current').text(wjx_s).prevAll().text(wjx_s);
+                    $(this).nextAll().text(wjx_k);
+                }
+
+            }).on('click', function () {
+                //那个li标签被单击了，就给哪一个li标签添加一个类，current  ,其他的li移出这个类
+                $(this).addClass('current').siblings().removeClass('current');
+            });
+
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+
+
+</body>
+
+</html>

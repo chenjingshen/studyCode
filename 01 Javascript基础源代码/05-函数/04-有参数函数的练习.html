@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        /*
+         求任意数的平方
+         求任意半径的圆的面积   面积 = 半径的平方*π
+         */
+
+        //求任意数平方
+        //        function getSqr(num) {
+        //            console.log(num + '的平方是：' + Math.pow(num, 2));
+        //        }
+        //
+        //        getSqr(6);
+
+        //求圆的面积
+        //        function getSqure(r) {
+        //
+        //            var result = Math.pow(r, 2) * Math.PI;
+        //
+        //            console.log('半径为' + r + '的圆的面积为：' + result);
+        //
+        //        }
+        //
+        //        getSqure(10);
+
+        //求任意两个数的之间的和
+        //l例如两个数分别是2和10，然后需要求：2+3+4+5......+ 10的结果
+
+        function getSum(n1, n2) {
+
+            //我们不能保证n1的值一定比n2小，而应该有判断，找出更小的那个数，然后从小到大来遍历
+
+            //找到最小值
+            var min = n1 < n2 ? n1 : n2;
+
+            //找到最大值
+            var max = n1 > n2 ? n1 : n2;
+
+            var sum = 0;
+            for (var i = min; i <= max; i++) {
+
+                sum += i;
+            }
+
+            console.log('从' + n1 + '到' + n2 + '的和为：' + sum);
+        }
+
+        getSum(10, 30);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

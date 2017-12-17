@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+
+    var str = "a-b-c";
+
+    str.length;//获取长度
+
+    str.charAt(0);//根据索引获取某个字符
+
+    str.indexOf("b");//从左往右找，找到第一个匹配的，返回首字母的索引，没找到返回-1，如果传空字符串返回0
+
+    console.log(str.lastIndexOf(""));//从右往左找，找到第一个匹配的，返回首字母的索引，没找到返回-1，如果传空字符串返回长度
+
+    str.split("-");//根据某个符号分割成数组
+
+    str.substr();//参数1：从哪个位置开始，参数2：截取多少个长度
+
+    str.slice();//参数1：从哪个位置开始，参数2：到哪个索引结束（不包括结束的索引）
+
+    str.substring();//跟slice是一样的，但是slice可以传负数，substring不可以
+
+    str.toUpperCase();//转换为大写，所有字符串都转换
+    str.toLowerCase();//转换为小写，所有字符串都转
+
+    str.replace(); //参数1：要被替换的字符，参数2：替换的内容是什么，不会改变原来的字符串，都是得到新的字符串，因为字符串有恒定性，字符串不可改
+
+
+    //如何把get-element-by-id转换成驼峰命名法的
+    //先转换为数组，然后下标1开始遍历，取到每个元素的首字母，然后调用首字母的转换为大写的方法，然后再赋值回这个元素
+
+    var str2 = "get-element-by-id";
+
+    var arr = str2.split("-");
+
+    for (var i = 1; i < arr.length; i++) {
+
+        //取到当前元素：依次取到的是element和by和id
+        var word = arr[i];
+
+        //取到第一个字母，依次取到的是e   b   i
+        var firstChar = word.charAt(0);
+
+        //把取到的第一个字母转换为大写。firstChar就依次变成了E B I
+        firstChar = firstChar.toUpperCase();
+
+        //把原来的elment首字母替换成E，返回以后交给数组去保存
+        arr[i] = word.replace(word[0],firstChar);
+    }
+
+    console.log(arr.join(""));
+
+</script>

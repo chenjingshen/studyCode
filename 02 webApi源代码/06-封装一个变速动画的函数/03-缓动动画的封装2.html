@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动红色" id="btn1"/>
+<input type="button" value="移动蓝色" id="btn2"/>
+
+<div id="box1"></div>
+
+<div id="box2"></div>
+
+</body>
+</html>
+
+<script>
+
+    //获取box1
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+
+    //    要让速度先快后慢
+    //    那么就可以用目标位置 - 当前位置 除以 10，因为当前位置不断增加，所以得到结果就会越来越小
+    // 就代表每步走的距离越来越短，那么就造成了从快到慢的运动效果
+    document.getElementById("btn1").onclick = function () {
+
+        animateSlow(box1,1000);
+    };
+
+
+    document.getElementById("btn2").onclick = function () {
+
+        animateSlow(box2,1000);
+
+    }
+
+
+//    var timerID;
+    function animateSlow(obj,target) {
+
+        //清除原来的计时器
+        clearInterval(obj.timerID);
+
+        //匀速：运动过程中的运动速度是一样的
+        obj.timerID = setInterval(function () {
+
+            //向上取整
+            var step = Math.ceil((target - obj.offsetLeft) / 10);
+
+            var offset = obj.offsetLeft + step;
+
+            console.log("step=" + step + " | " + "offset=" + offset);
+
+            //此时只要无条件移动就行了
+            //因为根据我们的算法，最后那几步的步长只是1，只是1的话就是一个一个加位置，根本不会超过目标位置
+            //所以直接加就行了
+            obj.style.left = offset + "px";
+
+            //加完以后到了目标位置就立即停止计时器
+            if(obj.offsetLeft == target ){
+
+                clearInterval(obj.timerID);
+            }
+
+        }, 50);
+    }
+
+
+
+</script>

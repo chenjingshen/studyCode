@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="./template-web.js"></script>
+<!-- 模板1 对象的点语法 数组的索引语法 -->
+<script id='template01' type="text/html">
+    <ul>
+        <li>我的名字是:{{name}}</li>
+        <li>我的能力是:{{skill}}</li>
+        <li>
+            <ol>
+                <li>我的好友们</li>
+                <li>{{friends[0].name}}--{{friends[0].habbit}}-老爸是-{{friends[0].father.name}}</li>
+                <li>{{friends[1].name}}--{{friends[1].habbit}}</li>
+                <li>{{friends[2].name}}--{{friends[2].habbit}}</li>
+            </ol>
+        </li>
+    </ul>
+</script>
+
+<!-- 模板2
+    each target 是模板引擎提供的语法
+    $index 是内置的对象 获取的是所用
+    $value 其实就是循环的每一个元素
+-->
+<script id='template02' type="text/html">
+    <h2>我叫{{name}}</h2>
+    <h2>我喜欢{{habbit}}</h2>
+    {{each friends}}
+        <h3>{{$value.name}}--{{$value.skill}}</h3>
+    {{/each}}
+</script>
+
+<script>
+    // 数据1
+    var star = {
+        name:'莫少聪',
+        skill:'吸毒',
+        friends:[
+            {
+                name:'张默',
+                habbit:'长得像房祖名',
+                father:{
+                    name:'张国立',
+                    skill:'演皇帝',
+                    dayLong:'被儿子坑'
+                }
+            },
+            {
+                name:'房祖名',
+                habbit:'长得像张默'
+            },
+            {
+                name:'宋冬野',
+                habbit:'吸X'
+            }
+        ]
+    };
+    // 填充数据
+    console.log(template('template01',star));
+
+    // 数据2
+    var catroonPerson = {
+        name:'山治',
+        habbit:'一些美好的事物！！！',
+        friends:[
+            {
+                name:'路飞',
+                skill:'橡胶'
+            },
+            {
+                name:'索隆',
+                skill:'迷路'
+            },
+            {
+                name:'娜美',
+                skill:'好看'
+            },
+            {
+                name:'罗宾',
+                skill:'看书'
+            },
+            {
+                name:'弗兰克',
+                skill:'只穿内裤'
+            },
+            {
+                name:'乔巴',
+                skill:'卖萌'
+            },
+            {
+                name:'乌索普',
+                skill:'撒谎'
+            },
+            {
+                name:'布鲁克',
+                skill:'钢琴'
+            }
+        ]
+    };
+    console.log(template('template02',catroonPerson));
+
+</script>

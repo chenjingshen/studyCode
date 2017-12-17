@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    // alert("123");
+    // alert(123);
+    // alert("哈哈哈");
+    // alert(哈哈哈); //报错了。。。 为什么报错
+    //alert(true);
+    //alert(false);
+
+
+    //1.直接量
+    //可以直接拿来使用的，就是直接量。
+    //什么样的东西是直接量？ 字符串类型的数据   数值类型的数据  布尔类型的数据  变量
+
+
+    //2.数据类型
+    //软件其实就是处理数据的，数据有很多种， 既然有很多种，就要对数据分类（因为不同类型的数据处理和存储方式不一样）；
+
+    //2.1  字符串类型 String类型
+    //js中只要是被双引号或者单引号引起的来东西，都是字符串。  "哈哈哈"  "123"   "123456！@#￥%"   '456'
+
+
+    //2.2 数值类型  Number类型
+    //可以用来做算术运算，用来计数的。    0  -1  1234   8.9
+    //a.极值
+    //console.log(Number.MAX_VALUE); //最大值    1.7976931348623157e+308
+    //console.log(Number.MIN_VALUE); //最小值    5e-324     -Number.MAX_VALUE
+    //console.log(Infinity); //无穷大
+    //console.log(-Infinity); //无穷小
+
+    //b.进制
+    //二进制  逢二进一
+    //0  1  10  11   100    101
+    //console.log(0b101); //表示二进制数字前面加0b
+
+    //八进制 逢八进一
+    //0  1 2 3 4 5 6 7   10  11 12  13 14   15  16   17  20
+    //console.log(020); //表示八进制数字前面加0
+
+    //十六进制  逢十六进一   半斤八两
+    // 0 1 2 3 4 5 6 7 8 9 a  b c d e f   10
+    //console.log(0x1f);  //表示十六进制数字前面加0x
+
+
+    //2.3 布尔类型 Boolean
+    //布尔类型的数据只有2个取值：  true 对1        false  错0
+
+
+
+
+
+    //3.typeof  检测数据类型
+    //语法1： typeof  需要检测的内容
+    //语法2： typeof  (需要检测的内容)
+
+    console.log(typeof "123");  //string
+    console.log(typeof 123);  //number
+    console.log(typeof "哈哈哈"); //string
+    console.log(typeof true); //boolean
+    console.log(typeof "true"); //string
+    console.log(typeof  (10+20) ); //number  小括号其实是为了提高优先级的。
+
+
+
+   //在谷歌浏览器控制台看颜色，快速的看这个数值是什么类型。
+    console.log(123);
+    console.log("123");
+    console.log(true);
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

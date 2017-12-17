@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.break
+  // for(var i = 0 ; i <= 10; i++){
+  //  if(i == 5){
+  //    break;
+  //  }
+  //  console.log(i);
+  //}
+
+
+  //账号是admin  密码是888888才是正确的，停止输入，如果有一个错误，就要继续输入。
+  // var userName;
+  // var password;
+  // do {
+  //   userName = prompt("请输入你的账号");
+  //   password = prompt("请输入你的密码");
+  // }while(userName != "admin" ||  password !="888888");
+
+
+   // var userName;
+   // var password;
+   // do {
+   //   userName = prompt("请输入你的账号");
+   //   password = prompt("请输入你的密码");
+//
+   //   if(userName == "admin" && password == "888888"){
+   //     break;
+   //   }
+//
+   // }while(true);
+
+
+
+  //2.continue
+  // for(var i = 0 ; i <= 10; i++){
+  //   if(i == 5){
+  //     continue;
+  //   }
+  // 	console.log(i);
+  // }
+
+
+
+  //使用continue求1-100之间奇数的和。
+  var sum = 0;
+  for(var i = 0 ; i <= 100; i++){
+    if(i % 2 == 0){
+      continue;
+    }
+  	sum += i;
+  }
+  console.log(sum);
+
+
+
+
+
+</script>
+</body>
+</html>

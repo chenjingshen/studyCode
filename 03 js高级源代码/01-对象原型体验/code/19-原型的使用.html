@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.构造函数中存放方法，构造函数创建对象
+  //  function Person(name,age){
+  //  this.name = name;
+  //  this.age = age;
+  //  this.sayHi = function () {
+  //    console.log("哈哈哈哈"+this.name);
+  //  }
+  //}
+  //var p1 = new Person("张三",18);
+  //var p2 = new Person("李四",20);
+  //p1.sayHi();
+  //p2.sayHi();
+  //console.log(p1.sayHi === p2.sayHi); //false
+
+
+
+
+  //2.把函数提炼出来，让方法指向提炼出来的函数 ，
+  //解决了内存浪费的问题，但是会出现变量污染的问题
+//   function test1(){
+//     console.log("哈哈哈哈"+this.name);
+//   }
+//   function test2(){
+//     console.log("呵呵，我在吃东西..");
+//   }
+//
+//   function Person(name,age){
+//     this.name = name;
+//     this.age = age;
+//     this.sayHi = test1;
+//     this.eat = test2;
+//   }
+//   var p1 = new Person("张三",18);
+//   var p2 = new Person("李四",20);
+//   p1.sayHi();
+//   p2.sayHi();
+//   console.log(p1.sayHi === p2.sayHi); //true
+
+
+
+  //3.使用对象把提炼的方法包起来，就可以解决变量污染的问题。
+  // var obj1 = {
+  //   test1 :function (){
+  //     console.log("哈哈哈哈"+this.name);
+  //   },
+  //   test2:function (){
+  //     console.log("呵呵，我在吃东西..");
+  //   }
+  // };
+//
+  // function Person(name,age){
+  //   this.name = name;
+  //   this.age = age;
+  //   this.sayHi = obj1.test1;
+  //   this.eat = obj1.test2;
+  // }
+  // var p1 = new Person("张三",18);
+  // var p2 = new Person("李四",20);
+  // p1.sayHi();
+  // p2.sayHi();
+  // console.log(p1.sayHi === p2.sayHi); //true
+
+
+
+  //4.使用原型
+  //创建任意的构造函数，系统都会自动的帮我们创建一个对应的对象，就是原型。
+  //原型里面存放什么？ 放根据构造函数创建出来的对象们公共的数据。
+
+
+  //5.如何访问这个原型
+  //构造函数.prototype
+//  function Person(name,age){
+//    this.name = name;
+//    this.age = age;
+//  }
+//
+//
+//  //6.原型是对象，既然是对象，就可以往对象中添加属性和方法。
+//  Person.prototype.sayHi = function () {
+//    console.log("哈哈"+this.name);
+//  }
+//  Person.prototype.type = "人类";
+//  console.log(Person.prototype);
+//
+//
+//  //7.用这个构造函数创建出来的对象，都可以访问这个构造函数对相应的原型中的成员（属性、方法）
+//  var p1 = new Person("张三",18);
+//  p1.sayHi();
+//  console.log(p1.type);
+//
+//  var p2 = new Person("李四",20);
+//  p2.sayHi();
+//  console.log(p2.type);
+//  console.log(p1.sayHi === p2.sayHi); //true
+
+
+</script>
+</body>
+</html>

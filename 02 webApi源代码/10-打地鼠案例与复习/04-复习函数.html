@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        函数：就是把一段代码打包起来
+
+        语法：
+                function 函数名(形参列表){
+                    函数体
+                }
+
+        函数声明后，并不会执行函数里的代码，只有调用以后才会执行
+
+        return关键字：
+                可以给函数返回一个值，并且还能立即结束函数
+                如果return后面没接值，也有返回值，返回值为undefined
+                如果不写return，还是有返回值，返回值为undefined
+
+
+        回调函数：
+               把函数作为参数，这个函数就是回调函数
+
+
+
+
+
+
+    -->
+
+    <script>
+
+        setInterval(function () {
+
+            console.log("我是回调函数");
+        },1000)
+        //        function test(){
+        //
+        //            alert("哈哈哈哈");
+        //        }
+        //
+        //        test();
+        //
+        //        function getSum(a,b){
+        //
+        //            alert(a + b);
+        //        }
+        //
+        //        getSum(20,30);
+
+        function getSum2(a, b) {
+
+            return;
+
+            alert("不会被执行到这里");
+        }
+
+        console.log(getSum2(10, 20));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

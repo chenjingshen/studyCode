@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function foo(){
+            var data = 1;
+            return function () {
+                console.log(data);
+            }
+        }
+
+        var f1 = foo();
+        var f2 = foo();
+        console.log(f1 == f2);   //flase
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

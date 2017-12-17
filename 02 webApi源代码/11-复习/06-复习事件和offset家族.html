@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+
+        使用on事件名添加的事件，那么同一个元素不能有同名的事件，否则后面的会覆盖前面的
+
+        addEventListener可以让一个元素有多个同名事件，那么这时会合并在一起
+
+
+        冒泡：默认就有冒泡
+        addEventListener参数3默认也是false，默认是冒泡
+
+        如果想捕获，只有一种办法，那么就是用addEventListener添加，并且参数3为true
+
+        阻止事件冒泡或事件捕获
+                e.stopPropagation();
+                IE8的兼容> cancelBubble = true;
+
+        阻止事件的默认实现：
+                 e.preventDefault();
+                 IE8的兼容> e.returnValue = false;
+
+        总结学过的事件：
+            onload：一般用在window身上，代表页面资源加载完毕再调用
+
+        跟鼠标有关的：
+            onclick：点击事件（单击）
+            ondblclick：双击事件
+            onmousedown：鼠标按下（按着不动一直触发）
+            onmouseup：鼠标弹起
+            onmouseover：鼠标移入
+            onmouseout：鼠标移出
+            onmousemove：鼠标移动
+
+       跟键盘有关的：
+            onkeyup：键盘弹起触发
+            onkeydown:键盘按下触发，对特殊件不忽略，而且大小写不敏感（区分不了大小写）
+            onkeypress：键盘按下触发，对特殊键忽略，对大小写敏感（能区分出大小写）
+
+       跟元素有关
+            onfocus：当元素获得焦点触发
+            onblur：当元素失去焦点触发
+
+
+       事件有三个阶段：
+                1.捕获阶段
+                2.目标阶段
+                3.冒泡阶段
+
+        从window开始一级一级往下直到目标，然后从目标又一级一级往上直到window
+        只有被直接触发的元素才是目标阶段的
+
+
+        事件对象：
+                当事件触发时，就会产生事件对象，事件对象里就包含了这个事件的所有信息
+
+         怎么获取事件对象？就是在事件绑定的函数里写一个形参，这个形参在事件触发后就是事件对象
+
+         这种事件有兼容性问题，IE8不支持，IE8支持window.event，所以要做兼容
+
+        e = e || window.event
+
+
+        事件源：就是触发事件的那个元素
+                    e.target  但是IE8不支持，IE8支持的是e.srcElement
+
+                    var target = e.target || e.srcElement;
+
+        当前处理事件对象：
+                this或者currentTarget
+
+
+        三大坐标：
+               screenX 和 screenY
+                       事件发生点（鼠标点击的那个点）相对于屏幕左上角的距离
+
+               clientX 和 clientY
+                       事件发生点（鼠标点击的那个点）相对于可视区域左上角的距离
+
+
+               pageX 和 pageY
+                       事件发生点（鼠标点击的那个点）相对于文档左上角的距离
+
+
+               offsetX和offsetY(放大镜时有问题，所以最好不用)
+
+
+               如果要算出相对于元素自身左上角的
+               x = pageX - 元素的offsetLeft
+               y = pageY - 元素的offsetTop
+
+               如果还有父元素以及边框，继续减去父元素的offsetLeft以及边框
+
+
+               offset家族：
+                    offsetWidth和offsetHeight
+                            不管怎么设置的宽高，都是能获取到的。获取到的值不带单位
+                               它获取的宽高包含了内边距和外边框
+
+                    offsetLeft和offsetTop
+                            自身外边框到它所定位参照的父元素的内边距的距离
+
+                    offsetParent
+                            获取到自己定位的父元素  跟 parentNode区别：
+                                        parentNode无论如何获取的都是自己的直接父元素
+                                        而offsetParent获取的是自己定位参照的父元素，可能是直接父元素，也可能是父元素的父元素，也可能直接是body
+
+    -->
+
+
+    <script>
+
+        window.onload = function (e) {
+//            e = e || window.event;
+//
+//            console.log(e);
+            
+            var box = document.getElementById("box");
+            //不管怎么设置的宽高，都能获取到
+            console.log(box.offsetWidth);//获取的就是div的宽度，包括内边距和外边框，不带单位
+            console.log(box.offsetHeight);//获取的就是div的高度，包括内边距和外边框，不带单位
+        }
+
+        //用.onxxx注册的事件，后面的会覆盖前面的
+
+        //页面所有元素加载完毕就会来调用
+        //        window.onload = function () { //主要是为了代码写在html标签上面时也能正常获取到元素
+        //            console.log(document.getElementById("box"));
+        //            alert("哈哈");
+        //        }
+        //
+        //也是冒泡
+        //        window.onload = function () {
+        //
+        //            alert("呵呵");
+        //        }
+
+        //这个还可以支持事件捕获，以及如果有多个同名的事件，不会覆盖，而是会合并在一起
+        //默认为冒泡传递
+        //只有用addEventlistener添加的事件，并且参数为true才是事件捕获
+        /*
+         window.addEventListener("load", function () {
+         console.log(document.getElementById("box"));
+         //            alert("哈哈");
+         })
+
+
+         window.addEventListener("load", function () {
+
+         alert("呵呵");
+         })
+         */
+    </script>
+
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+
+    box.addEventListener("click", function () {
+
+        alert("我是div");
+    }, false);//冒泡
+
+    document.body.addEventListener("click", function () {
+
+        alert("我是body");
+    }, false);//冒泡
+
+    document.body.addEventListener("click", function () {
+
+        alert("我是body捕获");
+    }, true);//捕获
+
+    document.documentElement.addEventListener("click", function () {
+
+        alert("我是html");
+    }, false)
+
+    window.addEventListener("click", function () {
+
+        alert("我是window");
+    }, false)
+
+
+    //事件默认就有冒泡，只能是addEventListener才能捕获
+    /*
+     box.onclick = function () {
+
+     alert("我是div");
+     }
+
+     document.body.onclick = function () {
+
+     alert("我是body");
+     }
+
+     document.documentElement.onclick = function () {
+
+
+     alert("我是html");
+     }
+     */
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.闭包的一种使用场景- 沙箱 - 沙盒
+  //模块化开发的，为了避免变量的污染
+
+  //贪吃蛇游戏
+
+  //食物
+  (function (w) {
+    var list = [100]; //食物
+
+    function sayHi() {
+      console.log("呵呵");
+    }
+
+    //一般的情况不会直接在沙箱里面使用window。
+    //破坏了沙箱的封闭性； 压缩代码的时候，有可能会把window给压缩。
+    w.list = list;
+    w.sayHi = sayHi;
+
+
+    //沙箱里面声明的变量，或者函数，必须要暴露出去吗？ 不一定。
+    //如果沙箱中的变量或者方法，只在这个沙箱的区间内使用，就不用把这个方法或者属性暴露在外面去。
+    //如果沙箱中的这个变量或者方法，需要在外界使用，才暴露出去。
+
+  }(window));
+
+
+  console.log(window.list);
+  sayHi();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //  //蛇
+//  (function () {
+//    var list = []; //蛇
+//
+//    function sayHi() {
+//      console.log("哈哈");
+//    }
+//
+//  }());
+
+
+
+</script>
+</body>
+</html>

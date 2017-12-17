@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #son{
+            width: 150px;
+            height: 150px;
+            background-color: hotpink;
+        }
+
+        #father{
+
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="father">
+    <div id="son"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+    //事件冒泡：
+    //  就是某个元素触发事件，会调用它父元素的同名事件，不管父元素有没有实现同名事件，它还会往上继续调用父元素的父元素的同名事件，直到window停止(会到最顶级，也就是window)
+
+
+    /*
+        阻止事件冒泡：
+                事件对象.stopPropagation();   IE8以前不能用包括IE8
+
+                IE8的用法：
+                    e.cancelBubble = true;
+
+
+     */
+
+    document.getElementById("son").onclick= function (e) {
+
+        e = e || window.event;
+
+        alert("我是粉色的盒子");
+
+//        e.stopPropagation();
+
+//        e.cancelBubble = true;
+
+        stopPropagation(e);
+    };
+
+
+    function stopPropagation(e){
+
+        e = e || window.event;
+
+        if(e.stopPropagation){
+
+            e.stopPropagation();
+
+        }else{
+            //来到这证明是IE8
+            e.cancelBubble = true;
+        }
+    }
+
+    document.getElementById("father").onclick = function (e) {
+
+        e = e || window.event;
+
+        alert("我是绿色的盒子");
+
+//        e.stopPropagation();
+    };
+
+    document.body.onclick = function () {
+
+        alert("我是body");
+    }
+
+
+    document.documentElement.onclick = function (e) {
+
+        e = e || window.event;
+        alert("我是html");
+
+        e.stopPropagation();
+    }
+
+    document.onclick = function () {
+
+        alert("我是文档");
+    }
+
+    window.onclick = function () {
+
+        alert("我是window");
+    }
+</script>

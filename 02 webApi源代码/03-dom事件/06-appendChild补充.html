@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+     <!--
+        appendChild：给某个元素添加一个子元素
+
+        如果是创建的新元素：那么会新元素添加到这个父元素的子元素末尾
+
+        如果某个子元素A已经存在父元素B中，再用B添加这个子元素，会把这个子元素A往最后挪（移动到最后）
+
+        如果把某个子元素A往另外一个父元素追加，会相当于把子元素A从原来的父元素移动到新的父元素
+     -->
+
+
+</head>
+<body>
+
+<ul id="ul1">
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li id="li3">隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+<input type="button" value="添加" id="add"/>
+
+
+<ul id="ul2">
+    <li>隔壁老周1</li>
+    <li>隔壁老周2</li>
+    <li>隔壁老周3</li>
+    <li>隔壁老周4</li>
+    <li>隔壁老周5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+
+    //找到ul1
+    var ul1 = document.getElementById("ul1");
+
+    //找到ul2
+    var ul2 = document.getElementById("ul2");
+
+    document.getElementById("add").onclick = function () {
+
+        //创建新的元素再添加
+//        var newLi = document.createElement("li");
+//        newLi.innerHTML = "我是新的li";
+//        ul1.appendChild(newLi);
+
+        //找到已经存在的再添加
+        var li3 = document.getElementById("li3");
+//        ul1.appendChild(li3);
+
+        //把ul1中的li3添加到ul2中
+        ul2.appendChild(li3);
+    }
+</script>

@@ -1,0 +1,468 @@
+/* 第一屏 */
+.section1 {
+    background: url("../images/01/bg.png") center bottom no-repeat;
+}
+
+.section1 .products{
+    position: absolute;
+    left: 50%;
+    bottom: 180px;
+
+    margin-left: -412px;
+}
+
+.section1 .ball {
+    position: absolute;
+    right: 150px;
+    top: 100px;
+
+    animation: ball 3s infinite;
+}
+
+.section1 .sofa {
+    position: absolute;
+    bottom: 300px;
+    left: 50%;
+    margin-left: -200px;
+    animation: sofa 1s infinite;
+}
+
+@keyframes sofa {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes ball {
+    50% {
+        top: 60px;
+    }
+}
+
+/* 第二屏 */
+.section2 {
+    background: url("../images/02/bg.png") bottom center no-repeat;
+}
+
+.section2 .search01 {
+    position: absolute;
+    left: 50%;
+    margin-left: 400px;
+    bottom: 300px;
+}
+
+.section2 .search02 {
+    position: absolute;
+    left: 50%;
+    margin-left: -111px;
+    bottom: 300px;
+    display: none;
+}
+
+/* 测试用的代码 */
+/* .section2 .search03 {
+    position: absolute;
+    left: 50%;
+    margin-left: 120px;
+    bottom: 450px;
+    height: 30px;
+} */
+
+.section2 .sofas {
+    position: absolute;
+    right: 50%;
+    bottom: 210px;
+    margin-right: -220px;
+    height: 50px;
+    /* opacity: 0.3; */
+    opacity: 0;
+}
+
+.section2 .words {
+    position: absolute;
+    left: 50%;
+    bottom: 530px;
+    margin-left: -181px;
+}
+
+/* 第三屏 */
+.section3 {
+    background: url("../images/03/bg.png") center bottom no-repeat;
+}
+
+.section3 .sofa {
+    position: absolute;
+    left: 50%;
+    margin-left: -230px;
+    bottom: 250px;
+}
+
+.section3 .color {
+    background: url("../images/03/color01.gif") no-repeat;
+    width: 296px;
+    height: 131px;
+    position: absolute;
+    left: 50%;
+    margin-left: 40px;
+    bottom: 170px;
+}
+
+.section3 .add {
+    background: url("../images/03/add01.gif") no-repeat;    
+    width: 218px;
+    height: 58px;
+    position: absolute;
+    left: 50%;
+    margin-left: 40px;
+    bottom: 100px;
+}
+
+.section3.animate .color {
+    transition: all 0.3s;
+    background: url("../images/03/color02.gif") no-repeat;    
+}
+
+.section3.animate .add {
+    transition: all 0.3s 1s;
+    background: url("../images/03/add02.gif") no-repeat;        
+}
+
+/* 第四屏 */
+.section4 {
+    background: url("../images/04/bg.png") center bottom no-repeat;
+}
+
+.section4 .words {
+    position: absolute;
+    bottom: 450px;
+    left: 50%;
+    margin-left: -215px;
+}
+
+.section4 .cloud {
+    position: absolute;
+    left: 50%;
+    margin-left: -441px;
+    top: 30px;
+
+    /* 使用动画 */
+    animation: cloud 40s infinite;
+}
+
+@keyframes cloud {
+    50% {
+        transform: translateX(-600px);
+    }
+}
+
+
+/* 地址 */
+.section4 .keyboard {
+    background: url("../images/04/keyboard.png") no-repeat;
+    width: 283px;
+    height: 270px;
+
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    margin-left: -195px;
+    opacity: 0;
+}
+
+.section4 .address {
+    position: absolute;
+    left: 50px;
+    top: 60px;
+}
+
+/* 小车 */
+.section4 .carbox {
+    width: 407px;
+    height: 346px;
+    /* background-color: rgba(100, 100, 100, 0.5); */
+
+    position: absolute;
+    left: 50%;
+    margin-left: -300px;
+    bottom: 40px;
+}
+
+.section4 .car {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.section4 .sofa {
+    position: absolute;
+    left: 150px;
+    top: -45px;
+}
+
+/* 第五屏 */
+.section5 {
+    background: url("../images/05/bg.png") center bottom no-repeat;
+}
+
+
+
+.section5 .card {
+    position: absolute;
+    left: 50%;
+    margin-left: -350px;
+    bottom: 180px;
+
+    z-index: 5;
+}
+
+.section5 .bill {
+    position: absolute;
+    left: 50%;
+    /* bottom: 400px; */
+    bottom: 260px;
+    margin-left: -235px;
+}
+
+.section5 .hand {
+    position: absolute;
+    left: 50%;
+    margin-left: 200px;
+    bottom: -100px;
+    z-index: 5;
+}
+
+.section5 .mouse {
+    position: absolute;
+    left: 50%;
+    margin-left: 230px;
+    bottom: 240px;
+    background: url("../images/05/mouse01.png") no-repeat;
+    width: 205px;
+    height: 819px;
+}
+
+.section5 .words {
+    position: absolute;
+    left: 50%;
+    bottom: 520px;
+    margin-left: -160px;
+    opacity: 0;
+    z-index: 10;
+}
+
+.section5.animate .hand {
+    transition: all 1s;
+    bottom: 0px;
+}
+
+.section5.animate .mouse {
+    transition: all 0.3s 1s;
+    background: url("../images/05/mouse02.png") no-repeat;
+}
+
+.section5.animate .bill {
+    transition: all 1s 1.5s;
+    bottom: 400px;
+}
+
+.section5 > div {
+    perspective: 500px;
+    overflow: hidden;
+}
+
+.section5.animate .words {
+    transition: all 1s 2.5s;
+    transform-style: preserve-3d;
+    transform: scale(1.5) rotateY(360deg);
+    opacity: 1;
+}
+
+/* 第六屏 */
+.section6 .street {
+    width: 2500px;
+    height: 600px;
+    background: url("../images/06/bg.png") left repeat-x;
+    position: absolute;
+    left: -200px;
+
+    /* right: 0px; */
+    bottom: 0;
+}
+
+.section6 .girl {
+    position: absolute;
+    bottom: 115px;
+    z-index: 5;
+    left: 2130px;
+    height: 120px;
+    display: none;
+
+    /* 
+    初始值
+    left: 2130px;
+    height: 120px;
+    */
+
+    /* 
+    放大后的值：
+    left： 2100px;
+    height： 294px
+    */
+}
+
+/* .section6 .girl:hover {
+    transition: all 1s;
+    left: 2100px;
+    height: 294px;
+} */
+
+.section6 .door {
+    position: absolute;
+    left: 2110px;
+    bottom: 116px;
+    display: none;
+}
+
+/* 沙发和小盒子 */
+.section6 .sofa {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    bottom: 500px;
+    height: 78px;
+
+    /* 
+    沙发的终值： bottom: 425px;
+    */
+}
+
+.section6 .box {
+    position: absolute;
+    left: 50%;
+    margin-left: -280px;
+    bottom: 400px;
+    z-index: 5;
+    /* 
+    小盒子向右移动的终值是 margin-left:  -125px
+    */
+}
+
+/* 小车 */
+.section6 .carbox {
+    width: 221px;
+    height: 122px;
+    /* background-color: rgba(100, 100, 100, 0.5); */
+    position: absolute;
+    left: 50%; 
+    margin-left: -175px;
+    bottom: 90px; 
+    z-index: 5;
+}
+
+.section6 .car {
+    position: absolute;
+    z-index: 5;
+}
+
+.section6 .address {
+    position: absolute;
+    top: -35px;
+    right: -60px;
+    /* 地址一开始是隐藏的 */
+    display: none;
+}
+
+.section6 .man {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 40px;
+
+    /* 
+    初值：right: 20px;bottom: 20px;height: 40px;
+    终值： right： -20px， height: 300
+    */
+}
+
+.section6 .getpackage {
+    position: absolute;
+    right: -280px;
+    bottom: 180px;
+    display: none;
+}
+
+.section6 .cloud {
+    position: absolute;
+    left: 50%;
+    margin-left: -441px;
+    top: 15px;
+
+    z-index: 100;
+
+    /* 使用动画 */
+    animation: cloud 40s infinite;
+}
+
+
+/* 第七屏 */
+.section7 {
+    background: url("../images/07/bg.png") center bottom no-repeat;
+}
+
+.section7 .good {
+    position: absolute;
+    left: 50%;
+    margin-left: -285px;
+    bottom: 380px;
+}
+
+.section7 .stars {
+    position:  absolute;
+    width: 0px;
+    height: 20px;
+    background: url("../images/07/stars.png") no-repeat left top;
+
+    left: 50%;
+    bottom: 442px;
+    margin-left: -296px;
+}
+
+.section7.animate .stars {
+    transition:  all 1s steps(5);
+    width: 120px;
+}
+
+/* 第八屏 */
+.section8 {
+    background: url("../images/08/bg.png") center bottom repeat;
+}
+
+.section8 .begin {
+    position: absolute;
+    width: 389px;
+    height: 160px;
+    background: url("../images/08/begin.png") center bottom no-repeat;
+    
+    left: 50%;
+    margin-left: -194px;
+    bottom: 400px;
+}
+
+.section8 .hand {
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    /* 取消这个元素的响应事件， 该元素不响应事件， 就会往下层去找 */
+    pointer-events: none;
+}
+
+.section8 .again {
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+
+.section8 .begin:hover{
+    transition: all 0.3s;
+    background: url("../images/08/begin.gif") center bottom no-repeat;    
+}

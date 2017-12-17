@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        默认就有一个作用域：全局作用域，也可以称为0级作用域链
+
+        每写一个函数，这个函数就会开辟一个局部作用域
+
+        访问变量规则：
+                先在同级作用域里找，同级里面能找到，就使用这个变量
+
+                同级里面找不到？就找上一级作用域链里有没有这个变量，有就访问,如果上一级还找不到，就找上上一级，一直找，找到0级作用域，有就拿来用，没有就报错
+
+                只要在同级里面有声明这个变量，那么都只会找同级的，不会找上一级
+                如果访问同级变量的语句是在声明之前，访问到的是undefined
+
+
+                就近原则
+    -->
+
+    <script>
+
+        /*
+        var num = 100;
+
+        function test1(){ //test1属于0级作用域链
+
+            //1级作用域链
+            var n = 300;
+
+            function subTest(){
+
+                //2级作用域链
+                var b = 400;
+            }
+        }
+        */
+
+        var num = 10;//0级上有一个num=10
+
+        function f1(){
+            //1级
+
+            var num = 20;//1级上有一个num=20
+
+            function f2 (){
+                //2级
+
+                console.log(num);//undefined
+
+                var num = 30;
+            }
+
+            f2();
+        }
+
+        f1();
+
+        console.log(num);//10
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        childNodes：拿到所有子节点
+
+
+    总结：
+         文本节点的nodeType为3
+         文本节点的nodeName为#text
+         文本节点的nodeValue为它本身的文字内容
+
+         注释节点的nodeType为8
+         注释节点的nodeName为#comment
+         注释节点的nodeValue为它本身的注释内容
+
+         document的nodeType为9
+         document的nodeName为#document
+         document的nodeValue为null
+
+    -->
+</head>
+<body>
+
+<ul id="ul">
+    我是文字
+    <!-- 我是注释 -->
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+    var ul = document.getElementById("ul");
+
+    //这是拿到所有的子节点
+    console.log(ul.childNodes);
+
+    //文字节点
+    console.log(ul.childNodes[0].nodeType);//3
+    console.log(ul.childNodes[0].nodeName);//#text
+    console.log(ul.childNodes[0].nodeValue);//我是文字
+
+    //注释节点
+    console.log(ul.childNodes[1].nodeType);//8
+    console.log(ul.childNodes[1].nodeName);//#comment
+    console.log(ul.childNodes[1].nodeValue);//我是注释
+
+
+    console.log(document.nodeType);//9
+    console.log(document.nodeName);//#document
+    console.log(document.nodeValue);//null
+</script>

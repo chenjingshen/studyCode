@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            left: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<hr/>
+<input type="button" value="开始移动" id="move"/>
+
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    document.getElementById("move").onclick= function() {
+        var juli = 0;
+       var timerID=setInterval(function () {
+            var step = 20;
+            juli+=step;
+            if (juli <= 800) {
+                box.style.left = juli + "px";
+            } else {
+                box.style.left = "800px";
+                clearInterval(timerID);
+            }
+        }, 10);
+    };
+</script>

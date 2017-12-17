@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height:100%;
+            overflow: hidden;
+        }
+
+        .main {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        .box {
+            width: 600px;
+            height: 400px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+
+        .coords {
+            width: 600px;
+            height: 400px;
+            background-color: rgba(100, 100, 100, 0.7);
+            box-sizing: border-box;
+            border-top: 1px solid red;
+            border-left:1px solid blue;
+            transform-origin: left top;
+            pointer-events: none;
+            padding-left:20px;
+            position: absolute;
+            left:0;
+            top:0;
+            transform: rotate(-0deg);
+        }
+
+        .line {
+            width: 300px;
+            height: 2px;
+            /*padding-left: 100px;*/
+            position: absolute;
+            left:0;
+            top:0;
+            transform-origin: left top;
+        }
+
+        .line2 {
+            width: 5px;
+            height: 2px;
+            background-color: black;
+            margin-left: 95px;
+        }
+
+        .circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            bottom: 50%;
+            margin-left: -100px;
+            margin-bottom: -100px;
+            border-radius: 100px;
+            border: 2px solid #000;
+            display: none;
+        }
+
+        .hour {
+            position: absolute;
+            left: -5px;
+            top: -3px;
+            width: 60px;
+            height: 6px;
+            background-color: blue;
+            display: none;
+            transform-origin: left top;
+        }
+
+        .minute {
+            position: absolute;
+            left: -5px;
+            top: -2px;
+            width: 70px;
+            height: 4px;
+            background-color: blue;
+            display: none;
+            transform-origin: left top;
+        }
+
+        .second {
+            position: absolute;
+            left: -5px;
+            top: -1px;
+            width: 80px;
+            height: 2px;
+            background-color: red;
+            display: none;
+            transform-origin: left top;
+        }
+
+        .dot {
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            margin-left: -5px;
+            margin-bottom: -5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="box">
+        <div class="circle"></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+        <div class="dot"></div>
+        <div class="coords">(20, 0)</div>
+    </div>
+    <form action="" class="form">
+        平移x<input id="tranlateX" type="text" placeholder="x偏移" value="0"><br>
+        平移y<input id="tranlateY" type="text" placeholder="y偏移" value="0"><br>
+        旋转：<input id="rotateAngle" type="text" placeholder="旋转角" value="0"><br>
+        <input type="button" id="translate" value="平移"><br>        
+        <input type="button" id="rotate" value="画刻度"><input type="button" id="zero" value="12点"><input type="button" id="circle" value="表盘"><br>
+        <input type="button" id="hour" value="时针"><br>
+        <input type="button" id="minute" value="分针"><br>
+        <input type="button" id="second" value="秒针"><br>
+        <input type="button" id="dot" value="表心"><br>
+    </form>
+</div>
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    function getRotationDegrees(obj) {
+        var matrix = obj.css("-webkit-transform") ||
+                    obj.css("-moz-transform")    ||
+                    obj.css("-ms-transform")     ||
+                    obj.css("-o-transform")      ||
+                    obj.css("transform");
+        if(matrix !== 'none') {
+            var values = matrix.split('(')[1].split(')')[0].split(',');
+            var a = values[0];
+            var b = values[1];
+            var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+        } else { 
+            var angle = 0; 
+        }
+        //return (angle < 0) ? angle + 360 : angle;
+        return angle;
+    }
+
+    $(function(){
+        //旋转
+        $("#rotate").click(function () {
+            var angle = parseInt(getRotationDegrees($(".coords")));
+            var rotateAngle = parseInt($("#rotateAngle").val());
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+            angle += rotateAngle;
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+angle+"deg)"});
+            var style = "transform: translate("+x+"px, "+y+"px) rotate("+angle+"deg)";
+            var line = $("<div class='line' style='"+style+"'><div class='line2'></div></div>");
+
+            //画线
+            $(".box").append(line);
+        });
+        
+        $("#zero").click(function() {
+            $(".coords").css({"transform": "translate("+300+"px, "+200+"px) rotate("+-90+"deg)"});
+        });
+
+        $("#circle").click(function(){
+            $(".circle").show();
+        });
+
+        //平移
+        $("#translate").click(function () {
+            var angle = parseInt(getRotationDegrees($(".coords")));
+            var rotateAngle = parseInt($("#rotateAngle").val());
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+angle+"deg)"});
+        });
+
+        //还原
+        $("#clear").click(function () {
+            $(".coords").css({"transform": "translate("+300+"px, "+200+"px) rotate("+-90+"deg)"});
+        });
+
+
+        $("#hour").click(function(){
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+
+            m = s/60 + m;
+            h = m / 60 + h;
+            h = h > 12 ? h - 12 : h;
+
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+(360*h/12-90)+"deg)"});
+            $(".hour").css({"transform": "translate("+x+"px, "+y+"px) rotate("+(360*h/12-90)+"deg)"});
+            $(".hour").show();
+        });
+
+        $("#minute").click(function(){
+            var date = new Date();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+
+            m = s/60 + m;
+
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+(m/60*360-90)+"deg)"});
+            $(".minute").css({"transform": "translate("+x+"px, "+y+"px) rotate("+(m/60*360-90)+"deg)"});
+            $(".minute").show();
+        });
+
+        $("#second").click(function() {
+
+            var date = new Date();
+            var s = date.getSeconds();
+
+            var x = $("#tranlateX").val();
+            var y = $("#tranlateY").val();
+            $(".coords").css({"transform": "translate("+x+"px, "+y+"px) rotate("+(s/60*360-90)+"deg)"});
+            $(".second").css({"transform": "translate("+x+"px, "+y+"px) rotate("+(s/60*360-90)+"deg)"});
+            $(".second").show();
+        });
+
+        $("#dot").click(function() {
+            $(".dot").show();
+        });
+    });
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jQuery.myself.js"></script>
+  <script src="jquery-3.0.0.js"></script>
+  <script src="jquery-1.12.4.js"></script>
+
+  <script>
+
+    jQuery(function () {
+      //console.log($);
+
+      //jQuery可以把和别人同名的$给释放掉，自己用jQuery.
+      var c = jQuery.noConflict();
+
+
+      var b = $.noConflict();
+
+
+      console.log($);
+      console.log(b.fn.jquery);
+      console.log(c.fn.jquery);
+      console.log(jQuery.fn.jquery);
+
+
+      //console.log(c);
+//      c('div').width(100).height(100).css("backgroundColor","red");
+//
+//       (function ($) {
+//         $('div').width(100).height(100).css("backgroundColor","red");
+//
+//       }(c));
+
+
+    });
+
+  </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

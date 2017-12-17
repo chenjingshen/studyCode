@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 模拟数据
+    var dataArr=[{name:'前端工程师',count:4500,color:'skyblue'},
+    {name:'后台工程师',count:4000,color:'green'},
+    {name:'ui工程师',count:3000,color:'yellowgreen'},
+    {name:'产品经理',count:2000,color:'yellow'},
+    {name:'测试人员',count:3000,color:'red'},
+    {name:'程序员鼓励师',count:1000,color:'hotpink'}]
+
+    // 计算算出人员的总数
+    var num=0;
+    dataArr.forEach(function(obj) {
+        num+=obj.count;
+    });
+
+    // for循环来画扇形
+    var startAngle=0
+    for(var i=0;i<dataArr.length;i++){
+        // 每次画图新创建一个玻璃板
+        context.beginPath();
+        var start=dataArr[i].count/num*2*Math.PI;
+        context.arc(300, 200, 100, startAngle, startAngle+start);
+        // 画一个扇形
+        context.lineTo(300, 200);
+        context.closePath();
+        // 给扇形加颜色
+        context.fillStyle=dataArr[i].color;
+        context.fill();
+        // 起始弧度递增
+        startAngle+=start;
+    }
+</script>
+</body>
+</html>

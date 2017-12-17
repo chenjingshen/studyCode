@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+     // 笔的起点
+     context.moveTo(100, 100);
+    // 笔的终点
+    context.lineTo(400, 100);
+    context.lineTo(400, 300);
+    // 自动帮我们闭合图形
+    context.closePath();
+    // 将在玻璃板上画好的图形渲染到画布上
+    context.stroke();
+</script>
+</body>
+</html>

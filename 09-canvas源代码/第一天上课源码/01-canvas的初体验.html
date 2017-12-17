@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas的初体验</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<!--
+canvas就是使用js创建出来一张图片，所以不适宜使用css设置宽度，如果使用css来设置安世高，就相当于把一张图片拉伸或者缩放了，会发生变形的情况
+canvas和img相比， img就相当于个相框， src是相片， 而cavnas就是相片本身
+-->
+<canvas width=600 height=400 id="canvas"></canvas>
+</body>
+</html>
+
+<script>
+    //1. 拿到画布
+    var canvas = document.querySelector("canvas");
+
+    //2. 创建画图工具（相当于画家）， 整个的画图的过程，就是是调用这个画图工具提供的一堆方法
+    var context = canvas.getContext("2d");
+
+    //3. 画图（画一条线）
+    //将画笔移动到某个点
+    context.moveTo(100, 100);
+    //画线
+    context.lineTo(300, 200);
+    //画家图片的原理： 不是直接画在画布上，而是先画在一张玻璃纸上， 再执行一次印刷的操作
+    //stroke是描边的意思
+    context.stroke();
+
+</script>
+
+<!--
+    总结：
+    1. cavnas是一个html5的新标签, 它的作用就是用来绘制图形的
+    2. 整个绘图的过程都是用js来实现
+    3. canvas本质上是用js创建一张图片， 所以，它是不可以用css来设安世高的，不然会被拉变形
+    4. cavnas绘制的过程
+        1. 创建一个cavnas的标签
+        2. 拿到画布
+        3. 创建画图工具
+        4. 移动画笔（画在玻璃纸上）
+        5. 开始画线
+        6. 把玻璃纸上的图形印到画布上（stroke）
+-->

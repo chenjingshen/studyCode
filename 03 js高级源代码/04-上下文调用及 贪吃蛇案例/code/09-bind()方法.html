@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.bind()
+  //函数上下文调用  call();  apply();     bind();
+
+
+  var obj = {
+    name:"张三"
+  };
+
+  function test1(a,b){
+    console.log(this);
+    console.log(a+b);
+  }
+
+  //test1(10,20);
+
+  var f1 = test1.bind(obj); //返回的f1其实就是修改了this指向的那个test1.
+  f1(10,20);
+
+</script>
+</body>
+</html>

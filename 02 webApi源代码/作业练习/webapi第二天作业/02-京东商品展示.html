@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            padding-top: 15px;
+        }
+        .box {
+            width: 350px;
+            height: 420px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        li {
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+        img:hover {
+            outline: 3px solid #0094ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>
+            <img src="images1/b1.jpg" id="big" alt=""/>
+        </div>
+        <div>
+            <ul id="ul">
+                <li><img src="images1/s1.jpg" data-src="images1/b1.jpg" alt=""/></li>
+                <li><img src="images1/s2.jpg" data-src="images1/b2.jpg" alt=""/></li>
+                <li><img src="images1/s3.jpg" data-src="images1/b3.jpg" alt=""/></li>
+                <li><img src="images1/s4.jpg" data-src="images1/b4.jpg" alt=""/></li>
+                <li><img src="images1/s5.jpg" data-src="images1/b5.jpg" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var uls=document.getElementById("ul");
+        var minimg=uls.getElementsByTagName("img");
+        var bigimg=document.getElementById("big");
+//        以后凡是见到伪数组，里面的元素要注册事件，都要一个一个取出来再注册事件
+        for(var i=0;i<minimg.length;i++){
+//            给每张小图加上鼠标移入事件
+            minimg[i].onmouseover=function(){
+//                获得当前小图对应的大图地址，并用它替换之前的大图地址
+                var bigimgSrc=this.getAttribute("data-src");
+                bigimg.src=bigimgSrc;
+            }
+        }
+
+    </script>
+    <script>
+
+        /**
+         * 当鼠标移入小图，会在上面的大图切换成对应的大图
+         *
+         *      鼠标的移入事件
+         *          事件处理程序里面
+         *              获取小图对应大图的src
+         *              修改大图的src
+         */
+/*
+        //获取元素
+//        var imgs =  document.body.children[0].children[1].children[0].getElementsByTagName("imggg");
+        var ul = document.getElementById("ul");
+        var big = document.getElementById("big");
+        var imgs = ul.getElementsByTagName("imggg");
+        console.log(imgs);
+        //注册鼠标移入事件  --  以后凡是见到伪数组，里面的元素要注册事件，都要一个一个取出来，在注册事件
+        for(var i = 0; i < imgs.length ; i++){
+            imgs[i].onmouseover = function(){
+                //获取当前小图对应的大图的路径   this 只能在函数或者对象内部使用，谁调用函数this就是谁
+                var bigImgSrc = this.getAttribute("data-src");
+                //将路径修改给大图
+                big.src = bigImgSrc;
+            }
+        }
+*/
+    </script>
+</body>
+</html>

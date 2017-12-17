@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: yellowgreen;
+            display: inline-block;
+
+            /* 要实现近大远小 */
+            perspective: 300px;
+        }
+
+        li .little {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            transition: all 1s;
+
+            /* 开启小盒子的3d效果 */
+            transform-style: preserve-3d;
+        }
+
+        ul:hover li .little {
+            transform: rotateY(90deg);
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+    </ul>
+</body>
+</html>

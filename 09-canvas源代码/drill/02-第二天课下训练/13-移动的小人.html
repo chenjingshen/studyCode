@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    var img=new Image();
+    img.src='./img/DMMban.png';
+
+    img.onload=function(){
+        var x=0;
+        // 步距
+        var speed=10;
+        // 步数
+        var index=0;
+        // 每个小人的宽度和高度
+        var w=img.width/4;
+        var h=img.height/4;
+        setInterval(function(){
+             //通过取余的方式， 循环使用四张图片
+             var xindex = index % 4;
+
+            index += 1;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(img, xindex * w, h * 2, w, h, x, 200, w, h);
+
+            //每走一步， 小人向前移动10像素
+            x += speed;
+        },200)
+    }
+</script>

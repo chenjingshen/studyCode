@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+
+            perspective: 300px;
+        }
+
+        ul li {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: yellowgreen;
+            display: inline-block;
+            transition: all 1s;
+
+            transform-style: preserve-3d;
+        }
+
+        ul:hover li {
+            transform: rotateY(90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

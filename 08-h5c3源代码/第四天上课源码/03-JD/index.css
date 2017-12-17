@@ -1,0 +1,199 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img, video {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* header */
+header {
+    width: 100%;
+    height: 40px;
+    background-color: #c91523;
+
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    flex-basis: 50px;
+    color: white;
+    font-weight: 900;
+}
+
+header .search {
+    flex-basis: 50px;
+    color: white;
+    font-weight: 900;
+}
+
+/* input它有一个border， 还有outline的轮阔线 */
+header .searchbar {
+    flex: 1;
+
+    height: 32px;
+    border-radius: 16px;   
+    outline: none; 
+    border: none;
+}
+
+/* banner */
+.banner {
+    position: relative;    
+}
+
+.banner .bannerimg {
+    width: 100%;
+}
+
+.banner .navi {
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    /* background-color: yellowgreen; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .navi li {
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    margin: 0px 5px;
+
+    border-radius: 50%;
+}
+
+.banner .navi li:nth-child(1) {
+    background-color: gray;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category li {
+    width: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category li a{
+    width: 100%;
+    text-align: center;
+}
+
+/* 掌上秒杀 */
+.secondkill {
+    border-top: 5px solid red;
+    width: 100%;
+}
+
+.secondkill .topbar {
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #999;
+}
+
+.secondkill .red {
+    color: #c91523;
+}
+
+.secondkill .time {
+    background: black;
+    margin: 0px 2px;
+    padding: 2px;
+    color: white;
+}
+
+.secondkill .topbar {
+    padding-top: 8px;
+}
+
+.secondkill .content {
+    display: flex;
+}
+
+.secondkill .content li {
+    flex: 1;
+}
+
+.secondkill .content li img {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.secondkill .content li:nth-child(2) {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+}
+
+/* 商品推荐 */
+.recomment {
+    border-top: 5px solid red;
+}
+
+.recomment .topbar {
+    height: 40px;
+    border-bottom: 1px solid #999;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.recomment .topbar a {
+    /* height:  */
+    border-left: 5px solid red;
+    padding-left: 10px;
+}
+
+.recomment .goods {
+    display: flex;    
+}
+
+.recomment .goods li {
+    flex: 1;
+}
+
+.recomment .goods li img {
+    width: 100%;
+}
+
+.recomment .goods li:nth-child(1) img:nth-child(1) {
+    border-bottom: 1px solid #999;
+}
+
+.recomment .goods li:nth-child(2) img {
+    border-left: 1px solid #999;
+}

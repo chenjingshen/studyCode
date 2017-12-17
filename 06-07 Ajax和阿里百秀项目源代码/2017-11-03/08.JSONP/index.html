@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" alt=""> -->
+    <!-- JSONP利用的就是 script标签的 src属性 支持跨域访问 -->
+    <!-- <script src='https://cdn.bootcss.com/jquery/1.12.4/jquery.js'></script>
+    <script>
+        $(function(){
+            $('body').css('backgroundColor','orange');
+        })
+    </script> -->
+    <!-- <script src="http://192.168.40.38/2017-11-03/08.JSONP/backData.php"></script> -->
+
+    <!-- JSONP的用法 -->
+    <!-- 定义一个函数 -->
+    <script>
+        function doSomeThing(backData){
+            console.log(backData);
+        }
+    </script>
+    <!-- 利用 get的方式 发送了一个 callback去服务器  值是doSomeThing  -->
+    <script src="http://192.168.40.38/2017-11-03/08.JSONP/backData.php?callback=doSomeThing">
+        // doSomeThing()
+    </script>
+</body>
+</html>
+<!-- 
+    JSONP是一个缩写
+    src这个属性 在浏览器端 没有跨域的限制 你可以任意的请求 其他的不同源的 资源
+        1.解决了跨域访问的问题
+        2.可以从服务器获取数据
+        3.处理数据的函数是浏览器端定义的
+ -->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //动态创建元素
+      //原生js： document.write();    .innerHTML()   document.createElement();
+      //jQuery中，只有2个
+
+      $("#cj").click(function () {
+        //1.$();
+        var $link = $('<a href="https://www.baidu.com">百度一下</a><span>我是一个span</span>');
+        //$("div").append($link);
+
+        //2.html()
+        //2.1 如果html()方法里面不传参数，就是获取内容。
+        //console.log($("div").html());
+        //2.2 如果有参数  是一个空字符串的话，会清空元素的内容。
+        //$("div").html("");
+        //2.3 如果有参数，参数是一个标签  设置的时候是替换原来的内容。
+        //$("div").html($link);
+        $("div").html('<a href="https://www.baidu.com">百度一下</a><span>我是一个span</span>');
+
+      });
+
+
+
+    });
+  </script>
+</head>
+<body>
+
+<input type="button" value="创建" id="cj"/>
+<div>
+  <span>原来的span</span>
+  <p>我是一个p标签
+    <b>加粗</b>
+  </p>
+</div>
+</body>
+</html>

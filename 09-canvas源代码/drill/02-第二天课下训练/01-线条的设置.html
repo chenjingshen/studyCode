@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    
+
+    // 画一条细的垂直线
+    context.moveTo(100, 0);
+    context.lineTo(100, 400);
+    context.stroke();
+    
+    // 画一条水平的粗线
+    context.beginPath();
+    context.moveTo(100, 100);
+    context.lineTo(500, 100);
+    context.lineWidth=20;
+    context.stroke();
+    
+    // 画一条圆帽子的粗线条
+    context.beginPath();
+    context.moveTo(100, 200);
+    context.lineTo(500, 200);
+    context.lineCap='round';
+    context.stroke();
+    
+    // 画一条矩形帽子的粗线条
+    context.beginPath();
+    context.moveTo(100, 300);
+    context.lineTo(500, 300);
+    context.lineCap='square';
+    context.stroke();
+    
+</script>
+</body>
+</html>

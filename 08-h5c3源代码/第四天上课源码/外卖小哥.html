@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+            background: radial-gradient(200px at right top, red, orange, skyblue);
+        }
+
+        .rider {
+            position: absolute;
+            right: 100px;
+            bottom: 100px;
+            /* infinite: 无限次; ease-in-out代表的是动画的效果， 先慢再快到慢；forwards，动画完成后保持动画结束时的状态 */
+            animation: shake 0.5s 8, ride 3s ease-in-out 4s forwards;
+        }
+
+        @keyframes shake {
+            0% {
+                /* 如果说某个百分比的位置和初始位置是一样的，就可以不写 */
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+
+            }
+        }
+
+        @keyframes ride {
+            100% {
+                transform: translateX(-1000px);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <img src="./rider.png" class="rider" alt="">
+</body>
+</html>
+
+<!-- 
+    总结： 
+    1. 如果我们需要创建一个动画效果 @keyframes shake {
+        动画的规则：
+         1. 如果是直线走的，就指定其终点位置; 如果是折线走的， 就指定其折点位置
+         2. 如果某个百分比的位置和初始值是一样的，则可以不写, 比如说， 上面的shake的动画， 0%和100%的置就可以忽略不写
+    }
+
+    2. 使用动画
+        给需要添加动画的元素设置其animation的属性
+            1. 动画的名字
+            2. 动画的执行时长
+            3. 延迟执行的时长
+            4. 动画的效果
+            5. 动画执行的次数， infinite(无限次重复执行)
+            6. 动画结束之后是否要保留动画的状态（forwards）
+ -->

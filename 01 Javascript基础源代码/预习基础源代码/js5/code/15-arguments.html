@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.arguments
+    //a.只能在函数内部被访问.
+    //b.arguments是一个伪数组(有下标索引，可以存放多个值，但是他里面没有数组的方法。)
+    //c.arguments里面存的是什么？函数的实际参数传递过来的值。
+    //d.arguments和函数的形参是对应的。有一个的值改了，对应的也要改。
+
+     // function test(num1,num2){
+     //   //console.log(arguments);
+     //   //console.log(arguments[0]);
+     //   //console.log(arguments[1]);
+     //   //console.log(arguments.slice(0)); //报错了，伪数组里面没有slice方法。
+     //   num1  = 100;
+     //   console.log(arguments[0]);
+ //
+     //   arguments[1] = 200;
+     //   console.log(num2);
+ //
+     // }
+ //
+     // test(10,20);
+
+
+    //2.arguments有什么用？ 模拟重载的。
+    //重载： js中没有重载。
+
+
+    //js中，如果声明的函数是重名的，那么后面的函数会把前面的函数给覆盖了。
+    //重载：其他语言中，允许函数重名，根据参数的不同(个数、类型、顺序)从而来区分到底调用的是那一个函数。
+
+
+//    function test(){
+//      if(arguments.length == 2){
+//         //执行这个代码1。
+//      }else if(arguments.length == 3){
+//         //执行这个代码2。
+//      }else {
+//         //执行这个代码3。
+//      }
+//    }
+//
+//
+//    test(10,20);
+//
+//    test(10,20,30);
+
+
+
+
+    function getSum(){
+      if(arguments.length == 2){
+        return arguments[0] + arguments[1];
+      }else if(arguments.length == 3){
+        return arguments[0] + arguments[1] + arguments[2] ;
+      }else {
+
+      }
+    }
+
+    console.log(getSum(10, 20));
+    console.log(getSum(10, 20, 30));
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

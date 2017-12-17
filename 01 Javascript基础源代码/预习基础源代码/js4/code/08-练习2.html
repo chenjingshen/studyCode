@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //    a.将字符串数组用|或者其他符号，分割后组成一个新的字符串
+    //            ["张三","李四","王五"];      "张三|李四|王五"
+    //  var str = "";
+    //  var arr = ["张三","李四","王五"];
+    //  for(var i = 0 ; i < arr.length-1; i++){   //str = "张三|李四|"
+    //    str = str + arr[i] + "|";
+    //  }
+    //  console.log(str+arr[arr.length-1]);
+
+
+
+    //    b.要求将数组中的0项目给去掉，将不为0的元素存入一个新的数组中
+    //  //            [10,30,0,40,0,30,0,45]; =>  [10,30,40,30,45];
+    //  var arr = [10,30,0,40,0,30,0,45];
+    //  var arrNew = [];
+    //  for(var i = 0 ; i < arr.length; i++){
+    //  	if(arr[i] != 0){
+    //        arrNew[arrNew.length] = arr[i];
+    //      }
+    //  }
+    //  console.log(arrNew);
+
+
+
+    //    c.翻转数组
+    //   [10,20,30,40,50];       [50,40,30,20,10]
+    //第一种做法：
+    //  var arr =  [10,20,30,40,50];
+    //  var arrNew = []; //声明一个新的空数组。
+    //  for(var i = arr.length-1; i >= 0; i--){
+    //    arrNew[arrNew.length] = arr[i];
+    //  }
+    //  console.log(arrNew);
+
+    //第二种做法：
+    //[10,20,30,40,50,60,70,80]    [80,70,60,50,40,30,20,10];
+    //这里有8个数，交换了4次。
+    //交换的2个数的下标
+    // 0        arr.length-1 -0
+    // 1        arr.length-1 -1
+    // 2        arr.length-1 -2
+    // 3        arr.length-1 -3
+    // i        arr.length-1 -i
+    //  var arr = [10,20,30,40,50,60,70,80,90];
+    //  for(var i = 0 ; i < arr.length/2; i++){
+    //  	var temp = arr[i];
+    //      arr[i] = arr[arr.length-1-i];
+    //      arr[arr.length-1-i] = temp;
+    //  }
+    //  console.log(arr);
+
+
+
+
+
+    // d.斐波那契数列 ,可以求出第几位斐波那契数列的数
+    //  1,1,2,3,5,8,13,21,34,55.....  求第八位是多少？
+    var arr = [1,1];
+    for(var i = 2 ; i < 8; i++){
+    	arr[i] = arr[i-2] + arr[i-1];
+    }
+    console.log(arr[arr.length-1]);
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

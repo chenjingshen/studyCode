@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background: radial-gradient(200px at top right,red,orange,skyblue);
+            overflow: hidden;
+        }
+        img{
+            position: absolute;
+            left: 0;
+            bottom: -200px;
+        }
+        body:hover img{
+            transition: all 3s;
+            transform: translate(1250px,-700px) rotate(45deg) scale(0.4);
+        }
+       
+    </style>
+</head>
+<body>
+        <img src="../img/rocket.png" alt="神州八号上天了"> 
+</body>
+</html>

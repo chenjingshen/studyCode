@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.根据数组的元素创建 li标签结构
+    //document.write("<h1>我是一个标题</h1>");
+    //  var lis = ["我是第1个li标签","我是第2个li标签","我是第3个li标签","我是第4个li标签","我是第5个li标签","我是第6个li标签"];
+    //  document.write("<ul>");
+    //  for(var i = 0 ; i < lis.length; i++){
+    //  	document.write("<li>");
+    //      document.write(lis[i]);
+    //  	document.write("</li>");
+    //  }
+    //  document.write("</ul>");
+
+
+    //2.根据数组的元素 创建表格table
+    var head = ["编号","姓名","性别","年龄","成绩"];
+    var data = ["1","群姐","不详","38","10"];
+    //a.创建表格
+    document.write("<table>");
+    //b.表头
+    document.write("<thead><tr>");
+    for(var i = 0 ; i < head.length; i++){
+    	document.write("<th>");
+        document.write(head[i]);
+    	document.write("</th>");
+    }
+    document.write("</tr></thead>");
+    //c.创建主体部分
+    document.write("<tbody><tr>");
+    for(var i = 0 ; i < data.length ; i++){
+      document.write("<td>");
+      document.write(data[i]);
+      document.write("</td>");
+    }
+    document.write("</tr></tbody>");
+    document.write("</table>");
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

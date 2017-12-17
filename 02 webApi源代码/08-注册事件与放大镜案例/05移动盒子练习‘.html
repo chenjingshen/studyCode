@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #father{
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            background-color: greenyellow;
+            top: 0;
+            left: 0;
+        }
+        #box{
+            width: 100%;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            cursor: move;
+        }
+    </style>
+</head>
+<script src="common.js"></script>
+<body>
+<div id="father">
+    <div id="box"></div>
+</div>
+</body>
+</html>
+<script>
+
+    var father= document.getElementById("father");
+    var box= document.getElementById("box");
+    box.onmousedown= function (e) {
+        var e = e || window.event;
+        var x=getPagePosition(e).pageX-box.offsetParent.offsetLeft-box.offsetLeft;
+        var y=getPagePosition(e).pageY-box.offsetParent.offsetTop-box.offsetTop;
+        document.onmousemove = function (event) {
+            var event = event || window.event;
+            father.style.left=getPagePosition(event).pageX- x+"px";
+            father.style.top=getPagePosition(event).pageY- y+"px";
+        };
+    }
+    box.onmouseup= function () {
+        document.onmousemove="null";
+    }
+
+</script>

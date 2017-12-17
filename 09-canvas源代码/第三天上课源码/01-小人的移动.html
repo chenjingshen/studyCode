@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 加载图片
+    var img = new Image();
+    img.src = "./img/DMMban.png";
+
+    img.onload = function () {
+
+        //小人的宽和高
+        var w = img.width / 4;
+        var h = img.height / 4;
+
+        //小人在水平和垂直方向的位置
+        var x = 300;
+        var y = 200;
+
+        //需要使用某几行的第几张图片
+        var xindex = 0; //第几张
+        var yindex = 0; //第几行
+
+        //步数
+        var steps = 0;
+
+        context.drawImage(img, 0, 0, w, h, 300, 200, w, h);
+
+        //左上右下： 37， 38， 39， 40
+        window.onkeydown = function (event) {
+            console.log(event.keyCode);
+            switch (event.keyCode) {
+                case 37:
+                    //如果到达边界， 小人就不动
+                    if (x < 0) return;
+
+                    yindex = 1;
+                    xindex = steps % 4; //4n + x = steps
+                    steps += 1;
+                    x -= 10;
+
+                    //画小人
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, xindex * w, yindex * h, w, h, x, y, w, h);
+
+                    break;
+                case 38:
+                    if (y < 0) return;
+
+                    yindex = 3;
+                    xindex = steps % 4;
+                    steps += 1;
+                    y -= 10;
+
+                    //画小人
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, xindex * w, yindex * h, w, h, x, y, w, h);
+                    break;
+                case 39:
+                    if (x > canvas.width - w) return;
+
+                    yindex = 2;
+                    xindex = steps % 4;
+                    steps += 1;
+                    x += 10;
+
+                    //清空画布
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    //画小人
+                    context.drawImage(img, xindex * w, yindex * h, w, h, x, y, w, h);
+                    break;
+                case 40:
+                    if (y > canvas.height - h) return;
+
+                    yindex = 0;
+                    xindex = steps % 4;
+                    steps += 1;
+                    y += 10;
+
+                    //画小人
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(img, xindex * w, yindex * h, w, h, x, y, w, h);
+
+                    break;
+            }
+        }
+    }
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.函数内部调用函数。
+    //  function test1(){
+    //    console.log("哈哈");
+    //  }
+//
+    //  function test2(){
+    //    console.log("嘿嘿");
+    //    test1();
+    //    console.log("嘻嘻");
+    //  }
+    //  test2();
+
+
+
+    //2.
+    //2.1 求2个数的最大值。
+    function getMaxOfTwoNumber(num1,num2){
+      return num1 > num2 ? num1 : num2;
+    }
+
+    //2.2 求3个数的最大值。
+    function  getMaxOfThreeNumber(num1,num2,num3){
+      var res1 = getMaxOfTwoNumber(num1,num2);
+      var res2 = getMaxOfTwoNumber(res1,num3);
+      return res2;
+    }
+
+    var res = getMaxOfThreeNumber(1000,200,300);
+    console.log(res);
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

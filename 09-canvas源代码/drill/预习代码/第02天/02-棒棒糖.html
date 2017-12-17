@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>棒棒糖</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.fillStyle = "hotpink";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i<10; i++) {
+        context.beginPath();
+        context.arc(300, 200, 20+i*20, 0, 2*Math.PI);
+        //如果是偶数个圆， 就把它的描边色设为白色，奇数个就设为红色
+        context.lineWidth = 20;
+        context.strokeStyle = i%2 == 0 ? "#f00": "#0f0";
+        context.stroke();
+    }
+
+</script>

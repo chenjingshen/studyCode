@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.rect(100, 100, 300, 200);
+
+    var gradient = context.createLinearGradient(100, 100, 400, 100);
+    gradient.addColorStop(0, "red");
+    gradient.addColorStop(0.3, "green");
+    gradient.addColorStop(0.7, "yellow");
+    gradient.addColorStop(1, "gold");
+
+    context.fillStyle = gradient;
+
+    context.fill();
+
+</script>
+
+<!--
+    canvas中线性渐变的实现
+    1. 创建一个渐变对象 createLinearGradient(x0, y0, x1, y1);
+    2. 设置渐变色 addColorStop(0.3, "green")
+    3. 把渐变对象设为填充色
+-->

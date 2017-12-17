@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        @-moz-keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        .wrap {
+            width: 1000px;
+            text-align: center;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 300;
+        }
+
+        .word {
+            font-weight: 700;
+        }
+
+        .typed-cursor {
+            opacity: 1;
+            -webkit-animation: blink .7s infinite;
+            -moz-animation: blink .7s infinite;
+            animation: blink .7s infinite;
+            display: none;
+        }
+
+        .saySection {
+            margin-top: 50px;
+        }
+
+        .saySection input {
+            font-size: 30px;
+        }
+
+        .saySection .txtSay {
+            padding-left: 10px;
+        }
+
+        .saySection .btnSay {
+            display: inline-block;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //0.页面一打开，就要让后面显示打字效果。
+//            var timerId = null;
+//            fn("红鲤鱼与绿鲤鱼与驴");
+//            //1.给say按钮注册一个单击事件
+//            //获取文本框的内容，让内容一个个的追加显示，后面的光标也要显示。
+//            $("#btnSay").on("click", function () {
+//                //a.获取文本框的内容
+//                var txt = $("#inValue").val(); //各个国家有各个国家的国歌
+//                //清空原来的计时器
+//                clearInterval(timerId);
+//                //b.调用打字效果，这个方法
+//                fn(txt);
+//            });
+//            //打字效果，封装成一个函数
+//            function fn(txt) {
+//                clearInterval(timerId);
+//                var str = "";
+//                var index = 0;
+//                //b.设置一个计时器，一个个的字追加显示
+//                timerId = setInterval(function () {
+//                    str += txt[index];
+//                    //判断，如果最后取的值是undefined，就不要再显示了，也要停止这个计时器
+//                    if(txt[index] != undefined){
+//                        $(".word").text(str);
+//                        $(".typed-cursor").show();
+//                    }else {
+//                        //清空计时器
+//                        console.log("111");
+//                        clearInterval(timerId);
+//                        $(".typed-cursor").hide();
+//                    }
+//                    index++;
+//                },500);
+//            }
+
+
+            var timerID;
+            fn("红鲤鱼与绿鲤鱼与驴");
+            $("#btnSay").on("click", function () {
+                clearInterval(timerID);
+                fn($("#inValue").val());
+            })
+
+            function fn(txt){
+                clearInterval(timerID);
+                var str="";
+                var index=0;
+                timerID = setInterval(function () {
+                    str += txt[index];
+                    if(txt[index]!=undefined){
+                        $(".word").text(str);
+                        $(".typed-cursor").show();
+                    }else{
+                        clearInterval(timerID);
+                        $(".typed-cursor").hide();
+                    }
+                    index++;
+                },500);
+            };
+
+
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <h1>
+
+            <span class="word"></span>
+            <span class="typed-cursor">|</span> ！
+        </h1>
+        <div class="saySection">
+            <input type="text" id="inValue" class="txtSay"/>
+            <input type="button" value="Say" id="btnSay" class="btnSay"/>
+        </div>
+    </div>
+
+</body>
+</html>

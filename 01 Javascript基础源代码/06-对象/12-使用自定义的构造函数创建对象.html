@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <!--
+        new关键字作用：
+                1.创建一个新的对象
+                2.把用new调用的函数内的this，指向为刚刚创建的对象
+                3.返回这个对象
+    -->
+
+    <script>
+
+
+        /*
+        var s1 = new Object();
+        console.log(s1);
+
+        var s2 = new function () {
+
+        }
+
+        console.log(s2);
+        */
+
+
+        //自定义的构造函数
+        //自定义构造函数的名字有规范：名字是名词,首字母要大写
+        function Student(name, age, gender) {
+
+            //如果用了new关键字：写this，就代表找到刚刚new帮我们创建的那个对象
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+            this.sayHi = function () {
+
+                console.log('你好，我叫' + this.name + '，今年' + this.age + '岁');
+            }
+        }
+
+
+        var s1 = new Student("刘德华",16,'男');
+        console.log(s1);
+        s1.sayHi();
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

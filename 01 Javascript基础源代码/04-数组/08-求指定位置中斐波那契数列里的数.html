@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //定义斐波那契的数组
+        var fibNumber = [1, 1];
+
+        for (var i = 2; i <= 15; i++) {
+
+            fibNumber[i] = fibNumber[i - 1] + fibNumber[i - 2];
+        }
+
+        //fibNumber这个数组中的最后一个元素就是刚刚算出来的下标为6的元素了
+        console.log(fibNumber[fibNumber.length - 1]);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

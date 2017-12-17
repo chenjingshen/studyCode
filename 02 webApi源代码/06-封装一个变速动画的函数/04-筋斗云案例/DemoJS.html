@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>筋斗云动态效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        .nav {
+            width: 800px;
+            height: 42px;
+            margin: 100px auto;
+            /*background-color: red;*/
+            background: #fff url(images/rss.png) no-repeat right center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .nav li {
+            width: 83px;
+            height: 42px;
+            /*background-color: red;*/
+            text-align: center;
+            line-height: 42px;
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            position: relative;
+        }
+
+        .nav span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 83px;
+            height: 42px;
+            background: url(images/cloud.gif) no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="nav">
+    <span id="cloud"></span>
+    <ul id="navBar">
+        <li>北京校区</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+        <li>深圳校区</li>
+        <li>武汉校区</li>
+        <li>关于我们</li>
+        <li>联系我们</li>
+        <li>招贤纳士</li>
+    </ul>
+</div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    //获取筋斗云
+    var cloud = document.getElementById("cloud");
+    //获取ul
+    var ul = document.getElementById("navBar");
+
+
+    //保存当前云的位置,从0开始，程序一启动，云就在0的位置
+    var currentPosition = 0;
+
+    //给ul下的每一个子元素添加鼠标移入事件
+    for (var i = 0; i < ul.children.length; i++) {
+
+        //每个li的鼠标移入
+        ul.children[i].onmouseover = function () {
+
+            //我们发现当前被移入的li标签有一个值是offsetLeft
+            //这个值就是应该让筋斗云的左边移动的距离
+//            console.log(this.offsetLeft);
+
+//            cloud.style.left = this.offsetLeft + "px";
+
+            animateSlow(cloud, this.offsetLeft);
+        }
+
+        //给每个li标签加鼠标移出
+        ul.children[i].onmouseout = function () {
+
+            animateSlow(cloud,currentPosition);
+        }
+
+
+        //每个li加点击事件
+        ul.children[i].onclick = function () {
+
+            //保存当前筋斗云应该回到的位置
+            //回到的位置就是当前被点击的li标签的left位置
+            currentPosition = this.offsetLeft;
+        }
+    }
+
+
+    //    var timerID;
+    function animateSlow(obj, target) {
+
+        //清除原来的计时器
+        clearInterval(obj.timerID);
+
+        //匀速：运动过程中的运动速度是一样的
+        obj.timerID = setInterval(function () {
+
+            //向上取整
+            //400 -  409 = -9 / 10 = ? -0.9  向上取整等于0  -0.9 向下取整变-1
+            var res = (target - obj.offsetLeft) / 10;
+
+            var step = res > 0 ? Math.ceil(res) : Math.floor(res);
+
+            var offset = obj.offsetLeft + step;
+
+            console.log("step=" + step + " | " + "offset=" + offset);
+
+            //此时只要无条件移动就行了
+            //因为根据我们的算法，最后那几步的步长只是1，只是1的话就是一个一个加位置，根本不会超过目标位置
+            //所以直接加就行了
+            obj.style.left = offset + "px";
+
+            //加完以后到了目标位置就立即停止计时器
+            if (obj.offsetLeft == target) {
+
+                clearInterval(obj.timerID);
+            }
+
+        }, 50);
+    }
+
+
+</script>

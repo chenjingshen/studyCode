@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            padding: 0;
+            margin: 30px;
+        }
+
+        .ul1 {
+            /* 实现子元素的近大远小的效果, 如果我们给父元素设置了persepective, 就相当于我们的眼睛在这个父元素的正前方 */
+            perspective: 300px;
+        }
+
+        .ul1 li {
+            transition: all 1s;
+            /* 对子元素开启3d效果 */
+            transform-style: preserve-3d;
+        }
+
+        .ul1:hover li{
+            transform: rotateY(90deg);
+        }
+
+
+        /* 第二种情况， 没有视角，但是有近大远小的效果 */
+        .little {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            /* 对小盒子开启3d效果 */
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+
+        .ul2 li {
+            /* 对小盒子的父元素添加perspective的属性， 就会有一个近大远小的效果 */
+            perspective: 300px;
+        }
+
+        .ul2:hover li .little {
+            transform: rotateY(90deg);
+        }
+    </style>
+
+</head>
+<body>
+    <ul class="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <ul class="ul2">
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+        <li><div class="little"></div></li>
+    </ul>
+</body>
+</html>

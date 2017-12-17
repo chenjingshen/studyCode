@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.moveTo(100, 0);
+    context.lineTo(100, 400);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 100);
+    context.lineTo(500, 100);
+
+
+
+    //设置线条的粗细, 不需要加px
+    context.lineWidth = 15;
+
+    //设置线条的小帽子
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 200);
+    context.lineTo(500, 200);
+    context.lineCap = "round";
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 300);
+    context.lineTo(500, 300);
+    context.lineCap = "square";
+    context.stroke();
+
+</script>

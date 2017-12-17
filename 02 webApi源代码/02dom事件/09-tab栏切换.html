@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab栏切换</title>
+    <style>
+        .Box {
+            width: 240px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        /*设置里面4个小的div*/
+        .con {
+            width: 100%;
+            height: 200px;
+            background-color: #cccccc;
+            border: 1px solid #000;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .current {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="Box" id="box">
+
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button class="current">按钮3</button>
+    <button>按钮4</button>
+    <div class="con">内容1</div>
+    <div class="con">内容2</div>
+    <div class="con" style="display:block">内容3</div>
+    <div class="con">内容4</div>
+
+</div>
+
+</body>
+</html>
+
+<script>
+    /*
+     1.获取所有的button，给每一个button添加点击事件(遍历)
+     2.在点击事件里循环遍历每一个button，让所有button的class都删掉
+     3.点击事件里让被点击的按钮添加一个class，class的值为current
+     4.根据被点击按钮的索引，让对应索引的div显示出来
+     4.1 遍历所有的Button，把button的索引存储到它的属性里（用一个自定义属性保存）
+     4.2 在button的点击事件里，先让所有的div隐藏
+     4.3 取出当前被点击的button的索引，然后根据这个索引取出div，设置他为显示（display:block）
+     */
+    //获取所有的button
+    var btnList = document.getElementsByTagName("button");
+
+    //获取所有的div
+    var divList = document.getElementsByClassName("con")
+
+
+    //遍历所有的Button
+    for (var i = 0; i < btnList.length; i++) {
+
+        //给所有button保存索引
+        btnList[i].setAttribute("index", i);
+
+        //给所有Button加点击事件
+        btnList[i].onclick = function () {
+
+            //因为要点击的时候让所有的button都没有样式，那么就相当于在点击事件里遍历所有的button
+            for (var i = 0; i < btnList.length; i++) {
+
+                btnList[i].removeAttribute("class");
+            }
+
+            //让被点击的按钮有一个class属性，属性值为current
+            this.setAttribute("class", "current");
+
+            //先让所有div隐藏
+            for (var i = 0; i < divList.length; i++) {
+
+                divList[i].style.display = "none";
+            }
+
+            //取到当前被点击按钮的索引
+            var index = this.getAttribute("index");
+            //再根据button的索引取到对应的div，然后让它显示出来
+            divList[index].style.display = "block";
+        }
+    }
+</script>
+

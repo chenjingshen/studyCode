@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //1. 画出坐标系
+    context.moveTo(30, 30);
+    context.lineTo(30, canvas.height - 30);
+    context.lineTo(canvas.width - 30, canvas.height - 30);
+    context.stroke();
+
+    //2. 模拟数据
+    var dataArr = [4900, 3900, 6000, 5200, 6700, 4800];
+
+    //3. 算出所有点的坐标
+    var pointsArr = [];
+    for (var i = 0; i < dataArr.length; i++) {
+        var x = 30 + i * (canvas.width - 60) / 5;
+
+        //得到折线图的坐标系的高度
+        var ch = canvas.height - 60;
+        //得到数据和折线图高度的百分比
+        var percent = dataArr[i] / 10000;
+        //得到数据在折线图坐标系中的高
+        var dh = ch * percent;
+        //得到y值
+        var y = canvas.height - 30 - dh;
+
+        var point = {x: x, y: y};
+
+        pointsArr.push(point);
+    }
+
+    //4. 开始画折线
+    //创建一张新的玻璃纸，目的是防止重复绘制坐标系
+    context.beginPath();
+
+    //把画笔移动到第一个点
+    context.moveTo(pointsArr[0].x, pointsArr[0].y);
+
+    //for是将所有的线画在玻璃纸上
+    for (var i = 1; i < pointsArr.length; i++) {
+        context.lineTo(pointsArr[i].x, pointsArr[i].y);
+    }
+
+    //印到画布上
+    context.stroke();
+</script>

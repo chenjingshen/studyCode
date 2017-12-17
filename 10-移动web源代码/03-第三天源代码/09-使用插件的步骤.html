@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <!-- 	3. 设置样式
+	父元素要设置overflow:hidden
+	 -->
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    #wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    ul {
+        width: 700px;
+    }
+    
+    ul li {
+        float: left;
+        width: 100px;
+        list-style: none;
+        color: #666;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 标签页的标题  子容器宽度是比较宽的-->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#product1" aria-controls="product1" role="tab" data-toggle="tab">特别推荐</a></li>
+            <li role="presentation"><a href="#product2" aria-controls="product2" role="tab" data-toggle="tab">微投资</a></li>
+            <li role="presentation"><a href="#product3" aria-controls="product3" role="tab" data-toggle="tab">微小宝</a></li>
+            <li role="presentation"><a href="#product4" aria-controls="product4" role="tab" data-toggle="tab">微消费</a></li>
+            <li role="presentation"><a href="#product5" aria-controls="product5" role="tab" data-toggle="tab">微增利</a></li>
+            <li role="presentation"><a href="#product6" aria-controls="product6" role="tab" data-toggle="tab">微金宝</a></li>
+            <li role="presentation"><a href="#product7" aria-controls="product7" role="tab" data-toggle="tab">微转让</a></li>
+        </ul>
+    </div>
+    <!-- 2. 写页面的结构 -->
+    <!-- 	有一个父容器 宽度是和设备最大宽度一样
+有一个子容器  子容器里面放内容 宽度比较宽是所有内容的宽度 -->
+    <!-- 1. 引包 -->
+    <script src="lib/iscroll/iscroll.js"></script>
+    <script>
+    // 4. 初始化插件  new IScroll('父容器选择器',{配置参数})
+    var myscroll = new IScroll("#wrapper", {
+        /*支持横向滚动*/
+        scrollX: true
+    });
+    </script>
+</body>
+
+</html>

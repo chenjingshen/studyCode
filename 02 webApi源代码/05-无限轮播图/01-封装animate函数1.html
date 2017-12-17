@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="移动到400" id="move1"/>
+<input type="button" value="移动到600" id="move2"/>
+
+
+<div id="box1"></div>
+
+</body>
+</html>
+
+<script>
+    var box1 = document.getElementById("box1");
+
+    document.getElementById("move1").onclick = function () {
+
+        animate(400);
+    };
+
+
+    document.getElementById("move2").onclick = function () {
+
+        animate(600);
+    };
+
+
+
+    function animate(target) {
+
+        var timerID = setInterval(function () {
+
+            var step = 9;
+
+            //学了一个东西offsetLeft,就能获取到元素当前的left的值
+            //偏移值：要走多少的值
+            var offset = box1.offsetLeft + step;
+
+            //如果没到目标位置，就把偏移值赋给盒子
+            if (offset <= target) {
+                box1.style.left = offset + "px";
+
+            } else {
+
+                //如果超过目标位置，就让盒子到目标并停止计时器
+                box1.style.left = target + "px";
+
+                //停止计时器
+                clearInterval(timerID);
+            }
+
+        }, 50)
+    }
+</script>

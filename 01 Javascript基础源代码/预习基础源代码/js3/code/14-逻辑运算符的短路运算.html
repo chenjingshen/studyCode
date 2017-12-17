@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1. 逻辑运算符  &&  ||  !
+    //短路运算
+    //如果参与逻辑运算的表达式，第一个式子就能决定整个逻辑表达式的结果，那么就不会去算第二个式子的值，这个就是短路运算。
+
+    //  var num1 = 10;
+    //  var num2 = 20;
+    //  var res = num1 < 0  &&  num2++ > 0;
+    //  console.log(res); //false
+    //  console.log(num2); //20
+
+
+    // var num1 = 10;
+    // var num2 = 20;
+    // var res2 = num1 > 0 || ++num2 > 0;
+    // console.log(res2); //true
+    // console.log(num2); //20
+
+
+
+
+    //2.逻辑表达式的结果，不一定都是true或者false,有可能是其他的值。
+    // var num1 = 10;
+    // var num2 = 20;
+    // var res = num1 || num2++ > 0;
+    // console.log(res);  //10
+    // console.log(num2); //20
+
+    //2.1 逻辑与表达式
+    //找假，如果第一个式子能够转换成布尔类型的false的话， 那么整个逻辑与表达式的结果就是第一个式子的值;如果第一个式子不能转换成布尔类型的false的话，那么整个逻辑与表达式的结果就是第二个式子的值，不管第二个式子是什么。
+    // var num = 10;
+    // var res = undefined && ++num;
+    // console.log(res); //undefinef
+    // console.log(num); //10
+
+
+
+    // var num = 10;
+    // var res = 200 && ++num;
+    // console.log(res); //11
+    // console.log(num); //11
+
+
+    //2.2 逻辑或表达式
+    //找真，如果参与逻辑或运算的第一个表达式能够转换成布尔类型的true的话，那么这整个逻辑或表达式的结果就是第一个式子的值；
+    // var num =10;
+    // var res = 200 || num++ >0;
+    // console.log(res); //200
+    // console.log(num); //10
+    //     如果第一个式子不能转换布尔类型的true的话，那么整个逻辑或表达式的结果就是第二个式子的值，不管第二个式子是什么。
+    // var num =10;
+    // var res = undefined || num++;
+    // console.log(res); //10
+    // console.log(num); //11
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

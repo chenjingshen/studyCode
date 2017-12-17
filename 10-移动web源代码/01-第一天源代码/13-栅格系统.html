@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+	<style>
+		.container{
+			height: 100px;
+			background-color: #f40;
+		}
+		.row{
+			height: 100px;
+			background-color: pink;
+		}
+		.row div{
+			border:1px solid #000;
+			height: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 栅格系统 网格系统 （表格）
+	有行.row和列.col-档次-列数  tr和td
+	.row必须放到容器container里面 -->
+	<!-- .col列必须放到行里面 -->
+	<!-- 文字内容就放到列里面 -->
+	<!-- 档次4个档次
+		.col-lg  大屏幕生效 1200以上
+		.col-md  中屏幕生效 992< w < 1200
+		.col-sm  小屏幕生效  768 < w < 992
+		.col-xs  超小屏幕  w < 768
+	也满足向上兼容和向下覆盖的特性 -->
+	<!-- 列数 总列数默认是12列
+		分12列  col-xs-1
+		分4列   col-xs-3
+		分3列   col-xs-4
+		分2列   col-xs-6
+		分1列   col-xs-12 -->
+	<!-- container自带了15px左右padding 内容就减少了30px -->
+	<div class="container">
+		<!-- row的margin拉大为了弥补container内容减少30  让内容和容器宽度一样 -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">1</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">1</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">1</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">1</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">2</div>
+			<div class="col-xs-1">3</div>
+			<div class="col-xs-1">4</div>
+			<div class="col-xs-1">5</div>
+			<div class="col-xs-1">6</div>
+			<div class="col-xs-1">7</div>
+			<div class="col-xs-1">8</div>
+			<div class="col-xs-1">9</div>
+			<div class="col-xs-1">10</div>
+			<div class="col-xs-1">11</div>
+			<div class="col-xs-1">12</div>
+			<!-- <div class="col-xs-1">13</div> -->
+		</div>
+		<div class="row">
+			<div class="col-xs-3">1</div>
+			<div class="col-xs-3">2</div>
+			<div class="col-xs-3">3</div>
+			<div class="col-xs-3">4</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4">1</div>
+			<div class="col-xs-4">2</div>
+			<div class="col-xs-4">3</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">1</div>
+			<div class="col-xs-6">2</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">1</div>						
+		</div>
+	</div>
+	<!-- row自带了15px左右-margin会把自己拉大30px如果不放到容器里面就会撑大网页出滚动条 -->
+	<!-- <div class="row">
+		不听话
+	</div> -->
+</body>
+</html>

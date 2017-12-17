@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.范围类
+  // console.log(/[a-z]/.test("a")); //true
+  // console.log(/[a-z]/.test("A")); //false
+  // console.log(/[a-z]/.test("ABCDEFG")); //false
+  // console.log(/[a-z]/.test("ABCDEFGi")); //true
+
+
+  // console.log(/[0-9]/.test("0")); //true
+  // console.log(/[0-9]/.test("1")); //true
+  // console.log(/[0-9]/.test("abcdefg")); //false
+  // console.log(/[0-9]/.test("abcdefg8")); //true
+
+
+
+  console.log(/[a-z]/.test('1111')); //false
+  console.log(/[a-z]/.test('1111a')); //true
+  console.log(/[A-Z]/.test('aa')); //false
+  console.log(/[A-Z]/.test('aaA')); //true
+
+
+</script>
+</body>
+</html>

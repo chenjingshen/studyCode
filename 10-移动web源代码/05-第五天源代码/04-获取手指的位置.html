@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    div {
+        width: 2000px;
+        height: 200px;
+        background-color: #0f0;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+    很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈很好哈哈哈
+    </div>
+    <script>
+    var div = document.querySelector('div');
+    div.addEventListener('touchstart', function(e) {
+        // 位置是在手指对象里面
+        // 当没有滚动条的时候 client 和page是一样 如果做滑动是不会有滚动条 
+        // clientX 获取手指距离视口左上角的位置 常用
+        console.log(e.touches[0].clientX);
+        // pageX 获取手指距离页面左上角的位置  包含滚动条
+        console.log(e.touches[0].pageX);
+        //screenX 获取手指距离屏幕左上角的位置
+        console.log(e.touches[0].screenX);
+        // 获取手指在视口里面的X 和Y坐标
+        // e.touches[0].clientX 
+        // e.touches[0].clientY 
+        // 获取手指在页面上的X 和Y坐标 包含滚动条
+        // e.touches[0].pageX 
+        // e.touches[0].pageY 
+        // 获取手指在屏幕上的X 和 Y坐标
+        // e.touches[0].screenX 
+        // e.touches[0].screenY 
+    })
+    div.addEventListener('touchend', function(e) {
+
+    });
+    </script>
+</body>
+
+</html>

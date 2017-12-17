@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    body {
+      width: 2000px;
+      height: 2000px;
+    }
+    .one {
+      width: 200px;
+      height: 200px;
+      border: 10px solid #000;
+      overflow: auto;
+
+    }
+
+    img {
+      vertical-align: top;
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $("#btn").on("click", function () {
+        //scrollLeft 和 scrollTop 是内容滚出去的部分的宽高
+        console.log($("#box").scrollLeft());
+        console.log($("#box").scrollTop());
+
+      });
+
+      //页面滚动事件  获取页面滚走的东西
+      $(window).on("scroll", function () {
+        console.log($(this).scrollLeft() + ":" + $(this).scrollTop());
+      });
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div class="one" id="box">
+  <img src="1.jpg" alt=""/>
+</div>
+</body>
+</html>

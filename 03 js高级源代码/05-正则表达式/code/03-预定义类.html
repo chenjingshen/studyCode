@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.预定义类
+  //.	[^\n\r]	除了换行和回车之外的任意字符
+
+  //\d	[0-9]	数字字符
+  //\D	[^0-9]	非数字字符
+
+  //\s	[\f\r\n\t\v]	不可见字符
+  //\S	[^\f\r\n\t\v]	可见字符
+
+  //\w	[a-zA-Z0-9_]	单词字符(所有的字母数字和_)
+  //\W	[^a-zA-Z0-9_]	非单词字符
+
+
+  //=====. 除了换行和回车之外的任意字符==========================  \r return   \n newline
+  // console.log(/./.test("a")); //true
+  // console.log(/./.test("\r")); //false
+  // console.log(/./.test("\n")); //false
+  // console.log(/./.test("\r\n")); //false
+  // console.log(/./.test("" +
+  //         "")); //false
+  // console.log(/./.test("\r1")); //true
+  // console.log(/./.test("\n!")); //true
+  // console.log(/./.test("\r\n@23r4356573442")); //true
+  // console.log(/./.test("l" +
+  //        "")); //true
+
+
+
+  //=====\d  数字字符====================================================
+  // console.log(/\d/.test("12345")); //true
+  // console.log(/\d/.test("abcde")); //false
+  // console.log(/\d/.test("abcde789"));//true
+  // console.log(/\d/.test("abcde7"));//true
+  // console.log(/\d/.test("1234@#$!@#$"));//true
+  // console.log(/\d/.test("@#$!@#$"));//false
+  // console.log(/\d/.test("@#$!@#$0"));//true
+
+  //=====\D  非数字字符====================================================
+  // console.log(/\D/.test("12345")); //false
+  // console.log(/\D/.test("abcde")); //true
+  // console.log(/\D/.test("abcde789"));//true
+  // console.log(/\D/.test("abcde7"));//true
+  // console.log(/\D/.test("1234@#$!@#$"));//true
+  // console.log(/\D/.test("@#$!@#$"));//true
+  // console.log(/\D/.test("@#$!@#$0"));//true
+
+
+  //=========\s 不可见字符=================================================
+  // console.log(/\s/.test(" "));  //true
+  // console.log(/\s/.test("\r")); //true
+  // console.log(/\s/.test("\n")); //true
+  // console.log(/\s/.test("\r\n")); //true
+  // console.log(/\s/.test("12345")); //false
+  // console.log(/\s/.test("12345afbafsf")); //false
+  // console.log(/\s/.test("12345afbafsf\t"));//true
+
+
+
+  //=========\S 可见字符=================================================
+  // console.log(/\S/.test(" "));  //false
+  // console.log(/\S/.test("\r")); //false
+  // console.log(/\S/.test("\n")); //false
+  // console.log(/\S/.test("\r\n")); //false
+  // console.log(/\S/.test("12345")); //true
+  // console.log(/\S/.test("12345afbafsf")); //true
+  // console.log(/\S/.test("12345afbafsf\t"));//true
+
+
+  //=========\w 单词字符 (所有的字母数字_) =================================================
+  // console.log(/\w/.test("a")); //true
+  // console.log(/\w/.test("1")); //true
+  // console.log(/\w/.test("_")); //true
+  // console.log(/\w/.test("_A")); //true
+  // console.log(/\w/.test("!!!!!!!!!")); //false
+  // console.log(/\w/.test("!!!!!_!!!!")); //true
+  // console.log(/\w/.test("#￥￥@￥%#@！")); //false
+
+  //=========\W 非单词字符 (单词字符：所有的字母数字_) =================================================
+  console.log(/\W/.test("abcdefg!")); // true
+  console.log(/\W/.test("123456@")); //true
+  console.log(/\W/.test("_—")); //true//false
+  console.log(/\W/.test("_A"));
+  console.log(/\W/.test("!!!!!!!!!")); //true
+  console.log(/\W/.test("!!!!!_!!!!")); //true
+  console.log(/\W/.test("#￥￥@￥%#@！")); //true
+
+
+</script>
+</body>
+</html>

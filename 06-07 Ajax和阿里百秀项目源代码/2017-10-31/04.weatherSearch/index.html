@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>天气查询</h2>
+    <input class='city' type="text" placeholder="请输入城市">
+    <input class='search' type="button" value='查询'>
+    <!-- 设置ul 显示天气 -->
+    <ul>
+
+    </ul>
+</body>
+</html>
+<script>
+    // 为search 绑定点击事件
+    document.querySelector('.search').onclick = function(){
+        // 创建对象
+        var xhr = new XMLHttpRequest();
+
+        // 设置请求行
+        // http://wthrcdn.etouch.cn/WeatherApi?city=%E6%B7%B1%E5%9C%B3
+        // 获取城市名
+        var cityName = document.querySelector('.city').value;
+        xhr.open('get','http://wthrcdn.etouch.cn/WeatherApi?city='+cityName);
+
+        // 创建一个当前城市的li标签进去
+        var cityLi = document.createElement('li');
+        cityLi.innerHTML = cityName;
+        document.querySelector('ul').appendChild(cityLi);
+
+        // 设置请求头
+
+        // 设置回调函数
+        xhr.onload = function(){
+            // console.log(xhr.responseXML);
+            var weatherList = xhr.responseXML.querySelectorAll('weather');
+            console.log(weatherList);
+            for(var i =0;i<weatherList.length;i++){
+                var date = weatherList[i].querySelector('date').innerHTML;
+                var high = weatherList[i].querySelector('high').innerHTML;
+                var low = weatherList[i].querySelector('low').innerHTML;
+                // console.log(date+'|'+high+'|'+low);
+
+                // 创建出 3个li标签
+                var li = document.createElement('li');
+                // 设置内容
+                li.innerHTML = date+'|'+high+'|'+low;
+                // 添加到ul中
+                document.querySelector('ul').appendChild(li);
+            }
+        }
+
+        // 设置请求主体 发送
+        xhr.send(null);
+    }
+</script>

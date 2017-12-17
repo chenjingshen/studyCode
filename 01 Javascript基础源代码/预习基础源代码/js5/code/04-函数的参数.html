@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.函数的参数
+
+    //a.写在函数声明那个小括号中的东西，叫做函数的形参(形式参数)。
+    //b.形参就相当于是函数中声明的局部变量。 - 形参的声明不用var
+    //c.如果有多个形参，形参之间用逗号隔开
+    //d.实参给形参赋值，是按照顺序赋值的。
+    function swimming(beer,yan){
+      console.log("穿泳裤冲凉");
+      console.log("活动筋骨热身");
+      console.log("来一组500米自由泳");
+      console.log("累了喝口-"+beer+"-啤酒");
+      console.log("吸烟区抽根-"+yan+"-放松放松,顺便看看比基尼美女...");
+      console.log("来一组500蝶泳....");
+      console.log("游玩了，回家大吃一顿，白游了...");
+    }
+
+
+
+
+    //在函数调用的时候，小括号里面给的值，就是函数的实参(实际参数);
+    var beer = "青岛";
+    //swimming(beer1);
+    swimming(beer,"利群");
+
+
+    //swimming("哈啤");
+    swimming("百威","黄鹤楼");
+
+
+
+    //2.什么时候该给这个函数设置参数呢？
+    //a.如果函数要完成自己的功能，需要一些数据，那么这个数据就可以问调用者要。
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

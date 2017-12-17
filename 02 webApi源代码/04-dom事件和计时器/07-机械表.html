@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(images/clock.jpg) no-repeat;
+            position: relative;
+
+        }
+
+        .clock div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/hour.png) no-repeat center center;
+        }
+
+        #m {
+            background-image: url(images/minute.png);
+        }
+
+        #s {
+            background-image: url(images/second.png);
+        }
+    </style>
+</head>
+<body>
+
+<div class="clock">
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+</div>
+
+
+<script>
+    /*
+     一个圆为360度，秒钟和分钟一共有60个，它们60个围一圈
+
+     360 / 60 就得到每一秒或者每一分的度数，6度
+
+     就用秒数*6 就得到它应该旋转到的度数
+     分数*6 就得到分针应该旋转到的度数
+
+     时在一个表盘里一共有12个，12个构成一圈
+
+     那么每个时占 360 / 12 = 30度
+
+
+
+     60秒 = 1分钟
+     6秒 = 6 / 60 = 0.1分钟  每分钟6度  多0.6度
+     12秒 = 12 /60 = 0.2分钟            多1.2度
+     30秒 = 30 / 60 = 0.5分钟            多3度
+     60秒 = 60 / 60 = 1分钟
+
+
+
+     */
+
+    function setTime() {
+
+        //获取时元素
+        var hDom = document.getElementById("h");
+        //获得分元素
+        var mDom = document.getElementById("m");
+        //获得秒元素
+        var sDom = document.getElementById("s");
+
+        //获取当前时间
+        var now = new Date();
+
+
+        //获得时
+        var hour = now.getHours();
+        //得到分
+        var minute = now.getMinutes();
+        //得到秒
+        var sec = now.getSeconds();
+
+
+        //得到分的角度（要考虑秒针已经走了多少再加起来）
+        var minDeg = minute * 6 + sec / 60 * 6;
+
+        //得到时的角度
+        var hourDeg = hour * 30 + minute / 60 * 30;
+
+
+        sDom.style.transform = "rotate(" + sec * 6 + "deg)";
+
+        mDom.style.transform = "rotate(" + minDeg + "deg)";
+
+        hDom.style.transform = "rotate(" + hourDeg + "deg)";
+
+    }
+
+    setTime();
+
+    setInterval(setTime, 1000);
+
+</script>
+
+
+</body>
+</html>

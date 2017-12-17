@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        写一个狗的对象
+            属性：昵称，毛色
+            方法：叫
+
+        写一个车的对象
+            属性：品牌，颜色
+            方法：跑
+
+
+        对象可以动态的添加属性和方法
+    -->
+
+    <script>
+
+
+        //用函数方式创建对象，简单工厂设计模式
+        function creatStudent(name, age, gender) {
+
+            var s = new Object();
+            s.name = name;
+            s.age = age;
+            s.gender = gender;
+
+            s.sayHi = function () {
+
+                console.log('你好，我叫' + this.name + '，今年' + this.age + '岁');
+            }
+
+            return s;
+        }
+
+
+        //通过函数创建了一个对象，依然可以动态的添加新的属性和方法
+        var s1 = creatStudent("老威", 98, '女');
+        s1.height = 155;
+        s1.run = function () {
+            console.log('跑');
+        }
+
+        console.log(s1);
+
+        var s2 = creatStudent("小威威", 16, '男');
+        console.log(s2);
+
+
+        var s3 = creatStudent("小宁宁",14,'女');
+        console.log(s3);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

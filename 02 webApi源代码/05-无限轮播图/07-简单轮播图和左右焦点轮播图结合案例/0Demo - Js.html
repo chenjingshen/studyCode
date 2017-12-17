@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 490px;
+            height: 270px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 490px;
+            height: 270px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #box img {
+            width: 490px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+
+        .square {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #c0c6ff;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg"/></li>
+            <li><img src="images/2.jpg"/></li>
+            <li><img src="images/3.jpg"/></li>
+            <li><img src="images/4.jpg"/></li>
+            <li><img src="images/5.jpg"/></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+<script src="../animate.js"></script>
+
+<script>
+    //找到最外面的大盒子
+    var box= document.getElementById("box");
+    //找到内容框
+    var ad=box.children[0];
+    //找到ul
+    var ul= document.getElementById("imgs");
+    //找到span小盒子
+    var square=ad.children[1];
+    //找到square下的所有span
+    var span=square.children;
+    //找到包裹上下翻页的div
+    var arr= document.getElementById("arr");
+    //找到上一页
+    var prev= document.getElementById("left");
+    //找到下一页
+    var text= document.getElementById("right");
+    
+    //给最外面的大盒子加上鼠标移入事件
+    box.onmouseover = function () {
+        arr.style.display = "block";
+    };
+    //给最外面的大盒子加上鼠标移出事件
+    box.onmouseout = function () {
+        arr.style.display = "none";
+    };
+    //给上一页加上鼠标点击事件
+    var pageCount=0;
+    prev.onclick= function () {
+        pageCount--;
+        var offset=-pageCount*ad.offsetWidth
+        animate(ul,offset);
+        for (var i = 0; i < span.length; i++) {
+            span[i].removeAttribute("class");
+        }
+        span[pageCount].className="current";
+    }
+    //给下一页加上鼠标点击事件
+    text.onclick= function () {
+        pageCount++;
+        var offset=-pageCount*ad.offsetWidth
+        animate(ul,offset);
+        for (var i = 0; i < span.length; i++) {
+            span[i].removeAttribute("class");
+        }
+        span[pageCount].className="current";
+
+    };
+
+
+    //给span加点击事件
+    for (var i = 0; i < span.length; i++) {
+        span[i].index = i;
+        span[i].onclick= function () {
+            for (var i = 0; i < span.length; i++) {
+                span[i].removeAttribute("class");
+            }
+            this.className = "current";
+            var index=this.index;
+            pageCount=index;
+            animate(ul,-index*ad.offsetWidth);
+        }
+    }
+    
+
+    //找到大盒子
+//    var box = document.getElementById("box");
+//    //找到装图片的小盒子
+//    var adBox = box.children[0];
+//    //找到Ul
+//    var ul1 = document.getElementById("imgs");
+//    //找到装方向的盒子
+//    var arr = document.getElementById("arr");
+//    //找到装索引span的盒子
+//    var square = adBox.children[1];
+//    //找到它下面的所有span
+//    var spanList = square.children;
+//    //找到上一张
+//    var prev = document.getElementById("left");
+//    //找到下一张
+//    var next = document.getElementById("right");
+//
+//
+//    box.onmouseover = function () {
+//        arr.style.display = "block";
+//    }
+//
+//    box.onmouseout = function () {
+//        arr.style.display = "none";
+//    }
+//
+//
+//    //记录滚出去的页面张数
+//    var pageCount = 0;
+//    //上一张点击事件
+//    prev.onclick = function () {
+//
+//        pageCount--;
+//        var offset = -pageCount * adBox.offsetWidth;
+//        animate(ul1, offset);
+//
+//        for (var i = 0; i < spanList.length; i++) {
+//
+//            spanList[i].removeAttribute("class");
+//        }
+//
+//        //先根据索引找到span
+//        spanList[pageCount].className = "current";
+//    }
+//
+//    //下一张点击事件
+//    next.onclick = function () {
+//
+//        pageCount++;
+//        var offset = -pageCount * adBox.offsetWidth;
+//        animate(ul1, offset);
+//
+//        for (var i = 0; i < spanList.length; i++) {
+//
+//            spanList[i].removeAttribute("class");
+//        }
+//        //先根据索引找到span
+//        spanList[pageCount].className = "current";
+//    }
+//
+//
+//    //给所有span加点击事件
+//    for (var i = 0; i < spanList.length; i++) {
+//
+//        //保存span的索引
+//        spanList[i].setAttribute("index", i);
+//
+//        spanList[i].onclick = function () {
+//
+//            for (var i = 0; i < spanList.length; i++) {
+//
+//                spanList[i].removeAttribute("class");
+//            }
+//
+//            this.className = "current";
+//
+//            //点击的span索引为几，那么引出去的图片就为几张
+//            var index = this.getAttribute("index");
+//
+//
+//            //让pageCount变成现在的span的索引
+//            //因为程序一启动为0，如果此时你直接点击span，那么pageCount没有更新
+//            //所以你应该在这里做一个更新，把它更新为span对应的索引
+//            pageCount = index;
+//
+//            var offset = -index * adBox.offsetWidth;
+//            animate(ul1, offset);
+//        }
+//    }
+
+
+</script>
+
+</body>
+</html>

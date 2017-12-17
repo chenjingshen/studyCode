@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 1. 引入index.less -->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 2. 引入less.js编译器文件 因为less.js会发ajax请求必须服务器 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 3. 用服务器打开 -->
+</head>
+
+<body>
+    <!-- 京东主体布局容器  最大宽度640 居中显示-->
+    <div id="layout">
+        <!-- 顶部通栏 -->
+        <header id="topbar">
+            <i class="icon-logo"></i>
+            <form action="#">
+                <i class="icon-search"></i>
+                <!-- 在移动端调出右下角的搜索文字 -->
+                <input type="search" placeholder="请输入要搜索商品">
+            </form>
+            <a href="#" class="login">登录</a>
+        </header>
+        <!-- 轮播图 -->
+        <section id="slide">
+            <!-- 轮播图图片容器 -->
+            <ul class="carousel-inner clearfix">
+                <!-- li是每一张轮播图  有10张轮播图为了实现无缝轮播和左滑动-->
+                <li class="item active">
+                    <a href="#">
+                        <img src="images/l8.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l1.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l2.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l3.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l4.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l5.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l6.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l7.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l8.jpg" alt="">
+                    </a>
+                </li>
+                <li class="item ">
+                    <a href="#">
+                        <img src="images/l1.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <!-- 轮播图的指示器（小圆点） -->
+            <ol class="carousel-indicators">
+                <!-- 小圆点只有8个 -->
+                <li data-slide-to="0" class="active"></li>
+                <li data-slide-to="1"></li>
+                <li data-slide-to="2"></li>
+                <li data-slide-to="3"></li>
+                <li data-slide-to="4"></li>
+                <li data-slide-to="5"></li>
+                <li data-slide-to="6"></li>
+                <li data-slide-to="7"></li>
+            </ol>
+        </section>
+        <!-- 分类导航 -->
+        <nav id="nav">
+            <ul class="clearfix">
+                <li>
+                    <a href="#">
+                        <img src="images/nav0.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav1.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav2.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav3.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav4.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav5.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav6.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/nav7.png" alt="">
+                        <p>分类导航</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 主体商品 -->
+        <main id="products">
+            <!-- 秒杀商品 -->
+            <div class="seckill">
+                <!-- 秒杀的标题 -->
+                <div class="seckill-title clearfix">
+                    <img src="images/seckill-icon.png" alt="" class="seckill-icon">
+                    <div class="seckill-name">掌上秒杀</div>
+                    <div class="seckill-count-down">
+                        <span>0</span>
+                        <span>0</span>
+                        <span>:</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>:</span>
+                        <span>0</span>
+                        <span>0</span>
+                    </div>
+                    <div class="seckill-more">更多></div>
+                </div>
+                <!-- 秒杀内容 -->
+                <div class="seckill-content">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">
+                                <img src="images/seckill-img1.jpg" alt="">
+                                <p>￥239</p>
+                                <p>￥1580</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/seckill-img1.jpg" alt="">
+                                <p>￥239</p>
+                                <p>￥1580</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/seckill-img1.jpg" alt="">
+                                <p>￥239</p>
+                                <p>￥1580</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 京东超市 -->
+            <div class="jd-market">
+                <!-- 京东超市的标题 -->
+                <div class="jd-market-title">
+                    <h4>京东超市</h4>
+                </div>
+                <!-- 京东超市的内容 -->
+                <div class="jd-market-content clearfix">
+                    <div class="pull-left br">
+                        <a href="#">
+                            <img src="images/cp1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="#" class="bb">
+                            <img src="images/cp2.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="images/cp3.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 京东超市 -->
+            <div class="jd-market">
+                <!-- 京东超市的标题 -->
+                <div class="jd-market-title">
+                    <h4>京东超市</h4>
+                </div>
+                <!-- 京东超市的内容 -->
+                <div class="jd-market-content clearfix">
+                    <div class="pull-left br">
+                        <a href="#" class="bb">
+                            <img src="images/cp5.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="images/cp6.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="#">
+                            <img src="images/cp4.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 京东超市 -->
+            <div class="jd-market">
+                <!-- 京东超市的标题 -->
+                <div class="jd-market-title">
+                    <h4>京东超市</h4>
+                </div>
+                <!-- 京东超市的内容 -->
+                <div class="jd-market-content clearfix">
+                    <div class="pull-left br">
+                        <a href="#">
+                            <img src="images/cp1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="#" class="bb">
+                            <img src="images/cp2.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="images/cp3.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

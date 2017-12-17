@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    .map {
+      width: 800px;
+      height: 600px;
+      background-color: #cccccc;
+      position: relative;
+      top:0px;
+      left: 0px;
+    }
+  </style>
+</head>
+<body>
+<div class="map" id="map"></div>
+<script src="index.js"></script>
+<script>
+  //面向对象的思想去做
+
+  var map = document.getElementById("map");
+
+
+  //创建一个游戏对象，
+  var g1 = new Game(map);
+  //调用游戏对象的开始游戏方法...
+  g1.start();
+
+
+
+
+
+//  function test(){
+//    console.log("哈哈");
+//  }
+//
+//  test
+//
+//  ;(function () {
+//    console.log("呵呵");
+//  }());
+
+
+</script>
+</body>
+</html>

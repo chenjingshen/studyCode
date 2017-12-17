@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" value="往下走" id="moveDown"/>
+
+<div id="box"></div>
+
+</body>
+</html>
+
+<script>
+
+    var box = document.getElementById("box");
+    document.getElementById("moveDown").onclick = function () {
+
+
+        var timerID = setInterval(function () {
+
+            //算法：由快到慢
+            var res = (600 - box.offsetTop ) / 10;
+            //判断是正还是负，正用向上取整，负用向下取整
+            var step = res > 0 ? Math.ceil(res) : Math.floor(res);
+
+            //用当前位置累加步长，再赋值给自己的top
+            box.style.top = box.offsetTop + step + "px";
+
+            console.log(step + ":" + box.offsetTop);
+            if (box.offsetTop == 600) {
+
+                clearInterval(timerID);
+            }
+
+        }, 50)
+    };
+
+</script>

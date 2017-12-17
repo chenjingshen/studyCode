@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width='600' height='400' id='canvas'></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    // 画一个矩形
+    // context.rect(100, 100, 300, 200);
+
+
+    // 画两个圆
+    var c1={x:240,y:170,r:0};
+    var c2={x:300,y:200,r:130};
+    // 创建一个线性渐变对象
+    // var gra=context.createLinearGradient(100, 100, 400, 100);
+    // 创建一个径向渐变对象
+    var gra= context.createRadialGradient(c1.x, c2.y , c1.r , c2.x , c2.y , c2.r );
+    
+    // 设置渐变色
+    gra.addColorStop(0, 'red');
+    gra.addColorStop(0.5, 'hotpink');
+    gra.addColorStop(1, 'skyblue');
+    context.fillStyle=gra;
+    // 画一个大圆
+    context.arc(c2.x , c2.y , c2.r , 0, Math.PI *2);
+    
+    context.fill();
+    
+</script>
+</body>
+</html>

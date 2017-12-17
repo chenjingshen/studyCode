@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #tb1 {
+            border: solid 1px #000000;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: solid 1px black;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        //制作表格形式的九九乘法表
+        /*
+         window.onload = function () {
+         var tb1 = document.getElementById("tb1");
+         for (var i = 1; i <= 9; i++) {
+         var tr = document.createElement("tr");
+         for (var j = 1; j <= i; j++) {
+         var td = document.createElement("td");
+         td.innerHTML = j + "*" + i + "=" + j * i;
+         tr.appendChild(td);
+         }
+         tb1.appendChild(tr);
+         }
+         }
+         */
+
+        //第二遍
+        window.onload = function () {
+            var tb1 = document.getElementById("tb1");
+            for (var i = 1; i <= 9; i++) {
+                var tr = document.createElement("tr");
+                for (var j = 1; j <= i; j++) {
+                    var td = document.createElement("td");
+                    td.innerHTML = j + "*" + i + "=" + j * i;
+                    tr.appendChild(td);
+                }
+                tb1.appendChild(tr);
+            }
+        }
+
+        //数组冒泡,将数组中的元素从小到大依次排列
+        /*
+         var nums=[3,5,2,6,9,1];
+         for (var i = 0; i < nums.length - 1; i++) {
+         for (var j = 0; j < nums.length-1-i; j++) {
+         if(nums[j]>nums[j+1]){
+         var stemp=nums[j]
+         nums[j]=nums[j+1]
+         nums[j+1]=stemp;
+         }
+         }
+         }
+         console.log(nums);
+         */
+
+        //数组冒泡，将数组中的元素从大到小依次排列
+        /*
+         var res=[1,2,3,4,5,6,7,8,9];
+         for (var i = 0; i < res.length - 1; i++) {
+         for (var j = 0; j < res.length - 1 - i; j++) {
+         if(res[j]<res[j+1]){
+         var num=res[j];
+         res[j]=res[j+1];
+         res[j+1]=num;
+         }
+         }
+         }
+         console.log(res);
+         */
+
+        //冒泡训练第三遍
+        var nums=[4,7,2,756,234,78,34,1];
+        for (var i = 0; i < nums.length - 1; i++) {
+            for (var j = 0; j < nums.length - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    var step=nums[j];
+                    nums[j]=nums[j+1];
+                    nums[j+1]=step;
+                }
+            }
+        }
+        console.log(nums);
+
+    </script>
+</head>
+<body>
+<table id="tb1"></table>
+</body>
+</html>

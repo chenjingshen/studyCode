@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="file">
+
+    <img src="" alt="">
+</body>
+</html>
+
+<script>
+    var fileinput = document.querySelector("#file");
+
+    fileinput.onchange = function() {
+        //alert("添加了图片");
+        //把待上传的文件取到了
+        //1. 拿到文件
+        var file = this.files[0];
+        console.log(file);
+
+        //2. 创建一个可以读取文件类容的对象
+        var reader = new FileReader();
+
+        //3. 加载file
+        reader.readAsDataURL(file);
+
+        //4. 加载完成后， 使用文件
+        reader.onload = function() {
+            //reader.result就是文件读取的结果
+            document.querySelector("img").src = reader.result;
+        }
+    }
+</script>
+
+<!-- 
+    总结：
+    1. 在html5之前， js是没有办法读取本地文件的
+    2. 在html5之后，可以读， 它有四个步骤
+        1. 拿到文件，files[0]
+        2. 创建一个可以读取文件的对象 var reader = new FileReader();
+        3. 加载file reader.readAsDataURL(file)
+        4. 加载完成之后， 直接使用文件 reader.result
+ -->

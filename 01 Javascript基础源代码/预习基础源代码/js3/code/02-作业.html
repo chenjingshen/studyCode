@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+//    1.请用户输年份
+//    输出该年是平年还是闰年。
+//    闰年的计算方法：
+//    a.能被400整除
+//    b.能被4整除且不能被100整除
+
+//    var year = +prompt("请输入你要判断的年份");
+//    if(year % 400 == 0 || (year % 4 ==0 && year % 100 != 0)){
+//      alert("闰年");
+//    }else  {
+//      alert("平年");
+//    }
+
+
+
+//3. 请用户输入1个月份,然后打印这个月份数属于哪个季节.
+//345  678    9 10 11     12 1 2
+//    var month = +prompt("请输入一个月份");
+//    switch (month){
+//      case 3:
+//      case 4:
+//      case 5:
+//          alert("春");
+//        break;
+//      case 6:
+//      case 7:
+//      case 8:
+//        alert("夏");
+//        break;
+//      case 9:
+//      case 10:
+//      case 11:
+//        alert("秋");
+//        break;
+//      case 12:
+//      case 1:
+//      case 2:
+//        alert("冬");
+//        break;
+//      default :
+//        alert("你输入的月份有误");
+//        break;
+//    }
+
+
+
+//11、 提示用户输入用户名和密码，如果用户名是admin,密码是“888888”则提示正确，
+//否则要求再输入一次，如果用户名是admin,密码是“888888”则提示正确,否则提示错误,程序结束。
+
+    var userName = prompt("请输入用户名");
+    var password = prompt("请输入密码");
+    if(userName == "admin" && password == "888888"){
+      alert("登录成功");
+    }else {
+      userName = prompt("请输入用户名");
+      password = prompt("请输入密码");
+      if(userName == "admin" && password == "888888"){
+        alert("登录成功");
+      }else {
+        alert("输入多次错误，账号被锁定！");
+      }
+    }
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

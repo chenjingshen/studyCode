@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>Q Q</label><input type="text" id="inp1"><span></span><br/>
+    <label>手机</label><input type="text" id="inp2"><span></span><br/>
+    <label>邮箱</label><input type="text" id="inp3"><span></span><br/>
+    <label>座机</label><input type="text" id="inp4"><span></span><br/>
+    <label>姓名</label><input type="text" id="inp5"><span></span><br/>
+</div>
+</body>
+</html>
+
+<script>
+    
+    function $ (id){
+        return document.getElementById(id);
+    }
+    var inpQq=$("inp1");
+    var inpSji=$("inp2");
+    var inpYxiang=$("inp3");
+    var inpDhua=$("inp4");
+    var inpName=$("inp5");
+    
+    function yanzheng (inp,regexp){
+        inp.onblur= function () {
+            if(regexp.test(inp.value)){
+                inp.nextSibling.innerHTML="输入正确";
+                inp.nextSibling.className="right";
+            }else{
+                inp.nextSibling.innerHTML="输入错误";
+                inp.nextSibling.className="wrong";
+            }
+        }
+    }
+    yanzheng(inpQq,/^[1-9]\d{4,10}$/);
+    yanzheng(inpSji,/^((13\d)|(15[012356789])|(18[012356789]))\d{8}$/);
+    yanzheng(inpYxiang,/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
+    yanzheng(inpDhua,/^(\d{3,4}-)?\d{7,8}$/);
+    yanzheng(inpName,/^[\u4e00-\u9fa5]{2,4}$/);
+
+    
+</script>

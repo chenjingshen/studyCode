@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        练习：让用户输入密码，只要密码不是888,都让它重新输入
+
+        练习：让用户输入账号和密码，只要账号不是admin，密码不是888，都重新输入
+    -->
+
+    <script>
+
+//        do {
+//
+//            var pwd = prompt('请输入密码');
+//
+//        }while( pwd != 888);
+//
+//
+//        alert('登录成功');
+
+        do{
+
+            var userId = prompt('请输入账号');
+            var pwd = prompt('请输入密码');
+
+        }while( userId != 'admin' || pwd !='888' );
+
+        alert('登录成功');
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script src="jquery/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.dom对象  jQuery对象
+
+      //2.如果使用原生js获取到的对象，就是一个dom对象。
+      //dom对象可以使用dom方法，不能使用jQuery的方法。
+      //var div1 = document.getElementById("one");
+      //div1.setAttribute("index","0"); //dom对象可以使用dom方法
+      //div1.css("backgroundColor","red");  //dom对象不能使用jQuery的方法。
+
+
+      //3.如果使用$获取的就是jQuery对象。
+      //var $div = $("#one");
+      //jQuery对象，本质其实是一个数组。 jquery对象是一个DOM对象的包装集。（包含了DOM对象的集合）
+      //jQuery对象，可以使用jQuery的方法,不能使用dom方法
+      //$div.setAttribute("index","0");  //报错了 ，jQuery对象,不能使用dom方法
+      //$div.css("backgroundColor","red"); //jQuery对象，可以使用jQuery的方法,
+
+
+      //注意：假如现在我们获取到了一个dom对象，dom对象想访问jQuery里面的方法。怎么办？
+      //转换
+
+      //4.把dom对象转换成jQuery对象。
+      //语法：$(dom对象);
+      // var div1 = document.getElementById("one"); //dom对象
+      // var $div =  $(div1);  //jQuery对象
+      // $div .css("backgroundColor","green");
+
+
+      //5.把jQuery对象，转换成dom对象。
+      var $span = $("span"); //jQuery对象
+      //console.log($span);
+      //5.1 使用[索引]来转换
+      //var span1  = $span[1];
+      //span1.setAttribute("abc","1");
+      //5.2 使用get(索引)方法
+      $span.get(1).style.backgroundColor = "pink";
+
+
+    });
+
+
+
+  </script>
+</head>
+<body>
+<div id="one">我是一个div</div>
+
+<span>我是第1个span</span>
+<span>我是第2个span</span>
+<span>我是第3个span</span>
+
+</body>
+</html>

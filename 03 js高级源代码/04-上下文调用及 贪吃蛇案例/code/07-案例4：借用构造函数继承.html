@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.借用构造函数继承
+  //并不常用， 因为这种方式，只能继承this.xxx = value;
+
+  function Person(){
+    //Person函数里面的this，现在是  new关键字创建出来的那个对象。
+    this.name = "张三";
+    this.age = 18;
+  }
+
+  function Student(){
+    //Student()构造函数里面this是  new关键字创建出来的那个对象。
+
+    //使用上下文模式低啊用Person函数，改变了这个Person函数里面的this.
+    Person.call(this);
+  }
+
+
+  var s1 = new Student();
+  console.log(s1);
+
+
+
+</script>
+</body>
+</html>

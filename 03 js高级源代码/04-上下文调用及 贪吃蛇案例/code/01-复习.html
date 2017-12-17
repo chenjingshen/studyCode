@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+ //1.递归
+ //1-n  求这个数之前的累加和  加上这个数
+  // function getSum(n){
+  //   if(n == 1){
+  //     return 1;
+  //   }else {
+  //     return getSum(n-1) + n;
+  //   }
+  // }
+
+
+ //1 1 2 3 5 8....
+ // function createFB(){
+ //   var obj = {};
+ //   function getFb(n){
+ //     if(obj[n]){
+ //       return obj[n];
+ //     }else {
+ //       if(n == 1 || n ==2 ){
+ //         obj[n] = 1;
+ //       }else {
+ //         obj[n] = getFb(n-1) + getFb(n-2);
+ //       }
+ //       return obj[n];
+ //     }
+ //   }
+ //   return getFb;
+ // }
+ // console.log(createFB()(50));
+
+
+
+  //直接求后代元素不现实，求子元素可以，然后求子元素的子元素，一直到没有子元素为止。
+  // var list = [];
+  // function getEles(ele){
+  //   var children = ele.children;
+  //   for(var i = 0 ; i < children.length; i++){
+  //   	var child = children[i];
+  //       list.push(child);
+  //
+  //       getEles(child);
+  //   }
+  // }
+
+
+
+
+  //2.闭包
+  //闭包就是声明在一个函数内部的函数。 js中有一个特点，只有函数内部的函数，才可以访问这个函数内部声明的局部变量。
+
+ // function test1(){
+ //   var num = 10;
+ //   function test2(){
+ //     return num;
+ //   }
+ //   return test2;
+ // }
+ // var f1 =  test1();
+ // console.log(f1());
+
+
+ //
+ // var test = (function () {
+ //   var num = 1000;
+ //   function inner(){
+ //     return num;
+ //   }
+ //   return inner;
+ // }());
+
+ // console.log(test());
+
+
+  //提供了有限的访问权限
+  // function outer(){
+  //   var num = 100;
+  //   return {
+  //     getNum: function () {
+  //       return num;
+  //     },
+  //     setNum: function (value) {
+  //       if(value > 100){
+  //         num = value;
+  //       }
+//
+  //     }
+  //   }
+  // }
+  // var obj = outer();
+  // obj.setNum(200);
+  // console.log(obj.getNum());
+
+
+
+  // for(var i = 0 ; i < 5; i++){
+  //   function outer(){
+  //     var j = i;
+  //     function inner(){
+  //       console.log(j);
+  //     }
+  //     return inner;
+  //   }
+  // 	lis[i].onclick = outer();
+  // }
+
+
+
+ //沙箱  沙盒
+ //为了避免变量的污染； 模块化开发
+// (function (w) {
+//   function sayHi(){
+//     console.log("哈哈");
+//   }
+//   w.sayHi = sayHi;
+// }(window));
+//  sayHi();
+
+
+
+  //函数的调用模式
+  //函数调用  方法调用  构造函数调用
+  //要会判断他们当中的this是谁
+
+  //不要看函数是如何声明的，要看函数是怎么调用的，谁调用你，那么你这个函数中的this就是谁。
+
+
+
+
+</script>
+</body>
+</html>

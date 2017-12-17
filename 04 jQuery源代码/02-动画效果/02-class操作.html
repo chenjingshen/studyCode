@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-top:30px;
+    }
+    .size200 {
+      width: 200px;
+      height: 200px;
+    }
+    .bgcGreen {
+      background-color: green;
+    }
+    .fontSize {
+      font-size: 25px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.添加类
+      $("#addClass").click(function () {
+        //$("div").addClass("size200");  //添加单个类
+        $("div").addClass("size200 bgcGreen");  //添加多个类
+      });
+
+      //2.删除类
+      $("#removeClass").click(function () {
+        //$("div").removeClass(); //删掉所有的类
+        //$("div").removeClass("size200"); //删除单个类
+        $("div").removeClass("size200 bgcGreen"); //删除多个类
+      });
+
+
+      //3.判断是否拥有某个类
+      $("#hasClass").click(function () {
+        //console.log($("div").hasClass("fontSize"));
+        //console.log($("div").hasClass("size200"));
+
+         if( $("div").eq(0).hasClass("fontSize")){
+           $("div").removeClass("fontSize");
+         }else {
+           $("div").eq(0).addClass("fontSize");
+         }
+      });
+
+
+      //4.toggleClass();
+      $("#toggleClass").click(function () {
+        //切换类  如果有这个类就删掉这个类，如果没有这个类就移除这个类
+        $("div").toggleClass("fontSize");
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="添加类" id="addClass"/>
+<input type="button" value="删除类" id="removeClass"/>
+<input type="button" value="判断类" id="hasClass"/>
+<input type="button" value="切换类" id="toggleClass"/>
+<div class="fontSize">div1</div>
+<div class="fontSize">div2</div>
+</body>
+</html>

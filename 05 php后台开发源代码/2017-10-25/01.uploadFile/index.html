@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>文件上传</h2>
+    <!-- 
+        文件上传呢
+            方法使用post
+            表单元素 name属性
+            必须设置enctype属性
+            
+        图片文件上传的方法使用post
+        并且form标签必须设置enctype属性，属性值快捷键m/
+     -->
+    <form method="post" enctype="multipart/form-data" action="./saveFile.php">
+        <input name='icon' type="file">
+        <input type="submit">
+    </form>
+</body>
+</html>

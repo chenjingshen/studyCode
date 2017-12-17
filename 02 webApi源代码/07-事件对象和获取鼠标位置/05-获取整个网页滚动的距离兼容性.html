@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">-->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        body {
+            width: 2000px;
+            height: 2000px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+
+    //window可以加onscroll的事件，但是它没有scrollTop
+    /*
+     window.onscroll = function () {
+
+
+     //只要这么一些，scrollTop肯已经做好兼容性了
+     var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+     var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+
+     console.log(scrollTop);
+     console.log(scrollLeft);
+
+     //获取往上面滚出去了多少
+     //        console.log(window.scrollTop);
+     //document也没有
+     //        console.log(document.scrollTop);
+
+     //        console.log(document.documentElement.scrollTop);
+
+     //取到的是0
+     //        console.log(document.body.scrollTop);
+     }
+     */
+
+
+    window.onscroll = function () {
+
+        console.log(getPageScroll().scrollLeft);
+        console.log(getPageScroll().scrollTop);
+    }
+
+    //    function getPageScroll(){
+    //
+    //        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    //
+    //        var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+    //
+    //        var obj = new Object();
+    //
+    //        obj.scrollTop = scrollTop;
+    //        obj.scrollLeft = scrollLeft;
+    //
+    //        return obj;
+    //    }
+
+    //
+    //    function getPageScroll(){
+    //
+    //        var sTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    //
+    //        var sLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+    //
+    //        var obj = {
+    //
+    //            scrollTop:sTop,
+    //            scrollLeft:sLeft
+    //        }
+    //
+    //        return obj;
+    //    }
+
+
+//    function getPageScroll() {
+//
+//        var obj = {
+//
+//            scrollTop: window.pageYOffset
+//            || document.documentElement.scrollTop
+//            || document.body.scrollTop
+//            || 0,
+//
+//            scrollLeft: window.pageXOffset
+//            || document.documentElement.scrollLeft
+//            || document.body.scrollLeft
+//            || 0
+//        }
+//
+//        return obj;
+//    }
+
+
+    function getPageScroll() {
+
+        return {
+
+            scrollTop: window.pageYOffset
+            || document.documentElement.scrollTop
+            || document.body.scrollTop
+            || 0,
+
+            scrollLeft: window.pageXOffset
+            || document.documentElement.scrollLeft
+            || document.body.scrollLeft
+            || 0
+        }
+    }
+
+</script>

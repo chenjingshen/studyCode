@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<div class="one" id="one"></div>
+<script>
+  //1.delete的作用
+  //1.1 可以删除没有使用var声明的变量。
+  // num = 10;
+  // delete num;
+  // console.log(num);
+
+
+  //1.2 可以删除对象中的属性和方法。
+  //var obj1 = {};
+  //obj1.name = "张三";
+  //obj1.sayHi = function () {
+  //  console.log("哈哈");
+  //}
+  ////delete  obj1.name;
+  ////delete  obj1.sayHi;
+  ////obj1.removeAttribute("name"); //报错了 obj1.removeAttribute is not a function 因为obj1不是dom对象，没有这个方法。
+  //console.log(obj1);
+
+
+  //注意：removeAttribute只有dom对象才有，普通的对象是没有这个方法的。
+  //var div1 = document.getElementById("one");
+  //div1.removeAttribute("class");
+  //console.log(div1);
+
+
+
+  //1.3 delete 可以删除数组中的元素-
+  var arr = [10,20,30,40];
+  //delete arr[0];
+  //console.log(arr);
+  //console.log(arr[0]);
+
+
+  //arr.unshift(100);
+  //arr.shift();
+  //arr.pop();
+  //arr.push(100);
+  //console.log(arr);
+
+
+</script>
+</body>
+</html>

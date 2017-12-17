@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //弟弟的年龄是哥哥年龄的一半，，哥哥几年4岁，，，  哥哥100岁的时候，弟弟多少岁。
+
+    //1.题目：请输入今年的年龄，求5年后多大？
+    //a.prompt接收到的数据是string类型的。
+    //  var age = prompt("请输入你今年的年龄");
+    //  alert(typeof age);
+    //  var age5 = age + 5;
+    //  alert("我今年"+age+"岁了，5年后我"+age5+"岁了");
+
+
+    //2.字符串要转换成number类型。
+    //2.1 可以使用Number(需要转化的内容);
+    //  var str = "123";
+    //  var num = Number(str);
+    //  console.log(num); //123
+    //  console.log(typeof  num); //number
+
+    //注意：
+    //   1.如果这个转换的字符串本身就是一个数字，那么可以转换成功; 如果这个字符串本身不是一个数字，那么转成NaN.
+    //   2.如果这个字符串本身是一个数字，前后有空格，也是会转换成功的； 如果中间有空格，就转成NaN.
+    //   3.如果是一个"",或者是"  "，那么会转换成0.
+    //   4.如果字符串的本身是一个小数，也是可以转换成功的。
+
+
+    //2.2 可以使用parseInt(需要转化的内容);
+    //  var str = "123";
+    //  var num = parseInt(str);
+    //  console.log(num); //123
+    //  console.log(typeof  num); //number
+
+    //注意：
+    //   1.从左往右查找，直到遇到第一个非数字为止，前面的所有的内容转换成数字。
+    //   2.如果找完了，都没有找到一个数字，那么就转换成NaN.
+    //   3.""  和 "   " 转化成NaN
+    //   4.如果字符串里面是小数，那么转换后只能得到他的整数部分。
+
+
+    //2.3 可以使用parseFloat(需要转化的内容);
+    //  var str = "123.4";
+    //  var num = parseFloat(str);
+    //  console.log(num); //123.4
+    //  console.log(typeof  num); //number
+    // 注意：如果字符串里面是小数，那么转换后还是小数。。
+
+
+    //******注意： true会转成1，false会转换0.
+    // 如果字符串转数字，一般的使用parseInt或者parseFolat。
+    // 如果是其他类型，比如布尔类型，使用Number();
+    // var num = true;
+    // var res = Number(num);
+    // console.log(res);
+    // console.log(typeof res);
+
+
+
+
+    //3. 其他类型数据 转换成字符串类型。
+    //3.1 可以使用 String(需要转化的内容);
+    // var num = 123;
+    // var str = String(num);
+    // console.log(str); //"123"
+    // console.log(typeof str); //string
+    //注意： "123"   "true"  "false"  "undefined"   "null"  "NaN"
+
+
+    //3.2  可以使用   需要转化的内容.toString();
+    //  var num = 123;
+    //  var str = num.toString();
+    //  console.log(str); //"123"
+    //  console.log(typeof str); //string
+    //注意： "123"   "true"  "false  "NaN"
+    // undefined 和null 不能使用toString。
+
+
+
+
+    //4.其他的数据类型 转换成 boolean类型。
+    //4.1 可以使用Boolean(需要转化的内容);
+    // var num = NaN;
+    // var res = Boolean(num);
+    // console.log(res);
+    // console.log(typeof  res);
+    //注意：
+    //那些可以转换成布尔类型的false： 0  -0   false  ""  undefined  null  NaN
+
+
+
+    //以上的这些都是显示类型转换。
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

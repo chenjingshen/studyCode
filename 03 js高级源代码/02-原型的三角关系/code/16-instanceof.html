@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<script>
+  //1.instanceof  判断某个构造函数对应的的原型  是否在某个对象的原型链上。
+  //语法：对象  instanceof  构造函数
+
+  // var arr = [10,20,30];
+  // console.log(arr instanceof  Array); //true
+  // console.log(arr instanceof  Object); //true
+//
+  // function test(){
+  //   console.log("哈哈");
+  // }
+  // console.log(test instanceof  Function); //true
+  // console.log(test instanceof  Object); //true
+
+
+
+  //2.前面的Object是一个对象，后面的Object是一个构造函数。
+  //原型链：Object对象 -> Function.prototype ->Object.prototype
+  console.log(Object instanceof  Object);  //ture
+  console.log(Object instanceof  Function); //true
+
+
+  //3.前面的这个Function是一个对象，后面的这个Function是一个构造函数。
+  //原型链：Function对象 -> Function.prototype -> Object.prototype
+  console.log(Function instanceof  Function); //true
+  console.log(Function instanceof  Object); //true
+
+
+
+
+
+  ///------------------
+  function Person(name){
+    this.name = name;
+  }
+  console.log(Function instanceof   Person); //false
+
+  console.log(Person instanceof  Function); //true
+  console.log(Person instanceof  Object); //true
+
+</script>
+</body>
+</html>

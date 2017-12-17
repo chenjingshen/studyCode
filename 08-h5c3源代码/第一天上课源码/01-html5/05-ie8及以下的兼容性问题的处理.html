@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 只有在ie8及以下， 才需要使用js来创建新语义标签。 怎么判断当前是ie8及以下的版本呢？：条件注释 -->
+    <!-- lte less than equal: 小于等于ie8 -->
+    <!--[if lte IE 8]>
+        <script src="./html5shiv.js"></script>
+    <![endif]-->
+
+    <style>
+        header {
+            width: 200px;
+            height: 100px;
+            background: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+</body>
+</html>
+
+<!-- <script>
+    // 创建出header元素
+    var header = document.createElement("header");
+    // 指写它是一个块级元素
+    header.style.display = "block";
+    // 添加到父元素
+    document.body.appendChild(header);
+</script> -->
+
+<!-- 每当我们感到绝望的时候，都有大神来拯救我们 -->
+
+<!-- 
+    总结： 
+    1. html5给我们提供了很多新的语义标签： header， nav， main， aside， section， article， footer， 增强代码的易读性和可维护性；
+    2. main标签，所有的浏览器都支持，除了ie， 所以，不要用
+    3. ie浏览器中， ie8及以下，不支持新语义标签
+    4. 如果想要支持， 需要使用 js 创建。 html中写的标签，ie8以下是不支持的，但是js创建的却可以显示
+    5. 如果需要兼容ie8，需要引入 html5shiv.js文件
+    6. 只有ie8以下，才需要导入html5shiv.js文件，所以， 我们需要判断浏览器的版本， 使用条件注释
+ -->

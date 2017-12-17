@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.算术运算符
+    // +   加  求和
+    // -   减  求差
+    // *   乘  求积
+    // /   除  求商
+    // %   余  求模
+
+
+    //2.算术表达式
+    //用算术运算符连接起来的式子就是算术表达式。
+    //表达式有结果： a.要么打印出来    b.要么用第三方变量保存
+    //   var num1 = 10;
+    //   var num2 = 20;
+    //   //console.log(num1 + num2);
+    //   var res = num1 + num2;
+    //   console.log(res);
+
+
+    //3. /
+    // var num1 = 10;
+    // var num2 = 3;
+    // console.log(num1 / num2);
+    //
+    // console.log((0.1*10 + 0.2*10)/10);
+
+
+    //4. % 求模 求余数
+    // var num1 = 10;
+    // var num2 = 2;
+    // var res = num1 % num2;
+    // console.log(res);
+
+
+    //5.优先级
+    //先算  乘除求模  后算加减     小括号是可以提升优先级的。
+
+
+
+    //6.交换2个number类型的变量的值，不能使用第三方变量。
+    var num1 = 10;
+    var num2 = 20;
+
+    //先相加再相减
+    num1 = num1 + num2; //num1 = 30;   num2 = 20;
+    num2 = num1 - num2; //num1 = 30;   num2 = 10;
+    num1 = num1 - num2; //num1 = 20;   num2 = 10;
+
+    console.log(num1); //20
+    console.log(num2); //10
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

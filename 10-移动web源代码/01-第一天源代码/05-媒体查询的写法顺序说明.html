@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .row div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        /*一行放多个div要浮动*/
+        float: left;
+        /* 当屏幕宽度小于768px的时候生效可以用默认值设置 */
+        width: 100%;
+    }
+    /* @media (max-width: 768px){
+    	.row div{
+    		width: 100%;
+    	}	
+    } */
+    /* 媒体查询写法顺序
+    	1. 使用min-width作为条件判断的时候 条件要从小到大写  让大屏幕的样式把小屏幕的样式覆盖
+    媒体查询的特性
+    	1. 向下覆盖 ：当大小屏幕条件同时生效的时候大屏幕吧小屏幕样式覆盖 */
+    @media(min-width: 768px) {
+        .row div {
+            width: 50%;
+        }
+    }
+    
+    @media(min-width: 992px) {
+        .row div {
+            width: 33.33%;
+        }
+    }
+    /*1300 */
+    
+    @media (min-width: 1200px) {
+        .row div {
+            width: 25%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+    </div>
+</body>
+
+</html>

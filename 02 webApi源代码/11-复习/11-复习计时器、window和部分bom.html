@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+        计时器：
+                setInterval:
+                        每隔一段时间来执行一次，只要不清除，就会一直不断的循环下去
+                setTimeout
+                        只隔一段时间执行一次，执行完以后后，就不再执行了，相当于是一次延迟执行的代码
+
+               两个参数：
+                    参数1：要执行的代码（一般传函数，也可以传字符串）
+                    参数2：延迟的时间，以毫秒为单位  1000毫秒 = 1秒
+
+
+        window:是JS中的顶级对象
+                一个页面窗口其实就是一个window对象
+
+
+        window里包含了dom和bom
+
+        window.open(网址) //打开一个网页
+        window.close() //关闭当前的网页
+
+        location,history,navigator
+
+
+        onunload 关闭时触发
+        onbeforeunload 关闭前触发
+
+        window有个属性叫name，无论给的是什么值，它最终保存的都是字符串
+
+        window.xxx中，window可以省略
+
+        location里主要获取的是地址栏的一些信息，具体的话可以看离线文档或者之前的代码
+
+            location里有三个方法：
+                    assign 打开一个网页
+                    reload  刷新
+                    replace 在当前网站替换（其实就是打开一个网页），不会有历史（不会有后退）
+
+       history对象
+            back:相当于浏览器的后退
+            forward:相当于浏览器的前进
+
+       navgator对象
+            包含浏览器版本之类的信息
+
+            在后面学的地理定位里还包括地理定位
+    -->
+
+
+    <script>
+
+        //window是一个顶级对象，你在全局作用域里声明的变量，相当于都是window的属性
+        var name = 10;
+
+//        window.open()
+
+//        open("http://www.itheima.com");
+        console.log(typeof name);
+
+        var age = 10;
+        console.log(typeof age);
+
+        console.log(window.name);
+        console.log(window.age);
+
+
+        //也可以起到replace的作用
+        location.href = "http://www.itheima.com"
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

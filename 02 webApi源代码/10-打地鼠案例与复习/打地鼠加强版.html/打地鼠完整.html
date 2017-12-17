@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打地鼠</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: url("img/bg.png") no-repeat;
+            background-size: 100%;
+        }
+
+        td {
+            width: 118px;
+            height: 118px;
+            background: url("img/overBg.png") no-repeat;
+            background-size: 100%;
+
+        }
+
+        td.current {
+            cursor: url("img/chuizi.png"), auto;
+        }
+
+        #gameBord {
+            display: none;
+        }
+
+        #dataBoard {
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        table {
+            margin: 10px auto;
+            cursor: url("img/qiao.png"), auto;
+        }
+
+        #cover {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        #cover button {
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+            left: 50%;
+            top: 50%;
+            margin-top: -20px;
+            margin-left: -50px;
+        }
+
+        #cover button:first-child {
+            margin-top: -80px;
+        }
+
+        #cover button:last-child {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="dataBoard">
+    <lable for="score">分数：</lable>
+    <input type="text" name="score" id="score" disabled>
+
+    <lable for="hitRate">命中率：</lable>
+    <input type="text" name="hitRate" id="hitRate" disabled>
+
+    <lable for="retime">倒计时：</lable>
+    <input type="text" name="retime" id="retime" disabled>
+
+</div>
+<div id="gameBord">
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<div id="cover">
+    <button value="简单" id="easy">简单模式</button>
+    <button value="正常" id="normal">正常模式</button>
+    <button value="作死" id="ruin">作死模式</button>
+</div>
+</body>
+</html>
+<script>
+    var easy = document.getElementById("easy");
+    var normal = document.getElementById("normal");
+    var ruin = document.getElementById("ruin");
+    var cover = document.getElementById("cover");
+    var dataBoard = document.getElementById("dataBoard");
+    var gameBord = document.getElementById("gameBord");
+    var retime = document.getElementById("retime");
+    var score = document.getElementById("score");
+    var hitRate = document.getElementById("hitRate");
+    var tdList = document.getElementsByTagName("td");
+
+
+    easy.onclick = function () {
+        create = 1500;
+        disappear = 1000;
+        startGame()
+    }
+    normal.onclick = function () {
+        create = 1000;
+        disappear = 800;
+        startGame()
+    }
+    ruin.onclick = function () {
+        create = 800;
+        disappear = 500;
+        startGame()
+    }
+
+
+    function startGame() {
+        cover.style.display = "none";
+        dataBoard.style.display = "block";
+        gameBord.style.display = "block";
+
+        //初始化，时间分数命中率
+        retime.value = 10;
+        hitRate.value = 0;
+        score.value = 0;
+        var count = 0;
+        var retimeID = setInterval(function () {
+
+            var t = retime.value;
+            t--;
+            retime.value = t;
+            if (t == 0) {
+                clearInterval(retimeID);
+                clearInterval(createID);
+                alert("游戏结束！您本次得分：" + score.value + "您的命中率为：" + hitRate.value)
+                cover.style.display = "block";
+                dataBoard.style.display = "none";
+                gameBord.style.display = "none";
+
+            }
+        }, 1000)
+
+
+        //随机生成老鼠
+        var createID = setInterval(function () {
+
+            var number = Math.floor(Math.random() * 26);
+
+            tdList[number].innerHTML = "<img src='img/mouse1.png' />";
+
+
+            setTimeout(function () {
+                tdList[number].innerHTML = ""
+            }, disappear)
+
+        }, create)
+
+
+        //给每一个老鼠添加点击事件
+        for (var i = 0; i < tdList.length; i++) {
+
+            tdList[i].onmousedown = function () {
+                this.className += "current";
+
+            }
+            tdList[i].onmouseup = function () {
+                this.className = "";
+            }
+
+            tdList[i].onclick = function () {
+                count++
+                var s = score.value;
+                if (this.innerHTML != "") {
+                    this.innerHTML = "<img src='img/cry.png' />"
+                    s++
+                }else {
+                    s--
+                }
+//                var dian = 0;
+//                dian += count
+                score.value = s;
+                hitRate.value = Math.ceil(s / count * 100) + "%";
+            }
+
+        }
+
+    }
+
+
+</script>
